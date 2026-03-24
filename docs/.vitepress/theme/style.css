@@ -1,0 +1,16 @@
+@import url('../../../src/tokens/tokens.css');
+
+/**
+ * VitePress chrome only; component visuals come from Gk* SFC styles.
+ */
+.vp-doc .gk-doc-demo {
+  padding: 1rem;
+  border-radius: var(--gk-radius-md);
+  border: 1px solid var(--gk-color-border);
+  background: var(--gk-color-surface);
+  margin: 1rem 0;
+}
+
+.vp-doc .gk-doc-demo--dark {
+  background: var(--gk-color-bg);
+}

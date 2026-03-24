@@ -1,0 +1,51 @@
+{
+  "name": "@god-plan/god-kit",
+  "version": "0.1.0",
+  "description": "God Kit — design tokens and Vue 3 primitives for God Plan apps",
+  "license": "AGPL-3.0",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.js"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.js"
+    },
+    "./tokens.css": "./dist/tokens.css",
+    "./vue.css": "./dist/assets/style.css",
+    "./bridge/vuetify.css": "./dist/bridge/vuetify-bridge.css"
+  },
+  "scripts": {
+    "build": "vite build && node scripts/postbuild-copy.mjs",
+    "playground": "vite --config playground/vite.config.ts",
+    "playground:build": "vite build --config playground/vite.config.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^25.0.1",
+    "typescript": "^5.7.2",
+    "vitepress": "^1.6.3",
+    "vite": "^5.4.11",
+    "vite-plugin-dts": "^4.4.0",
+    "vitest": "^2.1.8",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.1.10"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": [],
+    "paths": {
+      "@god-plan/god-kit/vue": ["../src/vue/index.ts"],
+      "@god-plan/god-kit/tokens.css": ["../src/tokens/tokens.css"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "vite.config.ts"]
+}

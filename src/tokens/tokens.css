@@ -1,0 +1,70 @@
+/**
+ * God Kit design tokens — semantic CSS variables.
+ * Use @god-plan/god-kit/tokens.css in apps. Optional: bridge/vuetify.css maps --v-theme-* → --gk-*.
+ */
+:root {
+  /* Surfaces */
+  --gk-color-bg: #f9fafb;
+  --gk-color-surface: #ffffff;
+  --gk-color-surface-elevated: #ffffff;
+  --gk-color-border: #e5e7eb;
+  --gk-color-border-strong: #d1d5db;
+
+  /* Text */
+  --gk-color-text: #111827;
+  --gk-color-text-muted: #6b7280;
+  --gk-color-text-on-primary: #ffffff;
+
+  /* Brand */
+  --gk-color-primary: #6366f1;
+  --gk-color-primary-hover: #4f46e5;
+  --gk-color-primary-active: #4338ca;
+  --gk-color-focus-ring: rgba(99, 102, 241, 0.45);
+
+  /* Status */
+  --gk-color-danger: #dc2626;
+  --gk-color-danger-surface: #fef2f2;
+  --gk-color-success: #16a34a;
+
+  /* Shape */
+  --gk-radius-sm: 4px;
+  --gk-radius-md: 8px;
+  --gk-radius-lg: 12px;
+
+  /* Space (4px grid) */
+  --gk-space-1: 0.25rem;
+  --gk-space-2: 0.5rem;
+  --gk-space-3: 0.75rem;
+  --gk-space-4: 1rem;
+  --gk-space-5: 1.25rem;
+  --gk-space-6: 1.5rem;
+
+  /* Typography */
+  --gk-font-sans: ui-sans-serif, system-ui, sans-serif;
+  --gk-font-size-sm: 0.875rem;
+  --gk-font-size-md: 1rem;
+  --gk-line-height-tight: 1.25;
+  --gk-line-height-normal: 1.5;
+
+  /* Motion */
+  --gk-duration-fast: 120ms;
+  --gk-duration-normal: 200ms;
+  --gk-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Focus */
+  --gk-focus-offset: 2px;
+  --gk-focus-width: 2px;
+}
+
+.dark,
+html.dark {
+  --gk-color-bg: #111827;
+  --gk-color-surface: #1f2937;
+  --gk-color-surface-elevated: #374151;
+  --gk-color-border: #374151;
+  --gk-color-border-strong: #4b5563;
+  --gk-color-text: #f9fafb;
+  --gk-color-text-muted: #9ca3af;
+  --gk-color-danger-surface: #450a0a;
+  --gk-color-focus-ring: rgba(129, 140, 248, 0.45);
+}

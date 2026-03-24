@@ -1,0 +1,17 @@
+/**
+ * Maps Vuetify theme variables (rgb triplets) to God Kit semantic tokens.
+ * Import after Vuetify styles and tokens.css when migrating alongside Vuetify.
+ */
+:root {
+  --gk-color-primary: rgb(var(--v-theme-primary));
+  --gk-color-primary-hover: rgb(var(--v-theme-primary));
+  --gk-color-primary-active: rgb(var(--v-theme-primary));
+  --gk-color-text: rgb(var(--v-theme-on-background));
+  --gk-color-text-muted: rgb(var(--v-theme-on-surface-variant));
+  --gk-color-text-on-primary: rgb(var(--v-theme-on-primary));
+  --gk-color-surface: rgb(var(--v-theme-surface));
+  --gk-color-bg: rgb(var(--v-theme-background));
+  --gk-color-border: rgb(var(--v-theme-outline-variant));
+  --gk-color-border-strong: rgb(var(--v-theme-outline));
+  --gk-color-danger: rgb(var(--v-theme-error));
+}

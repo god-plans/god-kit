@@ -1,0 +1,31 @@
+# Dependencies (if installed locally)
+node_modules
+
+# Library build
+dist
+
+# Playground production build
+playground/dist-playground
+
+# VitePress
+docs/.vitepress/cache
+docs/.vitepress/dist
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and OS
+*.log
+.DS_Store
+
+# Vite / tooling caches
+.vite
+coverage
+
+# Stitch
+tools/stitch/.env
+
+#
+node_modules
