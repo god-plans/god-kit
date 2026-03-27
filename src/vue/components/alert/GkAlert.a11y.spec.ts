@@ -15,4 +15,17 @@ describe('GkAlert a11y', () => {
       w.unmount()
     }
   })
+
+  it('has no axe violations when closable', async () => {
+    const w = mount(GkAlert, {
+      props: { closable: true, title: 'Note' },
+      slots: { default: 'Details.' },
+      attachTo: document.body,
+    })
+    try {
+      await expectNoA11yViolations(w.element as HTMLElement)
+    } finally {
+      w.unmount()
+    }
+  })
 })

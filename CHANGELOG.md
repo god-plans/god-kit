@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **GkAlert:** **`modelValue` / `v-model`**, **`title` / `text`** props and slots, **`prepend` / `append`**, optional accent **`border`**, **`prominent`**, optional **`type`** alias (`error` → `danger` when **`variant`** is default **`neutral`**), **`closable`** with **`GkButton`** close and **`closeLabel`**; emits **`close`** and **`click:close`**.
 - **Layout:** form primitives (**GkInput**, **GkField**, **GkTextarea**, **GkCheckbox**, **GkRadio** / **GkRadioGroup**, **GkSelect**) now live under **`src/vue/components/form/<name>/`**. Docs and VitePress demos mirror this under **`docs/components/form/`** and **`docs/.vitepress/components/demos/form/`**. Component doc URLs are now **`/components/form/...`** (update bookmarks from the old flat paths).
 - **`scripts/new-component.mjs`** accepts an optional second argument **`form`** or **`layout`** to scaffold into the matching folder and docs paths.
 
