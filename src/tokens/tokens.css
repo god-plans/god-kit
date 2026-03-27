@@ -29,6 +29,11 @@
   --gk-color-danger: #dc2626;
   --gk-color-danger-surface: #fef2f2;
   --gk-color-success: #16a34a;
+  --gk-color-success-surface: #f0fdf4;
+  --gk-color-info: #2563eb;
+  --gk-color-info-surface: #eff6ff;
+  --gk-color-warning: #d97706;
+  --gk-color-warning-surface: #fffbeb;
 
   /* Overlay / scrim */
   --gk-color-overlay: rgba(0, 0, 0, 0.45);
@@ -95,6 +100,9 @@ html.dark {
   --gk-color-text-muted: #9ca3af;
   --gk-color-text-disabled: #6b7280;
   --gk-color-danger-surface: #450a0a;
+  --gk-color-success-surface: #052e16;
+  --gk-color-info-surface: #172554;
+  --gk-color-warning-surface: #451a03;
   --gk-color-focus-ring: rgba(129, 140, 248, 0.45);
   --gk-color-overlay: rgba(0, 0, 0, 0.55);
 }

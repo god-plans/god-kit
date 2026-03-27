@@ -14,6 +14,17 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 - _(nothing yet)_
 
+## [0.3.0] - 2026-03-23
+
+### Added
+
+- **Primitives:** `GkTextarea`, `GkCheckbox`, `GkRadioGroup`, `GkRadio`, `GkSelect`, `GkAlert`, `GkStack`, `GkContainer`, `GkDivider`, `GkSpinner` — each with unit tests, `*.a11y.spec.ts`, VitePress demo, and component docs.
+- **Injection:** `GK_RADIO_GROUP` and `GkRadioGroupContext` for radio groups; optional `ariaLabel` on `GkRadioGroup`.
+- **Tokens:** semantic surfaces for success, info, and warning (CSS + `gkTokens` keys).
+- **Subpath exports:** `@god-plan/god-kit/vue/form` and `@god-plan/god-kit/vue/layout`.
+- **Docs:** [Build and bundling](./build-and-bundling), [Consumer bundle analysis](./consumer-bundle-analysis).
+- **Scaffolding:** `scripts/new-component.mjs` for new primitive stubs.
+
 ## [0.2.0] - 2026-03-23
 
 ### Added
@@ -25,7 +36,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 - **RTL:** logical CSS (`padding-inline`, `text-align: start`, etc.), [RTL and i18n](./rtl) guide, and RTL smoke tests for `GkField` + `GkInput`.
 - **Accessibility tests:** `axe-core` with `expectNoA11yViolations` helper (`src/vue/test-utils/axe.ts`); `*.a11y.spec.ts` for `GkButton` and `GkField`+`GkInput` (color-contrast disabled in jsdom; use E2E for contrast).
 - **VitePress demos:** `docs/.vitepress/components/demos/{button,input,field}/DemoGk*.vue` — one demo component per primitive.
-- **Documentation:** [Composables](./composables) guide, this changelog, expanded README.
+- **Documentation:** [Composables](./composables), this changelog, expanded README.
 
 ### Changed
 

@@ -10,6 +10,9 @@ hero:
       text: Get started
       link: /guide/getting-started
     - theme: alt
+      text: Architecture
+      link: /guide/architecture
+    - theme: alt
       text: Components
       link: /components/
 

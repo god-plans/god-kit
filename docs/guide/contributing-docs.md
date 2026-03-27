@@ -23,6 +23,10 @@ outline: [2, 3]
 
 When you ship user-facing changes, add an entry under **`[Unreleased]`** in **`CHANGELOG.md`** at the package root (next to `package.json`), then move items into a dated version when you release. Keep **`docs/guide/changelog.md`** in sync (same sections) so the VitePress site matches the repo file.
 
+## Scaffolding
+
+Run **`node scripts/new-component.mjs <kebab-name>`** from the **`god-kit`** package root to create a component folder, test stubs, a demo Vue file, and a starter **`docs/components/<slug>.md`**. You still wire **`src/vue/index.ts`**, **`docs/.vitepress/theme/index.ts`**, the sidebar in **`config.ts`**, **`docs/components/index.md`**, and **`CHANGELOG.md`**.
+
 ## Future automation
 
 You can generate the Components sidebar from the filesystem with a small build script; until then, keep the sidebar list in sync by hand when adding pages.

@@ -11,6 +11,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - _(nothing yet)_
 
+## [0.3.0] - 2026-03-23
+
+### Added
+
+- **Primitives:** `GkTextarea`, `GkCheckbox`, `GkRadioGroup`, `GkRadio`, `GkSelect`, `GkAlert`, `GkStack`, `GkContainer`, `GkDivider`, `GkSpinner` — each with unit tests, `*.a11y.spec.ts`, VitePress demo, and component docs.
+- **Injection:** `GK_RADIO_GROUP` and `GkRadioGroupContext` for radio groups; optional `ariaLabel` on `GkRadioGroup`.
+- **Tokens:** semantic surfaces for `--gk-color-success-surface`, `--gk-color-info-*`, `--gk-color-warning-*` (and dark theme equivalents); `gkTokens` exposes matching keys.
+- **Subpath exports:** `@god-plan/god-kit/vue/form` and `@god-plan/god-kit/vue/layout` (multi-entry build; shared chunks with the main entry).
+- **Docs:** [Architecture and tiers](./docs/guide/architecture.md) (from prior work), [Build and bundling](./docs/guide/build-and-bundling.md), [Consumer bundle analysis](./docs/guide/consumer-bundle-analysis.md).
+- **Scaffolding:** `scripts/new-component.mjs` for new primitive stubs.
+
 ## [0.2.0] - 2026-03-23
 
 ### Added

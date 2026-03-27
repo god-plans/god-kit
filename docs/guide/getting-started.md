@@ -25,6 +25,8 @@ In the monorepo, depend on `@god-plan/god-kit` from the package root (see worksp
 
 Run `npm install` from the repo root or the consuming app.
 
+Read **[Architecture and tiers](./architecture)** for how primitives, patterns, and app-level blocks differ—important as the component count grows.
+
 ## CSS import order
 
 1. `@god-plan/god-kit/tokens.css` — semantic `--gk-*` variables  

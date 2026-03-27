@@ -21,6 +21,11 @@ export const gkTokens = {
     danger: '--gk-color-danger',
     dangerSurface: '--gk-color-danger-surface',
     success: '--gk-color-success',
+    successSurface: '--gk-color-success-surface',
+    info: '--gk-color-info',
+    infoSurface: '--gk-color-info-surface',
+    warning: '--gk-color-warning',
+    warningSurface: '--gk-color-warning-surface',
     overlay: '--gk-color-overlay',
   },
   opacity: {

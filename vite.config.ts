@@ -21,10 +21,14 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/vue/index.ts'),
+      entry: {
+        vue: resolve(__dirname, 'src/vue/index.ts'),
+        'vue-form': resolve(__dirname, 'src/vue/form.ts'),
+        'vue-layout': resolve(__dirname, 'src/vue/layout.ts'),
+      },
       name: 'GodKitVue',
       formats: ['es'],
-      fileName: 'vue',
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
       external: ['vue'],

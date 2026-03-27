@@ -1,6 +1,6 @@
 {
   "name": "@god-plan/god-kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "God Kit — design tokens and Vue 3 primitives for God Plan apps",
   "license": "AGPL-3.0",
   "type": "module",
@@ -19,6 +19,14 @@
       "types": "./dist/vue.d.ts",
       "import": "./dist/vue.js"
     },
+    "./vue/form": {
+      "types": "./dist/vue-form.d.ts",
+      "import": "./dist/vue-form.js"
+    },
+    "./vue/layout": {
+      "types": "./dist/vue-layout.d.ts",
+      "import": "./dist/vue-layout.js"
+    },
     "./tokens.css": "./dist/tokens.css",
     "./vue.css": "./dist/assets/style.css",
     "./bridge/vuetify.css": "./dist/bridge/vuetify-bridge.css"
@@ -31,7 +39,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "new-component": "node scripts/new-component.mjs"
   },
   "peerDependencies": {
     "vue": "^3.5.0"

@@ -1,9 +1,18 @@
 import type { EnhanceAppContext } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 
+import DemoGkAlert from '../components/demos/alert/DemoGkAlert.vue'
 import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
+import DemoGkCheckbox from '../components/demos/checkbox/DemoGkCheckbox.vue'
+import DemoGkContainer from '../components/demos/container/DemoGkContainer.vue'
+import DemoGkDivider from '../components/demos/divider/DemoGkDivider.vue'
 import DemoGkField from '../components/demos/field/DemoGkField.vue'
 import DemoGkInput from '../components/demos/input/DemoGkInput.vue'
+import DemoGkRadio from '../components/demos/radio/DemoGkRadio.vue'
+import DemoGkSelect from '../components/demos/select/DemoGkSelect.vue'
+import DemoGkSpinner from '../components/demos/spinner/DemoGkSpinner.vue'
+import DemoGkStack from '../components/demos/stack/DemoGkStack.vue'
+import DemoGkTextarea from '../components/demos/textarea/DemoGkTextarea.vue'
 
 import './style.css'
 
@@ -13,5 +22,14 @@ export default {
     app.component('DemoGkButton', DemoGkButton)
     app.component('DemoGkInput', DemoGkInput)
     app.component('DemoGkField', DemoGkField)
+    app.component('DemoGkTextarea', DemoGkTextarea)
+    app.component('DemoGkCheckbox', DemoGkCheckbox)
+    app.component('DemoGkRadio', DemoGkRadio)
+    app.component('DemoGkSelect', DemoGkSelect)
+    app.component('DemoGkAlert', DemoGkAlert)
+    app.component('DemoGkStack', DemoGkStack)
+    app.component('DemoGkContainer', DemoGkContainer)
+    app.component('DemoGkDivider', DemoGkDivider)
+    app.component('DemoGkSpinner', DemoGkSpinner)
   },
 }

@@ -19,6 +19,8 @@ In this monorepo, depend on the workspace package (see root `package.json` works
 | Path | Purpose |
 |------|---------|
 | `@god-plan/god-kit` / `@god-plan/god-kit/vue` | Vue components and `gkTokens` |
+| `@god-plan/god-kit/vue/form` | Form primitives, `GK_FIELD` / `GK_RADIO_GROUP`, composables |
+| `@god-plan/god-kit/vue/layout` | Layout and feedback primitives (`GkAlert`, `GkStack`, …) |
 | `@god-plan/god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
 | `@god-plan/god-kit/vue.css` | Scoped styles for `Gk*` components |
 | `@god-plan/god-kit/bridge/vuetify.css` | Maps `--v-theme-*` → `--gk-*` while Vuetify remains |
@@ -111,9 +113,11 @@ npm run docs:build    # output: docs/.vitepress/dist
 npm run docs:preview  # preview production build
 ```
 
-To add a component page, follow [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md) and copy [`docs/.vitepress/templates/component-template.md`](docs/.vitepress/templates/component-template.md).
+To add a component page, follow [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md) and copy [`docs/.vitepress/templates/component-template.md`](docs/.vitepress/templates/component-template.md). Quick scaffold: **`node scripts/new-component.mjs <kebab-name>`** from this package.
 
 - **[Composables](docs/guide/composables.md)** — `useFieldIds`, `useFormControl`
+- **[Build and bundling](docs/guide/build-and-bundling.md)** — `sideEffects`, subpath exports
+- **[Consumer bundle analysis](docs/guide/consumer-bundle-analysis.md)** — Nuxt / `nuxi analyze` in `god-panel-nuxt`
 - **[Changelog](docs/guide/changelog.md)** — release history (mirrors [`CHANGELOG.md`](CHANGELOG.md) at package root)
 
 ## Changelog
