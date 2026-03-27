@@ -3,21 +3,47 @@ import { GkCheckbox } from '@god-plan/god-kit/vue'
 import { ref } from 'vue'
 
 const ok = ref(false)
+const locked = ref(false)
+const tri = ref(false)
+const indeterminate = ref(true)
+
+function onTriUpdate() {
+  indeterminate.value = false
+}
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-row">
+  <div class="gk-doc-demo gk-doc-stack">
     <label class="gk-doc-inline">
       <GkCheckbox v-model="ok" />
       <span>Accept terms</span>
+    </label>
+
+    <label class="gk-doc-inline">
+      <GkCheckbox v-model="ok" value="terms" />
+      <span>With native <code>value</code></span>
+    </label>
+
+    <label class="gk-doc-inline">
+      <GkCheckbox
+        v-model="tri"
+        :indeterminate="indeterminate"
+        @update:model-value="onTriUpdate"
+      />
+      <span>Indeterminate (clears after first toggle)</span>
+    </label>
+
+    <label class="gk-doc-inline">
+      <GkCheckbox v-model="locked" readonly />
+      <span>Readonly (cannot toggle)</span>
     </label>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-row {
+.gk-doc-stack {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: var(--gk-space-3);
 }
 

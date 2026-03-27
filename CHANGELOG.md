@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **GkCheckbox:** **`defineModel`**, **`indeterminate`**, **`readonly`** (behavioral + **`aria-readonly`**), optional **`value`**, **`update:focused`**, **`inheritAttrs`** (wrapper **`class`**, other attrs on `<input>`), **`defineExpose`** for native input; extended tests and a11y.
 - **GkInput:** **`defineModel`** with **`v-model.trim`** / **`v-model.number`**; **`prefix`** / **`suffix`**; optional **`counter`** / **`counterValue`** / **`persistentCounter`**; **`autofocus`**; **`update:focused`**; **`counter`** slot; root **`class`** on wrapper, other attributes forwarded to `<input>`. Unit tests in **`GkInput.spec.ts`**.
 - **GkAlert:** **`modelValue` / `v-model`**, **`title` / `text`** props and slots, **`prepend` / `append`**, optional accent **`border`**, **`prominent`**, optional **`type`** alias (`error` → `danger` when **`variant`** is default **`neutral`**), **`closable`** with **`GkButton`** close and **`closeLabel`**; emits **`close`** and **`click:close`**.
 - **Layout:** form primitives (**GkInput**, **GkField**, **GkTextarea**, **GkCheckbox**, **GkRadio** / **GkRadioGroup**, **GkSelect**) now live under **`src/vue/components/form/<name>/`**. Docs and VitePress demos mirror this under **`docs/components/form/`** and **`docs/.vitepress/components/demos/form/`**. Component doc URLs are now **`/components/form/...`** (update bookmarks from the old flat paths).

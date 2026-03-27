@@ -15,4 +15,21 @@ describe('GkCheckbox a11y', () => {
       w.unmount()
     }
   })
+
+  it('has no axe violations when readonly and indeterminate', async () => {
+    const w = mount(GkCheckbox, {
+      props: {
+        modelValue: false,
+        ariaLabel: 'Partial',
+        readonly: true,
+        indeterminate: true,
+      },
+      attachTo: document.body,
+    })
+    try {
+      await expectNoA11yViolations(w.element as HTMLElement)
+    } finally {
+      w.unmount()
+    }
+  })
 })
