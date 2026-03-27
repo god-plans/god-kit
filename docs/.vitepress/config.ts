@@ -26,6 +26,7 @@ export default defineConfig({
           items: [
             { text: 'Getting started', link: '/guide/getting-started' },
             { text: 'Architecture and tiers', link: '/guide/architecture' },
+            { text: 'Component authoring', link: '/guide/component-authoring' },
             { text: 'Design tokens', link: '/guide/tokens' },
             { text: 'Composables', link: '/guide/composables' },
             { text: 'RTL and i18n', link: '/guide/rtl' },

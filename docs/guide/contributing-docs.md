@@ -6,6 +6,8 @@ outline: [2, 3]
 
 # Contributing docs
 
+For the full workflow, **folder conventions**, and a **copy-paste agent prompt** for new primitives, see **[Component authoring](./component-authoring)**.
+
 ## Add a component page
 
 1. Create **`docs/components/<slug>.md`**, or for form controls **`docs/components/form/<slug>.md`** (e.g. `form/checkbox.md` for **GkCheckbox**).

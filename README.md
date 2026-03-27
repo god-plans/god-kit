@@ -115,6 +115,7 @@ npm run docs:preview  # preview production build
 
 To add a component page, follow [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md) and copy [`docs/.vitepress/templates/component-template.md`](docs/.vitepress/templates/component-template.md). Quick scaffold: **`node scripts/new-component.mjs <kebab-name>`** from this package.
 
+- **[Component authoring](docs/guide/component-authoring.md)** — structure, doc mapping, agent prompt for new `Gk*` primitives
 - **[Composables](docs/guide/composables.md)** — `useFieldIds`, `useFormControl`
 - **[Build and bundling](docs/guide/build-and-bundling.md)** — `sideEffects`, subpath exports
 - **[Consumer bundle analysis](docs/guide/consumer-bundle-analysis.md)** — Nuxt / `nuxi analyze` in `god-panel-nuxt`

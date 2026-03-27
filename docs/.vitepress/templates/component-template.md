@@ -16,6 +16,16 @@ Brief overview of what this component does and when to use it.
 <DemoGkComponentName />
 -->
 
+<!-- Optional: short bullets or one diagram — see docs/guide/component-authoring.md -->
+
+<!--
+## Anatomy
+
+| Region | Description |
+|--------|-------------|
+| Root | ... |
+-->
+
 ## API
 
 ### Props
@@ -49,3 +59,12 @@ import { GkComponentName } from '@god-plan/god-kit/vue'
   <GkComponentName />
 </template>
 ```
+
+<!-- Optional: keyboard, labels, focus — keep brief; see docs/guide/component-authoring.md -->
+
+<!--
+## Accessibility
+
+- **Keyboard:** ...
+- **Screen readers:** ...
+-->

@@ -12,7 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
-- _(nothing yet)_
+- **Documentation:** [Component authoring](./component-authoring) — structure, doc mapping, agent prompt, phasing for large references. See root **`CHANGELOG.md`** for the full note.
 
 ### Changed
 
