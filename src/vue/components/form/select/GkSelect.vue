@@ -1,26 +1,42 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, nextTick, useAttrs, useTemplateRef } from 'vue'
 import { GK_FIELD } from '../../../../injection'
 import type { GkSelectOption } from './select-types'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(
   defineProps<{
-    modelValue: string | number | undefined
     options: GkSelectOption[]
     id?: string
     name?: string
     disabled?: boolean
     placeholder?: string
     ariaLabel?: string
+    /** Native `multiple`; model is `(string | number)[]` */
+    multiple?: boolean
+    /** Reverts selection on change; uses `aria-readonly` (native `readonly` is inconsistent on `<select>`) */
+    readonly?: boolean
+    required?: boolean
+    /** HTML `size` (visible rows, often with `multiple`) */
+    size?: number
+    autocomplete?: string
   }>(),
   {
     disabled: false,
+    readonly: false,
+    multiple: false,
   }
 )
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string | number | undefined]
+  'update:focused': [value: boolean]
 }>()
+
+const model = defineModel<string | number | (string | number)[] | undefined>()
+
+const attrs = useAttrs()
+const selectRef = useTemplateRef<HTMLSelectElement>('selectRef')
 
 const field = inject(GK_FIELD, null)
 const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
@@ -31,50 +47,146 @@ const describedBy = computed(() => {
 })
 const invalid = computed(() => !!field?.errorMessage?.value)
 
-const selectValue = computed(() => {
-  if (props.modelValue === undefined || props.modelValue === null) return ''
-  return String(props.modelValue)
+const rootClass = computed(() => attrs.class)
+const passthroughAttrs = computed(() => {
+  const { class: _c, ...rest } = attrs as Record<string, unknown>
+  return rest
 })
 
-function onChange(e: Event) {
-  const v = (e.target as HTMLSelectElement).value
+const selectValueSingle = computed(() => {
+  if (props.multiple) return undefined
+  const m = model.value
+  if (m === undefined || m === null) return ''
+  if (Array.isArray(m)) return ''
+  return String(m)
+})
+
+function modelAsArray(): (string | number)[] {
+  const m = model.value
+  if (props.multiple) {
+    if (Array.isArray(m)) return m
+    return []
+  }
+  return []
+}
+
+function isSelected(opt: GkSelectOption): boolean {
+  if (props.multiple) {
+    const arr = modelAsArray()
+    return arr.some((x) => String(x) === String(opt.value))
+  }
+  const m = model.value
+  if (m === undefined || m === null || Array.isArray(m)) return false
+  return String(m) === String(opt.value)
+}
+
+function syncDomFromModel() {
+  const el = selectRef.value
+  if (!el) return
+  if (props.multiple) {
+    const arr = modelAsArray()
+    for (let i = 0; i < el.options.length; i++) {
+      const o = el.options[i]
+      if (o.value === '') {
+        o.selected = false
+        continue
+      }
+      const found = props.options.find((op) => String(op.value) === o.value)
+      if (!found) continue
+      o.selected = arr.some((x) => String(x) === String(found.value))
+    }
+  } else {
+    const m = model.value
+    el.value = m === undefined || m === null || Array.isArray(m) ? '' : String(m)
+  }
+}
+
+function onChange() {
+  const el = selectRef.value
+  if (!el) return
+  if (props.readonly) {
+    nextTick(syncDomFromModel)
+    return
+  }
+  if (props.multiple) {
+    const selected = Array.from(el.selectedOptions)
+      .filter((o) => o.value !== '')
+      .map((o) => {
+        const found = props.options.find((op) => String(op.value) === o.value)
+        return found?.value
+      })
+      .filter((v): v is string | number => v !== undefined)
+    model.value = selected
+    return
+  }
+  const v = el.value
   if (v === '') {
-    emit('update:modelValue', undefined)
+    model.value = undefined
     return
   }
   const opt = props.options.find((o) => String(o.value) === v)
-  emit('update:modelValue', opt?.value)
+  model.value = opt?.value
 }
+
+function onFocus() {
+  emit('update:focused', true)
+}
+
+function onBlur() {
+  emit('update:focused', false)
+}
+
+defineExpose({
+  /** Native `<select>` element */
+  select: selectRef,
+})
 </script>
 
 <template>
-  <select
-    :id="inputId"
-    class="gk-select"
-    :class="{ 'gk-select--invalid': invalid }"
-    :name="name"
-    :value="selectValue"
-    :disabled="disabled"
-    :aria-invalid="invalid || undefined"
-    :aria-describedby="describedBy"
-    :aria-label="ariaLabel"
-    @change="onChange"
-  >
-    <option v-if="placeholder" disabled value="">
-      {{ placeholder }}
-    </option>
-    <option
-      v-for="opt in options"
-      :key="String(opt.value)"
-      :value="String(opt.value)"
-      :disabled="opt.disabled"
+  <span class="gk-select__wrap" :class="rootClass">
+    <select
+      :id="inputId"
+      ref="selectRef"
+      class="gk-select"
+      :class="{ 'gk-select--invalid': invalid }"
+      v-bind="passthroughAttrs"
+      :name="name"
+      :multiple="multiple"
+      :value="multiple ? undefined : selectValueSingle"
+      :disabled="disabled"
+      :required="required"
+      :size="size"
+      :aria-readonly="readonly || undefined"
+      :aria-invalid="invalid || undefined"
+      :aria-describedby="describedBy"
+      :aria-label="ariaLabel"
+      :autocomplete="autocomplete"
+      @change="onChange"
+      @focus="onFocus"
+      @blur="onBlur"
     >
-      {{ opt.label }}
-    </option>
-  </select>
+      <option v-if="placeholder" disabled value="">
+        {{ placeholder }}
+      </option>
+      <option
+        v-for="opt in options"
+        :key="String(opt.value)"
+        :value="String(opt.value)"
+        :disabled="opt.disabled"
+        :selected="multiple ? isSelected(opt) : undefined"
+      >
+        {{ opt.label }}
+      </option>
+    </select>
+  </span>
 </template>
 
 <style scoped>
+.gk-select__wrap {
+  display: block;
+  width: 100%;
+}
+
 .gk-select {
   display: block;
   width: 100%;
