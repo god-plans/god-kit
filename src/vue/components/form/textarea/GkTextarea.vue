@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, inject } from 'vue'
+import { computed, inject, onMounted, useAttrs, useTemplateRef } from 'vue'
 import { GK_FIELD } from '../../../../injection'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string
     id?: string
     name?: string
     rows?: number
@@ -13,17 +14,24 @@ const props = withDefaults(
     readonly?: boolean
     autocomplete?: string
     ariaLabel?: string
+    autofocus?: boolean
   }>(),
   {
     rows: 4,
     disabled: false,
     readonly: false,
+    autofocus: false,
   }
 )
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string]
+  'update:focused': [value: boolean]
 }>()
+
+const [model, modifiers] = defineModel<string, 'trim'>({ required: true })
+
+const attrs = useAttrs()
+const textareaRef = useTemplateRef<HTMLTextAreaElement>('textareaRef')
 
 const field = inject(GK_FIELD, null)
 const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
@@ -34,31 +42,64 @@ const describedBy = computed(() => {
 })
 const invalid = computed(() => !!field?.errorMessage?.value)
 
-function onInput(e: Event) {
-  emit('update:modelValue', (e.target as HTMLTextAreaElement).value)
+const rootClass = computed(() => attrs.class)
+const passthroughAttrs = computed(() => {
+  const { class: _c, ...rest } = attrs as Record<string, unknown>
+  return rest
+})
+
+function onBlur() {
+  emit('update:focused', false)
+  if (modifiers?.trim) {
+    model.value = textareaRef.value?.value.trim() ?? ''
+  }
 }
+
+function onFocus() {
+  emit('update:focused', true)
+}
+
+onMounted(() => {
+  if (props.autofocus) {
+    textareaRef.value?.focus()
+  }
+})
+
+defineExpose({
+  textarea: textareaRef,
+})
 </script>
 
 <template>
-  <textarea
-    :id="inputId"
-    class="gk-textarea"
-    :class="{ 'gk-textarea--invalid': invalid }"
-    :name="name"
-    :rows="rows"
-    :value="modelValue"
-    :placeholder="placeholder"
-    :disabled="disabled"
-    :readonly="readonly"
-    :autocomplete="autocomplete"
-    :aria-invalid="invalid || undefined"
-    :aria-describedby="describedBy"
-    :aria-label="ariaLabel"
-    @input="onInput"
-  />
+  <span class="gk-textarea__wrap" :class="rootClass">
+    <textarea
+      :id="inputId"
+      ref="textareaRef"
+      class="gk-textarea"
+      :class="{ 'gk-textarea--invalid': invalid }"
+      v-bind="passthroughAttrs"
+      :name="name"
+      :rows="rows"
+      v-model="model"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :autocomplete="autocomplete"
+      :aria-invalid="invalid || undefined"
+      :aria-describedby="describedBy"
+      :aria-label="ariaLabel"
+      @focus="onFocus"
+      @blur="onBlur"
+    />
+  </span>
 </template>
 
 <style scoped>
+.gk-textarea__wrap {
+  display: block;
+  width: 100%;
+}
+
 .gk-textarea {
   display: block;
   width: 100%;

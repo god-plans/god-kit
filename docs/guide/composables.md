@@ -18,6 +18,8 @@ Returns stable, SSR-friendly ids for a single control and its error region:
 
 **GkField** uses this internally and [provides](/components/form/field) the same ids to **GkInput** via inject.
 
+**GkRadioGroup** [provides](/components/form/radio) **`GK_RADIO_GROUP`** with **`name`**, **`modelValue`**, **`setValue`**, **`isDisabled`**, and **`isReadonly`** for **GkRadio** children.
+
 ```ts
 import { useFieldIds } from '@god-plan/god-kit/vue'
 

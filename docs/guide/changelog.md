@@ -18,6 +18,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Changed
 
+- **GkTextarea** / **GkRadio** / **GkRadioGroup:** attrs forwarding, **`update:focused`**, **`GK_RADIO_GROUP`** updates. See root **`CHANGELOG.md`**.
 - **GkSelect:** **`multiple`**, **`readonly`**, **`update:focused`**, attrs forwarding. See root **`CHANGELOG.md`**.
 - **GkCheckbox:** **`indeterminate`**, **`readonly`**, **`value`**, **`update:focused`**, attrs forwarding. See root **`CHANGELOG.md`**.
 - **GkInput:** **`v-model.trim`** / **`v-model.number`**, **`prefix`** / **`suffix`**, **`counter`**, **`autofocus`**, **`update:focused`**, **`counter`** slot. See root **`CHANGELOG.md`**.
