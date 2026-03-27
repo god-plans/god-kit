@@ -17,6 +17,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Changed
 
+- **GkInput:** **`v-model.trim`** / **`v-model.number`**, **`prefix`** / **`suffix`**, **`counter`**, **`autofocus`**, **`update:focused`**, **`counter`** slot. See root **`CHANGELOG.md`**.
 - **GkAlert:** **`modelValue` / `v-model`**, **`title` / `text`** props and slots, **`prepend` / `append`**, optional accent **`border`**, **`prominent`**, optional **`type`** alias (`error` → `danger`), **`closable`** with **`GkButton`** close; emits **`close`** / **`click:close`**. See root **`CHANGELOG.md`**.
 - **Layout:** form primitives are under **`src/vue/components/form/<name>/`**; docs at **`/components/form/...`**; **`scripts/new-component.mjs`** accepts optional **`form`** or **`layout`**. See root **`CHANGELOG.md`** for details.
 
