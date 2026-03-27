@@ -29,7 +29,7 @@ Labels and errors use **start** alignment so they follow the reading direction.
 
 ## Testing checklist
 
-1. Mount or render the tree under **`dir="rtl"`** (see tests in `src/vue/components/field/GkField.spec.ts`).
+1. Mount or render the tree under **`dir="rtl"`** (see tests in `src/vue/components/form/field/GkField.spec.ts`).
 2. Confirm **`label[for]`** still matches **`input[id]`** (accessibility, not visual).
 3. Run **`npm run test`** — includes **axe** checks on mounted components.
 

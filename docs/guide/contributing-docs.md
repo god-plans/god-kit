@@ -8,11 +8,11 @@ outline: [2, 3]
 
 ## Add a component page
 
-1. Create **`docs/components/<slug>.md`** (e.g. `checkbox.md` for `GkCheckbox`).
+1. Create **`docs/components/<slug>.md`**, or for form controls **`docs/components/form/<slug>.md`** (e.g. `form/checkbox.md` for **GkCheckbox**).
 2. Copy structure from **`.vitepress/templates/component-template.md`** in the docs folder.
-3. Add a **sidebar** item in **[`.vitepress/config.ts`](../.vitepress/config.ts)** under `themeConfig.sidebar['/components/']` → Components list.
-4. Add a row to **`docs/components/index.md`** overview table.
-5. (Optional) Add **`DemoGk*.vue`** under **`.vitepress/components/demos/<component>/`** (e.g. `demos/button/DemoGkButton.vue`), register in **`.vitepress/theme/index.ts`**, and embed `<DemoGk… />` in the page.
+3. Add a **sidebar** item in **[`.vitepress/config.ts`](../.vitepress/config.ts)** under `themeConfig.sidebar['/components/']` → **Form** or **Feedback & layout** as appropriate.
+4. Add a row to **`docs/components/index.md`** in the right section.
+5. (Optional) Add **`DemoGk*.vue`** under **`.vitepress/components/demos/<component>/`** — form demos under **`demos/form/<component>/`** (e.g. `demos/form/checkbox/DemoGkCheckbox.vue`), register in **`.vitepress/theme/index.ts`**, and embed `<DemoGk… />` in the page.
 
 ## Conventions
 
@@ -25,7 +25,7 @@ When you ship user-facing changes, add an entry under **`[Unreleased]`** in **`C
 
 ## Scaffolding
 
-Run **`node scripts/new-component.mjs <kebab-name>`** from the **`god-kit`** package root to create a component folder, test stubs, a demo Vue file, and a starter **`docs/components/<slug>.md`**. You still wire **`src/vue/index.ts`**, **`docs/.vitepress/theme/index.ts`**, the sidebar in **`config.ts`**, **`docs/components/index.md`**, and **`CHANGELOG.md`**.
+Run **`node scripts/new-component.mjs <kebab-name> [form|layout]`** from the **`god-kit`** package root. The optional second argument places the primitive under **`src/vue/components/form/`** or **`src/vue/components/layout/`** and writes docs/demos under matching paths. Without it, files go under **`src/vue/components/<name>/`** (e.g. **GkButton**). You still wire **`src/vue/index.ts`**, **`docs/.vitepress/theme/index.ts`**, the sidebar in **`config.ts`**, **`docs/components/index.md`**, and **`CHANGELOG.md`**.
 
 ## Future automation
 

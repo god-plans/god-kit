@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, provide, toRef, useId } from 'vue'
-import { GK_RADIO_GROUP } from '../../../injection'
+import { GK_RADIO_GROUP } from '../../../../injection'
 
 const props = defineProps<{
   modelValue: string | number | undefined

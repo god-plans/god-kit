@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
 import { describe, it } from 'vitest'
-import { expectNoA11yViolations } from '../../test-utils/axe'
+import { expectNoA11yViolations } from '../../../test-utils/axe'
 import GkInput from '../input/GkInput.vue'
 import GkField from './GkField.vue'
 

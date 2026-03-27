@@ -14,6 +14,10 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 - _(nothing yet)_
 
+### Changed
+
+- **Layout:** form primitives are under **`src/vue/components/form/<name>/`**; docs at **`/components/form/...`**; **`scripts/new-component.mjs`** accepts optional **`form`** or **`layout`**. See root **`CHANGELOG.md`** for details.
+
 ## [0.3.0] - 2026-03-23
 
 ### Added

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, it } from 'vitest'
-import { expectNoA11yViolations } from '../../test-utils/axe'
+import { expectNoA11yViolations } from '../../../test-utils/axe'
 import GkSelect from './GkSelect.vue'
 
 describe('GkSelect a11y', () => {

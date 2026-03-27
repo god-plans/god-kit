@@ -16,7 +16,7 @@ Returns stable, SSR-friendly ids for a single control and its error region:
 - `inputId` — `${baseId}-control`
 - `errorId` — `${baseId}-error`
 
-**GkField** uses this internally and [provides](/components/field) the same ids to **GkInput** via inject.
+**GkField** uses this internally and [provides](/components/form/field) the same ids to **GkInput** via inject.
 
 ```ts
 import { useFieldIds } from '@god-plan/god-kit/vue'
@@ -42,6 +42,6 @@ When **GkField** wraps **GkInput**, prefer the default provide/inject path inste
 
 ## See also
 
-- [GkField](/components/field) — label, error region, and context for **GkInput**
+- [GkField](/components/form/field) — label, error region, and context for **GkInput**
 - [RTL and i18n](./rtl) — direction and logical layout
 - [Getting started](./getting-started) — Vitest and axe specs in `*.spec.ts` / `*.a11y.spec.ts`

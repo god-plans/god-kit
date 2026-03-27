@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { GK_RADIO_GROUP } from '../../../injection'
+import { GK_RADIO_GROUP } from '../../../../injection'
 
 const props = defineProps<{
   value: string | number

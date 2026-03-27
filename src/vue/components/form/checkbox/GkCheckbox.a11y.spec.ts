@@ -1,12 +1,12 @@
 import { mount } from '@vue/test-utils'
 import { describe, it } from 'vitest'
-import { expectNoA11yViolations } from '../../test-utils/axe'
-import GkTextarea from './GkTextarea.vue'
+import { expectNoA11yViolations } from '../../../test-utils/axe'
+import GkCheckbox from './GkCheckbox.vue'
 
-describe('GkTextarea a11y', () => {
+describe('GkCheckbox a11y', () => {
   it('has no axe violations', async () => {
-    const w = mount(GkTextarea, {
-      props: { modelValue: '', ariaLabel: 'Notes' },
+    const w = mount(GkCheckbox, {
+      props: { modelValue: false, ariaLabel: 'Accept terms' },
       attachTo: document.body,
     })
     try {

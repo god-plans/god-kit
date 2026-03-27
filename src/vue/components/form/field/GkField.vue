@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
-import { GK_FIELD } from '../../../injection'
-import { useFieldIds } from '../../composables/useFieldIds'
+import { GK_FIELD } from '../../../../injection'
+import { useFieldIds } from '../../../composables/useFieldIds'
 
 const props = defineProps<{
   label?: string

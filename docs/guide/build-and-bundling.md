@@ -35,3 +35,7 @@ Optional **subpath exports** split barrels for semantic imports:
 | `@god-plan/god-kit/vue/layout` | Alerts, stack, container, divider, spinner |
 
 They share the same build output chunks as the main entry; use them when you want clearer import boundaries in app code.
+
+## Source layout
+
+Form-related SFCs live under **`src/vue/components/form/<name>/`** (mirrored in VitePress as **`docs/components/form/`** and **`docs/.vitepress/components/demos/form/`**). Other primitives stay at **`src/vue/components/<name>/`** until you introduce more domain folders (e.g. **`layout/`**).

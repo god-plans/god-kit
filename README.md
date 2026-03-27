@@ -57,7 +57,7 @@ All components use the **`Gk`** prefix (`GkButton`, `GkInput`, `GkField`) to avo
 
 ## Package layout
 
-- Source components live under **`src/vue/components/<name>/`** (one folder per primitive, SFC + tests).
+- Source components live under **`src/vue/components/<name>/`** (one folder per primitive, SFC + tests). **Form** primitives (**GkInput**, **GkField**, **GkTextarea**, **GkCheckbox**, **GkRadio***, **GkSelect**) live under **`src/vue/components/form/<name>/`**.
 - **`src/vue/composables/`** — headless helpers (`useFieldIds`, `useFormControl`) shared with **GkField** / custom layouts.
 - **`src/tokens/`** — `tokens.css` and typed `gkTokens`.
 

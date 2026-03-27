@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { GK_FIELD } from '../../../injection'
+import { GK_FIELD } from '../../../../injection'
 
 const props = withDefaults(
   defineProps<{

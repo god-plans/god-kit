@@ -1,81 +1,69 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { GK_FIELD } from '../../../injection'
-import type { GkSelectOption } from './select-types'
+import { GK_FIELD } from '../../../../injection'
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string | number | undefined
-    options: GkSelectOption[]
+    modelValue: string
     id?: string
     name?: string
-    disabled?: boolean
+    type?: string
+    autocomplete?: string
     placeholder?: string
+    disabled?: boolean
+    readonly?: boolean
+    /** When not inside GkField, set explicitly for a11y */
     ariaLabel?: string
   }>(),
   {
+    type: 'text',
     disabled: false,
+    readonly: false,
   }
 )
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string | number | undefined]
+  'update:modelValue': [value: string]
 }>()
 
 const field = inject(GK_FIELD, null)
+
 const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
+
 const describedBy = computed(() => {
   const err = field?.errorMessage?.value
   if (err && field?.errorId) return field.errorId
   return undefined
 })
+
 const invalid = computed(() => !!field?.errorMessage?.value)
 
-const selectValue = computed(() => {
-  if (props.modelValue === undefined || props.modelValue === null) return ''
-  return String(props.modelValue)
-})
-
-function onChange(e: Event) {
-  const v = (e.target as HTMLSelectElement).value
-  if (v === '') {
-    emit('update:modelValue', undefined)
-    return
-  }
-  const opt = props.options.find((o) => String(o.value) === v)
-  emit('update:modelValue', opt?.value)
+function onInput(e: Event) {
+  emit('update:modelValue', (e.target as HTMLInputElement).value)
 }
 </script>
 
 <template>
-  <select
+  <input
     :id="inputId"
-    class="gk-select"
-    :class="{ 'gk-select--invalid': invalid }"
+    class="gk-input"
+    :class="{ 'gk-input--invalid': invalid }"
     :name="name"
-    :value="selectValue"
+    :type="type"
+    :value="modelValue"
+    :autocomplete="autocomplete"
+    :placeholder="placeholder"
     :disabled="disabled"
+    :readonly="readonly"
     :aria-invalid="invalid || undefined"
     :aria-describedby="describedBy"
     :aria-label="ariaLabel"
-    @change="onChange"
-  >
-    <option v-if="placeholder" disabled value="">
-      {{ placeholder }}
-    </option>
-    <option
-      v-for="opt in options"
-      :key="String(opt.value)"
-      :value="String(opt.value)"
-      :disabled="opt.disabled"
-    >
-      {{ opt.label }}
-    </option>
-  </select>
+    @input="onInput"
+  />
 </template>
 
 <style scoped>
-.gk-select {
+.gk-input {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -90,29 +78,34 @@ function onChange(e: Event) {
   padding-inline: var(--gk-control-padding-x);
   min-height: var(--gk-control-min-height-md);
   text-align: start;
-  cursor: pointer;
   transition:
     border-color var(--gk-duration-fast) var(--gk-easing-standard),
     box-shadow var(--gk-duration-fast) var(--gk-easing-standard);
 }
 
-.gk-select:focus {
+.gk-input::placeholder {
+  color: var(--gk-color-on-surface-muted);
+}
+
+.gk-input:focus {
   outline: none;
   border-color: var(--gk-color-primary);
   box-shadow: 0 0 0 3px var(--gk-color-focus-ring);
 }
 
-.gk-select:focus-visible {
+.gk-input:focus-visible {
   outline: var(--gk-focus-width) solid var(--gk-color-focus-ring);
   outline-offset: var(--gk-focus-offset);
 }
 
-.gk-select:disabled {
+.gk-input:disabled {
   opacity: var(--gk-opacity-disabled);
   cursor: not-allowed;
+  color: var(--gk-color-text-disabled);
+  background: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface));
 }
 
-.gk-select--invalid {
+.gk-input--invalid {
   border-color: var(--gk-color-danger);
   background: var(--gk-color-danger-surface);
 }

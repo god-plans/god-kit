@@ -1,7 +1,7 @@
 import { h } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, it } from 'vitest'
-import { expectNoA11yViolations } from '../../test-utils/axe'
+import { expectNoA11yViolations } from '../../../test-utils/axe'
 import GkRadio from './GkRadio.vue'
 import GkRadioGroup from './GkRadioGroup.vue'
 

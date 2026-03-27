@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
- * Scaffolds a God Kit primitive folder: SFC + unit + a11y + docs + demo + VitePress checklist.
- * Usage: node scripts/new-component.mjs <kebab-name>
- * Example: node scripts/new-component.mjs combobox
+ * Scaffolds a God Kit primitive folder: SFC + unit + a11y + docs + VitePress checklist.
+ * Usage: node scripts/new-component.mjs <kebab-name> [form|layout]
+ * Examples:
+ *   node scripts/new-component.mjs combobox form
+ *   node scripts/new-component.mjs toolbar
  */
 import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -12,8 +14,15 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = join(__dirname, '..')
 
 const name = process.argv[2]
+const category = process.argv[3]
+
 if (!name || !/^[a-z][a-z0-9-]*$/.test(name)) {
-  console.error('Usage: node scripts/new-component.mjs <kebab-name>')
+  console.error('Usage: node scripts/new-component.mjs <kebab-name> [form|layout]')
+  process.exit(1)
+}
+
+if (category && !['form', 'layout'].includes(category)) {
+  console.error('Optional second argument must be "form" or "layout".')
   process.exit(1)
 }
 
@@ -22,8 +31,12 @@ const pascal = name
   .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
   .join('')
 
-const dir = join(root, 'src/vue/components', name)
+const dir = category
+  ? join(root, 'src/vue/components', category, name)
+  : join(root, 'src/vue/components', name)
 await mkdir(dir, { recursive: true })
+
+const testUtilsImport = category ? '../../../test-utils/axe' : '../../test-utils/axe'
 
 const vue = `<script setup lang="ts">
 // TODO: props, emits, a11y
@@ -57,7 +70,7 @@ describe('Gk${pascal}', () => {
 
 const a11y = `import { mount } from '@vue/test-utils'
 import { describe, it } from 'vitest'
-import { expectNoA11yViolations } from '../../test-utils/axe'
+import { expectNoA11yViolations } from '${testUtilsImport}'
 import Gk${pascal} from './Gk${pascal}.vue'
 
 describe('Gk${pascal} a11y', () => {
@@ -124,20 +137,31 @@ await writeFile(join(dir, `Gk${pascal}.vue`), vue)
 await writeFile(join(dir, `Gk${pascal}.spec.ts`), spec)
 await writeFile(join(dir, `Gk${pascal}.a11y.spec.ts`), a11y)
 
-const demoDir = join(root, 'docs/.vitepress/components/demos', name)
+const demoDir = category
+  ? join(root, 'docs/.vitepress/components/demos', category, name)
+  : join(root, 'docs/.vitepress/components/demos', name)
 await mkdir(demoDir, { recursive: true })
 await writeFile(join(demoDir, `DemoGk${pascal}.vue`), demo)
 
-const docPath = join(root, `docs/components/${name}.md`)
+const docPath = category
+  ? join(root, 'docs/components', category, `${name}.md`)
+  : join(root, 'docs/components', `${name}.md`)
+await mkdir(dirname(docPath), { recursive: true })
 await writeFile(docPath, doc)
+
+const srcRel = category ? join('src/vue/components', category, name) : join('src/vue/components', name)
+const demoRel = category
+  ? join('docs/.vitepress/components/demos', category, name)
+  : join('docs/.vitepress/components/demos', name)
+const docRel = category ? join('docs/components', category, `${name}.md`) : join('docs/components', `${name}.md`)
 
 console.log(`\
 Created:
-  ${join('src/vue/components', name, `Gk${pascal}.vue`)}
-  ${join('src/vue/components', name, `Gk${pascal}.spec.ts`)}
-  ${join('src/vue/components', name, `Gk${pascal}.a11y.spec.ts`)}
-  ${join('docs/.vitepress/components/demos', name, `DemoGk${pascal}.vue`)}
-  ${join('docs/components', `${name}.md`)}
+  ${join(srcRel, `Gk${pascal}.vue`)}
+  ${join(srcRel, `Gk${pascal}.spec.ts`)}
+  ${join(srcRel, `Gk${pascal}.a11y.spec.ts`)}
+  ${join(demoRel, `DemoGk${pascal}.vue`)}
+  ${docRel}
 
 Next steps:
   1. Export Gk${pascal} from src/vue/index.ts (and form.ts / layout.ts if applicable).
