@@ -1,6 +1,6 @@
 {
   "name": "@god-plan/god-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "God Kit — design tokens and Vue 3 primitives for God Plan apps",
   "license": "AGPL-3.0",
   "type": "module",
@@ -39,11 +39,12 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
+    "axe-core": "^4.11.1",
     "jsdom": "^25.0.1",
     "typescript": "^5.7.2",
-    "vitepress": "^1.6.3",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.4.0",
+    "vitepress": "^1.6.3",
     "vitest": "^2.1.8",
     "vue": "^3.5.13",
     "vue-tsc": "^2.1.10"

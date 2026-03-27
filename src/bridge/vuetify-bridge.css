@@ -14,4 +14,7 @@
   --gk-color-border: rgb(var(--v-theme-outline-variant));
   --gk-color-border-strong: rgb(var(--v-theme-outline));
   --gk-color-danger: rgb(var(--v-theme-error));
+  --gk-color-on-surface: rgb(var(--v-theme-on-surface));
+  --gk-color-on-surface-muted: rgb(var(--v-theme-on-surface-variant));
+  --gk-color-text-disabled: rgb(var(--v-theme-on-surface-variant));
 }

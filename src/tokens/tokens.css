@@ -14,6 +14,10 @@
   --gk-color-text: #111827;
   --gk-color-text-muted: #6b7280;
   --gk-color-text-on-primary: #ffffff;
+  /** Icon/text on default surface */
+  --gk-color-on-surface: var(--gk-color-text);
+  --gk-color-on-surface-muted: var(--gk-color-text-muted);
+  --gk-color-text-disabled: #9ca3af;
 
   /* Brand */
   --gk-color-primary: #6366f1;
@@ -25,6 +29,13 @@
   --gk-color-danger: #dc2626;
   --gk-color-danger-surface: #fef2f2;
   --gk-color-success: #16a34a;
+
+  /* Overlay / scrim */
+  --gk-color-overlay: rgba(0, 0, 0, 0.45);
+  --gk-opacity-overlay: 0.45;
+
+  /* Disabled */
+  --gk-opacity-disabled: 0.55;
 
   /* Shape */
   --gk-radius-sm: 4px;
@@ -54,6 +65,23 @@
   /* Focus */
   --gk-focus-offset: 2px;
   --gk-focus-width: 2px;
+  --gk-focus-ring-width: 2px;
+
+  /* Density: comfortable (default) — controls padding / min-height */
+  --gk-density: comfortable;
+  --gk-control-min-height-sm: 2rem;
+  --gk-control-min-height-md: 2.5rem;
+  --gk-control-padding-x: var(--gk-space-4);
+  --gk-control-padding-y: var(--gk-space-3);
+}
+
+/** Compact density — set on :root or a wrapper (e.g. `.gk-density-compact`) */
+.gk-density-compact {
+  --gk-density: compact;
+  --gk-control-min-height-sm: 1.75rem;
+  --gk-control-min-height-md: 2.125rem;
+  --gk-control-padding-x: var(--gk-space-3);
+  --gk-control-padding-y: var(--gk-space-2);
 }
 
 .dark,
@@ -65,6 +93,8 @@ html.dark {
   --gk-color-border-strong: #4b5563;
   --gk-color-text: #f9fafb;
   --gk-color-text-muted: #9ca3af;
+  --gk-color-text-disabled: #6b7280;
   --gk-color-danger-surface: #450a0a;
   --gk-color-focus-ring: rgba(129, 140, 248, 0.45);
+  --gk-color-overlay: rgba(0, 0, 0, 0.55);
 }

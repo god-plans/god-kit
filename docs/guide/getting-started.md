@@ -33,6 +33,12 @@ Run `npm install` from the repo root or the consuming app.
 
 Then your application CSS.
 
+See **[RTL and i18n](./rtl)** for `dir="rtl"` and bilingual apps.
+
+## Composables
+
+For custom field layouts or headless wiring, use **`useFieldIds`** and **`useFormControl`** — see **[Composables](./composables)**.
+
 ## Use components
 
 ```vue
@@ -57,7 +63,7 @@ const email = ref('')
 |------|---------|---------|
 | **Docs** (this site) | `npm run docs:dev` | VitePress (default port `5173`) |
 | **Playground** | `npm run playground` | Vite app (default port `5174`) |
-| **Tests** | `npm run test` | Vitest |
+| **Tests** | `npm run test` | Vitest (includes `*.a11y.spec.ts` with axe-core) |
 | **Library build** | `npm run build` | Output in `dist/` |
 
 The playground and these docs both resolve `@god-plan/god-kit/vue` to **`src/`** so you can edit components without rebuilding the library.

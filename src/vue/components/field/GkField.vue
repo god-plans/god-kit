@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, provide, useId } from 'vue'
-import { GK_FIELD } from '../../injection'
+import { computed, provide } from 'vue'
+import { GK_FIELD } from '../../../injection'
+import { useFieldIds } from '../../composables/useFieldIds'
 
 const props = defineProps<{
   label?: string
@@ -9,9 +10,7 @@ const props = defineProps<{
   labelSrOnly?: boolean
 }>()
 
-const baseId = useId()
-const inputId = `${baseId}-control`
-const errorId = `${baseId}-error`
+const { inputId, errorId } = useFieldIds()
 
 const errorMessage = computed(() => props.error)
 
@@ -58,8 +57,9 @@ provide(GK_FIELD, {
   font-family: var(--gk-font-sans);
   font-size: var(--gk-font-size-sm);
   font-weight: 600;
-  color: var(--gk-color-text);
+  color: var(--gk-color-on-surface);
   line-height: var(--gk-line-height-tight);
+  text-align: start;
 }
 
 .gk-field__label--sr-only {
@@ -84,6 +84,7 @@ provide(GK_FIELD, {
   font-size: var(--gk-font-size-sm);
   color: var(--gk-color-danger);
   line-height: var(--gk-line-height-normal);
+  text-align: start;
 }
 
 .gk-field--error .gk-field__label {

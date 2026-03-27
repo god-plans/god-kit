@@ -34,7 +34,7 @@ Use for every labeled control in a form so ids, `aria-describedby`, and error te
 
 ### Provide / inject
 
-GkField **provides** context for child **GkInput** (`inputId`, `errorId`, `errorMessage`). You rarely need to use this directly.
+GkField uses **`useFieldIds()`** internally, then **provides** context for child **GkInput** (`inputId`, `errorId`, `errorMessage`). See [Composables](/guide/composables) for headless usage without **GkField**. You rarely need to use the injection key directly; import **`GK_FIELD`** from `@god-plan/god-kit/vue` only for advanced cases.
 
 ## Examples
 

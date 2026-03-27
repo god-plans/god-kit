@@ -11,6 +11,9 @@ export const gkTokens = {
     text: '--gk-color-text',
     textMuted: '--gk-color-text-muted',
     textOnPrimary: '--gk-color-text-on-primary',
+    textDisabled: '--gk-color-text-disabled',
+    onSurface: '--gk-color-on-surface',
+    onSurfaceMuted: '--gk-color-on-surface-muted',
     primary: '--gk-color-primary',
     primaryHover: '--gk-color-primary-hover',
     primaryActive: '--gk-color-primary-active',
@@ -18,6 +21,22 @@ export const gkTokens = {
     danger: '--gk-color-danger',
     dangerSurface: '--gk-color-danger-surface',
     success: '--gk-color-success',
+    overlay: '--gk-color-overlay',
+  },
+  opacity: {
+    disabled: '--gk-opacity-disabled',
+    overlay: '--gk-opacity-overlay',
+  },
+  density: {
+    controlMinHeightSm: '--gk-control-min-height-sm',
+    controlMinHeightMd: '--gk-control-min-height-md',
+    controlPaddingX: '--gk-control-padding-x',
+    controlPaddingY: '--gk-control-padding-y',
+  },
+  focus: {
+    offset: '--gk-focus-offset',
+    width: '--gk-focus-width',
+    ringWidth: '--gk-focus-ring-width',
   },
   radius: {
     sm: '--gk-radius-sm',

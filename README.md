@@ -53,6 +53,24 @@ import { gkTokens } from '@god-plan/god-kit/vue'
 
 All components use the **`Gk`** prefix (`GkButton`, `GkInput`, `GkField`) to avoid collisions with Vuetify `V*` and app-local components.
 
+## Package layout
+
+- Source components live under **`src/vue/components/<name>/`** (one folder per primitive, SFC + tests).
+- **`src/vue/composables/`** — headless helpers (`useFieldIds`, `useFormControl`) shared with **GkField** / custom layouts.
+- **`src/tokens/`** — `tokens.css` and typed `gkTokens`.
+
+## Composables
+
+```ts
+import { useFieldIds, useFormControl } from '@god-plan/god-kit/vue'
+```
+
+`useFieldIds()` returns stable `inputId` / `errorId` strings. `useFormControl({ error })` adds ARIA-oriented computed state when you are **not** wrapping controls in **GkField**.
+
+## RTL
+
+Set **`dir="rtl"`** on `html` or the app shell. Components use logical properties where needed; see **[docs/guide/rtl.md](docs/guide/rtl.md)**.
+
 ## Accessibility
 
 - **GkButton**: native `<button>`, focus-visible outline, `disabled` respected.
@@ -64,6 +82,8 @@ All components use the **`Gk`** prefix (`GkButton`, `GkInput`, `GkField`) to avo
 ```bash
 npm run test
 ```
+
+Unit tests live next to components; **axe-core** runs on key mounts in `*.a11y.spec.ts` files.
 
 ## Building
 
@@ -92,6 +112,13 @@ npm run docs:preview  # preview production build
 ```
 
 To add a component page, follow [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md) and copy [`docs/.vitepress/templates/component-template.md`](docs/.vitepress/templates/component-template.md).
+
+- **[Composables](docs/guide/composables.md)** — `useFieldIds`, `useFormControl`
+- **[Changelog](docs/guide/changelog.md)** — release history (mirrors [`CHANGELOG.md`](CHANGELOG.md) at package root)
+
+## Changelog
+
+See [`CHANGELOG.md`](CHANGELOG.md) for version history. Notable recent work: per-component folders, composables, extended tokens and density, RTL guide, and axe-based accessibility tests.
 
 ## Stitch (reference designs only)
 

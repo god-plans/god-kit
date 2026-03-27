@@ -9,7 +9,12 @@ export default defineConfig({
     dts({
       tsconfigPath: './tsconfig.build.json',
       entryRoot: 'src',
-      include: ['src/vue/**/*', 'src/tokens/**/*.ts', 'src/injection.ts'],
+      include: [
+        'src/vue/**/*',
+        'src/vue/composables/**/*.ts',
+        'src/tokens/**/*.ts',
+        'src/injection.ts',
+      ],
       outDir: 'dist',
       rollupTypes: true,
     }),

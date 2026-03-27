@@ -61,25 +61,27 @@ const rootClass = computed(() => [
 }
 
 .gk-btn:focus-visible {
-  outline: var(--gk-focus-width) solid var(--gk-color-focus-ring);
+  outline: var(--gk-focus-ring-width) solid var(--gk-color-focus-ring);
   outline-offset: var(--gk-focus-offset);
 }
 
 .gk-btn:disabled {
-  opacity: 0.55;
+  opacity: var(--gk-opacity-disabled);
   cursor: not-allowed;
 }
 
 .gk-btn--sm {
   font-size: var(--gk-font-size-sm);
-  padding: var(--gk-space-2) var(--gk-space-3);
-  min-height: 2rem;
+  padding-block: var(--gk-space-2);
+  padding-inline: var(--gk-space-3);
+  min-height: var(--gk-control-min-height-sm);
 }
 
 .gk-btn--md {
   font-size: var(--gk-font-size-md);
-  padding: var(--gk-space-3) var(--gk-space-4);
-  min-height: 2.5rem;
+  padding-block: var(--gk-control-padding-y);
+  padding-inline: var(--gk-control-padding-x);
+  min-height: var(--gk-control-min-height-md);
 }
 
 .gk-btn--block {
@@ -101,7 +103,7 @@ const rootClass = computed(() => [
 
 .gk-btn--secondary {
   background: var(--gk-color-surface);
-  color: var(--gk-color-text);
+  color: var(--gk-color-on-surface);
   border-color: var(--gk-color-border-strong);
 }
 

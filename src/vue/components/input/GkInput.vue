@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { GK_FIELD } from '../../injection'
+import { GK_FIELD } from '../../../injection'
 
 const props = withDefaults(
   defineProps<{
@@ -70,19 +70,21 @@ function onInput(e: Event) {
   font-family: var(--gk-font-sans);
   font-size: var(--gk-font-size-md);
   line-height: var(--gk-line-height-normal);
-  color: var(--gk-color-text);
+  color: var(--gk-color-on-surface);
   background: var(--gk-color-surface);
   border: 1px solid var(--gk-color-border-strong);
   border-radius: var(--gk-radius-md);
-  padding: var(--gk-space-3) var(--gk-space-4);
-  min-height: 2.5rem;
+  padding-block: var(--gk-control-padding-y);
+  padding-inline: var(--gk-control-padding-x);
+  min-height: var(--gk-control-min-height-md);
+  text-align: start;
   transition:
     border-color var(--gk-duration-fast) var(--gk-easing-standard),
     box-shadow var(--gk-duration-fast) var(--gk-easing-standard);
 }
 
 .gk-input::placeholder {
-  color: var(--gk-color-text-muted);
+  color: var(--gk-color-on-surface-muted);
 }
 
 .gk-input:focus {
@@ -97,9 +99,10 @@ function onInput(e: Event) {
 }
 
 .gk-input:disabled {
-  opacity: 0.6;
+  opacity: var(--gk-opacity-disabled);
   cursor: not-allowed;
-  background: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-text));
+  color: var(--gk-color-text-disabled);
+  background: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface));
 }
 
 .gk-input--invalid {

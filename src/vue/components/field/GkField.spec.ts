@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { defineComponent, h } from 'vue'
 import { describe, expect, it } from 'vitest'
+import GkInput from '../input/GkInput.vue'
 import GkField from './GkField.vue'
-import GkInput from './GkInput.vue'
 
 describe('GkField + GkInput', () => {
   it('associates label with input id', () => {
@@ -39,5 +39,23 @@ describe('GkField + GkInput', () => {
     const alert = w.find(`[id="${errId}"]`)
     expect(alert.attributes('role')).toBe('alert')
     expect(alert.text()).toContain('Required')
+  })
+
+  it('associates label with input id when mounted in RTL', () => {
+    const Root = defineComponent({
+      components: { GkField, GkInput },
+      data: () => ({ v: '' }),
+      template: `
+        <div dir="rtl" lang="fa">
+          <GkField label="ایمیل">
+            <GkInput v-model="v" />
+          </GkField>
+        </div>
+      `,
+    })
+    const w = mount(Root)
+    const label = w.find('label')
+    const input = w.find('input')
+    expect(label.attributes('for')).toBe(input.attributes('id'))
   })
 })

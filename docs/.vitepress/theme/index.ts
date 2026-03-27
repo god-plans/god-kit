@@ -1,9 +1,9 @@
 import type { EnhanceAppContext } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 
-import DemoGkButton from '../components/demos/DemoGkButton.vue'
-import DemoGkField from '../components/demos/DemoGkField.vue'
-import DemoGkInput from '../components/demos/DemoGkInput.vue'
+import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
+import DemoGkField from '../components/demos/field/DemoGkField.vue'
+import DemoGkInput from '../components/demos/input/DemoGkInput.vue'
 
 import './style.css'
 

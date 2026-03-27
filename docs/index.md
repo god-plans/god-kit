@@ -15,9 +15,9 @@ hero:
 
 features:
   - title: Design tokens
-    details: Semantic CSS variables and typed token maps for consistent theming.
-  - title: Accessible primitives
-    details: Gk-prefixed components with focus, labels, and error regions wired for forms.
+    details: Semantic CSS variables, density, dark mode, and optional Vuetify bridge while you migrate.
+  - title: Composables and a11y
+    details: useFieldIds, useFormControl, axe-based specs, and RTL-friendly logical CSS.
   - title: Grow the library
-    details: One doc page per component under Components — copy the template and extend the sidebar.
+    details: One folder per primitive in source; one VitePress demo and doc page per component.
 ---

@@ -16,6 +16,7 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/' },
+      { text: 'Changelog', link: '/guide/changelog' },
     ],
 
     sidebar: {
@@ -25,7 +26,10 @@ export default defineConfig({
           items: [
             { text: 'Getting started', link: '/guide/getting-started' },
             { text: 'Design tokens', link: '/guide/tokens' },
+            { text: 'Composables', link: '/guide/composables' },
+            { text: 'RTL and i18n', link: '/guide/rtl' },
             { text: 'Contributing docs', link: '/guide/contributing-docs' },
+            { text: 'Changelog', link: '/guide/changelog' },
           ],
         },
       ],
