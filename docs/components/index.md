@@ -12,6 +12,7 @@ Primitives use the **`Gk`** prefix. Each page documents props, events, slots, an
 
 | Component | Description |
 |-----------|-------------|
+| [GkForm](./form/form) | Native `<form>` with validation slot helpers and **`createForm`** |
 | [GkInput](./form/input) | Text-like input with v-model and field integration |
 | [GkField](./form/field) | Label, control slot, and error region for forms |
 | [GkTextarea](./form/textarea) | Multiline text with **GkField** integration |

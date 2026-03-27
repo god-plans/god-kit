@@ -19,7 +19,7 @@ In this monorepo, depend on the workspace package (see root `package.json` works
 | Path | Purpose |
 |------|---------|
 | `@god-plan/god-kit` / `@god-plan/god-kit/vue` | Vue components and `gkTokens` |
-| `@god-plan/god-kit/vue/form` | Form primitives, `GK_FIELD` / `GK_RADIO_GROUP`, composables |
+| `@god-plan/god-kit/vue/form` | Form primitives (`GkForm`, `GkInput`, …), `GK_FIELD` / `GK_RADIO_GROUP`, `createForm` |
 | `@god-plan/god-kit/vue/layout` | Layout and feedback primitives (`GkAlert`, `GkStack`, …) |
 | `@god-plan/god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
 | `@god-plan/god-kit/vue.css` | Scoped styles for `Gk*` components |

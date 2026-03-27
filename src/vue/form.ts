@@ -5,7 +5,20 @@ export { useFieldIds } from './composables/useFieldIds'
 export type { GkFieldIds } from './composables/useFieldIds'
 export { useFormControl } from './composables/useFormControl'
 export type { UseFormControlOptions, UseFormControlReturn } from './composables/useFormControl'
+export {
+  attachSubmitPromise,
+  createForm,
+} from './composables/useForm'
+export type {
+  CreateFormOptions,
+  CreateFormReturn,
+  FieldValidationResult,
+  FormField,
+  FormValidationResult,
+  SubmitEventPromise,
+} from './composables/useForm'
 
+export { default as GkForm } from './components/form/gk-form/GkForm.vue'
 export { default as GkInput } from './components/form/input/GkInput.vue'
 export { default as GkField } from './components/form/field/GkField.vue'
 export { default as GkTextarea } from './components/form/textarea/GkTextarea.vue'

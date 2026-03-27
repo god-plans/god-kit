@@ -46,6 +46,7 @@ export default defineConfig({
               text: 'Form',
               collapsed: false,
               items: [
+                { text: 'GkForm', link: '/components/form/form' },
                 { text: 'GkInput', link: '/components/form/input' },
                 { text: 'GkField', link: '/components/form/field' },
                 { text: 'GkTextarea', link: '/components/form/textarea' },

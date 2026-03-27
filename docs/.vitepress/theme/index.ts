@@ -6,6 +6,7 @@ import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
 import DemoGkCheckbox from '../components/demos/form/checkbox/DemoGkCheckbox.vue'
 import DemoGkContainer from '../components/demos/container/DemoGkContainer.vue'
 import DemoGkDivider from '../components/demos/divider/DemoGkDivider.vue'
+import DemoGkForm from '../components/demos/form/form/DemoGkForm.vue'
 import DemoGkField from '../components/demos/form/field/DemoGkField.vue'
 import DemoGkInput from '../components/demos/form/input/DemoGkInput.vue'
 import DemoGkRadio from '../components/demos/form/radio/DemoGkRadio.vue'
@@ -21,6 +22,7 @@ export default {
   enhanceApp({ app }: EnhanceAppContext) {
     app.component('DemoGkButton', DemoGkButton)
     app.component('DemoGkInput', DemoGkInput)
+    app.component('DemoGkForm', DemoGkForm)
     app.component('DemoGkField', DemoGkField)
     app.component('DemoGkTextarea', DemoGkTextarea)
     app.component('DemoGkCheckbox', DemoGkCheckbox)

@@ -40,6 +40,21 @@ const { inputId, errorId, ariaInvalid, ariaDescribedBy, errorMessage } = useForm
 
 When **GkField** wraps **GkInput**, prefer the default provide/inject path instead of wiring `useFormControl` by hand.
 
+## `createForm`
+
+Builds validation-related state for **[GkForm](/components/form/form)** or custom layouts. Pass **`disabled` / `readonly`** getters and an optional **`validate`** function; defaults resolve **`{ valid: true, errors: [] }`** when **`validate`** is omitted.
+
+```ts
+import { createForm } from '@god-plan/god-kit/vue'
+
+const form = createForm({
+  disabled: () => false,
+  readonly: () => false,
+})
+```
+
+See **[GkForm](/components/form/form)** for **`SubmitEventPromise`** and submit handling.
+
 ## `useButtonInteractionState`
 
 Combines **`disabled`**, **`readonly`**, and **`loading`** into a single **`blocksAction`** ref for click guards (used by **GkButton**; reuse for other pressable primitives).
