@@ -7,6 +7,7 @@ export { useFieldIds } from './composables/useFieldIds'
 export type { GkFieldIds } from './composables/useFieldIds'
 export { useFormControl } from './composables/useFormControl'
 export type { UseFormControlOptions, UseFormControlReturn } from './composables/useFormControl'
+export { useButtonInteractionState } from './composables/useButtonInteraction'
 
 export { default as GkButton } from './components/button/GkButton.vue'
 export { default as GkInput } from './components/form/input/GkInput.vue'

@@ -40,6 +40,22 @@ const { inputId, errorId, ariaInvalid, ariaDescribedBy, errorMessage } = useForm
 
 When **GkField** wraps **GkInput**, prefer the default provide/inject path instead of wiring `useFormControl` by hand.
 
+## `useButtonInteractionState`
+
+Combines **`disabled`**, **`readonly`**, and **`loading`** into a single **`blocksAction`** ref for click guards (used by **GkButton**; reuse for other pressable primitives).
+
+```ts
+import { toRef } from 'vue'
+import { useButtonInteractionState } from '@god-plan/god-kit/vue'
+
+const { blocksAction } = useButtonInteractionState(
+  toRef(props, 'disabled'),
+  toRef(props, 'readonly'),
+  toRef(props, 'loading'),
+)
+```
+
+
 ## See also
 
 - [GkField](/components/form/field) — label, error region, and context for **GkInput**
