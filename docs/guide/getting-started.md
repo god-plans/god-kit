@@ -25,7 +25,79 @@ In the monorepo, depend on `@god-plan/god-kit` from the package root (see worksp
 
 Run `npm install` from the repo root or the consuming app.
 
-Read **[Global configuration](./global-configuration)** for **`createGkKit`** (theme, display, locale, defaults) and **[Architecture and tiers](./architecture)** for how primitives, patterns, and app-level blocks differ—important as the component count grows.
+## Register God Kit (full example)
+
+Below, **`gk.config.ts`** sets every top-level **`GkKitOptions`** field: **`theme`**, **`display`**, **`locale`**, **`defaults`**, and **`aliases`**. Import **`GkKitOptions`** from **`@god-plan/god-kit/vue/config`**.
+
+Load **`tokens.css`** and **`vue.css`** in your entry before **`app.mount`** using the order in [CSS import order](#css-import-order). For option-by-option reference and multi-locale patterns, see **[Global configuration](./global-configuration)**.
+
+**`src/gk.config.ts`**
+
+```ts
+import type { GkKitOptions } from '@god-plan/god-kit/vue/config'
+import { GkButton } from '@god-plan/god-kit/vue'
+
+/** Every `GkKitOptions` key is shown; adjust or remove what you do not need. */
+export const gkKitConfig: GkKitOptions = {
+  theme: {
+    defaultTheme: 'system',
+    /** Root for `data-gk-theme` / `gk-theme-dark`; default is `document.documentElement`. */
+    scope: () => document.documentElement,
+  },
+  display: {
+    mobileBreakpoint: 'md',
+    thresholds: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+      xxl: 2560,
+    },
+  },
+  locale: {
+    locale: 'en',
+    fallback: 'en',
+    messages: {
+      en: {
+        appSave: 'Save',
+        appWelcome: 'Welcome, {name}',
+      },
+      fr: {
+        appSave: 'Enregistrer',
+        appWelcome: 'Bienvenue, {name}',
+      },
+    },
+  },
+  defaults: {
+    GkButton: { variant: 'primary' },
+  },
+  aliases: {
+    GkAppButton: GkButton,
+    GkDangerButton: {
+      extends: GkButton,
+      defaults: { variant: 'danger' },
+    },
+  },
+}
+```
+
+**`src/main.ts`**
+
+```ts
+import { createApp } from 'vue'
+import { createGkKit } from '@god-plan/god-kit/vue/config'
+import App from './App.vue'
+import { gkKitConfig } from './gk.config'
+
+const app = createApp(App)
+app.use(createGkKit(gkKitConfig))
+app.mount('#app')
+```
+
+The runtime merges built-in English strings (**`gkEnMessages`**) into **`locale.messages.en`**; add or override keys per locale as above.
+
+See **[Architecture and tiers](./architecture)** for how primitives, patterns, and app-level blocks differ—important as the component count grows.
 
 ## CSS import order
 

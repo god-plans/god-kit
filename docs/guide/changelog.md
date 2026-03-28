@@ -27,6 +27,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 - **GkForm** + **`createForm`** / **`attachSubmitPromise`** — see **`/components/form/form`** and root **`CHANGELOG.md`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
 - **Documentation:** [Component authoring](./component-authoring) — structure, doc mapping, agent prompt, phasing for large references. See root **`CHANGELOG.md`** for the full note.
+- **Documentation:** [Global configuration](./global-configuration) — config file pattern, full **`GkKitOptions`** tables, multi-locale and theme vs display. See root **`CHANGELOG.md`**.
 
 ### Changed
 

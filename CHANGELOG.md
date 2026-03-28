@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GkForm** (`src/vue/components/form/gk-form/GkForm.vue`): native `<form>` with **`novalidate`**, **`submit`** emission with **`SubmitEventPromise`**, scoped slot helpers from **`createForm`**; composable **`createForm`**, **`attachSubmitPromise`**, and types in **`useForm.ts`**. Docs at **`/components/form/form`**; tests **`GkForm.spec.ts`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
 - **Documentation:** [Component authoring](docs/guide/component-authoring.md) — structure, Vuetify-style doc mapping, copy-paste agent prompt, and phasing guidance for large references (e.g. VBtn). Linked from [contributing docs](docs/guide/contributing-docs.md) and README.
+- **Documentation:** [Global configuration](docs/guide/global-configuration.md) — user-defined config module (e.g. `gk.config.ts` exporting `GkKitOptions` from `@god-plan/god-kit/vue/config`), full option reference tables, **multi-locale** `messages` and runtime switching, and **theme** (light/dark/system) vs **display** breakpoints.
 
 ### Changed
 
