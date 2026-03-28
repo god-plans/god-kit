@@ -81,6 +81,16 @@
   --gk-pagination-gap: var(--gk-space-2);
   --gk-pagination-active-color: var(--gk-color-primary);
 
+  /** Navigation drawer (GkNavigationDrawer) */
+  --gk-navigation-drawer-width: 256px;
+  --gk-navigation-drawer-rail-width: 56px;
+  --gk-navigation-drawer-z-index: 2050;
+  --gk-navigation-drawer-scrim: var(--gk-overlay-scrim);
+  --gk-navigation-drawer-bg: var(--gk-color-surface);
+  --gk-navigation-drawer-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --gk-navigation-drawer-floating-margin: var(--gk-space-3);
+  --gk-navigation-drawer-floating-radius: var(--gk-radius-lg);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

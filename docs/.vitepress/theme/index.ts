@@ -6,6 +6,7 @@ import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
 import DemoGkMenu from '../components/demos/containment/menu/DemoGkMenu.vue'
 import DemoGkTabs from '../components/demos/navigation/tabs/DemoGkTabs.vue'
 import DemoGkPagination from '../components/demos/navigation/pagination/DemoGkPagination.vue'
+import DemoGkNavigationDrawer from '../components/demos/containment/navigation-drawer/DemoGkNavigationDrawer.vue'
 import DemoGkTooltip from '../components/demos/containment/tooltip/DemoGkTooltip.vue'
 import DemoGkBottomSheet from '../components/demos/containment/bottom-sheet/DemoGkBottomSheet.vue'
 import DemoGkDialog from '../components/demos/containment/dialog/DemoGkDialog.vue'
@@ -39,6 +40,7 @@ export default {
     app.component('DemoGkMenu', DemoGkMenu)
     app.component('DemoGkTabs', DemoGkTabs)
     app.component('DemoGkPagination', DemoGkPagination)
+    app.component('DemoGkNavigationDrawer', DemoGkNavigationDrawer)
     app.component('DemoGkTooltip', DemoGkTooltip)
     app.component('DemoGkBottomSheet', DemoGkBottomSheet)
     app.component('DemoGkDialog', DemoGkDialog)

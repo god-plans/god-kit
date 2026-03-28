@@ -38,6 +38,7 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkBottomSheet](./containment/bottom-sheet) | Bottom-anchored sheet on **GkOverlay** — **`inset`**, **`scrollable`**, slide-up transition |
 | [GkMenu](./containment/menu) | Floating menu — activator slot, **`placement`**, **`useMenuAnchorPosition`**, outside dismiss |
 | [GkTooltip](./containment/tooltip) | Tooltip — hover / focus / click, **`interactive`**, **`useTooltipPosition`** |
+| [GkNavigationDrawer](./containment/navigation-drawer) | Side / bottom nav — **`temporary`** scrim, **`rail`**, **`location`**, slots |
 
 ## Expansion
 

@@ -64,6 +64,7 @@ export default defineConfig({
                 { text: 'GkBottomSheet', link: '/components/containment/bottom-sheet' },
                 { text: 'GkMenu', link: '/components/containment/menu' },
                 { text: 'GkTooltip', link: '/components/containment/tooltip' },
+                { text: 'GkNavigationDrawer', link: '/components/containment/navigation-drawer' },
               ],
             },
             {

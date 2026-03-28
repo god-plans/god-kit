@@ -54,6 +54,11 @@ export { default as GkDialog } from './components/containment/dialog/GkDialog.vu
 export { default as GkBottomSheet } from './components/containment/bottom-sheet/GkBottomSheet.vue'
 export { default as GkMenu } from './components/containment/menu/GkMenu.vue'
 export { default as GkTooltip } from './components/containment/tooltip/GkTooltip.vue'
+export { default as GkNavigationDrawer } from './components/containment/navigation-drawer/GkNavigationDrawer.vue'
+export type {
+  GkNavigationDrawerImageSlotProps,
+  GkNavigationDrawerLocation,
+} from './components/containment/navigation-drawer/gk-navigation-drawer-types'
 export { default as GkStack } from './components/stack/GkStack.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'
