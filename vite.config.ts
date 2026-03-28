@@ -14,6 +14,7 @@ export default defineConfig({
         'src/vue/composables/**/*.ts',
         'src/tokens/**/*.ts',
         'src/injection.ts',
+        'src/locale/**/*.ts',
       ],
       outDir: 'dist',
       rollupTypes: true,
@@ -23,6 +24,7 @@ export default defineConfig({
     lib: {
       entry: {
         vue: resolve(__dirname, 'src/vue/index.ts'),
+        'vue-config': resolve(__dirname, 'src/vue/config/index.ts'),
         'vue-form': resolve(__dirname, 'src/vue/form.ts'),
         'vue-layout': resolve(__dirname, 'src/vue/layout.ts'),
         'vue-navigation': resolve(__dirname, 'src/vue/navigation.ts'),

@@ -34,8 +34,13 @@ Optional **subpath exports** split barrels for semantic imports:
 | `@god-plan/god-kit/vue/form` | Form primitives, field injection keys, composables |
 | `@god-plan/god-kit/vue/layout` | Alerts, stack, container, divider, spinner |
 | `@god-plan/god-kit/vue/navigation` | Tabs (**GkTabs**, **GkTab**, **GkTabsWindow**, **GkTabsWindowItem**), **`parseGkTabItems`** |
+| `@god-plan/god-kit/vue/config` | **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, providers |
 
 They share the same build output chunks as the main entry; use them when you want clearer import boundaries in app code.
+
+## Global config
+
+Runtime plugin and composables live under **`@god-plan/god-kit/vue/config`**. See **[Global configuration](./global-configuration)** for setup, theme, display, i18n, defaults, aliases, and tree-shaking notes.
 
 ## Source layout
 

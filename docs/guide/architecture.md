@@ -37,5 +37,6 @@ Page-level or product-specific compositions:
 
 ## See also
 
+- [Global configuration](./global-configuration) — **`createGkKit`**, theme, display, i18n, defaults
 - [Composables](./composables) — headless behavior shared across tiers
 - [Contributing docs](./contributing-docs) — how to add a primitive

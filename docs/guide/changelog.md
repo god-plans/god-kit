@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **Global configuration:** **`createGkKit`** (`@god-plan/god-kit/vue/config`), **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, injection keys **`GK_THEME`**, **`GK_DISPLAY_CONFIG`**, **`GK_LOCALE`**, **`GK_DEFAULTS`**, **`data-gk-theme`** / dark tokens, English **`gkEnMessages`**, **`GkVueI18nAdapter`**. Guide: **[Global configuration](./global-configuration)**.
 - **GkSnackbar** + **`GkSnackbarHost`**, **`pushGkSnackbar`** / **`useGkSnackbar`** — see **`/components/feedback/snackbar`** and root **`CHANGELOG.md`**.
 - **GkSkeletonLoader** — see **`/components/feedback/skeleton-loader`** and root **`CHANGELOG.md`**.
 - **GkNavigationDrawer** — see **`/components/containment/navigation-drawer`** and root **`CHANGELOG.md`**.
@@ -29,6 +30,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Changed
 
+- **GkNavigationDrawer:** temporary / responsive overlay uses **`useGkDisplay().mobile`** (same default threshold as legacy **`max-width: 959px`** via **`md`** breakpoint).
 - **GkOverlay:** **`overlayClass`**, **`contentMaxWidth`**, **`transitionName`**, layout helpers, **`afterEnter`** / **`afterLeave`**, **`contentRef`** expose. See root **`CHANGELOG.md`**.
 - **GkTextarea** / **GkRadio** / **GkRadioGroup:** attrs forwarding, **`update:focused`**, **`GK_RADIO_GROUP`** updates. See root **`CHANGELOG.md`**.
 - **GkSelect:** **`multiple`**, **`readonly`**, **`update:focused`**, attrs forwarding. See root **`CHANGELOG.md`**.

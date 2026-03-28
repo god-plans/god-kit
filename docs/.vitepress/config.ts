@@ -25,6 +25,7 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'Getting started', link: '/guide/getting-started' },
+            { text: 'Global configuration', link: '/guide/global-configuration' },
             { text: 'Architecture and tiers', link: '/guide/architecture' },
             { text: 'Component authoring', link: '/guide/component-authoring' },
             { text: 'Design tokens', link: '/guide/tokens' },
@@ -112,6 +113,7 @@ export default defineConfig({
     resolve: {
       alias: {
         '@god-plan/god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
+        '@god-plan/god-kit/vue/config': resolve(kitRoot, 'src/vue/config/index.ts'),
         '@god-plan/god-kit/tokens.css': resolve(kitRoot, 'src/tokens/tokens.css'),
       },
     },

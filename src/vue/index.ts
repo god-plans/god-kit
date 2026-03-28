@@ -1,11 +1,15 @@
 export { gkTokens } from '../tokens/tokens'
 export type { GkTokenPath } from '../tokens/tokens'
 export {
+  GK_DEFAULTS,
+  GK_DISPLAY_CONFIG,
   GK_EXPANSION_PANEL,
   GK_EXPANSION_PANELS,
   GK_FIELD,
+  GK_LOCALE,
   GK_RADIO_GROUP,
   GK_TABS,
+  GK_THEME,
 } from '../injection'
 export type {
   GkExpansionPanelContext,
@@ -14,6 +18,12 @@ export type {
   GkRadioGroupContext,
   GkTabsContext,
 } from '../injection'
+export type {
+  GkDefaultsInjected,
+  GkDisplayResolvedConfig,
+  GkLocaleContext,
+  GkThemeContext,
+} from './config/gk-kit-types'
 
 export { useFieldIds } from './composables/useFieldIds'
 export type { GkFieldIds } from './composables/useFieldIds'

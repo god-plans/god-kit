@@ -10,6 +10,7 @@ import {
   watch,
   watchEffect,
 } from 'vue'
+import { useGkDisplay } from '../../../composables/useGkDisplay'
 import type { GkNavigationDrawerLocation } from './gk-navigation-drawer-types'
 
 defineOptions({ inheritAttrs: false })
@@ -88,26 +89,11 @@ const attrs = useAttrs()
 const rootEl = ref<HTMLElement | null>(null)
 const isHovering = shallowRef(false)
 
-const isMobile = ref(false)
-
-function refreshMobile() {
-  if (typeof window === 'undefined' || !window.matchMedia) return
-  isMobile.value = window.matchMedia('(max-width: 959px)').matches
-}
-
-let mq: MediaQueryList | null = null
-function onMqChange() {
-  refreshMobile()
-}
+const { mobile } = useGkDisplay()
 
 const railEmitReady = ref(false)
 
 onMounted(() => {
-  refreshMobile()
-  if (typeof window !== 'undefined' && window.matchMedia) {
-    mq = window.matchMedia('(max-width: 959px)')
-    mq.addEventListener('change', onMqChange)
-  }
   void nextTick(() => {
     railEmitReady.value = true
   })
@@ -115,7 +101,7 @@ onMounted(() => {
 
 const effectiveMobile = computed(() => {
   if (props.disableResizeWatcher) return false
-  return isMobile.value
+  return mobile.value
 })
 
 const isTemporary = computed(() => {
@@ -283,7 +269,6 @@ watchEffect((onCleanup) => {
 })
 
 onUnmounted(() => {
-  mq?.removeEventListener('change', onMqChange)
   if (isOpen.value && isTemporary.value && props.scrollLock) {
     document.body.style.overflow = previousBodyOverflow
   }

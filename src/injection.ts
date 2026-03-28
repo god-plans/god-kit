@@ -1,4 +1,10 @@
 import type { ComputedRef, InjectionKey, Ref } from 'vue'
+import type {
+  GkDefaultsInjected,
+  GkDisplayResolvedConfig,
+  GkLocaleContext,
+  GkThemeContext,
+} from './vue/config/gk-kit-types'
 
 export type GkFieldContext = {
   inputId: string
@@ -72,3 +78,15 @@ export type GkTabsContext = {
 }
 
 export const GK_TABS: InjectionKey<GkTabsContext> = Symbol('gk-tabs')
+
+/** God Kit global theme (`createGkKit` / `useGkTheme`) */
+export const GK_THEME: InjectionKey<GkThemeContext> = Symbol('gk-theme')
+
+/** Resolved display thresholds from `createGkKit` */
+export const GK_DISPLAY_CONFIG: InjectionKey<GkDisplayResolvedConfig> = Symbol('gk-display-config')
+
+/** Locale + `t` from `createGkKit` / `useGkLocale` */
+export const GK_LOCALE: InjectionKey<GkLocaleContext> = Symbol('gk-locale')
+
+/** Merged component defaults (`GkDefaultsProvider` chain) */
+export const GK_DEFAULTS: InjectionKey<GkDefaultsInjected> = Symbol('gk-defaults')

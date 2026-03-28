@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Global configuration** (`@god-plan/god-kit/vue/config`): **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, **`GK_*`** injection keys in **`src/injection.ts`**, **`src/locale/en.ts`**, **`GkVueI18nAdapter`**. Docs: **`docs/guide/global-configuration.md`**.
 - **GkSnackbar** (`src/vue/components/feedback/snackbar/`): **`GkSnackbar.vue`**, **`GkSnackbarHost.vue`**, **`pushGkSnackbar`** / **`clearGkSnackbars`** / **`useGkSnackbar`**, **`gkSnackbarQueueState`**. Teleport, **`timeout`** / hover–focus pause, **`timer`** strip, **`location`**, variants, **`prependAvatar`** / **`prependIcon`** / **`loading`**, **`#actions`** with **`isActive`**, swipe-to-dismiss, stacked queue offsets. Tokens **`--gk-snackbar-*`**. Docs at **`/components/feedback/snackbar`**; tests **`GkSnackbar.spec.ts`**, **`GkSnackbar.a11y.spec.ts`**.
 - **GkSkeletonLoader** (`src/vue/components/feedback/skeleton-loader/`): **`GkSkeletonLoader.vue`**, **`GkSkeletonBone.vue`**, **`gkSkeletonRootTypes`**, **`genGkSkeletonStructure`**, **`gk-skeleton-tree.ts`**. Preset **`type`** graphs (Vuetify-compatible keys), **`loading`** / default slot, **`boilerplate`**, shimmer tokens **`--gk-skeleton-loader-*`**. Docs at **`/components/feedback/skeleton-loader`**; tests **`GkSkeletonLoader.spec.ts`**, **`GkSkeletonLoader.a11y.spec.ts`**, **`gk-skeleton-tree.spec.ts`**.
 - **GkNavigationDrawer** (`src/vue/components/containment/navigation-drawer/GkNavigationDrawer.vue`): **`v-model`**, **`temporary`** (Teleport, scrim, slide, Escape, scroll lock), **`permanent`**, **`rail`** / **`expandOnHover`**, **`location`** / **`dir`**, **`floating`**, **`image`** / **`#image`**, **`prepend`** / **`append`**, tokens **`--gk-navigation-drawer-*`**. Types in **`gk-navigation-drawer-types.ts`**. Docs at **`/components/containment/navigation-drawer`**; tests **`GkNavigationDrawer.spec.ts`**, **`GkNavigationDrawer.a11y.spec.ts`**.
@@ -26,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **GkNavigationDrawer:** responsive **`temporary`** mode uses **`useGkDisplay().mobile`** (same default breakpoint as before via **`md`** / **`display.mobileBreakpoint`**).
 - **GkOverlay:** optional **`overlayClass`**, **`contentMaxWidth`**, **`transitionName`** (e.g. **`gk-bottom-sheet`**), **`gk-overlay--align-bottom`** / **`gk-overlay--inset`** layout helpers, **`afterEnter`** / **`afterLeave`** emissions, **`defineExpose`** (**`contentRef`**).
 - **GkTextarea:** **`defineModel`** (optional **`v-model.trim`** on blur), **`inheritAttrs`**, **`autofocus`**, **`update:focused`**, **`defineExpose`** (`textarea`); wrapper **`gk-textarea__wrap`**.
 - **GkRadioGroup** / **GkRadio:** **`defineModel`** on the group; group **`disabled`** / **`readonly`**; **`inheritAttrs`** on group; **`update:focused`** and **`inheritAttrs`** on radio; **`GK_RADIO_GROUP`** context extended with **`isDisabled`** / **`isReadonly`**.
