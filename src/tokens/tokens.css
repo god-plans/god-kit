@@ -77,6 +77,10 @@
   --gk-tabs-bg-color: transparent;
   --gk-tabs-color: var(--gk-color-primary);
 
+  /** Pagination (GkPagination) */
+  --gk-pagination-gap: var(--gk-space-2);
+  --gk-pagination-active-color: var(--gk-color-primary);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

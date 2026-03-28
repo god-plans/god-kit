@@ -70,6 +70,10 @@ export const gkTokens = {
     bgColor: '--gk-tabs-bg-color',
     color: '--gk-tabs-color',
   },
+  pagination: {
+    gap: '--gk-pagination-gap',
+    activeColor: '--gk-pagination-active-color',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

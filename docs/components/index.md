@@ -25,6 +25,7 @@ Primitives use the **`Gk`** prefix. Each page documents props, events, slots, an
 | Component | Description |
 |-----------|-------------|
 | [GkTabs](./navigation/tabs) | Tab list + panels — **`v-model`**, **`items`** or **`GkTab`** + **`#window`**, **`GK_TABS`** injection |
+| [GkPagination](./navigation/pagination) | Page navigation — ellipsis, **`totalVisible`**, first/last, **`buildPaginationRange`** |
 
 ## Containment
 

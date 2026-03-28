@@ -69,7 +69,10 @@ export default defineConfig({
             {
               text: 'Navigation',
               collapsed: false,
-              items: [{ text: 'GkTabs', link: '/components/navigation/tabs' }],
+              items: [
+                { text: 'GkTabs', link: '/components/navigation/tabs' },
+                { text: 'GkPagination', link: '/components/navigation/pagination' },
+              ],
             },
             {
               text: 'Expansion',
