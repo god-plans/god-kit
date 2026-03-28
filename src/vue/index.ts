@@ -30,6 +30,8 @@ export type {
   SubmitEventPromise,
 } from './composables/useForm'
 export { useButtonInteractionState } from './composables/useButtonInteraction'
+export { useMenuAnchorPosition } from './composables/useMenuAnchorPosition'
+export type { GkMenuPlacement } from './composables/useMenuAnchorPosition'
 
 export { default as GkButton } from './components/button/GkButton.vue'
 export { default as GkForm } from './components/form/gk-form/GkForm.vue'
@@ -46,6 +48,7 @@ export { default as GkAlert } from './components/alert/GkAlert.vue'
 export { default as GkOverlay } from './components/containment/overlay/GkOverlay.vue'
 export { default as GkDialog } from './components/containment/dialog/GkDialog.vue'
 export { default as GkBottomSheet } from './components/containment/bottom-sheet/GkBottomSheet.vue'
+export { default as GkMenu } from './components/containment/menu/GkMenu.vue'
 export { default as GkStack } from './components/stack/GkStack.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'

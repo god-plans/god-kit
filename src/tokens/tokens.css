@@ -54,6 +54,13 @@
   --gk-bottom-sheet-max-height: 90vh;
   --gk-bottom-sheet-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
 
+  /** Menu (GkMenu) — above overlay, below dialog */
+  --gk-menu-z-index: 2100;
+  --gk-menu-min-width: 10rem;
+  --gk-menu-max-height: min(70vh, 24rem);
+  --gk-menu-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  --gk-menu-scrim: transparent;
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

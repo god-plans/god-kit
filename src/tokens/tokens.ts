@@ -47,6 +47,13 @@ export const gkTokens = {
     maxHeight: '--gk-bottom-sheet-max-height',
     shadow: '--gk-bottom-sheet-shadow',
   },
+  menu: {
+    zIndex: '--gk-menu-z-index',
+    minWidth: '--gk-menu-min-width',
+    maxHeight: '--gk-menu-max-height',
+    shadow: '--gk-menu-shadow',
+    scrim: '--gk-menu-scrim',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

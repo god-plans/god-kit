@@ -62,6 +62,7 @@ export default defineConfig({
                 { text: 'GkOverlay', link: '/components/containment/overlay' },
                 { text: 'GkDialog', link: '/components/containment/dialog' },
                 { text: 'GkBottomSheet', link: '/components/containment/bottom-sheet' },
+                { text: 'GkMenu', link: '/components/containment/menu' },
               ],
             },
             {

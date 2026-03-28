@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **GkMenu** + **`useMenuAnchorPosition`** — see **`/components/containment/menu`** and root **`CHANGELOG.md`**.
 - **Expansion panels** — **`GkExpansionPanels`**, **`GkExpansionPanel`**, **`GkExpansionPanelTitle`**, **`GkExpansionPanelText`**; see **`/components/expansion`** and root **`CHANGELOG.md`**.
 - **GkBottomSheet** — Bottom sheet on **GkOverlay**; see **`/components/containment/bottom-sheet`** and root **`CHANGELOG.md`**.
 - **GkDialog** — Dialog shell on **GkOverlay**; see **`/components/containment/dialog`** and root **`CHANGELOG.md`**.

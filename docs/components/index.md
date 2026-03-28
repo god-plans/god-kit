@@ -29,6 +29,7 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkOverlay](./containment/overlay) | Teleported overlay with scrim, **`v-model`**, Escape / scrim dismiss, body scroll lock, and tokenized stacking |
 | [GkDialog](./containment/dialog) | Dialog shell built on **GkOverlay** — **`fullscreen`**, **`scrollable`**, sizing props, **`afterEnter`** / **`afterLeave`** |
 | [GkBottomSheet](./containment/bottom-sheet) | Bottom-anchored sheet on **GkOverlay** — **`inset`**, **`scrollable`**, slide-up transition |
+| [GkMenu](./containment/menu) | Floating menu — activator slot, **`placement`**, **`useMenuAnchorPosition`**, outside dismiss |
 
 ## Expansion
 
