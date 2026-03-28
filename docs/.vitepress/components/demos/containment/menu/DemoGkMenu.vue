@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkMenu } from '@god-plan/god-kit/vue'
+import { GkButton, GkMenu } from 'god-kit/vue'
 
 const open = ref(false)
 const placement = ref<'bottom-start' | 'bottom-end'>('bottom-start')

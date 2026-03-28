@@ -63,7 +63,7 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkOverlay } from '@god-plan/god-kit/vue'
+import { GkOverlay } from 'god-kit/vue'
 </script>
 
 <template>

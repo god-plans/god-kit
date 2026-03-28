@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkNavigationDrawer } from '@god-plan/god-kit/vue'
+import { GkButton, GkNavigationDrawer } from 'god-kit/vue'
 
 const open = ref(false)
 </script>

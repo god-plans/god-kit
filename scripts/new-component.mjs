@@ -87,7 +87,7 @@ describe('Gk${pascal} a11y', () => {
 `
 
 const demo = `<script setup lang="ts">
-import { Gk${pascal} } from '@god-plan/god-kit/vue'
+import { Gk${pascal} } from 'god-kit/vue'
 </script>
 
 <template>
@@ -125,7 +125,7 @@ TODO: description.
 
 \`\`\`vue
 <script setup lang="ts">
-import { Gk${pascal} } from '@god-plan/god-kit/vue'
+import { Gk${pascal} } from 'god-kit/vue'
 </script>
 
 <template>

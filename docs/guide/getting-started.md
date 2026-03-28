@@ -13,12 +13,12 @@ outline: [2, 3]
 
 ## Install
 
-In the monorepo, depend on `@god-plan/god-kit` from the package root (see workspace / `file:` link in consumer `package.json`).
+In the monorepo, depend on `god-kit` from the package root (see workspace / `file:` link in consumer `package.json`).
 
 ```json
 {
   "dependencies": {
-    "@god-plan/god-kit": "file:../../god-kit"
+    "god-kit": "file:../../god-kit"
   }
 }
 ```
@@ -27,15 +27,15 @@ Run `npm install` from the repo root or the consuming app.
 
 ## Register God Kit (full example)
 
-Below, **`gk.config.ts`** sets every top-level **`GkKitOptions`** field: **`theme`**, **`display`**, **`locale`**, **`defaults`**, and **`aliases`**. Import **`GkKitOptions`** from **`@god-plan/god-kit/vue/config`**.
+Below, **`gk.config.ts`** sets every top-level **`GkKitOptions`** field: **`theme`**, **`display`**, **`locale`**, **`defaults`**, and **`aliases`**. Import **`GkKitOptions`** from **`god-kit/vue/config`**.
 
 Load **`tokens.css`** and **`vue.css`** in your entry before **`app.mount`** using the order in [CSS import order](#css-import-order). For option-by-option reference and multi-locale patterns, see **[Global configuration](./global-configuration)**.
 
 **`src/gk.config.ts`**
 
 ```ts
-import type { GkKitOptions } from '@god-plan/god-kit/vue/config'
-import { GkButton } from '@god-plan/god-kit/vue'
+import type { GkKitOptions } from 'god-kit/vue/config'
+import { GkButton } from 'god-kit/vue'
 
 /** Every `GkKitOptions` key is shown; adjust or remove what you do not need. */
 export const gkKitConfig: GkKitOptions = {
@@ -86,7 +86,7 @@ export const gkKitConfig: GkKitOptions = {
 
 ```ts
 import { createApp } from 'vue'
-import { createGkKit } from '@god-plan/god-kit/vue/config'
+import { createGkKit } from 'god-kit/vue/config'
 import App from './App.vue'
 import { gkKitConfig } from './gk.config'
 
@@ -101,9 +101,9 @@ See **[Architecture and tiers](./architecture)** for how primitives, patterns, a
 
 ## CSS import order
 
-1. `@god-plan/god-kit/tokens.css` — semantic `--gk-*` variables  
-2. (Optional) `@god-plan/god-kit/bridge/vuetify.css` — map Vuetify `--v-theme-*` while migrating  
-3. `@god-plan/god-kit/vue.css` — styles for `Gk*` components  
+1. `god-kit/tokens.css` — semantic `--gk-*` variables  
+2. (Optional) `god-kit/bridge/vuetify.css` — map Vuetify `--v-theme-*` while migrating  
+3. `god-kit/vue.css` — styles for `Gk*` components  
 
 Then your application CSS.
 
@@ -117,7 +117,7 @@ For custom field layouts or headless wiring, use **`useFieldIds`** and **`useFor
 
 ```vue
 <script setup lang="ts">
-import { GkButton, GkField, GkInput } from '@god-plan/god-kit/vue'
+import { GkButton, GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')
@@ -140,7 +140,7 @@ const email = ref('')
 | **Tests** | `npm run test` | Vitest (includes `*.a11y.spec.ts` with axe-core) |
 | **Library build** | `npm run build` | Output in `dist/` |
 
-The playground and these docs both resolve `@god-plan/god-kit/vue` to **`src/`** so you can edit components without rebuilding the library.
+The playground and these docs both resolve `god-kit/vue` to **`src/`** so you can edit components without rebuilding the library.
 
 ## Nuxt
 

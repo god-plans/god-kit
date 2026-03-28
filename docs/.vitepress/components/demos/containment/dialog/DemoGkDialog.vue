@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkDialog } from '@god-plan/god-kit/vue'
+import { GkButton, GkDialog } from 'god-kit/vue'
 
 const basicOpen = ref(false)
 const fullscreenOpen = ref(false)

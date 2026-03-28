@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@god-plan/god-kit` are documented in this file.
+All notable changes to `god-kit` are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,12 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Global configuration** (`@god-plan/god-kit/vue/config`): **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, **`GK_*`** injection keys in **`src/injection.ts`**, **`src/locale/en.ts`**, **`GkVueI18nAdapter`**. Docs: **`docs/guide/global-configuration.md`**.
+- **Global configuration** (`god-kit/vue/config`): **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, **`GK_*`** injection keys in **`src/injection.ts`**, **`src/locale/en.ts`**, **`GkVueI18nAdapter`**. Docs: **`docs/guide/global-configuration.md`**.
 - **GkSnackbar** (`src/vue/components/feedback/snackbar/`): **`GkSnackbar.vue`**, **`GkSnackbarHost.vue`**, **`pushGkSnackbar`** / **`clearGkSnackbars`** / **`useGkSnackbar`**, **`gkSnackbarQueueState`**. Teleport, **`timeout`** / hover–focus pause, **`timer`** strip, **`location`**, variants, **`prependAvatar`** / **`prependIcon`** / **`loading`**, **`#actions`** with **`isActive`**, swipe-to-dismiss, stacked queue offsets. Tokens **`--gk-snackbar-*`**. Docs at **`/components/feedback/snackbar`**; tests **`GkSnackbar.spec.ts`**, **`GkSnackbar.a11y.spec.ts`**.
 - **GkSkeletonLoader** (`src/vue/components/feedback/skeleton-loader/`): **`GkSkeletonLoader.vue`**, **`GkSkeletonBone.vue`**, **`gkSkeletonRootTypes`**, **`genGkSkeletonStructure`**, **`gk-skeleton-tree.ts`**. Preset **`type`** graphs (Vuetify-compatible keys), **`loading`** / default slot, **`boilerplate`**, shimmer tokens **`--gk-skeleton-loader-*`**. Docs at **`/components/feedback/skeleton-loader`**; tests **`GkSkeletonLoader.spec.ts`**, **`GkSkeletonLoader.a11y.spec.ts`**, **`gk-skeleton-tree.spec.ts`**.
 - **GkNavigationDrawer** (`src/vue/components/containment/navigation-drawer/GkNavigationDrawer.vue`): **`v-model`**, **`temporary`** (Teleport, scrim, slide, Escape, scroll lock), **`permanent`**, **`rail`** / **`expandOnHover`**, **`location`** / **`dir`**, **`floating`**, **`image`** / **`#image`**, **`prepend`** / **`append`**, tokens **`--gk-navigation-drawer-*`**. Types in **`gk-navigation-drawer-types.ts`**. Docs at **`/components/containment/navigation-drawer`**; tests **`GkNavigationDrawer.spec.ts`**, **`GkNavigationDrawer.a11y.spec.ts`**.
 - **GkPagination** (`src/vue/components/navigation/pagination/GkPagination.vue`) + **`pagination-range`** helpers: **`v-model`**, **`length`** / **`start`**, ellipsis range, **`showFirstLastPage`**, **`ResizeObserver`** for **`totalVisible`**, **`dir`** RTL, **`GkButton`** controls, tokens **`--gk-pagination-*`**. Docs at **`/components/navigation/pagination`**; tests **`GkPagination.spec.ts`**, **`GkPagination.a11y.spec.ts`**, **`pagination-range.spec.ts`**.
-- **GkTabs** family (`src/vue/components/navigation/tabs/`): **`GkTabs`**, **`GkTab`**, **`GkTabsWindow`**, **`GkTabsWindowItem`**, **`parseGkTabItems`** (`gk-tab-items.ts`), **`GK_TABS`** / **`GkTabsContext`** in **`src/injection.ts`**. Docs at **`/components/navigation/tabs`**; subpath export **`@god-plan/god-kit/vue/navigation`**; tests **`GkTabs.spec.ts`**, **`GkTabs.a11y.spec.ts`**. Tokens **`--gk-tabs-*`**.
+- **GkTabs** family (`src/vue/components/navigation/tabs/`): **`GkTabs`**, **`GkTab`**, **`GkTabsWindow`**, **`GkTabsWindowItem`**, **`parseGkTabItems`** (`gk-tab-items.ts`), **`GK_TABS`** / **`GkTabsContext`** in **`src/injection.ts`**. Docs at **`/components/navigation/tabs`**; subpath export **`god-kit/vue/navigation`**; tests **`GkTabs.spec.ts`**, **`GkTabs.a11y.spec.ts`**. Tokens **`--gk-tabs-*`**.
 - **GkTooltip** (`src/vue/components/containment/tooltip/GkTooltip.vue`) + **`useTooltipPosition`** (`src/vue/composables/useTooltipPosition.ts`): activator slot, **`placement`** (**`top`** / **`bottom`** / **`start`** / **`end`**), **`openOnHover`** / **`openOnClick`** / **`openOnFocus`**, **`interactive`**, delays, **`aria-describedby`**, tokens **`--gk-tooltip-z-index`**, **`--gk-tooltip-max-width`**, padding, shadow. Docs at **`/components/containment/tooltip`**; tests **`GkTooltip.spec.ts`**, **`GkTooltip.a11y.spec.ts`**.
 - **GkMenu** (`src/vue/components/containment/menu/GkMenu.vue`) + **`useMenuAnchorPosition`** (`src/vue/composables/useMenuAnchorPosition.ts`): activator slot, floating **`placement`**, outside dismiss, optional scrim, tokens **`--gk-menu-z-index`**, **`--gk-menu-min-width`**, **`--gk-menu-max-height`**, **`--gk-menu-shadow`**, **`--gk-menu-scrim`**. Docs at **`/components/containment/menu`**; tests **`GkMenu.spec.ts`**, **`GkMenu.a11y.spec.ts`**.
 - **Expansion panels** (`src/vue/components/expansion/`): **`GkExpansionPanels`**, **`GkExpansionPanel`**, **`GkExpansionPanelTitle`**, **`GkExpansionPanelText`** with **`GK_EXPANSION_PANELS`** / **`GK_EXPANSION_PANEL`** injection keys and types in **`src/injection.ts`**. Docs at **`/components/expansion`**; tests **`GkExpansionPanels.spec.ts`**, **`GkExpansionPanels.a11y.spec.ts`**.
@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GkForm** (`src/vue/components/form/gk-form/GkForm.vue`): native `<form>` with **`novalidate`**, **`submit`** emission with **`SubmitEventPromise`**, scoped slot helpers from **`createForm`**; composable **`createForm`**, **`attachSubmitPromise`**, and types in **`useForm.ts`**. Docs at **`/components/form/form`**; tests **`GkForm.spec.ts`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
 - **Documentation:** [Component authoring](docs/guide/component-authoring.md) — structure, Vuetify-style doc mapping, copy-paste agent prompt, and phasing guidance for large references (e.g. VBtn). Linked from [contributing docs](docs/guide/contributing-docs.md) and README.
-- **Documentation:** [Global configuration](docs/guide/global-configuration.md) — user-defined config module (e.g. `gk.config.ts` exporting `GkKitOptions` from `@god-plan/god-kit/vue/config`), full option reference tables, **multi-locale** `messages` and runtime switching, and **theme** (light/dark/system) vs **display** breakpoints.
+- **Documentation:** [Global configuration](docs/guide/global-configuration.md) — user-defined config module (e.g. `gk.config.ts` exporting `GkKitOptions` from `god-kit/vue/config`), full option reference tables, **multi-locale** `messages` and runtime switching, and **theme** (light/dark/system) vs **display** breakpoints.
 
 ### Changed
 
@@ -46,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Primitives:** `GkTextarea`, `GkCheckbox`, `GkRadioGroup`, `GkRadio`, `GkSelect`, `GkAlert`, `GkStack`, `GkContainer`, `GkDivider`, `GkSpinner` — each with unit tests, `*.a11y.spec.ts`, VitePress demo, and component docs.
 - **Injection:** `GK_RADIO_GROUP` and `GkRadioGroupContext` for radio groups; optional `ariaLabel` on `GkRadioGroup`.
 - **Tokens:** semantic surfaces for `--gk-color-success-surface`, `--gk-color-info-*`, `--gk-color-warning-*` (and dark theme equivalents); `gkTokens` exposes matching keys.
-- **Subpath exports:** `@god-plan/god-kit/vue/form` and `@god-plan/god-kit/vue/layout` (multi-entry build; shared chunks with the main entry).
+- **Subpath exports:** `god-kit/vue/form` and `god-kit/vue/layout` (multi-entry build; shared chunks with the main entry).
 - **Docs:** [Architecture and tiers](./docs/guide/architecture.md) (from prior work), [Build and bundling](./docs/guide/build-and-bundling.md), [Consumer bundle analysis](./docs/guide/consumer-bundle-analysis.md).
 - **Scaffolding:** `scripts/new-component.mjs` for new primitive stubs.
 
@@ -55,7 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **Package layout:** one folder per primitive under `src/vue/components/{button,field,input}/` with co-located tests.
-- **Composables:** `useFieldIds()` and `useFormControl()` for stable ids and headless ARIA-oriented state (exported from `@god-plan/god-kit/vue`).
+- **Composables:** `useFieldIds()` and `useFormControl()` for stable ids and headless ARIA-oriented state (exported from `god-kit/vue`).
 - **Tokens:** semantic `--gk-color-on-surface` / `-muted`, `--gk-color-text-disabled`, overlay and disabled opacity, `--gk-focus-ring-width`, density variables and **`.gk-density-compact`** for tighter controls.
 - **Vuetify bridge:** extended mappings for on-surface and disabled where Vuetify exposes theme variables.
 - **RTL:** logical CSS (`padding-inline`, `text-align: start`, etc.), guide at `docs/guide/rtl.md`, and RTL smoke tests for `GkField` + `GkInput`.
@@ -72,4 +72,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Initial `@god-plan/god-kit` release: design tokens (`tokens.css`, `gkTokens`), **GkButton**, **GkInput**, **GkField**, Vuetify bridge CSS, Vitest unit tests, playground, VitePress docs, Stitch dev tooling (`tools/stitch`), and `god-panel-nuxt` demo page integration.
+- Initial `god-kit` release: design tokens (`tokens.css`, `gkTokens`), **GkButton**, **GkInput**, **GkField**, Vuetify bridge CSS, Vitest unit tests, playground, VitePress docs, Stitch dev tooling (`tools/stitch`), and `god-panel-nuxt` demo page integration.

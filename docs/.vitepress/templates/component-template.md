@@ -52,7 +52,7 @@ Brief overview of what this component does and when to use it.
 
 ```vue
 <script setup lang="ts">
-import { GkComponentName } from '@god-plan/god-kit/vue'
+import { GkComponentName } from 'god-kit/vue'
 </script>
 
 <template>

@@ -5,7 +5,7 @@ import {
   GkSnackbar,
   GkSnackbarHost,
   pushGkSnackbar,
-} from '@god-plan/god-kit/vue'
+} from 'god-kit/vue'
 
 const open = ref(false)
 </script>

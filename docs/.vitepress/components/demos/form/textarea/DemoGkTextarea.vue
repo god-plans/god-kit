@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkField, GkTextarea } from '@god-plan/god-kit/vue'
+import { GkField, GkTextarea } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const notes = ref('Hello')

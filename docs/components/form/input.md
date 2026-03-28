@@ -69,7 +69,7 @@ Use Vue’s **`v-model` modifiers** on **GkInput**:
 
 ```vue
 <script setup lang="ts">
-import { GkField, GkInput } from '@god-plan/god-kit/vue'
+import { GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const value = ref('')

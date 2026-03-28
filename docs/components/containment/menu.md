@@ -52,7 +52,7 @@ Additional attributes are applied to the **panel** (not the activator).
 
 ### Composable
 
-**`useMenuAnchorPosition`** is exported from **`@god-plan/god-kit/vue`** for custom anchored panels; **`GkMenuPlacement`** is the placement union type.
+**`useMenuAnchorPosition`** is exported from **`god-kit/vue`** for custom anchored panels; **`GkMenuPlacement`** is the placement union type.
 
 ### Tokens
 
@@ -69,7 +69,7 @@ Additional attributes are applied to the **panel** (not the activator).
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkMenu } from '@god-plan/god-kit/vue'
+import { GkButton, GkMenu } from 'god-kit/vue'
 
 const open = ref(false)
 </script>

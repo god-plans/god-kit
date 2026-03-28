@@ -21,7 +21,7 @@ Returns stable, SSR-friendly ids for a single control and its error region:
 **GkRadioGroup** [provides](/components/form/radio) **`GK_RADIO_GROUP`** with **`name`**, **`modelValue`**, **`setValue`**, **`isDisabled`**, and **`isReadonly`** for **GkRadio** children.
 
 ```ts
-import { useFieldIds } from '@god-plan/god-kit/vue'
+import { useFieldIds } from 'god-kit/vue'
 
 const { inputId, errorId } = useFieldIds()
 ```
@@ -32,7 +32,7 @@ For **custom** layouts where you do not use **GkField**, pass an optional error 
 
 ```ts
 import { ref } from 'vue'
-import { useFormControl } from '@god-plan/god-kit/vue'
+import { useFormControl } from 'god-kit/vue'
 
 const error = ref<string | undefined>()
 const { inputId, errorId, ariaInvalid, ariaDescribedBy, errorMessage } = useFormControl({ error })
@@ -47,7 +47,7 @@ When **GkField** wraps **GkInput**, prefer the default provide/inject path inste
 Builds validation-related state for **[GkForm](/components/form/form)** or custom layouts. Pass **`disabled` / `readonly`** getters and an optional **`validate`** function; defaults resolve **`{ valid: true, errors: [] }`** when **`validate`** is omitted.
 
 ```ts
-import { createForm } from '@god-plan/god-kit/vue'
+import { createForm } from 'god-kit/vue'
 
 const form = createForm({
   disabled: () => false,
@@ -63,7 +63,7 @@ Positions a **fixed** tooltip panel relative to an anchor element for **`top`**,
 
 ```ts
 import { ref } from 'vue'
-import { useTooltipPosition } from '@god-plan/god-kit/vue'
+import { useTooltipPosition } from 'god-kit/vue'
 
 const open = ref(false)
 const anchorEl = ref<HTMLElement | null>(null)
@@ -80,7 +80,7 @@ Combines **`disabled`**, **`readonly`**, and **`loading`** into a single **`bloc
 
 ```ts
 import { toRef } from 'vue'
-import { useButtonInteractionState } from '@god-plan/god-kit/vue'
+import { useButtonInteractionState } from 'god-kit/vue'
 
 const { blocksAction } = useButtonInteractionState(
   toRef(props, 'disabled'),

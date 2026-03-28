@@ -40,7 +40,7 @@ Additional attributes are forwarded to the skeleton root (not to bones).
 
 ### Presets
 
-Keys are listed on **`gkSkeletonRootTypes`** (exported from **`@god-plan/god-kit/vue`**). Examples: **`card`**, **`article`**, **`table`**, **`list-item-avatar`**, **`date-picker`**, **`paragraph`**, **`ossein`**.
+Keys are listed on **`gkSkeletonRootTypes`** (exported from **`god-kit/vue`**). Examples: **`card`**, **`article`**, **`table`**, **`list-item-avatar`**, **`date-picker`**, **`paragraph`**, **`ossein`**.
 
 ### Utilities
 

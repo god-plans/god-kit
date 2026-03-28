@@ -53,7 +53,7 @@ Non-modal status region. Default **`role="status"`**; use **`role="alert"`** for
 
 ```vue
 <script setup lang="ts">
-import { GkAlert } from '@god-plan/god-kit/vue'
+import { GkAlert } from 'god-kit/vue'
 </script>
 
 <template>

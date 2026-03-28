@@ -26,7 +26,7 @@ Read [Architecture and tiers](./architecture) first for the primitive / pattern 
 - **Form primitives:** `src/vue/components/form/<name>/` (e.g. `GkInput`, `GkField`, `GkSelect`).
 - **Other primitives:** `src/vue/components/<name>/` (e.g. `GkButton`, `GkAlert`). **Navigation** primitives (e.g. **GkTabs**) live under `src/vue/components/navigation/<name>/`. You can introduce `layout/<name>/` when you standardize layout-only widgets; see [Build and bundling](./build-and-bundling).
 - **Composables:** shared behavior in `src/vue/composables/`—prefer small composables only when logic is **reused** or **testable** in isolation.
-- **Public API:** named exports from `@god-plan/god-kit/vue`, optional barrels `@god-plan/god-kit/vue/form` and `@god-plan/god-kit/vue/layout`. Semver + changelog for release-worthy changes.
+- **Public API:** named exports from `god-kit/vue`, optional barrels `god-kit/vue/form` and `god-kit/vue/layout`. Semver + changelog for release-worthy changes.
 
 ```mermaid
 flowchart LR
@@ -60,7 +60,7 @@ Large libraries often document with custom MDX blocks (`<ExamplesExample />`, `<
 Use this when you want an agent to implement or extend a primitive and you can paste a long reference (e.g. Vuetify `VBtn` source or docs).
 
 ````markdown
-You are implementing a component for **@god-plan/god-kit** (Vue 3 + Vite).
+You are implementing a component for **god-kit** (Vue 3 + Vite).
 
 ## Package rules (must follow)
 

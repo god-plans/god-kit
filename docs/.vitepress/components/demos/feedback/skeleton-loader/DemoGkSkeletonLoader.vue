@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkSkeletonLoader } from '@god-plan/god-kit/vue'
+import { GkButton, GkSkeletonLoader } from 'god-kit/vue'
 
 const loading = ref(true)
 </script>

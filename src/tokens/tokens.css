@@ -1,6 +1,6 @@
 /**
  * God Kit design tokens — semantic CSS variables.
- * Use @god-plan/god-kit/tokens.css in apps. Optional: bridge/vuetify.css maps --v-theme-* → --gk-*.
+ * Use god-kit/tokens.css in apps. Optional: bridge/vuetify.css maps --v-theme-* → --gk-*.
  */
 :root {
   /* Surfaces */

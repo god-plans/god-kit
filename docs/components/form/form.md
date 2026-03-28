@@ -43,10 +43,10 @@ Renders a native `<form>` with **`novalidate`**, wires **`submit`** to async val
 
 ## Headless `createForm`
 
-Use **`createForm`** from **`@god-plan/god-kit/vue`** (or **`vue/form`**) when you need the same state object without **`GkForm`**:
+Use **`createForm`** from **`god-kit/vue`** (or **`vue/form`**) when you need the same state object without **`GkForm`**:
 
 ```ts
-import { createForm } from '@god-plan/god-kit/vue'
+import { createForm } from 'god-kit/vue'
 
 const form = createForm({
   disabled: () => false,
@@ -61,7 +61,7 @@ const form = createForm({
 
 ```vue
 <script setup lang="ts">
-import { GkForm, GkField, GkInput } from '@god-plan/god-kit/vue'
+import { GkForm, GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')

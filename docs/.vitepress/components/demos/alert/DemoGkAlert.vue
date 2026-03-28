@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkAlert } from '@god-plan/god-kit/vue'
+import { GkAlert } from 'god-kit/vue'
 
 const closableOpen = ref(true)
 </script>

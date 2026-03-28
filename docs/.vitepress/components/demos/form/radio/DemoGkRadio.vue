@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkRadio, GkRadioGroup } from '@god-plan/god-kit/vue'
+import { GkRadio, GkRadioGroup } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const theme = ref<'light' | 'dark'>('light')

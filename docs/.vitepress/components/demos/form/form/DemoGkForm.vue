@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { GkButton, GkField, GkForm, GkInput } from '@god-plan/god-kit/vue'
-import type { SubmitEventPromise } from '@god-plan/god-kit/vue'
+import { GkButton, GkField, GkForm, GkInput } from 'god-kit/vue'
+import type { SubmitEventPromise } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')

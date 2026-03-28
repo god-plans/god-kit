@@ -52,7 +52,7 @@ Root **`class`** applies to the wrapper; other attributes are forwarded to **`<s
 
 ```vue
 <script setup lang="ts">
-import { GkSelect } from '@god-plan/god-kit/vue'
+import { GkSelect } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const value = ref<string | undefined>()

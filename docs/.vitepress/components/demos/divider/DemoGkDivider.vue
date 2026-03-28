@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkDivider } from '@god-plan/god-kit/vue'
+import { GkDivider } from 'god-kit/vue'
 </script>
 
 <template>

@@ -5,7 +5,7 @@ import {
   GkExpansionPanels,
   GkExpansionPanelText,
   GkExpansionPanelTitle,
-} from '@god-plan/god-kit/vue'
+} from 'god-kit/vue'
 
 const accordionOpen = ref<(string | number)[]>([])
 const multiOpen = ref<(string | number)[]>(['b'])

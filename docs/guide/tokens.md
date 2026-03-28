@@ -6,14 +6,14 @@ outline: [2, 3]
 
 # Design tokens
 
-God Kit exposes **semantic CSS variables** (`--gk-*`) as the single source of truth for color, space, radius, and typography. Import **`@god-plan/god-kit/tokens.css`** once at app entry.
+God Kit exposes **semantic CSS variables** (`--gk-*`) as the single source of truth for color, space, radius, and typography. Import **`god-kit/tokens.css`** once at app entry.
 
 ## Typed map
 
 Use `gkTokens` when you need variable names in TypeScript (documentation, theme tooling):
 
 ```ts
-import { gkTokens } from '@god-plan/god-kit/vue'
+import { gkTokens } from 'god-kit/vue'
 
 // gkTokens.color.primary → '--gk-color-primary'
 ```
@@ -32,7 +32,7 @@ Apply **`gk-density-compact`** on `:root` or a wrapper to tighten **`--gk-contro
 
 ## Vuetify bridge
 
-While migrating from Vuetify, import **`@god-plan/god-kit/bridge/vuetify.css`** after Vuetify theme CSS so `--v-theme-*` maps into `--gk-*` and `Gk*` components align with existing screens.
+While migrating from Vuetify, import **`god-kit/bridge/vuetify.css`** after Vuetify theme CSS so `--v-theme-*` maps into `--gk-*` and `Gk*` components align with existing screens.
 
 ## Source files
 

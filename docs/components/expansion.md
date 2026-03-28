@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Expansion panels
 
-Composable **accordion / disclosure** UI: **`GkExpansionPanels`** owns **`v-model`** (open panel keys), **`GkExpansionPanel`** registers a **`value`** and provides context to **`GkExpansionPanelTitle`** (header button) and **`GkExpansionPanelText`** (collapsible body). **`GK_EXPANSION_PANELS`** and **`GK_EXPANSION_PANEL`** are exported from **`@god-plan/god-kit/vue`** for advanced composition.
+Composable **accordion / disclosure** UI: **`GkExpansionPanels`** owns **`v-model`** (open panel keys), **`GkExpansionPanel`** registers a **`value`** and provides context to **`GkExpansionPanelTitle`** (header button) and **`GkExpansionPanelText`** (collapsible body). **`GK_EXPANSION_PANELS`** and **`GK_EXPANSION_PANEL`** are exported from **`god-kit/vue`** for advanced composition.
 
 This is intentionally smaller than Vuetify’s expansion stack: no **VDefaultsProvider**, elevation/rounded prop matrices, or group item registry beyond **`value`** matching.
 
@@ -75,7 +75,7 @@ import {
   GkExpansionPanels,
   GkExpansionPanelText,
   GkExpansionPanelTitle,
-} from '@god-plan/god-kit/vue'
+} from 'god-kit/vue'
 
 const open = ref<(string | number)[]>([])
 </script>

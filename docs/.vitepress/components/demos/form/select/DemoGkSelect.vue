@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkField, GkSelect } from '@god-plan/god-kit/vue'
+import { GkField, GkSelect } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const value = ref<string | undefined>('b')

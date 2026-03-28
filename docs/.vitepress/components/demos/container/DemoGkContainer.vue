@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkContainer } from '@god-plan/god-kit/vue'
+import { GkContainer } from 'god-kit/vue'
 </script>
 
 <template>

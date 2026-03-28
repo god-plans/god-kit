@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkTooltip } from '@god-plan/god-kit/vue'
+import { GkButton, GkTooltip } from 'god-kit/vue'
 
 const placement = ref<'top' | 'bottom' | 'start' | 'end'>('bottom')
 const interactive = ref(false)

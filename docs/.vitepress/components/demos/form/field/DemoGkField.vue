@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkButton, GkField, GkInput } from '@god-plan/god-kit/vue'
+import { GkButton, GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')

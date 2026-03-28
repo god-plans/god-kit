@@ -12,8 +12,8 @@ export default defineConfig({
   resolve: {
     alias: {
       // Dev against source (no library rebuild needed)
-      '@god-plan/god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
-      '@god-plan/god-kit/tokens.css': resolve(kitRoot, 'src/tokens/tokens.css'),
+      'god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
+      'god-kit/tokens.css': resolve(kitRoot, 'src/tokens/tokens.css'),
     },
   },
   server: {

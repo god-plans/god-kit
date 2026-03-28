@@ -64,7 +64,7 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkDialog } from '@god-plan/god-kit/vue'
+import { GkButton, GkDialog } from 'god-kit/vue'
 </script>
 
 <template>

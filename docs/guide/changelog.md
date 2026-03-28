@@ -1,23 +1,23 @@
 ---
 title: Changelog
-description: Release history for @god-plan/god-kit.
+description: Release history for god-kit.
 outline: [2, 3]
 ---
 
 # Changelog
 
-All notable changes to `@god-plan/god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (same content, committed for npm and git history).
+All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (same content, committed for npm and git history).
 
 ## [Unreleased]
 
 ### Added
 
-- **Global configuration:** **`createGkKit`** (`@god-plan/god-kit/vue/config`), **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, injection keys **`GK_THEME`**, **`GK_DISPLAY_CONFIG`**, **`GK_LOCALE`**, **`GK_DEFAULTS`**, **`data-gk-theme`** / dark tokens, English **`gkEnMessages`**, **`GkVueI18nAdapter`**. Guide: **[Global configuration](./global-configuration)**.
+- **Global configuration:** **`createGkKit`** (`god-kit/vue/config`), **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, injection keys **`GK_THEME`**, **`GK_DISPLAY_CONFIG`**, **`GK_LOCALE`**, **`GK_DEFAULTS`**, **`data-gk-theme`** / dark tokens, English **`gkEnMessages`**, **`GkVueI18nAdapter`**. Guide: **[Global configuration](./global-configuration)**.
 - **GkSnackbar** + **`GkSnackbarHost`**, **`pushGkSnackbar`** / **`useGkSnackbar`** — see **`/components/feedback/snackbar`** and root **`CHANGELOG.md`**.
 - **GkSkeletonLoader** — see **`/components/feedback/skeleton-loader`** and root **`CHANGELOG.md`**.
 - **GkNavigationDrawer** — see **`/components/containment/navigation-drawer`** and root **`CHANGELOG.md`**.
 - **GkPagination** + **`pagination-range`** — see **`/components/navigation/pagination`** and root **`CHANGELOG.md`**.
-- **GkTabs** family + **`GK_TABS`** — see **`/components/navigation/tabs`**, **`@god-plan/god-kit/vue/navigation`**, and root **`CHANGELOG.md`**.
+- **GkTabs** family + **`GK_TABS`** — see **`/components/navigation/tabs`**, **`god-kit/vue/navigation`**, and root **`CHANGELOG.md`**.
 - **GkTooltip** + **`useTooltipPosition`** — see **`/components/containment/tooltip`** and root **`CHANGELOG.md`**.
 - **GkMenu** + **`useMenuAnchorPosition`** — see **`/components/containment/menu`** and root **`CHANGELOG.md`**.
 - **Expansion panels** — **`GkExpansionPanels`**, **`GkExpansionPanel`**, **`GkExpansionPanelTitle`**, **`GkExpansionPanelText`**; see **`/components/expansion`** and root **`CHANGELOG.md`**.
@@ -47,7 +47,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 - **Primitives:** `GkTextarea`, `GkCheckbox`, `GkRadioGroup`, `GkRadio`, `GkSelect`, `GkAlert`, `GkStack`, `GkContainer`, `GkDivider`, `GkSpinner` — each with unit tests, `*.a11y.spec.ts`, VitePress demo, and component docs.
 - **Injection:** `GK_RADIO_GROUP` and `GkRadioGroupContext` for radio groups; optional `ariaLabel` on `GkRadioGroup`.
 - **Tokens:** semantic surfaces for success, info, and warning (CSS + `gkTokens` keys).
-- **Subpath exports:** `@god-plan/god-kit/vue/form` and `@god-plan/god-kit/vue/layout`.
+- **Subpath exports:** `god-kit/vue/form` and `god-kit/vue/layout`.
 - **Docs:** [Build and bundling](./build-and-bundling), [Consumer bundle analysis](./consumer-bundle-analysis).
 - **Scaffolding:** `scripts/new-component.mjs` for new primitive stubs.
 
@@ -56,7 +56,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 ### Added
 
 - **Package layout:** one folder per primitive under `src/vue/components/{button,field,input}/` with co-located tests.
-- **Composables:** `useFieldIds()` and `useFormControl()` for stable ids and headless ARIA-oriented state (exported from `@god-plan/god-kit/vue`).
+- **Composables:** `useFieldIds()` and `useFormControl()` for stable ids and headless ARIA-oriented state (exported from `god-kit/vue`).
 - **Tokens:** semantic `--gk-color-on-surface` / `-muted`, `--gk-color-text-disabled`, overlay and disabled opacity, `--gk-focus-ring-width`, density variables and **`.gk-density-compact`** for tighter controls.
 - **Vuetify bridge:** extended mappings for on-surface and disabled where Vuetify exposes theme variables.
 - **RTL:** logical CSS (`padding-inline`, `text-align: start`, etc.), [RTL and i18n](./rtl) guide, and RTL smoke tests for `GkField` + `GkInput`.
@@ -73,4 +73,4 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
-- Initial `@god-plan/god-kit` release: design tokens (`tokens.css`, `gkTokens`), **GkButton**, **GkInput**, **GkField**, Vuetify bridge CSS, Vitest unit tests, playground, VitePress docs, Stitch dev tooling (`tools/stitch`), and `god-panel-nuxt` demo page integration.
+- Initial `god-kit` release: design tokens (`tokens.css`, `gkTokens`), **GkButton**, **GkInput**, **GkField**, Vuetify bridge CSS, Vitest unit tests, playground, VitePress docs, Stitch dev tooling (`tools/stitch`), and `god-panel-nuxt` demo page integration.

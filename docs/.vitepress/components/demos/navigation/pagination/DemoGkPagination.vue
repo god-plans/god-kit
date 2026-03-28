@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkPagination } from '@god-plan/god-kit/vue'
+import { GkPagination } from 'god-kit/vue'
 
 const page = ref(3)
 const length = ref(24)

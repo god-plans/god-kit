@@ -25,7 +25,7 @@ CSS spinner with **`role="status"`**, **`aria-live="polite"`**, and configurable
 
 ```vue
 <script setup lang="ts">
-import { GkSpinner } from '@god-plan/god-kit/vue'
+import { GkSpinner } from 'god-kit/vue'
 </script>
 
 <template>

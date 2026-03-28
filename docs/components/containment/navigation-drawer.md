@@ -75,4 +75,4 @@ Additional attributes are forwarded to the root element (not duplicated on inner
 
 ### Types
 
-**`GkNavigationDrawerLocation`** and **`GkNavigationDrawerImageSlotProps`** are exported from **`@god-plan/god-kit/vue`**.
+**`GkNavigationDrawerLocation`** and **`GkNavigationDrawerImageSlotProps`** are exported from **`god-kit/vue`**.

@@ -58,7 +58,7 @@ Use for actions in forms, dialogs, and toolbars. Prefer `type="submit"` inside f
 
 ```vue
 <script setup lang="ts">
-import { GkButton } from '@god-plan/god-kit/vue'
+import { GkButton } from 'god-kit/vue'
 </script>
 
 <template>

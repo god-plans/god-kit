@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkButton, GkOverlay } from '@god-plan/god-kit/vue'
+import { GkButton, GkOverlay } from 'god-kit/vue'
 
 const basicOpen = ref(false)
 const persistentOpen = ref(false)

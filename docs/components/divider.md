@@ -24,7 +24,7 @@ One-pixel divider using **`border`** tokens. Exposes **`role="separator"`** and 
 
 ```vue
 <script setup lang="ts">
-import { GkDivider } from '@god-plan/god-kit/vue'
+import { GkDivider } from 'god-kit/vue'
 </script>
 
 <template>

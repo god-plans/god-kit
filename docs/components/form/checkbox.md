@@ -46,7 +46,7 @@ Root **`class`** applies to the outer wrapper; other attributes are forwarded to
 
 ```vue
 <script setup lang="ts">
-import { GkCheckbox } from '@god-plan/god-kit/vue'
+import { GkCheckbox } from 'god-kit/vue'
 import { ref } from 'vue'
 const ok = ref(false)
 </script>

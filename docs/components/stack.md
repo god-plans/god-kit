@@ -35,7 +35,7 @@ Layout primitive: **`display: flex`** with **`direction`**, **`gap`**, alignment
 
 ```vue
 <script setup lang="ts">
-import { GkStack } from '@god-plan/god-kit/vue'
+import { GkStack } from 'god-kit/vue'
 </script>
 
 <template>

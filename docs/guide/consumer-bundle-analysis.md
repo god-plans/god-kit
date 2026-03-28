@@ -1,6 +1,6 @@
 ---
 title: Consumer bundle analysis
-description: How to inspect how much @god-plan/god-kit contributes in god-panel-nuxt.
+description: How to inspect how much god-kit contributes in god-panel-nuxt.
 outline: [2, 3]
 ---
 
@@ -17,13 +17,13 @@ cd god-panel-nuxt/god-panel-nuxt
 npx nuxi analyze
 ```
 
-This produces a visual report of the production client bundle. Search or filter for the chunk that contains **`@god-plan/god-kit`** (often alongside `node_modules` paths or vendor chunks) to see how much of the kit and its dependencies are pulled in.
+This produces a visual report of the production client bundle. Search or filter for the chunk that contains **`god-kit`** (often alongside `node_modules` paths or vendor chunks) to see how much of the kit and its dependencies are pulled in.
 
 **Tip:** Run the command after a clean `nuxt build` if you want numbers that match CI; keep Node and Nuxt versions aligned with production.
 
 ## Rollup visualizer (optional)
 
-If you add **`rollup-plugin-visualizer`** to the Nuxt `vite` config (or use a Nuxt module that wraps it), you can generate a **static HTML treemap** of the Rollup output. That helps compare before/after when adding new `Gk*` imports or changing import paths (e.g. `@god-plan/god-kit/vue/form` vs the main barrel).
+If you add **`rollup-plugin-visualizer`** to the Nuxt `vite` config (or use a Nuxt module that wraps it), you can generate a **static HTML treemap** of the Rollup output. That helps compare before/after when adding new `Gk*` imports or changing import paths (e.g. `god-kit/vue/form` vs the main barrel).
 
 ## What to watch
 

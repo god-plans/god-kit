@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkTab, GkTabs, GkTabsWindowItem } from '@god-plan/god-kit/vue'
+import { GkTab, GkTabs, GkTabsWindowItem } from 'god-kit/vue'
 
 const tab = ref(1)
 const align = ref<'start' | 'title' | 'center' | 'end'>('start')

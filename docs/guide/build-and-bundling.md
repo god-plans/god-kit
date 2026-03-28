@@ -1,6 +1,6 @@
 ---
 title: Build and bundling
-description: sideEffects, tree-shaking, and optional subpath exports for @god-plan/god-kit.
+description: sideEffects, tree-shaking, and optional subpath exports for god-kit.
 outline: [2, 3]
 ---
 
@@ -25,22 +25,22 @@ JSON does not allow comments; keep rationale here in the docs instead of inline 
 
 ## Tree-shaking and exports
 
-The main entry **`@god-plan/god-kit/vue`** uses **static named exports** so unused components can be dropped by the app bundler.
+The main entry **`god-kit/vue`** uses **static named exports** so unused components can be dropped by the app bundler.
 
 Optional **subpath exports** split barrels for semantic imports:
 
 | Import path | Contents |
 |-------------|----------|
-| `@god-plan/god-kit/vue/form` | Form primitives, field injection keys, composables |
-| `@god-plan/god-kit/vue/layout` | Alerts, stack, container, divider, spinner |
-| `@god-plan/god-kit/vue/navigation` | Tabs (**GkTabs**, **GkTab**, **GkTabsWindow**, **GkTabsWindowItem**), **`parseGkTabItems`** |
-| `@god-plan/god-kit/vue/config` | **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, providers |
+| `god-kit/vue/form` | Form primitives, field injection keys, composables |
+| `god-kit/vue/layout` | Alerts, stack, container, divider, spinner |
+| `god-kit/vue/navigation` | Tabs (**GkTabs**, **GkTab**, **GkTabsWindow**, **GkTabsWindowItem**), **`parseGkTabItems`** |
+| `god-kit/vue/config` | **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, providers |
 
 They share the same build output chunks as the main entry; use them when you want clearer import boundaries in app code.
 
 ## Global config
 
-Runtime plugin and composables live under **`@god-plan/god-kit/vue/config`**. See **[Global configuration](./global-configuration)** for setup, theme, display, i18n, defaults, aliases, and tree-shaking notes.
+Runtime plugin and composables live under **`god-kit/vue/config`**. See **[Global configuration](./global-configuration)** for setup, theme, display, i18n, defaults, aliases, and tree-shaking notes.
 
 ## Source layout
 

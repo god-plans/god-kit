@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Global configuration
 
-God Kit exposes a Vue plugin, **`createGkKit`**, that centralizes runtime options: **theme** (light / dark / system), **display** breakpoints, **locale** and **`t()`**, **defaults** per component, and optional **aliases**. Import from **`@god-plan/god-kit/vue/config`** so your app can tree-shake the rest of the library as needed.
+God Kit exposes a Vue plugin, **`createGkKit`**, that centralizes runtime options: **theme** (light / dark / system), **display** breakpoints, **locale** and **`t()`**, **defaults** per component, and optional **aliases**. Import from **`god-kit/vue/config`** so your app can tree-shake the rest of the library as needed.
 
 ## Can I use a config file?
 
@@ -14,7 +14,7 @@ The package does **not** read a fixed path like `gk.config.json` at runtime. You
 
 ```ts
 // src/gk.config.ts
-import type { GkKitOptions } from '@god-plan/god-kit/vue/config'
+import type { GkKitOptions } from 'god-kit/vue/config'
 
 export const gkKitConfig: GkKitOptions = {
   theme: { defaultTheme: 'system' },
@@ -32,7 +32,7 @@ export const gkKitConfig: GkKitOptions = {
 
 ```ts
 // main.ts
-import { createGkKit } from '@god-plan/god-kit/vue/config'
+import { createGkKit } from 'god-kit/vue/config'
 import { gkKitConfig } from './gk.config'
 
 app.use(createGkKit(gkKitConfig))
@@ -46,7 +46,7 @@ Register the plugin once in your app entry (after creating the app):
 
 ```ts
 import { createApp } from 'vue'
-import { createGkKit } from '@god-plan/god-kit/vue/config'
+import { createGkKit } from 'god-kit/vue/config'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -150,7 +150,7 @@ This is separate from **color theme**: “display” here means **viewport / lay
 3. **Switch at runtime** by updating the ref from **`useGkLocale()`**:
 
 ```ts
-import { useGkLocale } from '@god-plan/god-kit/vue/config'
+import { useGkLocale } from 'god-kit/vue/config'
 
 const { locale } = useGkLocale()
 locale.value = 'fr'
@@ -183,7 +183,7 @@ You can also register aliases manually with **`app.component`** and add a **`def
 
 ## Tree shaking
 
-The main export **`@god-plan/god-kit/vue`** uses **named exports** and **`sideEffects: ["**/*.css"]`** so unused components can be dropped. The global config entry **`@god-plan/god-kit/vue/config`** is a separate chunk for apps that want **`createGkKit`** and composables without pulling every primitive.
+The main export **`god-kit/vue`** uses **named exports** and **`sideEffects: ["**/*.css"]`** so unused components can be dropped. The global config entry **`god-kit/vue/config`** is a separate chunk for apps that want **`createGkKit`** and composables without pulling every primitive.
 
 Dynamic **`<component :is="...">`** still requires explicit imports for each resolved component (same limitation as Vuetify).
 

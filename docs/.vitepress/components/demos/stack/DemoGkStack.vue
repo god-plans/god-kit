@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkStack } from '@god-plan/god-kit/vue'
+import { GkStack } from 'god-kit/vue'
 </script>
 
 <template>

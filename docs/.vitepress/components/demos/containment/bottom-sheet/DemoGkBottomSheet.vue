@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkBottomSheet, GkButton } from '@god-plan/god-kit/vue'
+import { GkBottomSheet, GkButton } from 'god-kit/vue'
 
 const basicOpen = ref(false)
 const insetOpen = ref(false)

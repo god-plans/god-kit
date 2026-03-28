@@ -58,7 +58,7 @@ Additional attributes are forwarded to the root **`<nav>`**.
 
 ### Utilities
 
-**`createRange`**, **`getMax`**, **`buildPaginationRange`** are exported from **`@god-plan/god-kit/vue`** and **`@god-plan/god-kit/vue/navigation`** for custom UIs.
+**`createRange`**, **`getMax`**, **`buildPaginationRange`** are exported from **`god-kit/vue`** and **`god-kit/vue/navigation`** for custom UIs.
 
 ### Tokens
 
@@ -72,7 +72,7 @@ Additional attributes are forwarded to the root **`<nav>`**.
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkPagination } from '@god-plan/god-kit/vue'
+import { GkPagination } from 'god-kit/vue'
 
 const page = ref(1)
 </script>

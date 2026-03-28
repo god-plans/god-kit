@@ -1,4 +1,4 @@
-# @god-plan/god-kit
+# god-kit
 
 Design tokens and **Vue 3** primitives (`Gk*`) for God Plan apps. Intended to grow into the primary UI layer alongside a phased **Vuetify** removal in `god-panel-nuxt`.
 
@@ -9,7 +9,7 @@ In this monorepo, depend on the workspace package (see root `package.json` works
 ```json
 {
   "dependencies": {
-    "@god-plan/god-kit": "file:../../god-kit"
+    "god-kit": "file:../../god-kit"
   }
 }
 ```
@@ -18,12 +18,12 @@ In this monorepo, depend on the workspace package (see root `package.json` works
 
 | Path | Purpose |
 |------|---------|
-| `@god-plan/god-kit` / `@god-plan/god-kit/vue` | Vue components and `gkTokens` |
-| `@god-plan/god-kit/vue/form` | Form primitives (`GkForm`, `GkInput`, …), `GK_FIELD` / `GK_RADIO_GROUP`, `createForm` |
-| `@god-plan/god-kit/vue/layout` | Layout and feedback primitives (`GkAlert`, `GkStack`, …) |
-| `@god-plan/god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
-| `@god-plan/god-kit/vue.css` | Scoped styles for `Gk*` components |
-| `@god-plan/god-kit/bridge/vuetify.css` | Maps `--v-theme-*` → `--gk-*` while Vuetify remains |
+| `god-kit` / `god-kit/vue` | Vue components and `gkTokens` |
+| `god-kit/vue/form` | Form primitives (`GkForm`, `GkInput`, …), `GK_FIELD` / `GK_RADIO_GROUP`, `createForm` |
+| `god-kit/vue/layout` | Layout and feedback primitives (`GkAlert`, `GkStack`, …) |
+| `god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
+| `god-kit/vue.css` | Scoped styles for `Gk*` components |
+| `god-kit/bridge/vuetify.css` | Maps `--v-theme-*` → `--gk-*` while Vuetify remains |
 
 Import order in Nuxt (or any app): **tokens → optional Vuetify bridge → vue.css → app CSS**.
 
@@ -31,7 +31,7 @@ Import order in Nuxt (or any app): **tokens → optional Vuetify bridge → vue.
 
 ```vue
 <script setup lang="ts">
-import { GkButton, GkField, GkInput } from '@god-plan/god-kit/vue'
+import { GkButton, GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
 const email = ref('')
 </script>
@@ -47,7 +47,7 @@ const email = ref('')
 Typed token names (for docs or tooling):
 
 ```ts
-import { gkTokens } from '@god-plan/god-kit/vue'
+import { gkTokens } from 'god-kit/vue'
 // gkTokens.color.primary → '--gk-color-primary'
 ```
 
@@ -64,7 +64,7 @@ All components use the **`Gk`** prefix (`GkButton`, `GkInput`, `GkField`) to avo
 ## Composables
 
 ```ts
-import { useFieldIds, useFormControl } from '@god-plan/god-kit/vue'
+import { useFieldIds, useFormControl } from 'god-kit/vue'
 ```
 
 `useFieldIds()` returns stable `inputId` / `errorId` strings. `useFormControl({ error })` adds ARIA-oriented computed state when you are **not** wrapping controls in **GkField**.
@@ -95,7 +95,7 @@ npm run build
 
 ## Playground
 
-Local Vite app under [`playground/`](playground/) to try components without publishing or linking into Nuxt. It resolves `@god-plan/god-kit/vue` to **`src/`** so edits hot-reload without running `npm run build`.
+Local Vite app under [`playground/`](playground/) to try components without publishing or linking into Nuxt. It resolves `god-kit/vue` to **`src/`** so edits hot-reload without running `npm run build`.
 
 ```bash
 npm run playground
@@ -139,4 +139,4 @@ Set `STITCH_API_KEY` only in local env or CI secrets—never commit keys.
 
 ## Future: React / Svelte
 
-Keep **tokens** and **behavior** free of Vue where possible. Add framework-specific packages later that consume the same CSS variables and shared TS utilities—Vue components stay under `@god-plan/god-kit/vue`.
+Keep **tokens** and **behavior** free of Vue where possible. Add framework-specific packages later that consume the same CSS variables and shared TS utilities—Vue components stay under `god-kit/vue`.

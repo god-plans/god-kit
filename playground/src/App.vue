@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkButton, GkField, GkInput } from '@god-plan/god-kit/vue'
+import { GkButton, GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')
@@ -21,7 +21,7 @@ function toggleDark() {
     <header class="gk-play__header">
       <h1>God Kit playground</h1>
       <p class="gk-play__sub">
-        Imports <code>@god-plan/god-kit/vue</code> from source via Vite alias (see
+        Imports <code>god-kit/vue</code> from source via Vite alias (see
         <code>playground/vite.config.ts</code>).
       </p>
       <GkButton type="button" variant="secondary" size="sm" @click="toggleDark">

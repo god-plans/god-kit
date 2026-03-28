@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GkButton } from '@god-plan/god-kit/vue'
+import { GkButton } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const busy = ref(false)

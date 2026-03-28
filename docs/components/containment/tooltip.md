@@ -56,7 +56,7 @@ Additional attributes are applied to the **tooltip panel** (not the activator).
 
 ### Composable
 
-**`useTooltipPosition`** is exported from **`@god-plan/god-kit/vue`** for custom fixed tooltips; **`GkTooltipPlacement`** is the placement union type.
+**`useTooltipPosition`** is exported from **`god-kit/vue`** for custom fixed tooltips; **`GkTooltipPlacement`** is the placement union type.
 
 ### Tokens
 
@@ -71,7 +71,7 @@ Additional attributes are applied to the **tooltip panel** (not the activator).
 
 ```vue
 <script setup lang="ts">
-import { GkButton, GkTooltip } from '@god-plan/god-kit/vue'
+import { GkButton, GkTooltip } from 'god-kit/vue'
 </script>
 
 <template>

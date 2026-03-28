@@ -83,7 +83,7 @@ Wrapper around panel content (single root). Usually omitted when **`GkTabs`** re
 
 ### `parseGkTabItems`
 
-Exported from **`@god-plan/god-kit/vue`** (and **`@god-plan/god-kit/vue/navigation`**) for custom lists.
+Exported from **`god-kit/vue`** (and **`god-kit/vue/navigation`**) for custom lists.
 
 ### Injection
 
@@ -106,7 +106,7 @@ Exported from **`@god-plan/god-kit/vue`** (and **`@god-plan/god-kit/vue/navigati
 ```vue
 <script setup lang="ts">
 import { ref } from 'vue'
-import { GkTabs } from '@god-plan/god-kit/vue'
+import { GkTabs } from 'god-kit/vue'
 
 const tab = ref('one')
 </script>
