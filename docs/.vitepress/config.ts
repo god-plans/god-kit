@@ -90,6 +90,7 @@ export default defineConfig({
                 { text: 'GkContainer', link: '/components/container' },
                 { text: 'GkDivider', link: '/components/divider' },
                 { text: 'GkSpinner', link: '/components/spinner' },
+                { text: 'GkSkeletonLoader', link: '/components/feedback/skeleton-loader' },
               ],
             },
           ],

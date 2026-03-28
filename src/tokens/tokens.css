@@ -91,6 +91,25 @@
   --gk-navigation-drawer-floating-margin: var(--gk-space-3);
   --gk-navigation-drawer-floating-radius: var(--gk-radius-lg);
 
+  /** Skeleton loader (GkSkeletonLoader) */
+  --gk-skeleton-loader-gap: var(--gk-space-2);
+  --gk-skeleton-loader-gap-sm: var(--gk-space-1);
+  --gk-skeleton-loader-gap-lg: var(--gk-space-4);
+  --gk-skeleton-loader-radius: var(--gk-radius-sm);
+  --gk-skeleton-loader-track: color-mix(in srgb, var(--gk-color-on-surface-muted) 22%, transparent);
+  --gk-skeleton-loader-wave: color-mix(in srgb, var(--gk-color-on-surface-muted) 50%, transparent);
+  --gk-skeleton-loader-shimmer-duration: 1.6s;
+  --gk-skeleton-loader-ossein-height: 8rem;
+  --gk-skeleton-loader-text-height: 0.75rem;
+  --gk-skeleton-loader-heading-height: 1.25rem;
+  --gk-skeleton-loader-subtitle-height: 0.875rem;
+  --gk-skeleton-loader-avatar-size: 2.5rem;
+  --gk-skeleton-loader-button-height: 2.25rem;
+  --gk-skeleton-loader-button-width: 5rem;
+  --gk-skeleton-loader-chip-height: 1.5rem;
+  --gk-skeleton-loader-chip-width: 4rem;
+  --gk-skeleton-loader-divider-height: 1px;
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

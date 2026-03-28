@@ -20,6 +20,7 @@ import DemoGkField from '../components/demos/form/field/DemoGkField.vue'
 import DemoGkInput from '../components/demos/form/input/DemoGkInput.vue'
 import DemoGkRadio from '../components/demos/form/radio/DemoGkRadio.vue'
 import DemoGkSelect from '../components/demos/form/select/DemoGkSelect.vue'
+import DemoGkSkeletonLoader from '../components/demos/feedback/skeleton-loader/DemoGkSkeletonLoader.vue'
 import DemoGkSpinner from '../components/demos/spinner/DemoGkSpinner.vue'
 import DemoGkStack from '../components/demos/stack/DemoGkStack.vue'
 import DemoGkTextarea from '../components/demos/form/textarea/DemoGkTextarea.vue'
@@ -50,6 +51,7 @@ export default {
     app.component('DemoGkContainer', DemoGkContainer)
     app.component('DemoGkExpansionPanels', DemoGkExpansionPanels)
     app.component('DemoGkDivider', DemoGkDivider)
+    app.component('DemoGkSkeletonLoader', DemoGkSkeletonLoader)
     app.component('DemoGkSpinner', DemoGkSpinner)
   },
 }

@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **GkSkeletonLoader** — see **`/components/feedback/skeleton-loader`** and root **`CHANGELOG.md`**.
 - **GkNavigationDrawer** — see **`/components/containment/navigation-drawer`** and root **`CHANGELOG.md`**.
 - **GkPagination** + **`pagination-range`** — see **`/components/navigation/pagination`** and root **`CHANGELOG.md`**.
 - **GkTabs** family + **`GK_TABS`** — see **`/components/navigation/tabs`**, **`@god-plan/god-kit/vue/navigation`**, and root **`CHANGELOG.md`**.
