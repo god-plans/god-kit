@@ -60,6 +60,7 @@ export default defineConfig({
               collapsed: false,
               items: [
                 { text: 'GkOverlay', link: '/components/containment/overlay' },
+                { text: 'GkDialog', link: '/components/containment/dialog' },
               ],
             },
             {

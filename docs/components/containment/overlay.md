@@ -29,8 +29,10 @@ This is intentionally smaller than Vuetify’s **VOverlay**: no activator slot, 
 | `role` | `string` | `'dialog'` | ARIA role for the panel |
 | `ariaModal` | `boolean` | `true` | Sets **`aria-modal="true"`** when **`true`** (typical for dialogs) |
 | `restoreFocus` | `boolean` | `true` | Focuses the first focusable in the panel on open (or the panel), restores the previous active element on close |
+| `overlayClass` | `unknown` | — | Optional class(es) on the fixed overlay root (`.gk-overlay`) |
+| `contentMaxWidth` | `string` | — | Sets **`--gk-overlay-content-max-width`** on the root (e.g. **`none`**, **`min(100%, 28rem)`**); default in CSS is **`min(100%, 32rem)`** |
 
-Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**, **`id`**) are applied to the **panel** element (the element with **`role`**).
+Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**, **`id`**) are applied to the **panel** element (the element with **`role`**). **`defineExpose`**: **`contentRef`** — the panel element.
 
 ### Slots
 
@@ -44,6 +46,8 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 |-------|---------|-------------|
 | `update:modelValue` | `boolean` | Emitted when the overlay closes |
 | `click:outside` | `MouseEvent` | Emitted when the **scrim** is clicked and the overlay **will** dismiss (not emitted when **`persistent`** is **`true`**) |
+| `afterEnter` | — | Overlay **`<Transition>`** finished entering |
+| `afterLeave` | — | Overlay **`<Transition>`** finished leaving |
 
 ### Tokens
 
@@ -51,6 +55,7 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 |-------|---------|
 | `--gk-overlay-scrim` | Scrim background (defaults via **`--gk-color-overlay`**) |
 | `--gk-overlay-z-index` | Default stacking order (**`2000`**) |
+| `--gk-overlay-content-max-width` | Panel **`max-width`** (default **`min(100%, 32rem)`**; **GkDialog** may override) |
 
 ## Example
 

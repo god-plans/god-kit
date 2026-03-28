@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GkDialog** (`src/vue/components/containment/dialog/GkDialog.vue`): Dialog shell on **GkOverlay** with **`fullscreen`**, **`scrollable`**, dimension props, **`afterEnter`** / **`afterLeave`**, and tokens **`--gk-dialog-z-index`**, **`--gk-dialog-max-width`**, **`--gk-dialog-scroll-max-height`**, **`--gk-dialog-shadow`**. Docs at **`/components/containment/dialog`**; tests **`GkDialog.spec.ts`**, **`GkDialog.a11y.spec.ts`**.
 - **GkOverlay** (`src/vue/components/containment/overlay/GkOverlay.vue`): Teleported overlay with scrim, **`v-model`**, Escape / scrim dismiss, optional **`persistent`** (scrim and Escape do not close), body scroll lock, focus restore, and tokens **`--gk-overlay-scrim`** / **`--gk-overlay-z-index`**. Docs at **`/components/containment/overlay`**; tests **`GkOverlay.spec.ts`**, **`GkOverlay.a11y.spec.ts`**. **Containment** docs section and sidebar in VitePress.
 - **GkForm** (`src/vue/components/form/gk-form/GkForm.vue`): native `<form>` with **`novalidate`**, **`submit`** emission with **`SubmitEventPromise`**, scoped slot helpers from **`createForm`**; composable **`createForm`**, **`attachSubmitPromise`**, and types in **`useForm.ts`**. Docs at **`/components/form/form`**; tests **`GkForm.spec.ts`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
@@ -16,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- **GkOverlay:** optional **`overlayClass`**, **`contentMaxWidth`** (CSS variable **`--gk-overlay-content-max-width`**), **`afterEnter`** / **`afterLeave`** emissions, **`defineExpose`** (**`contentRef`**).
 - **GkTextarea:** **`defineModel`** (optional **`v-model.trim`** on blur), **`inheritAttrs`**, **`autofocus`**, **`update:focused`**, **`defineExpose`** (`textarea`); wrapper **`gk-textarea__wrap`**.
 - **GkRadioGroup** / **GkRadio:** **`defineModel`** on the group; group **`disabled`** / **`readonly`**; **`inheritAttrs`** on group; **`update:focused`** and **`inheritAttrs`** on radio; **`GK_RADIO_GROUP`** context extended with **`isDisabled`** / **`isReadonly`**.
 - **GkSelect:** **`defineModel`**, **`multiple`** (array value), **`readonly`**, **`required`**, **`size`**, **`autocomplete`**, **`update:focused`**, **`inheritAttrs`**, **`defineExpose`** (`select` ref); stays native `<select>` (no VMenu / VList / chips / search).

@@ -36,6 +36,12 @@ export const gkTokens = {
     scrim: '--gk-overlay-scrim',
     zIndex: '--gk-overlay-z-index',
   },
+  dialog: {
+    zIndex: '--gk-dialog-z-index',
+    maxWidth: '--gk-dialog-max-width',
+    scrollMaxHeight: '--gk-dialog-scroll-max-height',
+    shadow: '--gk-dialog-shadow',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

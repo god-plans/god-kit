@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **GkDialog** — Dialog shell on **GkOverlay**; see **`/components/containment/dialog`** and root **`CHANGELOG.md`**.
 - **GkOverlay** — Teleported overlay primitive; see **`/components/containment/overlay`** and root **`CHANGELOG.md`**.
 - **GkForm** + **`createForm`** / **`attachSubmitPromise`** — see **`/components/form/form`** and root **`CHANGELOG.md`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
@@ -19,6 +20,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Changed
 
+- **GkOverlay:** **`overlayClass`**, **`contentMaxWidth`**, **`afterEnter`** / **`afterLeave`**, **`contentRef`** expose. See root **`CHANGELOG.md`**.
 - **GkTextarea** / **GkRadio** / **GkRadioGroup:** attrs forwarding, **`update:focused`**, **`GK_RADIO_GROUP`** updates. See root **`CHANGELOG.md`**.
 - **GkSelect:** **`multiple`**, **`readonly`**, **`update:focused`**, attrs forwarding. See root **`CHANGELOG.md`**.
 - **GkCheckbox:** **`indeterminate`**, **`readonly`**, **`value`**, **`update:focused`**, attrs forwarding. See root **`CHANGELOG.md`**.

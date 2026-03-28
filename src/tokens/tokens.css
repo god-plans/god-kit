@@ -43,6 +43,12 @@
   /** Stacking order for Teleported overlays */
   --gk-overlay-z-index: 2000;
 
+  /** Dialog (GkDialog) — above default overlay */
+  --gk-dialog-z-index: 2400;
+  --gk-dialog-max-width: 28rem;
+  --gk-dialog-scroll-max-height: 24rem;
+  --gk-dialog-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

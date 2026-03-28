@@ -22,11 +22,12 @@ Primitives use the **`Gk`** prefix. Each page documents props, events, slots, an
 
 ## Containment
 
-Overlays, modal shells, and other primitives that **contain** focus and layer above the page. More primitives (for example a full dialog shell) may follow.
+Overlays, modal shells, and other primitives that **contain** focus and layer above the page.
 
 | Component | Description |
 |-----------|-------------|
 | [GkOverlay](./containment/overlay) | Teleported overlay with scrim, **`v-model`**, Escape / scrim dismiss, body scroll lock, and tokenized stacking |
+| [GkDialog](./containment/dialog) | Dialog shell built on **GkOverlay** — **`fullscreen`**, **`scrollable`**, sizing props, **`afterEnter`** / **`afterLeave`** |
 
 ## Feedback & layout
 

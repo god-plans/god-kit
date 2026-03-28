@@ -29,6 +29,13 @@ const props = withDefaults(
     ariaModal?: boolean
     /** Move focus into the panel on open and restore the previous active element on close */
     restoreFocus?: boolean
+    /** Optional class(es) on the fixed overlay root (`.gk-overlay`) */
+    overlayClass?: string | Record<string, boolean> | Array<string | Record<string, boolean>>
+    /**
+     * Sets `--gk-overlay-content-max-width` on the overlay root (e.g. `none`, `min(100%, 28rem)`).
+     * When omitted, the default is `min(100%, 32rem)` via CSS.
+     */
+    contentMaxWidth?: string
   }>(),
   {
     persistent: false,
@@ -43,6 +50,8 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   'click:outside': [event: MouseEvent]
+  afterEnter: []
+  afterLeave: []
 }>()
 
 const model = defineModel<boolean>({ default: false })
@@ -57,9 +66,16 @@ const contentAttrs = computed(() => {
 const contentClass = computed(() => attrs.class)
 
 const overlayStyle = computed(() => {
-  if (props.zIndex === undefined) return undefined
-  const z = typeof props.zIndex === 'number' ? String(props.zIndex) : props.zIndex
-  return { zIndex: z } as Record<string, string>
+  const z = props.zIndex
+  const cw = props.contentMaxWidth
+  const style: Record<string, string> = {}
+  if (z !== undefined) {
+    style.zIndex = typeof z === 'number' ? String(z) : z
+  }
+  if (cw !== undefined) {
+    style['--gk-overlay-content-max-width'] = cw
+  }
+  return Object.keys(style).length ? style : undefined
 })
 
 const ariaModalAttr = computed(() => (props.ariaModal ? 'true' : undefined))
@@ -133,14 +149,19 @@ onUnmounted(() => {
     document.body.style.overflow = previousBodyOverflow
   }
 })
+
+defineExpose({
+  contentRef,
+})
 </script>
 
 <template>
   <Teleport :to="to">
-    <Transition name="gk-overlay">
+    <Transition name="gk-overlay" @after-enter="emit('afterEnter')" @after-leave="emit('afterLeave')">
       <div
         v-if="model"
         class="gk-overlay"
+        :class="overlayClass"
         :style="overlayStyle"
         role="presentation"
       >
@@ -189,7 +210,7 @@ onUnmounted(() => {
 .gk-overlay__content {
   position: relative;
   z-index: 1;
-  max-width: min(100%, 32rem);
+  max-width: var(--gk-overlay-content-max-width, min(100%, 32rem));
   outline: none;
 }
 
