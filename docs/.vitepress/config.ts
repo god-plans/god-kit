@@ -91,6 +91,7 @@ export default defineConfig({
                 { text: 'GkDivider', link: '/components/divider' },
                 { text: 'GkSpinner', link: '/components/spinner' },
                 { text: 'GkSkeletonLoader', link: '/components/feedback/skeleton-loader' },
+                { text: 'GkSnackbar', link: '/components/feedback/snackbar' },
               ],
             },
           ],

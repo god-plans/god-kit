@@ -110,6 +110,19 @@
   --gk-skeleton-loader-chip-width: 4rem;
   --gk-skeleton-loader-divider-height: 1px;
 
+  /** Snackbar (GkSnackbar) */
+  --gk-snackbar-z-index: 2300;
+  --gk-snackbar-inset: var(--gk-space-4);
+  --gk-snackbar-max-width: min(100%, 28rem);
+  --gk-snackbar-min-height: 3rem;
+  --gk-snackbar-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
+  --gk-snackbar-stack-unit: 3.5rem;
+  --gk-snackbar-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --gk-snackbar-elevation-2: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --gk-snackbar-elevation-3: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --gk-snackbar-elevation-4: 0 8px 20px rgba(0, 0, 0, 0.14);
+  --gk-snackbar-elevation-5: 0 12px 28px rgba(0, 0, 0, 0.16);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

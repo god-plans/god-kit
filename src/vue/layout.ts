@@ -17,6 +17,15 @@ export {
   wrapGkSkeletonTypes,
 } from './components/feedback/skeleton-loader/gk-skeleton-tree'
 export type { GkSkeletonNode } from './components/feedback/skeleton-loader/gk-skeleton-tree'
+export { default as GkSnackbar } from './components/feedback/snackbar/GkSnackbar.vue'
+export { default as GkSnackbarHost } from './components/feedback/snackbar/GkSnackbarHost.vue'
+export { gkSnackbarQueueState } from './components/feedback/snackbar/gk-snackbar-queue'
+export {
+  clearGkSnackbars,
+  pushGkSnackbar,
+  useGkSnackbar,
+} from './components/feedback/snackbar/useGkSnackbar'
+export type { GkSnackbarPushOptions } from './components/feedback/snackbar/useGkSnackbar'
 export { default as GkExpansionPanels } from './components/expansion/GkExpansionPanels.vue'
 export { default as GkExpansionPanel } from './components/expansion/GkExpansionPanel.vue'
 export { default as GkExpansionPanelTitle } from './components/expansion/GkExpansionPanelTitle.vue'

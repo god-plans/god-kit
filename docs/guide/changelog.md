@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **GkSnackbar** + **`GkSnackbarHost`**, **`pushGkSnackbar`** / **`useGkSnackbar`** — see **`/components/feedback/snackbar`** and root **`CHANGELOG.md`**.
 - **GkSkeletonLoader** — see **`/components/feedback/skeleton-loader`** and root **`CHANGELOG.md`**.
 - **GkNavigationDrawer** — see **`/components/containment/navigation-drawer`** and root **`CHANGELOG.md`**.
 - **GkPagination** + **`pagination-range`** — see **`/components/navigation/pagination`** and root **`CHANGELOG.md`**.

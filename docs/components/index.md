@@ -58,5 +58,6 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkDivider](./divider) | Horizontal or vertical separator |
 | [GkSpinner](./spinner) | Loading indicator with `role="status"` |
 | [GkSkeletonLoader](./feedback/skeleton-loader) | Preset skeleton layouts — **`type`**, shimmer / **`boilerplate`**, **`loading`** |
+| [GkSnackbar](./feedback/snackbar) | Transient messages — **`timeout`**, **`timer`**, **`pushGkSnackbar`**, **`GkSnackbarHost`** |
 
 Form-focused imports are also available from **`@god-plan/god-kit/vue/form`**, layout primitives from **`@god-plan/god-kit/vue/layout`**, and navigation primitives from **`@god-plan/god-kit/vue/navigation`** (see [Build and bundling](../guide/build-and-bundling)).
