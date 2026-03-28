@@ -30,6 +30,13 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkDialog](./containment/dialog) | Dialog shell built on **GkOverlay** — **`fullscreen`**, **`scrollable`**, sizing props, **`afterEnter`** / **`afterLeave`** |
 | [GkBottomSheet](./containment/bottom-sheet) | Bottom-anchored sheet on **GkOverlay** — **`inset`**, **`scrollable`**, slide-up transition |
 
+## Expansion
+
+| Component | Description |
+|-----------|-------------|
+| [GkExpansionPanels](./expansion) | Accordion container with **`v-model`** (open keys), **`multiple`**, **`disabled`** |
+| (children) | **GkExpansionPanel**, **GkExpansionPanelTitle**, **GkExpansionPanelText** — see the expansion page |
+
 ## Feedback & layout
 
 | Component | Description |

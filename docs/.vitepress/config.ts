@@ -65,6 +65,11 @@ export default defineConfig({
               ],
             },
             {
+              text: 'Expansion',
+              collapsed: false,
+              items: [{ text: 'Expansion panels', link: '/components/expansion' }],
+            },
+            {
               text: 'Feedback & layout',
               collapsed: false,
               items: [

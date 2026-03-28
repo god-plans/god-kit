@@ -1,7 +1,17 @@
 export { gkTokens } from '../tokens/tokens'
 export type { GkTokenPath } from '../tokens/tokens'
-export { GK_FIELD, GK_RADIO_GROUP } from '../injection'
-export type { GkFieldContext, GkRadioGroupContext } from '../injection'
+export {
+  GK_EXPANSION_PANEL,
+  GK_EXPANSION_PANELS,
+  GK_FIELD,
+  GK_RADIO_GROUP,
+} from '../injection'
+export type {
+  GkExpansionPanelContext,
+  GkExpansionPanelsContext,
+  GkFieldContext,
+  GkRadioGroupContext,
+} from '../injection'
 
 export { useFieldIds } from './composables/useFieldIds'
 export type { GkFieldIds } from './composables/useFieldIds'
@@ -40,3 +50,7 @@ export { default as GkStack } from './components/stack/GkStack.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'
 export { default as GkSpinner } from './components/spinner/GkSpinner.vue'
+export { default as GkExpansionPanels } from './components/expansion/GkExpansionPanels.vue'
+export { default as GkExpansionPanel } from './components/expansion/GkExpansionPanel.vue'
+export { default as GkExpansionPanelTitle } from './components/expansion/GkExpansionPanelTitle.vue'
+export { default as GkExpansionPanelText } from './components/expansion/GkExpansionPanelText.vue'

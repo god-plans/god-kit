@@ -8,6 +8,7 @@ import DemoGkDialog from '../components/demos/containment/dialog/DemoGkDialog.vu
 import DemoGkOverlay from '../components/demos/containment/overlay/DemoGkOverlay.vue'
 import DemoGkCheckbox from '../components/demos/form/checkbox/DemoGkCheckbox.vue'
 import DemoGkContainer from '../components/demos/container/DemoGkContainer.vue'
+import DemoGkExpansionPanels from '../components/demos/expansion/DemoGkExpansionPanels.vue'
 import DemoGkDivider from '../components/demos/divider/DemoGkDivider.vue'
 import DemoGkForm from '../components/demos/form/form/DemoGkForm.vue'
 import DemoGkField from '../components/demos/form/field/DemoGkField.vue'
@@ -37,6 +38,7 @@ export default {
     app.component('DemoGkAlert', DemoGkAlert)
     app.component('DemoGkStack', DemoGkStack)
     app.component('DemoGkContainer', DemoGkContainer)
+    app.component('DemoGkExpansionPanels', DemoGkExpansionPanels)
     app.component('DemoGkDivider', DemoGkDivider)
     app.component('DemoGkSpinner', DemoGkSpinner)
   },
