@@ -61,6 +61,13 @@
   --gk-menu-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
   --gk-menu-scrim: transparent;
 
+  /** Tooltip (GkTooltip) — above menu, below dialog */
+  --gk-tooltip-z-index: 2200;
+  --gk-tooltip-max-width: min(20rem, calc(100vw - 2rem));
+  --gk-tooltip-padding-x: var(--gk-space-2);
+  --gk-tooltip-padding-y: var(--gk-space-1);
+  --gk-tooltip-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

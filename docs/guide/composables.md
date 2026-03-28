@@ -57,6 +57,23 @@ const form = createForm({
 
 See **[GkForm](/components/form/form)** for **`SubmitEventPromise`** and submit handling.
 
+## `useTooltipPosition`
+
+Positions a **fixed** tooltip panel relative to an anchor element for **`top`**, **`bottom`**, **`start`**, and **`end`** placements, with viewport clamping and **`scroll`** / **`resize`** listeners. **GkTooltip** uses this internally.
+
+```ts
+import { ref } from 'vue'
+import { useTooltipPosition } from '@god-plan/god-kit/vue'
+
+const open = ref(false)
+const anchorEl = ref<HTMLElement | null>(null)
+const panelEl = ref<HTMLElement | null>(null)
+const placement = ref<'top' | 'bottom' | 'start' | 'end'>('bottom')
+const offset = ref(10)
+
+const { panelStyle, update } = useTooltipPosition(open, anchorEl, panelEl, placement, offset)
+```
+
 ## `useButtonInteractionState`
 
 Combines **`disabled`**, **`readonly`**, and **`loading`** into a single **`blocksAction`** ref for click guards (used by **GkButton**; reuse for other pressable primitives).

@@ -54,6 +54,13 @@ export const gkTokens = {
     shadow: '--gk-menu-shadow',
     scrim: '--gk-menu-scrim',
   },
+  tooltip: {
+    zIndex: '--gk-tooltip-z-index',
+    maxWidth: '--gk-tooltip-max-width',
+    paddingX: '--gk-tooltip-padding-x',
+    paddingY: '--gk-tooltip-padding-y',
+    shadow: '--gk-tooltip-shadow',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

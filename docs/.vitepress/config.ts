@@ -63,6 +63,7 @@ export default defineConfig({
                 { text: 'GkDialog', link: '/components/containment/dialog' },
                 { text: 'GkBottomSheet', link: '/components/containment/bottom-sheet' },
                 { text: 'GkMenu', link: '/components/containment/menu' },
+                { text: 'GkTooltip', link: '/components/containment/tooltip' },
               ],
             },
             {

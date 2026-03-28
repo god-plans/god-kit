@@ -32,6 +32,8 @@ export type {
 export { useButtonInteractionState } from './composables/useButtonInteraction'
 export { useMenuAnchorPosition } from './composables/useMenuAnchorPosition'
 export type { GkMenuPlacement } from './composables/useMenuAnchorPosition'
+export { useTooltipPosition } from './composables/useTooltipPosition'
+export type { GkTooltipPlacement } from './composables/useTooltipPosition'
 
 export { default as GkButton } from './components/button/GkButton.vue'
 export { default as GkForm } from './components/form/gk-form/GkForm.vue'
@@ -49,6 +51,7 @@ export { default as GkOverlay } from './components/containment/overlay/GkOverlay
 export { default as GkDialog } from './components/containment/dialog/GkDialog.vue'
 export { default as GkBottomSheet } from './components/containment/bottom-sheet/GkBottomSheet.vue'
 export { default as GkMenu } from './components/containment/menu/GkMenu.vue'
+export { default as GkTooltip } from './components/containment/tooltip/GkTooltip.vue'
 export { default as GkStack } from './components/stack/GkStack.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'
