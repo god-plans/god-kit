@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GkOverlay** (`src/vue/components/containment/overlay/GkOverlay.vue`): Teleported overlay with scrim, **`v-model`**, Escape / scrim dismiss, optional **`persistent`** (scrim and Escape do not close), body scroll lock, focus restore, and tokens **`--gk-overlay-scrim`** / **`--gk-overlay-z-index`**. Docs at **`/components/containment/overlay`**; tests **`GkOverlay.spec.ts`**, **`GkOverlay.a11y.spec.ts`**. **Containment** docs section and sidebar in VitePress.
 - **GkForm** (`src/vue/components/form/gk-form/GkForm.vue`): native `<form>` with **`novalidate`**, **`submit`** emission with **`SubmitEventPromise`**, scoped slot helpers from **`createForm`**; composable **`createForm`**, **`attachSubmitPromise`**, and types in **`useForm.ts`**. Docs at **`/components/form/form`**; tests **`GkForm.spec.ts`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
 - **Documentation:** [Component authoring](docs/guide/component-authoring.md) — structure, Vuetify-style doc mapping, copy-paste agent prompt, and phasing guidance for large references (e.g. VBtn). Linked from [contributing docs](docs/guide/contributing-docs.md) and README.
@@ -22,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GkInput:** **`defineModel`** with **`v-model.trim`** / **`v-model.number`**; **`prefix`** / **`suffix`**; optional **`counter`** / **`counterValue`** / **`persistentCounter`**; **`autofocus`**; **`update:focused`**; **`counter`** slot; root **`class`** on wrapper, other attributes forwarded to `<input>`. Unit tests in **`GkInput.spec.ts`**.
 - **GkAlert:** **`modelValue` / `v-model`**, **`title` / `text`** props and slots, **`prepend` / `append`**, optional accent **`border`**, **`prominent`**, optional **`type`** alias (`error` → `danger` when **`variant`** is default **`neutral`**), **`closable`** with **`GkButton`** close and **`closeLabel`**; emits **`close`** and **`click:close`**.
 - **Layout:** form primitives (**GkInput**, **GkField**, **GkTextarea**, **GkCheckbox**, **GkRadio** / **GkRadioGroup**, **GkSelect**) now live under **`src/vue/components/form/<name>/`**. Docs and VitePress demos mirror this under **`docs/components/form/`** and **`docs/.vitepress/components/demos/form/`**. Component doc URLs are now **`/components/form/...`** (update bookmarks from the old flat paths).
-- **`scripts/new-component.mjs`** accepts an optional second argument **`form`** or **`layout`** to scaffold into the matching folder and docs paths.
+- **`scripts/new-component.mjs`** accepts an optional second argument **`form`**, **`layout`**, or **`containment`** to scaffold into the matching folder and docs paths.
 
 ## [0.3.0] - 2026-03-23
 

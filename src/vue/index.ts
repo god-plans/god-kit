@@ -33,6 +33,7 @@ export { default as GkSelect } from './components/form/select/GkSelect.vue'
 export type { GkSelectOption } from './components/form/select/select-types'
 
 export { default as GkAlert } from './components/alert/GkAlert.vue'
+export { default as GkOverlay } from './components/containment/overlay/GkOverlay.vue'
 export { default as GkStack } from './components/stack/GkStack.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'

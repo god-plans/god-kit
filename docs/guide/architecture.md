@@ -12,8 +12,8 @@ God Kit is organized in **three layers**. Not every UI piece should be a new pri
 
 Low-level, reusable building blocks with a single responsibility:
 
-- Examples: **GkButton**, **GkInput**, **GkCheckbox**, **GkStack**
-- Live in `src/vue/components/<name>/` (e.g. **form** controls under `src/vue/components/form/<name>/`)
+- Examples: **GkButton**, **GkInput**, **GkCheckbox**, **GkStack**, **GkOverlay** (overlays / modal layers)
+- Live in `src/vue/components/<name>/` (e.g. **form** controls under `src/vue/components/form/<name>/`, **containment** under `src/vue/components/containment/<name>/`)
 - Ship with tests, axe specs, VitePress demo, and docs page
 
 ## Patterns

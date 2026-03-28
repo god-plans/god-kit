@@ -56,6 +56,13 @@ export default defineConfig({
               ],
             },
             {
+              text: 'Containment',
+              collapsed: false,
+              items: [
+                { text: 'GkOverlay', link: '/components/containment/overlay' },
+              ],
+            },
+            {
               text: 'Feedback & layout',
               collapsed: false,
               items: [

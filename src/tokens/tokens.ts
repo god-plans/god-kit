@@ -32,6 +32,10 @@ export const gkTokens = {
     disabled: '--gk-opacity-disabled',
     overlay: '--gk-opacity-overlay',
   },
+  overlay: {
+    scrim: '--gk-overlay-scrim',
+    zIndex: '--gk-overlay-z-index',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **GkOverlay** — Teleported overlay primitive; see **`/components/containment/overlay`** and root **`CHANGELOG.md`**.
 - **GkForm** + **`createForm`** / **`attachSubmitPromise`** — see **`/components/form/form`** and root **`CHANGELOG.md`**.
 - **GkButton:** `loading`, `readonly`, `slim`, `stacked`, `href` / link props, `prepend` / `append` / `loader` slots, default loader via **GkSpinner**; **`useButtonInteractionState`** composable for shared click-block logic.
 - **Documentation:** [Component authoring](./component-authoring) — structure, doc mapping, agent prompt, phasing for large references. See root **`CHANGELOG.md`** for the full note.
@@ -23,7 +24,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 - **GkCheckbox:** **`indeterminate`**, **`readonly`**, **`value`**, **`update:focused`**, attrs forwarding. See root **`CHANGELOG.md`**.
 - **GkInput:** **`v-model.trim`** / **`v-model.number`**, **`prefix`** / **`suffix`**, **`counter`**, **`autofocus`**, **`update:focused`**, **`counter`** slot. See root **`CHANGELOG.md`**.
 - **GkAlert:** **`modelValue` / `v-model`**, **`title` / `text`** props and slots, **`prepend` / `append`**, optional accent **`border`**, **`prominent`**, optional **`type`** alias (`error` → `danger`), **`closable`** with **`GkButton`** close; emits **`close`** / **`click:close`**. See root **`CHANGELOG.md`**.
-- **Layout:** form primitives are under **`src/vue/components/form/<name>/`**; docs at **`/components/form/...`**; **`scripts/new-component.mjs`** accepts optional **`form`** or **`layout`**. See root **`CHANGELOG.md`** for details.
+- **Layout:** form primitives are under **`src/vue/components/form/<name>/`**; docs at **`/components/form/...`**; **`scripts/new-component.mjs`** accepts optional **`form`**, **`layout`**, or **`containment`**. See root **`CHANGELOG.md`** for details.
 
 ## [0.3.0] - 2026-03-23
 

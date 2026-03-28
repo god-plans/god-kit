@@ -38,6 +38,10 @@
   /* Overlay / scrim */
   --gk-color-overlay: rgba(0, 0, 0, 0.45);
   --gk-opacity-overlay: 0.45;
+  /** Full-screen scrim behind overlay content (defaults to overlay color) */
+  --gk-overlay-scrim: var(--gk-color-overlay);
+  /** Stacking order for Teleported overlays */
+  --gk-overlay-z-index: 2000;
 
   /* Disabled */
   --gk-opacity-disabled: 0.55;

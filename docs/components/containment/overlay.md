@@ -1,0 +1,79 @@
+---
+title: GkOverlay
+description: Teleported overlay with scrim, v-model, Escape and scrim dismiss, and body scroll lock.
+outline: [2, 3]
+---
+
+# GkOverlay
+
+A **minimal overlay** for modal-style content: full-screen **scrim**, **Teleport** (default **`body`**), **`v-model`** visibility, **Escape** to dismiss, optional **persistent** mode (scrim and Escape do not close), **body scroll lock** while open, and tokenized **z-index** / scrim color.
+
+This is intentionally smaller than Vuetify’s **VOverlay**: no activator slot, location/scroll strategies, router back, global stack composable, lazy hydration, or full focus-trap library. Compose with a button and **`v-model`** in your app (see demo).
+
+## Live demo
+
+<DemoGkOverlay />
+
+## API
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `modelValue` | `boolean` | `false` | Open state; use **`v-model`** |
+| `persistent` | `boolean` | `false` | When **`true`**, scrim click and **Escape** do **not** close the overlay |
+| `to` | `string \| HTMLElement` | `'body'` | **Teleport** target |
+| `zIndex` | `number \| string` | — | Overrides **`--gk-overlay-z-index`** when set |
+| `scrollLock` | `boolean` | `true` | Sets **`document.body.style.overflow = 'hidden'`** while open (restored on close) |
+| `showScrim` | `boolean` | `true` | Renders the full-screen scrim |
+| `role` | `string` | `'dialog'` | ARIA role for the panel |
+| `ariaModal` | `boolean` | `true` | Sets **`aria-modal="true"`** when **`true`** (typical for dialogs) |
+| `restoreFocus` | `boolean` | `true` | Focuses the first focusable in the panel on open (or the panel), restores the previous active element on close |
+
+Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**, **`id`**) are applied to the **panel** element (the element with **`role`**).
+
+### Slots
+
+| Slot | Description |
+|------|-------------|
+| `default` | Panel content; clicks do not reach the scrim (**`@click.stop`** on the panel) |
+
+### Events
+
+| Event | Payload | Description |
+|-------|---------|-------------|
+| `update:modelValue` | `boolean` | Emitted when the overlay closes |
+| `click:outside` | `MouseEvent` | Emitted when the **scrim** is clicked and the overlay **will** dismiss (not emitted when **`persistent`** is **`true`**) |
+
+### Tokens
+
+| Token | Purpose |
+|-------|---------|
+| `--gk-overlay-scrim` | Scrim background (defaults via **`--gk-color-overlay`**) |
+| `--gk-overlay-z-index` | Default stacking order (**`2000`**) |
+
+## Example
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { GkOverlay } from '@god-plan/god-kit/vue'
+</script>
+
+<template>
+  <button type="button" @click="open = true">Open</button>
+  <GkOverlay
+    v-model="open"
+    aria-labelledby="confirm-title"
+    aria-describedby="confirm-desc"
+  >
+    <h2 id="confirm-title">Confirm</h2>
+    <p id="confirm-desc">Continue with this action?</p>
+    <button type="button" @click="open = false">OK</button>
+  </GkOverlay>
+</template>
+```
+
+## Out of scope (v1)
+
+Activator slot, scroll/location strategies, **`router.back`** integration, global overlay stack composable, lazy hydration, and parity with Vuetify’s **`click-outside`** beyond **scrim** dismissal.

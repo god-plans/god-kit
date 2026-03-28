@@ -20,6 +20,14 @@ Primitives use the **`Gk`** prefix. Each page documents props, events, slots, an
 | [GkRadioGroup & GkRadio](./form/radio) | Radio group with shared name and v-model |
 | [GkSelect](./form/select) | Native `<select>` with options array |
 
+## Containment
+
+Overlays, modal shells, and other primitives that **contain** focus and layer above the page. More primitives (for example a full dialog shell) may follow.
+
+| Component | Description |
+|-----------|-------------|
+| [GkOverlay](./containment/overlay) | Teleported overlay with scrim, **`v-model`**, Escape / scrim dismiss, body scroll lock, and tokenized stacking |
+
 ## Feedback & layout
 
 | Component | Description |
