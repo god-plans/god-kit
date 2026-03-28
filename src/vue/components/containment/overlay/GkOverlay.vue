@@ -36,6 +36,8 @@ const props = withDefaults(
      * When omitted, the default is `min(100%, 32rem)` via CSS.
      */
     contentMaxWidth?: string
+    /** Vue `<Transition>` name on the overlay root (default fade) */
+    transitionName?: string
   }>(),
   {
     persistent: false,
@@ -45,6 +47,7 @@ const props = withDefaults(
     role: 'dialog',
     ariaModal: true,
     restoreFocus: true,
+    transitionName: 'gk-overlay',
   }
 )
 
@@ -157,7 +160,11 @@ defineExpose({
 
 <template>
   <Teleport :to="to">
-    <Transition name="gk-overlay" @after-enter="emit('afterEnter')" @after-leave="emit('afterLeave')">
+    <Transition
+      :name="transitionName"
+      @after-enter="emit('afterEnter')"
+      @after-leave="emit('afterLeave')"
+    >
       <div
         v-if="model"
         class="gk-overlay"
@@ -222,5 +229,40 @@ defineExpose({
 .gk-overlay-enter-from,
 .gk-overlay-leave-to {
   opacity: 0;
+}
+
+/** Bottom-anchored overlay (e.g. **GkBottomSheet**) */
+.gk-overlay.gk-overlay--align-bottom {
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+
+.gk-overlay.gk-overlay--align-bottom.gk-overlay--inset {
+  padding: var(--gk-space-4);
+  padding-bottom: 0;
+}
+</style>
+
+<!-- Bottom sheet: scrim fades, panel slides (used by GkBottomSheet via transitionName="gk-bottom-sheet") -->
+<style>
+.gk-bottom-sheet-enter-active .gk-overlay__scrim,
+.gk-bottom-sheet-leave-active .gk-overlay__scrim {
+  transition: opacity var(--gk-duration-normal) var(--gk-easing-standard);
+}
+
+.gk-bottom-sheet-enter-from .gk-overlay__scrim,
+.gk-bottom-sheet-leave-to .gk-overlay__scrim {
+  opacity: 0;
+}
+
+.gk-bottom-sheet-enter-active .gk-overlay__content,
+.gk-bottom-sheet-leave-active .gk-overlay__content {
+  transition: transform var(--gk-duration-normal) var(--gk-easing-standard);
+}
+
+.gk-bottom-sheet-enter-from .gk-overlay__content,
+.gk-bottom-sheet-leave-to .gk-overlay__content {
+  transform: translateY(100%);
 }
 </style>

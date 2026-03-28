@@ -49,6 +49,11 @@
   --gk-dialog-scroll-max-height: 24rem;
   --gk-dialog-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
+  /** Bottom sheet (GkBottomSheet) */
+  --gk-bottom-sheet-z-index: 2400;
+  --gk-bottom-sheet-max-height: 90vh;
+  --gk-bottom-sheet-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

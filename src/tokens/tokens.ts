@@ -42,6 +42,11 @@ export const gkTokens = {
     scrollMaxHeight: '--gk-dialog-scroll-max-height',
     shadow: '--gk-dialog-shadow',
   },
+  bottomSheet: {
+    zIndex: '--gk-bottom-sheet-z-index',
+    maxHeight: '--gk-bottom-sheet-max-height',
+    shadow: '--gk-bottom-sheet-shadow',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

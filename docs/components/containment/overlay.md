@@ -31,6 +31,7 @@ This is intentionally smaller than Vuetify’s **VOverlay**: no activator slot, 
 | `restoreFocus` | `boolean` | `true` | Focuses the first focusable in the panel on open (or the panel), restores the previous active element on close |
 | `overlayClass` | `unknown` | — | Optional class(es) on the fixed overlay root (`.gk-overlay`) |
 | `contentMaxWidth` | `string` | — | Sets **`--gk-overlay-content-max-width`** on the root (e.g. **`none`**, **`min(100%, 28rem)`**); default in CSS is **`min(100%, 32rem)`** |
+| `transitionName` | `string` | `'gk-overlay'` | Vue **`<Transition>`** name; use **`gk-bottom-sheet`** with **GkBottomSheet** (built-in styles) |
 
 Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**, **`id`**) are applied to the **panel** element (the element with **`role`**). **`defineExpose`**: **`contentRef`** — the panel element.
 
