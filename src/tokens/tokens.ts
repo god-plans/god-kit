@@ -61,6 +61,15 @@ export const gkTokens = {
     paddingY: '--gk-tooltip-padding-y',
     shadow: '--gk-tooltip-shadow',
   },
+  tabs: {
+    height: '--gk-tabs-height',
+    sliderSize: '--gk-tabs-slider-size',
+    sliderColor: '--gk-tabs-slider-color',
+    insetPadding: '--gk-tabs-inset-padding',
+    insetRadius: '--gk-tabs-inset-radius',
+    bgColor: '--gk-tabs-bg-color',
+    color: '--gk-tabs-color',
+  },
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',

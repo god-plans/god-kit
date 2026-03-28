@@ -68,6 +68,15 @@
   --gk-tooltip-padding-y: var(--gk-space-1);
   --gk-tooltip-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 
+  /** Tabs (GkTabs / GkTab) */
+  --gk-tabs-height: 3rem;
+  --gk-tabs-slider-size: 2px;
+  --gk-tabs-slider-color: var(--gk-color-primary);
+  --gk-tabs-inset-padding: var(--gk-space-2);
+  --gk-tabs-inset-radius: var(--gk-radius-md);
+  --gk-tabs-bg-color: transparent;
+  --gk-tabs-color: var(--gk-color-primary);
+
   /* Disabled */
   --gk-opacity-disabled: 0.55;
 

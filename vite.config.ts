@@ -25,6 +25,7 @@ export default defineConfig({
         vue: resolve(__dirname, 'src/vue/index.ts'),
         'vue-form': resolve(__dirname, 'src/vue/form.ts'),
         'vue-layout': resolve(__dirname, 'src/vue/layout.ts'),
+        'vue-navigation': resolve(__dirname, 'src/vue/navigation.ts'),
       },
       name: 'GodKitVue',
       formats: ['es'],

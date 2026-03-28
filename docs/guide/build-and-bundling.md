@@ -33,6 +33,7 @@ Optional **subpath exports** split barrels for semantic imports:
 |-------------|----------|
 | `@god-plan/god-kit/vue/form` | Form primitives, field injection keys, composables |
 | `@god-plan/god-kit/vue/layout` | Alerts, stack, container, divider, spinner |
+| `@god-plan/god-kit/vue/navigation` | Tabs (**GkTabs**, **GkTab**, **GkTabsWindow**, **GkTabsWindowItem**), **`parseGkTabItems`** |
 
 They share the same build output chunks as the main entry; use them when you want clearer import boundaries in app code.
 

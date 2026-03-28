@@ -20,6 +20,12 @@ Primitives use the **`Gk`** prefix. Each page documents props, events, slots, an
 | [GkRadioGroup & GkRadio](./form/radio) | Radio group with shared name and v-model |
 | [GkSelect](./form/select) | Native `<select>` with options array |
 
+## Navigation
+
+| Component | Description |
+|-----------|-------------|
+| [GkTabs](./navigation/tabs) | Tab list + panels — **`v-model`**, **`items`** or **`GkTab`** + **`#window`**, **`GK_TABS`** injection |
+
 ## Containment
 
 Overlays, modal shells, and other primitives that **contain** focus and layer above the page.
@@ -50,4 +56,4 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkDivider](./divider) | Horizontal or vertical separator |
 | [GkSpinner](./spinner) | Loading indicator with `role="status"` |
 
-Form-focused imports are also available from **`@god-plan/god-kit/vue/form`**, and layout primitives from **`@god-plan/god-kit/vue/layout`** (see [Build and bundling](../guide/build-and-bundling)).
+Form-focused imports are also available from **`@god-plan/god-kit/vue/form`**, layout primitives from **`@god-plan/god-kit/vue/layout`**, and navigation primitives from **`@god-plan/god-kit/vue/navigation`** (see [Build and bundling](../guide/build-and-bundling)).

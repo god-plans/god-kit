@@ -24,7 +24,7 @@ Read [Architecture and tiers](./architecture) first for the primitive / pattern 
 
 - **Tokens:** single source in `src/tokens/tokens.css` and `src/tokens/tokens.ts` (see [Design tokens](./tokens)). Components use **`var(--gk-*)`**, not ad hoc hex (add tokens when you need new semantics).
 - **Form primitives:** `src/vue/components/form/<name>/` (e.g. `GkInput`, `GkField`, `GkSelect`).
-- **Other primitives:** `src/vue/components/<name>/` (e.g. `GkButton`, `GkAlert`). You can introduce `layout/<name>/` when you standardize layout-only widgets; see [Build and bundling](./build-and-bundling).
+- **Other primitives:** `src/vue/components/<name>/` (e.g. `GkButton`, `GkAlert`). **Navigation** primitives (e.g. **GkTabs**) live under `src/vue/components/navigation/<name>/`. You can introduce `layout/<name>/` when you standardize layout-only widgets; see [Build and bundling](./build-and-bundling).
 - **Composables:** shared behavior in `src/vue/composables/`—prefer small composables only when logic is **reused** or **testable** in isolation.
 - **Public API:** named exports from `@god-plan/god-kit/vue`, optional barrels `@god-plan/god-kit/vue/form` and `@god-plan/god-kit/vue/layout`. Semver + changelog for release-worthy changes.
 

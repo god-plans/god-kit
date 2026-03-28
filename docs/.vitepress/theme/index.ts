@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import DemoGkAlert from '../components/demos/alert/DemoGkAlert.vue'
 import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
 import DemoGkMenu from '../components/demos/containment/menu/DemoGkMenu.vue'
+import DemoGkTabs from '../components/demos/navigation/tabs/DemoGkTabs.vue'
 import DemoGkTooltip from '../components/demos/containment/tooltip/DemoGkTooltip.vue'
 import DemoGkBottomSheet from '../components/demos/containment/bottom-sheet/DemoGkBottomSheet.vue'
 import DemoGkDialog from '../components/demos/containment/dialog/DemoGkDialog.vue'
@@ -35,6 +36,7 @@ export default {
     app.component('DemoGkRadio', DemoGkRadio)
     app.component('DemoGkSelect', DemoGkSelect)
     app.component('DemoGkMenu', DemoGkMenu)
+    app.component('DemoGkTabs', DemoGkTabs)
     app.component('DemoGkTooltip', DemoGkTooltip)
     app.component('DemoGkBottomSheet', DemoGkBottomSheet)
     app.component('DemoGkDialog', DemoGkDialog)

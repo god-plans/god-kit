@@ -12,6 +12,7 @@ All notable changes to `@god-plan/god-kit` are documented in this page and in **
 
 ### Added
 
+- **GkTabs** family + **`GK_TABS`** — see **`/components/navigation/tabs`**, **`@god-plan/god-kit/vue/navigation`**, and root **`CHANGELOG.md`**.
 - **GkTooltip** + **`useTooltipPosition`** — see **`/components/containment/tooltip`** and root **`CHANGELOG.md`**.
 - **GkMenu** + **`useMenuAnchorPosition`** — see **`/components/containment/menu`** and root **`CHANGELOG.md`**.
 - **Expansion panels** — **`GkExpansionPanels`**, **`GkExpansionPanel`**, **`GkExpansionPanelTitle`**, **`GkExpansionPanelText`**; see **`/components/expansion`** and root **`CHANGELOG.md`**.

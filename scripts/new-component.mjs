@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /**
  * Scaffolds a God Kit primitive folder: SFC + unit + a11y + docs + VitePress checklist.
- * Usage: node scripts/new-component.mjs <kebab-name> [form|layout|containment]
+ * Usage: node scripts/new-component.mjs <kebab-name> [form|layout|containment|navigation]
  * Examples:
  *   node scripts/new-component.mjs combobox form
+ *   node scripts/new-component.mjs breadcrumbs navigation
  *   node scripts/new-component.mjs toolbar
  */
 import { mkdir, writeFile } from 'node:fs/promises'
@@ -17,12 +18,12 @@ const name = process.argv[2]
 const category = process.argv[3]
 
 if (!name || !/^[a-z][a-z0-9-]*$/.test(name)) {
-  console.error('Usage: node scripts/new-component.mjs <kebab-name> [form|layout|containment]')
+  console.error('Usage: node scripts/new-component.mjs <kebab-name> [form|layout|containment|navigation]')
   process.exit(1)
 }
 
-if (category && !['form', 'layout', 'containment'].includes(category)) {
-  console.error('Optional second argument must be "form", "layout", or "containment".')
+if (category && !['form', 'layout', 'containment', 'navigation'].includes(category)) {
+  console.error('Optional second argument must be "form", "layout", "containment", or "navigation".')
   process.exit(1)
 }
 
@@ -164,7 +165,7 @@ Created:
   ${docRel}
 
 Next steps:
-  1. Export Gk${pascal} from src/vue/index.ts (and form.ts / layout.ts as applicable).
+  1. Export Gk${pascal} from src/vue/index.ts (and form.ts / layout.ts / navigation.ts as applicable).
   2. Register DemoGk${pascal} in docs/.vitepress/theme/index.ts
   3. Add sidebar entry in docs/.vitepress/config.ts and a row in docs/components/index.md
   4. Add CHANGELOG.md under [Unreleased]

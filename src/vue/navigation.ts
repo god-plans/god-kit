@@ -1,0 +1,6 @@
+export { default as GkTabs } from './components/navigation/tabs/GkTabs.vue'
+export { default as GkTab } from './components/navigation/tabs/GkTab.vue'
+export { default as GkTabsWindow } from './components/navigation/tabs/GkTabsWindow.vue'
+export { default as GkTabsWindowItem } from './components/navigation/tabs/GkTabsWindowItem.vue'
+export { parseGkTabItems } from './components/navigation/tabs/gk-tab-items'
+export type { GkTabItem, GkTabItemParsed } from './components/navigation/tabs/gk-tab-items'

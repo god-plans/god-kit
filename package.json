@@ -27,6 +27,10 @@
       "types": "./dist/vue-layout.d.ts",
       "import": "./dist/vue-layout.js"
     },
+    "./vue/navigation": {
+      "types": "./dist/vue-navigation.d.ts",
+      "import": "./dist/vue-navigation.js"
+    },
     "./tokens.css": "./dist/tokens.css",
     "./vue.css": "./dist/assets/style.css",
     "./bridge/vuetify.css": "./dist/bridge/vuetify-bridge.css"

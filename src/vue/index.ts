@@ -5,12 +5,14 @@ export {
   GK_EXPANSION_PANELS,
   GK_FIELD,
   GK_RADIO_GROUP,
+  GK_TABS,
 } from '../injection'
 export type {
   GkExpansionPanelContext,
   GkExpansionPanelsContext,
   GkFieldContext,
   GkRadioGroupContext,
+  GkTabsContext,
 } from '../injection'
 
 export { useFieldIds } from './composables/useFieldIds'
@@ -60,3 +62,10 @@ export { default as GkExpansionPanels } from './components/expansion/GkExpansion
 export { default as GkExpansionPanel } from './components/expansion/GkExpansionPanel.vue'
 export { default as GkExpansionPanelTitle } from './components/expansion/GkExpansionPanelTitle.vue'
 export { default as GkExpansionPanelText } from './components/expansion/GkExpansionPanelText.vue'
+
+export { default as GkTabs } from './components/navigation/tabs/GkTabs.vue'
+export { default as GkTab } from './components/navigation/tabs/GkTab.vue'
+export { default as GkTabsWindow } from './components/navigation/tabs/GkTabsWindow.vue'
+export { default as GkTabsWindowItem } from './components/navigation/tabs/GkTabsWindowItem.vue'
+export { parseGkTabItems } from './components/navigation/tabs/gk-tab-items'
+export type { GkTabItem, GkTabItemParsed } from './components/navigation/tabs/gk-tab-items'
