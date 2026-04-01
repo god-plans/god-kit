@@ -1,38 +1,48 @@
 # god-kit
 
-Design tokens and **Vue 3** primitives (`Gk*`) for God Plan apps. Intended to grow into the primary UI layer alongside a phased **Vuetify** removal in `god-panel-nuxt`.
+`god-kit` is a **Vue 3 UI kit and design token system** for dashboards and admin apps (including Nuxt).  
+It provides typed `Gk*` primitives, semantic tokens, and accessibility-oriented defaults.
 
-## Install
+- Docs: `https://god-plans.github.io/god-kit/`
+- Demo: `https://god-plans.github.io/god-kit/`
+- Changelog: [`CHANGELOG.md`](CHANGELOG.md)
 
-In this monorepo, depend on the workspace package (see root `package.json` workspaces).
+## Why God Kit
 
-```json
-{
-  "dependencies": {
-    "god-kit": "file:../../god-kit"
-  }
-}
+- **Built for admin workflows:** forms, containment, navigation, feedback.
+- **Migration-friendly:** optional Vuetify bridge while replacing screens gradually.
+- **Production-focused:** TypeScript types, subpath exports, and `axe-core` a11y specs.
+- **Token-first:** semantic CSS variables (`--gk-*`) across components.
+
+## Install in 60 Seconds
+
+```bash
+npm i god-kit vue
 ```
 
-## Exports
+Import CSS in this order:
 
-| Path | Purpose |
-|------|---------|
-| `god-kit` / `god-kit/vue` | Vue components and `gkTokens` |
-| `god-kit/vue/form` | Form primitives (`GkForm`, `GkInput`, …), `GK_FIELD` / `GK_RADIO_GROUP`, `createForm` |
-| `god-kit/vue/layout` | Layout and feedback primitives (`GkAlert`, `GkStack`, …) |
-| `god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
-| `god-kit/vue.css` | Scoped styles for `Gk*` components |
-| `god-kit/bridge/vuetify.css` | Maps `--v-theme-*` → `--gk-*` while Vuetify remains |
+1. `god-kit/tokens.css`
+2. optional `god-kit/bridge/vuetify.css` (only during Vuetify migration)
+3. `god-kit/vue.css`
+4. your app CSS
 
-Import order in Nuxt (or any app): **tokens → optional Vuetify bridge → vue.css → app CSS**.
+### Quick Vue Starter
 
-## Usage
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import 'god-kit/tokens.css'
+import 'god-kit/vue.css'
+
+createApp(App).mount('#app')
+```
 
 ```vue
 <script setup lang="ts">
 import { GkButton, GkField, GkInput } from 'god-kit/vue'
 import { ref } from 'vue'
+
 const email = ref('')
 </script>
 
@@ -40,103 +50,119 @@ const email = ref('')
   <GkField label="Email">
     <GkInput v-model="email" type="email" autocomplete="email" />
   </GkField>
-  <GkButton type="button" variant="primary">Save</GkButton>
+  <GkButton variant="primary">Save</GkButton>
 </template>
 ```
 
-Typed token names (for docs or tooling):
+## Copy-Paste Starters
 
-```ts
-import { gkTokens } from 'god-kit/vue'
-// gkTokens.color.primary → '--gk-color-primary'
+### 1) Vue App Starter
+
+```bash
+npm create vite@latest my-admin -- --template vue-ts
+cd my-admin
+npm i
+npm i god-kit vue
 ```
 
-## Naming
-
-All components use the **`Gk`** prefix (`GkButton`, `GkInput`, `GkField`) to avoid collisions with Vuetify `V*` and app-local components.
-
-## Package layout
-
-- Source components live under **`src/vue/components/<name>/`** (one folder per primitive, SFC + tests). **Form** primitives (**GkInput**, **GkField**, **GkTextarea**, **GkCheckbox**, **GkRadio***, **GkSelect**) live under **`src/vue/components/form/<name>/`**.
-- **`src/vue/composables/`** — headless helpers (`useFieldIds`, `useFormControl`) shared with **GkField** / custom layouts.
-- **`src/tokens/`** — `tokens.css` and typed `gkTokens`.
-
-## Composables
+Then add:
 
 ```ts
-import { useFieldIds, useFormControl } from 'god-kit/vue'
+import 'god-kit/tokens.css'
+import 'god-kit/vue.css'
 ```
 
-`useFieldIds()` returns stable `inputId` / `errorId` strings. `useFormControl({ error })` adds ARIA-oriented computed state when you are **not** wrapping controls in **GkField**.
+### 2) Nuxt Starter
 
-## RTL
+```bash
+npx nuxi@latest init my-nuxt-admin
+cd my-nuxt-admin
+npm i
+npm i god-kit vue
+```
 
-Set **`dir="rtl"`** on `html` or the app shell. Components use logical properties where needed; see **[docs/guide/rtl.md](docs/guide/rtl.md)**.
+In `nuxt.config.ts`:
 
-## Accessibility
+```ts
+export default defineNuxtConfig({
+  css: ['god-kit/tokens.css', 'god-kit/vue.css'],
+})
+```
 
-- **GkButton**: native `<button>`, focus-visible outline, `disabled` respected.
-- **GkInput**: `aria-invalid` / `aria-describedby` when used inside **GkField** with an error message.
-- **GkField**: associates `<label for>` with the control id from `useId()`, error region `role="alert"`.
+### 3) Theme + Snackbar Starter
 
-## Testing
+```ts
+import { createApp } from 'vue'
+import { createGkKit } from 'god-kit/vue/config'
+import { pushGkSnackbar } from 'god-kit/vue'
+
+const app = createApp(App)
+app.use(
+  createGkKit({
+    theme: { defaultTheme: 'system' },
+    locale: { locale: 'en', fallback: 'en' },
+  })
+)
+
+pushGkSnackbar({ text: 'Saved', color: 'success', timeout: 3000 })
+```
+
+## Exports
+
+| Path | Purpose |
+|------|---------|
+| `god-kit` / `god-kit/vue` | Vue components, composables, and `gkTokens` |
+| `god-kit/vue/form` | Form primitives and `createForm` |
+| `god-kit/vue/layout` | Layout and feedback primitives |
+| `god-kit/vue/navigation` | Tabs and pagination primitives |
+| `god-kit/vue/config` | `createGkKit`, theme/display/locale/defaults providers |
+| `god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
+| `god-kit/vue.css` | Component styles |
+| `god-kit/bridge/vuetify.css` | `--v-theme-*` -> `--gk-*` mapping |
+
+## Production Readiness
+
+- **TypeScript:** typed component/composable exports and token map.
+- **Accessibility:** `*.a11y.spec.ts` coverage using `axe-core`.
+- **Tree-shaking:** static ESM exports and scoped CSS side-effect declaration.
+- **Component naming:** `Gk` prefix to avoid collisions.
+
+## Compatibility Matrix
+
+| Target | Status |
+|--------|--------|
+| Vue 3.5+ | Supported |
+| Nuxt 4 | Supported (CSS import + explicit component imports) |
+| Node.js 20+ | Recommended |
+
+## Migration from Vuetify
+
+1. Import `god-kit/tokens.css` + `god-kit/bridge/vuetify.css`.
+2. Replace components by vertical slice (forms -> layout -> navigation).
+3. Remove bridge after full migration and keep `--gk-*` as source of truth.
+
+More details: [`docs/guide/why-god-kit.md`](docs/guide/why-god-kit.md).
+
+## Local Development
 
 ```bash
 npm run test
-```
-
-Unit tests live next to components; **axe-core** runs on key mounts in `*.a11y.spec.ts` files.
-
-## Building
-
-```bash
 npm run build
-```
-
-## Playground
-
-Local Vite app under [`playground/`](playground/) to try components without publishing or linking into Nuxt. It resolves `god-kit/vue` to **`src/`** so edits hot-reload without running `npm run build`.
-
-```bash
+npm run docs:dev
 npm run playground
 ```
 
-Opens **http://localhost:5174** (see [`playground/vite.config.ts`](playground/vite.config.ts)). Use `npm run playground:build` for a static check build output in `playground/dist-playground`.
+- Docs dev server: `http://localhost:5173`
+- Playground dev server: `http://localhost:5174`
 
-## Documentation (VitePress)
+## Release and Roadmap
 
-Static docs live under [`docs/`](docs/). They use the same source aliases as the playground so examples stay in sync with `src/`.
+- Changelog: [`CHANGELOG.md`](CHANGELOG.md)
+- Docs changelog page: [`docs/guide/changelog.md`](docs/guide/changelog.md)
+- Roadmap: [`docs/guide/roadmap.md`](docs/guide/roadmap.md)
 
-```bash
-npm run docs:dev      # http://localhost:5173
-npm run docs:build    # output: docs/.vitepress/dist
-npm run docs:preview  # preview production build
-```
+## Contributing and Authoring
 
-To add a component page, follow [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md) and copy [`docs/.vitepress/templates/component-template.md`](docs/.vitepress/templates/component-template.md). Quick scaffold: **`node scripts/new-component.mjs <kebab-name>`** from this package.
-
-- **[Component authoring](docs/guide/component-authoring.md)** — structure, doc mapping, agent prompt for new `Gk*` primitives
-- **[Composables](docs/guide/composables.md)** — `useFieldIds`, `useFormControl`
-- **[Build and bundling](docs/guide/build-and-bundling.md)** — `sideEffects`, subpath exports
-- **[Consumer bundle analysis](docs/guide/consumer-bundle-analysis.md)** — Nuxt / `nuxi analyze` in `god-panel-nuxt`
-- **[Changelog](docs/guide/changelog.md)** — release history (mirrors [`CHANGELOG.md`](CHANGELOG.md) at package root)
-
-## Changelog
-
-See [`CHANGELOG.md`](CHANGELOG.md) for version history. Notable recent work: per-component folders, composables, extended tokens and density, RTL guide, and axe-based accessibility tests.
-
-## Stitch (reference designs only)
-
-Do **not** call the Stitch API from production UI. Use [`tools/stitch`](../tools/stitch) to generate reference screens, then port styling and structure into this package.
-
-Set `STITCH_API_KEY` only in local env or CI secrets—never commit keys.
-
-## Migration from Vuetify (phased)
-
-1. Import `tokens.css` and `bridge/vuetify.css` so new `Gk*` components align with the current Vuetify theme.
-2. Replace surfaces incrementally (forms, then layout, then data display).
-3. When Vuetify is fully removed, drop `bridge/vuetify.css` and Vuetify-specific theme code in the app; keep tokens as the single source of truth.
-
-## Future: React / Svelte
-
-Keep **tokens** and **behavior** free of Vue where possible. Add framework-specific packages later that consume the same CSS variables and shared TS utilities—Vue components stay under `god-kit/vue`.
+- Component authoring: [`docs/guide/component-authoring.md`](docs/guide/component-authoring.md)
+- Build/bundling model: [`docs/guide/build-and-bundling.md`](docs/guide/build-and-bundling.md)
+- Documentation process: [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md)

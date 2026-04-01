@@ -1,6 +1,6 @@
 ---
-title: Components
-description: Index of God Kit Vue primitives.
+title: Vue 3 Admin Components
+description: Browse God Kit components for Vue 3 and Nuxt 4 admin dashboards, including forms, containment, navigation, and feedback primitives.
 outline: [2, 3]
 ---
 

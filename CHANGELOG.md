@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- No changes yet.
+
+## [0.4.0] - 2026-04-01
+
+### Added
+
 - **Global configuration** (`god-kit/vue/config`): **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, **`GK_*`** injection keys in **`src/injection.ts`**, **`src/locale/en.ts`**, **`GkVueI18nAdapter`**. Docs: **`docs/guide/global-configuration.md`**.
 - **GkSnackbar** (`src/vue/components/feedback/snackbar/`): **`GkSnackbar.vue`**, **`GkSnackbarHost.vue`**, **`pushGkSnackbar`** / **`clearGkSnackbars`** / **`useGkSnackbar`**, **`gkSnackbarQueueState`**. Teleport, **`timeout`** / hover–focus pause, **`timer`** strip, **`location`**, variants, **`prependAvatar`** / **`prependIcon`** / **`loading`**, **`#actions`** with **`isActive`**, swipe-to-dismiss, stacked queue offsets. Tokens **`--gk-snackbar-*`**. Docs at **`/components/feedback/snackbar`**; tests **`GkSnackbar.spec.ts`**, **`GkSnackbar.a11y.spec.ts`**.
 - **GkSkeletonLoader** (`src/vue/components/feedback/skeleton-loader/`): **`GkSkeletonLoader.vue`**, **`GkSkeletonBone.vue`**, **`gkSkeletonRootTypes`**, **`genGkSkeletonStructure`**, **`gk-skeleton-tree.ts`**. Preset **`type`** graphs (Vuetify-compatible keys), **`loading`** / default slot, **`boilerplate`**, shimmer tokens **`--gk-skeleton-loader-*`**. Docs at **`/components/feedback/skeleton-loader`**; tests **`GkSkeletonLoader.spec.ts`**, **`GkSkeletonLoader.a11y.spec.ts`**, **`gk-skeleton-tree.spec.ts`**.

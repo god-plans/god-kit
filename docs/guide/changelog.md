@@ -12,6 +12,12 @@ All notable changes to `god-kit` are documented in this page and in **`CHANGELOG
 
 ### Added
 
+ - No changes yet.
+
+## [0.4.0] - 2026-04-01
+
+### Added
+
 - **Global configuration:** **`createGkKit`** (`god-kit/vue/config`), **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, **`GkThemeProvider`**, **`GkLocaleProvider`**, **`GkDefaultsProvider`**, injection keys **`GK_THEME`**, **`GK_DISPLAY_CONFIG`**, **`GK_LOCALE`**, **`GK_DEFAULTS`**, **`data-gk-theme`** / dark tokens, English **`gkEnMessages`**, **`GkVueI18nAdapter`**. Guide: **[Global configuration](./global-configuration)**.
 - **GkSnackbar** + **`GkSnackbarHost`**, **`pushGkSnackbar`** / **`useGkSnackbar`** — see **`/components/feedback/snackbar`** and root **`CHANGELOG.md`**.
 - **GkSkeletonLoader** — see **`/components/feedback/skeleton-loader`** and root **`CHANGELOG.md`**.

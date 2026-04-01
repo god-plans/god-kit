@@ -7,8 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const kitRoot = resolve(__dirname, '../..')
 
 export default defineConfig({
-  title: 'God Kit',
-  description: 'Design tokens and Vue 3 primitives for God Plan apps',
+  title: 'God Kit - Vue 3 Admin UI Kit',
+  description: 'God Kit is a Vue 3 and Nuxt 4 admin UI kit with design tokens, typed components, and migration support from Vuetify.',
   srcDir: '.',
   cleanUrls: true,
 
@@ -16,6 +16,8 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/' },
+      { text: 'Why God Kit', link: '/guide/why-god-kit' },
+      { text: 'Roadmap', link: '/guide/roadmap' },
       { text: 'Changelog', link: '/guide/changelog' },
     ],
 
@@ -25,11 +27,16 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'Getting started', link: '/guide/getting-started' },
+            { text: 'Why God Kit', link: '/guide/why-god-kit' },
             { text: 'Global configuration', link: '/guide/global-configuration' },
             { text: 'Architecture and tiers', link: '/guide/architecture' },
             { text: 'Component authoring', link: '/guide/component-authoring' },
             { text: 'Design tokens', link: '/guide/tokens' },
             { text: 'Composables', link: '/guide/composables' },
+            { text: 'Release and publish', link: '/guide/release-and-publish' },
+            { text: 'Roadmap', link: '/guide/roadmap' },
+            { text: 'Distribution playbook', link: '/guide/distribution-playbook' },
+            { text: 'Growth metrics', link: '/guide/growth-metrics' },
             { text: 'RTL and i18n', link: '/guide/rtl' },
             { text: 'Contributing docs', link: '/guide/contributing-docs' },
             { text: 'Build and bundling', link: '/guide/build-and-bundling' },
@@ -100,12 +107,12 @@ export default defineConfig({
       ],
     },
 
-    socialLinks: [],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/god-plans/god-kit' }],
     search: {
       provider: 'local',
     },
     footer: {
-      message: 'Released under the AGPL-3.0 License.',
+      message: 'Released under the MIT License.',
     },
   },
 

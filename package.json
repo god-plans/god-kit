@@ -9,9 +9,29 @@
     "type": "git",
     "url": "https://github.com/god-plans/god-kit.git"
   },
-  "homepage": "https://github.com/god-plans/god-kit",
+  "homepage": "https://god-plans.github.io/god-kit/",
   "bugs": {
     "url": "https://github.com/god-plans/god-kit/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/god-plans"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "nuxt",
+    "nuxt4",
+    "admin-dashboard",
+    "ui-kit",
+    "component-library",
+    "design-system",
+    "design-tokens",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
   },
   "type": "module",
   "sideEffects": [
@@ -20,6 +40,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/vue.d.ts",
@@ -51,6 +74,7 @@
   },
   "scripts": {
     "build": "vite build && node scripts/postbuild-copy.mjs",
+    "release:check": "npm run build && npm run test && npm publish --dry-run",
     "playground": "vite --config playground/vite.config.ts",
     "playground:build": "vite build --config playground/vite.config.ts",
     "docs:dev": "vitepress dev docs",

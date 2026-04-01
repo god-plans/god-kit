@@ -1,6 +1,6 @@
 ---
-title: Getting started
-description: Install God Kit, import tokens and components, and run the playground or Nuxt app.
+title: Getting Started with Vue 3 and Nuxt 4
+description: Install this Vue 3 and Nuxt 4 admin UI kit, import God Kit tokens/components, and render your first screen in minutes.
 outline: [2, 3]
 ---
 
@@ -13,17 +13,13 @@ outline: [2, 3]
 
 ## Install
 
-In the monorepo, depend on `god-kit` from the package root (see workspace / `file:` link in consumer `package.json`).
+For public npm usage:
 
-```json
-{
-  "dependencies": {
-    "god-kit": "file:../../god-kit"
-  }
-}
+```bash
+npm i god-kit vue
 ```
 
-Run `npm install` from the repo root or the consuming app.
+For this repository's monorepo development setup, you can still use a workspace `file:` link when needed.
 
 ## Register God Kit (full example)
 
@@ -144,4 +140,12 @@ The playground and these docs both resolve `god-kit/vue` to **`src/`** so you ca
 
 ## Nuxt
 
-`god-panel-nuxt` consumes the package and imports the CSS entries in `nuxt.config.ts`. Prefer explicit imports of `Gk*` components in pages until you add a Nuxt module for globals.
+`god-panel-nuxt` consumes the package and imports CSS entries in `nuxt.config.ts`.
+
+```ts
+export default defineNuxtConfig({
+  css: ['god-kit/tokens.css', 'god-kit/vue.css'],
+})
+```
+
+Prefer explicit imports of `Gk*` components in pages until you add a Nuxt module for global registration.

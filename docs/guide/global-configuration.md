@@ -1,6 +1,6 @@
 ---
-title: Global configuration
-description: createGkKit — config file pattern, full options, theme, display, locale, defaults, and aliases.
+title: Vue and Nuxt Global Configuration
+description: Configure God Kit with createGkKit for theme, display breakpoints, i18n locale, defaults, and aliases in Vue 3 and Nuxt 4 apps.
 outline: [2, 3]
 ---
 

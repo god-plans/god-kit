@@ -1,6 +1,6 @@
 ---
-title: Design tokens
-description: CSS variables and the gkTokens map used across God Kit.
+title: Design Tokens for Vue and Nuxt
+description: Use God Kit semantic CSS variables and typed token maps to theme Vue 3 and Nuxt 4 admin interfaces consistently.
 outline: [2, 3]
 ---
 
