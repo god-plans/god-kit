@@ -24,6 +24,8 @@
   --gk-color-primary-hover: #4f46e5;
   --gk-color-primary-active: #4338ca;
   --gk-color-focus-ring: rgba(99, 102, 241, 0.45);
+  --gk-button-danger-hover: #b91c1c;
+  --gk-button-danger-active: #991b1b;
 
   /* Status */
   --gk-color-danger: #dc2626;
@@ -34,6 +36,7 @@
   --gk-color-info-surface: #eff6ff;
   --gk-color-warning: #d97706;
   --gk-color-warning-surface: #fffbeb;
+  --gk-alert-accent-thickness: 4px;
 
   /* Overlay / scrim */
   --gk-color-overlay: rgba(0, 0, 0, 0.45);
@@ -47,6 +50,7 @@
   --gk-dialog-z-index: 2400;
   --gk-dialog-max-width: 28rem;
   --gk-dialog-scroll-max-height: 24rem;
+  --gk-dialog-scroll-max-viewport: 80vh;
   --gk-dialog-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
   /** Bottom sheet (GkBottomSheet) */
@@ -72,8 +76,13 @@
   --gk-tabs-height: 3rem;
   --gk-tabs-slider-size: 2px;
   --gk-tabs-slider-color: var(--gk-color-primary);
+  --gk-tabs-slider-radius: var(--gk-radius-sm);
   --gk-tabs-inset-padding: var(--gk-space-2);
   --gk-tabs-inset-radius: var(--gk-radius-md);
+  --gk-tabs-inset-selected-bg: color-mix(in srgb, var(--gk-tabs-slider-color) 12%, transparent);
+  --gk-tabs-fixed-max-width: 18.75rem;
+  --gk-tabs-shift-scale: 0.6;
+  --gk-tabs-shift-opacity: 0.5;
   --gk-tabs-bg-color: transparent;
   --gk-tabs-color: var(--gk-color-primary);
 
@@ -155,13 +164,17 @@
   --gk-focus-offset: 2px;
   --gk-focus-width: 2px;
   --gk-focus-ring-width: 2px;
+  --gk-input-focus-ring-spread: 3px;
 
   /* Density: comfortable (default) — controls padding / min-height */
   --gk-density: comfortable;
   --gk-control-min-height-sm: 2rem;
   --gk-control-min-height-md: 2.5rem;
+  --gk-control-min-height-slim-sm: 1.75rem;
+  --gk-control-min-height-slim-md: 2.25rem;
   --gk-control-padding-x: var(--gk-space-4);
   --gk-control-padding-y: var(--gk-space-3);
+  --gk-control-disabled-surface: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface));
 }
 
 /** Compact density — set on :root or a wrapper (e.g. `.gk-density-compact`) */
@@ -191,4 +204,39 @@ html.dark,
   --gk-color-warning-surface: #451a03;
   --gk-color-focus-ring: rgba(129, 140, 248, 0.45);
   --gk-color-overlay: rgba(0, 0, 0, 0.55);
+  --gk-button-danger-hover: #ef4444;
+  --gk-button-danger-active: #dc2626;
+}
+
+:root[data-gk-theme='ocean'],
+[data-gk-theme='ocean'] {
+  --gk-color-primary: #0ea5e9;
+  --gk-color-primary-hover: #0284c7;
+  --gk-color-primary-active: #0369a1;
+  --gk-color-focus-ring: rgba(14, 165, 233, 0.45);
+  --gk-tabs-slider-color: #0ea5e9;
+}
+
+:root[data-gk-theme='highContrast'],
+[data-gk-theme='highContrast'] {
+  --gk-color-bg: #000000;
+  --gk-color-surface: #000000;
+  --gk-color-surface-elevated: #0d0d0d;
+  --gk-color-border: #ffffff;
+  --gk-color-border-strong: #ffffff;
+  --gk-color-text: #ffffff;
+  --gk-color-on-surface: #ffffff;
+  --gk-color-on-surface-muted: #f5f5f5;
+  --gk-color-text-muted: #f5f5f5;
+  --gk-color-text-disabled: #d1d5db;
+  --gk-color-primary: #22d3ee;
+  --gk-color-primary-hover: #67e8f9;
+  --gk-color-primary-active: #06b6d4;
+  --gk-color-focus-ring: rgba(255, 255, 255, 0.95);
+  --gk-color-danger-surface: #3f0b0b;
+  --gk-color-success-surface: #0b2d16;
+  --gk-color-info-surface: #0b1f45;
+  --gk-color-warning-surface: #3f2a09;
+  --gk-overlay-scrim: rgba(0, 0, 0, 0.82);
+  --gk-tabs-inset-selected-bg: rgba(34, 211, 238, 0.2);
 }

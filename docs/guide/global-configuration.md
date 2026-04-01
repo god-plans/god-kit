@@ -6,7 +6,7 @@ outline: [2, 3]
 
 # Global configuration
 
-God Kit exposes a Vue plugin, **`createGkKit`**, that centralizes runtime options: **theme** (light / dark / system), **display** breakpoints, **locale** and **`t()`**, **defaults** per component, and optional **aliases**. Import from **`god-kit/vue/config`** so your app can tree-shake the rest of the library as needed.
+God Kit exposes a Vue plugin, **`createGkKit`**, that centralizes runtime options: **theme** (named themes with system fallback), **display** breakpoints, **locale** and **`t()`**, **defaults** per component, and optional **aliases**. Import from **`god-kit/vue/config`** so your app can tree-shake the rest of the library as needed.
 
 ## Can I use a config file?
 
@@ -17,7 +17,19 @@ The package does **not** read a fixed path like `gk.config.json` at runtime. You
 import type { GkKitOptions } from 'god-kit/vue/config'
 
 export const gkKitConfig: GkKitOptions = {
-  theme: { defaultTheme: 'system' },
+  theme: {
+    defaultTheme: 'system',
+    themes: {
+      brandNight: {
+        extends: 'dark',
+        isDark: true,
+        tokens: {
+          '--gk-color-primary': '#8b5cf6',
+          '--gk-color-primary-hover': '#7c3aed',
+        },
+      },
+    },
+  },
   display: { mobileBreakpoint: 'md' },
   locale: {
     locale: 'en',
@@ -69,7 +81,7 @@ Ensure **`tokens.css`** is loaded before **`vue.css`** so semantic variables app
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| **`theme`** | **`GkKitThemeOptions`** | Color theme: default mode, optional DOM root. |
+| **`theme`** | **`GkKitThemeOptions`** | Named theme registry, default mode, and optional DOM root. |
 | **`display`** | **`GkKitDisplayOptions`** | Responsive breakpoints and mobile threshold. |
 | **`locale`** | **`GkKitLocaleOptions`** | Active locale, fallback, and message catalogs. |
 | **`defaults`** | **`GkKitComponentDefaults`** | Global default props per component name (PascalCase). |
@@ -79,10 +91,12 @@ Ensure **`tokens.css`** is loaded before **`vue.css`** so semantic variables app
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
-| **`defaultTheme`** | **`'light' \| 'dark' \| 'system'`** | **`'light'`** | Initial theme; **`system`** follows **`prefers-color-scheme`**. |
+| **`defaultTheme`** | **`GkThemeName`** | **`'light'`** | Initial theme. Built-ins: **`light`**, **`dark`**, **`system`**, **`ocean`**, **`highContrast`**. |
 | **`scope`** | **`HTMLElement \| null \| () => HTMLElement \| null`** | **`document.documentElement`** | Element that receives **`data-gk-theme`** and **`gk-theme-dark`**. |
+| **`themes`** | **`Record<string, Omit<GkThemeDefinition, 'name'>>`** | **`{}`** | Additional custom themes (hybrid model: TS token overrides + optional CSS selectors). |
+| **`includePresets`** | **`boolean`** | **`true`** | Includes built-in presets (**`ocean`**, **`highContrast`**) in the runtime registry. |
 
-Resolved theme is always **`light`** or **`dark`** on the DOM (never the literal string **`system`**). Use **`useGkTheme()`** for **`name`**, **`resolved`**, **`isDark`**, **`change()`**, **`toggle()`**, and **`cycle()`**.
+Resolved theme is always a concrete name (never literal **`system`**). Use **`useGkTheme()`** for **`name`**, **`resolved`**, **`isDark`**, **`change()`**, **`toggle()`**, **`cycle()`**, plus runtime registry helpers **`registerTheme`**, **`registerThemes`**, and **`unregisterTheme`**.
 
 ### `display` (`GkKitDisplayOptions`)
 
@@ -124,13 +138,33 @@ Map **custom tag name** → **`Component`** or **`{ extends: Component, defaults
 
 ---
 
-## Theme (light / dark / system)
+## Theme (named global themes + system)
 
-- **`theme.defaultTheme`**: **`'light' | 'dark' | 'system'`** — **`system`** follows **`prefers-color-scheme`** and updates when the OS preference changes.
-- **DOM**: the resolved theme (**`light`** or **`dark`**) is written to **`data-gk-theme`** on the theme root, and **`gk-theme-dark`** is toggled on that element. Dark palette variables apply under **`[data-gk-theme="dark"]`** (and **`.dark` / `html.dark`** in **`tokens.css`**).
+- **`theme.defaultTheme`** can be **`light`**, **`dark`**, **`system`**, built-in presets (**`ocean`**, **`highContrast`**), or custom names.
+- **DOM**: active concrete theme name is written to **`data-gk-theme`**; **`gk-theme-dark`** is toggled based on resolved darkness.
 - **`theme.scope`**: optional **`HTMLElement`**, getter **`() => HTMLElement | null`**, or **`null`** — defaults to **`document.documentElement`**.
+- **`theme.themes`**: register custom themes with token overrides and optional `extends`.
 
-**Multiple appearance modes in one app:** the global API only distinguishes **light**, **dark**, and **system**. Switch with **`useGkTheme().change('dark')`**, **`toggle()`**, or **`cycle(['light','dark','system'])`**. For a subtree that should not follow the document, wrap with **`GkThemeProvider`** (**`theme="light"`**, **`dark`**, or **`system`**) so **`data-gk-theme`** applies on a wrapper.
+Example runtime switching and dynamic registration:
+
+```ts
+import { useGkTheme } from 'god-kit/vue/config'
+
+const theme = useGkTheme()
+
+theme.registerTheme('forest', {
+  extends: 'dark',
+  isDark: true,
+  tokens: {
+    '--gk-color-primary': '#22c55e',
+    '--gk-color-primary-hover': '#16a34a',
+  },
+})
+
+theme.change('forest')
+```
+
+For subtree theming, wrap sections with **`GkThemeProvider`** and pass `theme` (and optional local `themes`) to scope theme application without changing the app root.
 
 See [Design tokens](./tokens) for **`--gk-*`** variables.
 

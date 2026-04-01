@@ -125,7 +125,7 @@ function onClick(e: MouseEvent) {
   font-weight: 600;
   line-height: var(--gk-line-height-tight);
   border-radius: var(--gk-radius-md);
-  border: 1px solid transparent;
+  border: 1px solid var(--gk-color-border);
   cursor: pointer;
   text-decoration: none;
   color: inherit;
@@ -176,13 +176,13 @@ a.gk-btn[aria-disabled='true'] {
 .gk-btn--slim.gk-btn--sm {
   padding-block: var(--gk-space-1);
   padding-inline: var(--gk-space-2);
-  min-height: calc(var(--gk-control-min-height-sm) - 0.25rem);
+  min-height: var(--gk-control-min-height-slim-sm);
 }
 
 .gk-btn--slim.gk-btn--md {
   padding-block: var(--gk-space-2);
   padding-inline: var(--gk-space-3);
-  min-height: calc(var(--gk-control-min-height-md) - 0.25rem);
+  min-height: var(--gk-control-min-height-slim-md);
 }
 
 .gk-btn--block {
@@ -237,6 +237,7 @@ a.gk-btn[aria-disabled='true'] {
 .gk-btn--primary {
   background: var(--gk-color-primary);
   color: var(--gk-color-text-on-primary);
+  border-color: transparent;
 }
 
 .gk-btn--primary:hover:not(:disabled):not([aria-disabled='true']) {
@@ -269,9 +270,14 @@ a.gk-btn[aria-disabled='true'] {
 .gk-btn--danger {
   background: var(--gk-color-danger);
   color: var(--gk-color-text-on-primary);
+  border-color: transparent;
 }
 
 .gk-btn--danger:hover:not(:disabled):not([aria-disabled='true']) {
-  filter: brightness(0.95);
+  background: var(--gk-button-danger-hover);
+}
+
+.gk-btn--danger:active:not(:disabled):not([aria-disabled='true']) {
+  background: var(--gk-button-danger-active);
 }
 </style>

@@ -17,6 +17,8 @@ export const gkTokens = {
     primary: '--gk-color-primary',
     primaryHover: '--gk-color-primary-hover',
     primaryActive: '--gk-color-primary-active',
+    buttonDangerHover: '--gk-button-danger-hover',
+    buttonDangerActive: '--gk-button-danger-active',
     focusRing: '--gk-color-focus-ring',
     danger: '--gk-color-danger',
     dangerSurface: '--gk-color-danger-surface',
@@ -26,6 +28,7 @@ export const gkTokens = {
     infoSurface: '--gk-color-info-surface',
     warning: '--gk-color-warning',
     warningSurface: '--gk-color-warning-surface',
+    alertAccentThickness: '--gk-alert-accent-thickness',
     overlay: '--gk-color-overlay',
   },
   opacity: {
@@ -40,6 +43,7 @@ export const gkTokens = {
     zIndex: '--gk-dialog-z-index',
     maxWidth: '--gk-dialog-max-width',
     scrollMaxHeight: '--gk-dialog-scroll-max-height',
+    scrollMaxViewport: '--gk-dialog-scroll-max-viewport',
     shadow: '--gk-dialog-shadow',
   },
   bottomSheet: {
@@ -65,8 +69,13 @@ export const gkTokens = {
     height: '--gk-tabs-height',
     sliderSize: '--gk-tabs-slider-size',
     sliderColor: '--gk-tabs-slider-color',
+    sliderRadius: '--gk-tabs-slider-radius',
     insetPadding: '--gk-tabs-inset-padding',
     insetRadius: '--gk-tabs-inset-radius',
+    insetSelectedBg: '--gk-tabs-inset-selected-bg',
+    fixedMaxWidth: '--gk-tabs-fixed-max-width',
+    shiftScale: '--gk-tabs-shift-scale',
+    shiftOpacity: '--gk-tabs-shift-opacity',
     bgColor: '--gk-tabs-bg-color',
     color: '--gk-tabs-color',
   },
@@ -77,13 +86,17 @@ export const gkTokens = {
   density: {
     controlMinHeightSm: '--gk-control-min-height-sm',
     controlMinHeightMd: '--gk-control-min-height-md',
+    controlMinHeightSlimSm: '--gk-control-min-height-slim-sm',
+    controlMinHeightSlimMd: '--gk-control-min-height-slim-md',
     controlPaddingX: '--gk-control-padding-x',
     controlPaddingY: '--gk-control-padding-y',
+    controlDisabledSurface: '--gk-control-disabled-surface',
   },
   focus: {
     offset: '--gk-focus-offset',
     width: '--gk-focus-width',
     ringWidth: '--gk-focus-ring-width',
+    inputRingSpread: '--gk-input-focus-ring-spread',
   },
   radius: {
     sm: '--gk-radius-sm',
@@ -102,6 +115,18 @@ export const gkTokens = {
     sans: '--gk-font-sans',
     sizeSm: '--gk-font-size-sm',
     sizeMd: '--gk-font-size-md',
+  },
+  motion: {
+    durationFast: '--gk-duration-fast',
+    durationNormal: '--gk-duration-normal',
+    easingStandard: '--gk-easing-standard',
+  },
+  snackbar: {
+    zIndex: '--gk-snackbar-z-index',
+    inset: '--gk-snackbar-inset',
+    maxWidth: '--gk-snackbar-max-width',
+    minHeight: '--gk-snackbar-min-height',
+    shadow: '--gk-snackbar-shadow',
   },
 } as const
 

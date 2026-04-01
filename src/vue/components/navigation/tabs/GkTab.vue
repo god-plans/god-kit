@@ -142,7 +142,7 @@ function onKeydown(e: KeyboardEvent) {
 }
 
 .gk-tab--fixed {
-  max-width: 300px;
+  max-width: var(--gk-tabs-fixed-max-width);
 }
 
 .gk-tab:hover:not(:disabled) {
@@ -191,7 +191,7 @@ function onKeydown(e: KeyboardEvent) {
   align-self: stretch;
   height: var(--gk-tabs-slider-size);
   margin-top: auto;
-  border-radius: 1px;
+  border-radius: var(--gk-tabs-slider-radius);
   background: var(--gk-tabs-slider-color);
   transform-origin: center bottom;
   transition:
@@ -216,8 +216,8 @@ function onKeydown(e: KeyboardEvent) {
 }
 
 .gk-tab--transition-shift .gk-tab__slider {
-  transform: scaleX(0.6);
-  opacity: 0.5;
+  transform: scaleX(var(--gk-tabs-shift-scale));
+  opacity: var(--gk-tabs-shift-opacity);
 }
 
 .gk-tab--transition-shift.gk-tab--selected .gk-tab__slider {
@@ -226,7 +226,7 @@ function onKeydown(e: KeyboardEvent) {
 }
 
 .gk-tab--inset.gk-tab--selected {
-  background: color-mix(in srgb, var(--gk-tabs-slider-color) 12%, transparent);
+  background: var(--gk-tabs-inset-selected-bg);
 }
 
 .gk-tab--inset {

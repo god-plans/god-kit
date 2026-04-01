@@ -221,7 +221,7 @@ onMounted(() => {
 .gk-input__control:focus-within {
   outline: none;
   border-color: var(--gk-color-primary);
-  box-shadow: 0 0 0 3px var(--gk-color-focus-ring);
+  box-shadow: 0 0 0 var(--gk-input-focus-ring-spread) var(--gk-color-focus-ring);
 }
 
 .gk-input__control:focus-within .gk-input__native:focus-visible {
@@ -277,7 +277,7 @@ onMounted(() => {
 .gk-input__control:has(.gk-input__native:disabled) {
   opacity: var(--gk-opacity-disabled);
   cursor: not-allowed;
-  background: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface));
+  background: var(--gk-control-disabled-surface);
 }
 
 .gk-input__control:has(.gk-input__native--invalid) {

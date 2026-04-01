@@ -21,6 +21,9 @@ export type {
 export type {
   GkDefaultsInjected,
   GkDisplayResolvedConfig,
+  GkThemeDefinition,
+  GkThemeName,
+  GkResolvedThemeName,
   GkLocaleContext,
   GkThemeContext,
 } from './config/gk-kit-types'

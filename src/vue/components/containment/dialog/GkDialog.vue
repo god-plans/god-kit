@@ -117,7 +117,7 @@ const overlayClass = computed(() => [
   color: var(--gk-color-on-surface);
   border: 1px solid var(--gk-color-border);
   border-radius: var(--gk-radius-lg);
-  box-shadow: var(--gk-dialog-shadow, 0 25px 50px -12px rgba(0, 0, 0, 0.25));
+  box-shadow: var(--gk-dialog-shadow);
   padding: var(--gk-space-5);
 }
 
@@ -129,7 +129,7 @@ const overlayClass = computed(() => [
 }
 
 .gk-dialog__surface--scrollable:not(.gk-dialog__surface--fullscreen) {
-  max-height: min(80vh, var(--gk-dialog-scroll-max-height));
+  max-height: min(var(--gk-dialog-scroll-max-viewport), var(--gk-dialog-scroll-max-height));
   overflow-y: auto;
 }
 

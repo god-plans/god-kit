@@ -381,7 +381,7 @@ function scrollNext() {
   padding: var(--gk-space-1) var(--gk-space-2);
   font: inherit;
   font-size: var(--gk-font-size-md);
-  line-height: 1;
+  line-height: var(--gk-line-height-tight);
   color: var(--gk-color-on-surface-muted);
   background: var(--gk-color-surface);
   border: 1px solid var(--gk-color-border);

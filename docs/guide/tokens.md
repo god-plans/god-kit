@@ -22,9 +22,27 @@ import { gkTokens } from 'god-kit/vue'
 
 Default tokens target light UI. For dark surfaces, set **`html.dark`** or **`.dark`** on a container (matches common conventions with Nuxt Color Mode).
 
+## Named presets
+
+`tokens.css` also ships named theme selectors:
+
+- **`[data-gk-theme='ocean']`**
+- **`[data-gk-theme='highContrast']`**
+
+These work with `useGkTheme().change('ocean')` / `change('highContrast')` and are available by default via `createGkKit`.
+
+## Hybrid theme model (TS registry + CSS overrides)
+
+God Kit supports two layered approaches together:
+
+1. **Typed runtime registration** (`theme.themes` or `registerTheme`) for inline CSS variable overrides.
+2. **Authoring manual CSS selectors** in your app (`[data-gk-theme='brandX']`) for broader style customization.
+
+If both exist, custom selector CSS can still override token values by normal cascade/specificity rules.
+
 ## Semantic extras
 
-Additional variables include **on-surface** text colors, **disabled** opacity and text color, **overlay** scrim, and **focus** ring width. See `src/tokens/tokens.css` for the full list.
+Additional variables include **on-surface** text colors, **disabled** opacity/surfaces, **overlay** scrim, **focus** ring controls, tabs slider/transition tokens, and dialog scroll constraints. See `src/tokens/tokens.css` for the full list.
 
 ## Density
 

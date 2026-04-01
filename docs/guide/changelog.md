@@ -12,7 +12,17 @@ All notable changes to `god-kit` are documented in this page and in **`CHANGELOG
 
 ### Added
 
- - No changes yet.
+- **Multi-theme core API:** `GkKitThemeOptions` now supports a hybrid named-theme registry via `themes` and `includePresets`, with built-in `ocean` and `highContrast` presets.
+- **Theme runtime registry helpers:** `useGkTheme()` now exposes `themes`, `hasTheme`, `registerTheme`, `registerThemes`, and `unregisterTheme`.
+- **Theme presets in CSS tokens:** `tokens.css` includes selectors for `[data-gk-theme='ocean']` and `[data-gk-theme='highContrast']`.
+- **New semantic tokens:** added coverage for danger button states, input focus spread, slim control heights, disabled control surface, dialog viewport cap, and tabs slider/transition metrics.
+
+### Changed
+
+- **Theme resolution model:** `resolved` now returns a concrete named theme (never `system`) and writes that value to `data-gk-theme`.
+- **GkThemeProvider:** now reuses the same registry-aware theme context as `createGkKit`, including scoped named theme handling.
+- **Core visual consistency:** normalized token usage in `GkButton`, `GkInput`, `GkAlert`, `GkDialog`, `GkTabs`, and `GkTab` by replacing remaining hardcoded visual literals with semantic token references.
+- **Docs and migration guides:** updated theme docs for named themes, runtime registration, and backward-compatible migration from light/dark/system-only setups.
 
 ## [0.4.0] - 2026-04-01
 

@@ -25,7 +25,11 @@ describe('createGkKit', () => {
     })
 
     const vm = wrapper.vm as unknown as {
-      theme: { name: { value: string } }
+      theme: {
+        name: { value: string }
+        hasTheme: (name: string) => boolean
+        themes: { value: Record<string, unknown> }
+      }
       display: { md: number }
       locale: { t: (k: string) => string }
       defaults: { value: Record<string, Record<string, unknown>> }
@@ -33,6 +37,8 @@ describe('createGkKit', () => {
 
     expect(vm.theme).toBeDefined()
     expect(vm.theme.name.value).toBe('light')
+    expect(vm.theme.hasTheme('ocean')).toBe(true)
+    expect(vm.theme.themes.value.highContrast).toBeDefined()
     expect(vm.display.md).toBe(960)
     expect(vm.locale.t('gk.menu.close')).toBe('Close')
     expect(unref(vm.defaults).GkButton?.variant).toBe('primary')

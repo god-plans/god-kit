@@ -1,59 +1,44 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, shallowRef, watch } from 'vue'
-import type { GkThemeName } from '../../config/gk-kit-types'
+import { provide, shallowRef, watch } from 'vue'
+import { GK_THEME } from '../../../injection'
+import {
+  createGkThemeContextForKit,
+} from '../../composables/useGkTheme'
+import type { GkThemeDefinition, GkThemeName } from '../../config/gk-kit-types'
 
 const props = withDefaults(
   defineProps<{
-    /** Subtree theme; **`system`** follows OS preference within this branch */
+    /** Subtree theme; `system` follows OS preference within this branch. */
     theme?: GkThemeName
+    /** Optional subtree-only theme registry extensions. */
+    themes?: Record<string, Omit<GkThemeDefinition, 'name'>>
   }>(),
   {
     theme: 'light',
   }
 )
 
-function getSystemDark(): boolean {
-  if (typeof window === 'undefined' || !window.matchMedia) return false
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-}
-
-const systemDark = shallowRef(getSystemDark())
-
-let media: MediaQueryList | null = null
-const onSystemChange = () => {
-  systemDark.value = getSystemDark()
-}
-
-onMounted(() => {
-  if (typeof window === 'undefined' || !window.matchMedia) return
-  media = window.matchMedia('(prefers-color-scheme: dark)')
-  media.addEventListener('change', onSystemChange)
-})
-
-onUnmounted(() => {
-  media?.removeEventListener('change', onSystemChange)
-})
-
-const resolved = computed(() => {
-  if (props.theme === 'system') return systemDark.value ? 'dark' : 'light'
-  return props.theme === 'dark' ? 'dark' : 'light'
-})
-
 const rootRef = shallowRef<HTMLElement | null>(null)
+const themeCtx = createGkThemeContextForKit({
+  defaultTheme: props.theme,
+  themes: props.themes,
+  scope: () => rootRef.value,
+})
+provide(GK_THEME, themeCtx)
 
 watch(
-  [resolved, rootRef],
-  () => {
-    const el = rootRef.value
-    if (!el) return
-    el.setAttribute('data-gk-theme', resolved.value)
-    if (resolved.value === 'dark') {
-      el.classList.add('gk-theme-dark')
-    } else {
-      el.classList.remove('gk-theme-dark')
-    }
-  },
+  () => props.theme,
+  (next) => themeCtx.change(next),
   { immediate: true }
+)
+
+watch(
+  () => props.themes,
+  (themes) => {
+    if (!themes) return
+    themeCtx.registerThemes(themes)
+  },
+  { deep: true, immediate: true }
 )
 </script>
 

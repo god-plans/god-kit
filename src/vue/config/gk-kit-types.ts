@@ -1,7 +1,26 @@
 import type { Component, ComputedRef, Ref } from 'vue'
 
 /** Theme mode: `system` follows `prefers-color-scheme`. */
-export type GkThemeName = 'light' | 'dark' | 'system'
+export type GkThemeBuiltinName = 'light' | 'dark' | 'system' | 'ocean' | 'highContrast'
+export type GkThemeCustomName = string & {}
+export type GkThemeName = GkThemeBuiltinName | GkThemeCustomName
+export type GkResolvedThemeName = Exclude<GkThemeBuiltinName, 'system'> | GkThemeCustomName
+
+export type GkThemeTokenOverrides = Record<`--${string}`, string>
+
+export interface GkThemeDefinition {
+  /** Unique registry key, written to `data-gk-theme` when active. */
+  name: GkResolvedThemeName
+  /** Optional parent theme name this definition semantically extends. */
+  extends?: GkResolvedThemeName
+  /**
+   * Optional CSS variable overrides applied inline to the theme root.
+   * Enables TS-driven theme values while still allowing CSS-file overrides.
+   */
+  tokens?: GkThemeTokenOverrides
+  /** Optional dark flag used for helper classes and `isDark`. */
+  isDark?: boolean
+}
 
 export interface GkKitThemeOptions {
   /** Initial theme (default `light`) */
@@ -11,6 +30,16 @@ export interface GkKitThemeOptions {
    * Use for micro-frontends or scoped document roots.
    */
   scope?: HTMLElement | null | (() => HTMLElement | null)
+  /**
+   * Additional named themes merged with built-in presets.
+   * Keys are used as theme names in `change()` and `data-gk-theme`.
+   */
+  themes?: Record<string, Omit<GkThemeDefinition, 'name'>>
+  /**
+   * Include shipped presets in registry. Defaults to true.
+   * Current presets: `ocean`, `highContrast`.
+   */
+  includePresets?: boolean
 }
 
 export type GkDisplayBreakpointName = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
@@ -75,12 +104,18 @@ export type GkKitAliases = Record<string, Component | GkKitAliasEntry>
 /** Injected theme API from `createGkKit` / `useGkTheme` */
 export type GkThemeContext = {
   name: Ref<GkThemeName>
-  /** Always `light` or `dark` (never `system`) */
-  resolved: ComputedRef<'light' | 'dark'>
+  /** Concrete active theme name (never `system`). */
+  resolved: ComputedRef<GkResolvedThemeName>
   isDark: ComputedRef<boolean>
   change: (name: GkThemeName) => void
   toggle: () => void
   cycle: (names?: GkThemeName[]) => void
+  /** Runtime theme registry helpers. */
+  themes: ComputedRef<Record<string, GkThemeDefinition>>
+  hasTheme: (name: string) => boolean
+  registerTheme: (name: string, definition: Omit<GkThemeDefinition, 'name'>) => void
+  registerThemes: (themes: Record<string, Omit<GkThemeDefinition, 'name'>>) => void
+  unregisterTheme: (name: string) => void
 }
 
 /** Injected locale API */

@@ -48,8 +48,7 @@ export function createGkKit(options: GkKitOptions = {}): Plugin {
       }
 
       const themeCtx = createGkThemeContextForKit(
-        themeOpts.defaultTheme ?? 'light',
-        themeOpts.scope
+        themeOpts
       )
       app.provide(GK_THEME, themeCtx)
       app.provide(GK_DISPLAY_CONFIG, display)

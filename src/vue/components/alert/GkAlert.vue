@@ -157,25 +157,25 @@ function onClose(e: MouseEvent) {
 .gk-alert--border-start .gk-alert__border--start {
   inset-inline-start: 0;
   inset-block: var(--gk-space-2);
-  width: 4px;
+  width: var(--gk-alert-accent-thickness);
 }
 
 .gk-alert--border-end .gk-alert__border--end {
   inset-inline-end: 0;
   inset-block: var(--gk-space-2);
-  width: 4px;
+  width: var(--gk-alert-accent-thickness);
 }
 
 .gk-alert--border-top .gk-alert__border--top {
   inset-block-start: 0;
   inset-inline: var(--gk-space-2);
-  height: 4px;
+  height: var(--gk-alert-accent-thickness);
 }
 
 .gk-alert--border-bottom .gk-alert__border--bottom {
   inset-block-end: 0;
   inset-inline: var(--gk-space-2);
-  height: 4px;
+  height: var(--gk-alert-accent-thickness);
 }
 
 .gk-alert__prepend,

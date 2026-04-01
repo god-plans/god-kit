@@ -39,6 +39,16 @@ export const gkKitConfig: GkKitOptions = {
     defaultTheme: 'system',
     /** Root for `data-gk-theme` / `gk-theme-dark`; default is `document.documentElement`. */
     scope: () => document.documentElement,
+    themes: {
+      oceanicNight: {
+        extends: 'dark',
+        isDark: true,
+        tokens: {
+          '--gk-color-primary': '#38bdf8',
+          '--gk-color-primary-hover': '#0ea5e9',
+        },
+      },
+    },
   },
   display: {
     mobileBreakpoint: 'md',
@@ -92,6 +102,27 @@ app.mount('#app')
 ```
 
 The runtime merges built-in English strings (**`gkEnMessages`**) into **`locale.messages.en`**; add or override keys per locale as above.
+
+## Multi-theme runtime switching
+
+```ts
+import { useGkTheme } from 'god-kit/vue/config'
+
+const theme = useGkTheme()
+
+theme.change('ocean') // built-in preset
+theme.registerTheme('midnight', {
+  extends: 'dark',
+  isDark: true,
+  tokens: {
+    '--gk-color-primary': '#8b5cf6',
+    '--gk-color-primary-hover': '#7c3aed',
+  },
+})
+theme.change('midnight')
+```
+
+Migration note: existing setups using only `light` / `dark` / `system` continue to work unchanged.
 
 See **[Architecture and tiers](./architecture)** for how primitives, patterns, and app-level blocks differ—important as the component count grows.
 
