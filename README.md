@@ -26,6 +26,13 @@ npm i god-kit vue
 npx god-kit@latest add button
 ```
 
+Compatibility alias:
+
+```bash
+npx add gk button
+```
+
+Current MVP registry: `button` only.  
 Flags: `--yes`, `--dry-run`, `--cwd`, `--force`.
 
 Import CSS in this order:

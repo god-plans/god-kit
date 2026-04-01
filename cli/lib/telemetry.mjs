@@ -20,22 +20,28 @@ async function writeConfig(config) {
 }
 
 export async function ensureTelemetryPreference({ yes, logger }) {
-  const cfg = await readConfig()
-  if (typeof cfg.telemetryEnabled === 'boolean') return cfg.telemetryEnabled
-  if (yes || !process.stdout.isTTY) {
-    cfg.telemetryEnabled = false
+  try {
+    const cfg = await readConfig()
+    if (typeof cfg.telemetryEnabled === 'boolean') return cfg.telemetryEnabled
+    if (yes || !process.stdout.isTTY) {
+      cfg.telemetryEnabled = false
+      await writeConfig(cfg)
+      return false
+    }
+
+    logger.info('Telemetry is optional and disabled by default.')
+    const enabled = await confirm('Share anonymous CLI usage events to improve DX?', false)
+    cfg.telemetryEnabled = enabled
     await writeConfig(cfg)
+    logger.info(
+      enabled
+        ? 'Telemetry enabled. Disable anytime by setting telemetryEnabled=false in ~/.god-kit/config.json.'
+        : 'Telemetry disabled.'
+    )
+    return enabled
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    logger.warn(`Could not read/write telemetry preference: ${message}. Defaulting to disabled.`)
     return false
   }
-
-  logger.info('Telemetry is optional and disabled by default.')
-  const enabled = await confirm('Share anonymous CLI usage events to improve DX?', false)
-  cfg.telemetryEnabled = enabled
-  await writeConfig(cfg)
-  logger.info(
-    enabled
-      ? 'Telemetry enabled. Disable anytime by setting telemetryEnabled=false in ~/.god-kit/config.json.'
-      : 'Telemetry disabled.'
-  )
-  return enabled
 }

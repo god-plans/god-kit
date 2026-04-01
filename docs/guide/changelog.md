@@ -29,6 +29,12 @@ All notable changes to `god-kit` are documented in this page and in **`CHANGELOG
 - **Docs discoverability:** home/getting-started/components pages now include direct catalog + CLI quick-add paths.
 - **Keyboard UX:** `GkTabs` now skips disabled tabs in roving focus, `GkPagination` supports Home/End, and `GkMenu` supports ArrowUp/ArrowDown/Home/End menu-item navigation.
 - **Overlay focus handling:** `GkOverlay` now traps focus within the panel while open.
+- **CLI reliability:** telemetry preference setup is now fail-open; permission or home-directory write errors no longer block `add` command execution.
+- **CLI argument safety:** boolean flags now only accept bare form or explicit `=true` / `=false`; invalid values (for example `--yes=foo`) fail fast with a clear error.
+- **CLI alias compatibility:** `add gk <component>` is normalized to the same flow as `add <component>` for compatibility workflows.
+- **Nuxt patch safety:** CSS config patching now prefers safe, idempotent array updates and falls back to explicit manual instructions when the config shape is unsafe to mutate.
+- **Component registry UX:** unknown component errors now include available manifest keys (current MVP registry: `button`).
+- **Docs alignment:** command examples now document both canonical and compatibility invocation paths and clarify current MVP component availability.
 
 ## [0.4.0] - 2026-04-01
 

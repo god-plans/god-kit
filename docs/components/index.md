@@ -14,7 +14,9 @@ Primitives use the **`Gk`** prefix. Each page documents props, events, slots, an
 npx god-kit@latest add button
 ```
 
-The CLI currently targets Vue Vite and Nuxt projects and supports `--yes`, `--dry-run`, `--cwd`, and `--force`.
+Compatibility alias: `npx add gk button`.
+
+The CLI currently targets Vue Vite and Nuxt projects, supports `--yes`, `--dry-run`, `--cwd`, and `--force`, and currently ships with the MVP registry key `button`.
 
 ## Form
 

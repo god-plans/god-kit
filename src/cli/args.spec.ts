@@ -26,4 +26,17 @@ describe('cli args', () => {
     const parsed = parseCliArgs(['node', 'god-kit', 'add', 'button', '--cwd=/tmp/app'])
     expect(parsed.options.cwd).toBe('/tmp/app')
   })
+
+  it('normalizes compatibility alias add gk <component>', () => {
+    const parsed = parseCliArgs(['node', 'god-kit', 'add', 'gk', 'button'])
+    expect(parsed.command).toBe('add')
+    expect(parsed.name).toBe('button')
+    expect(parsed.normalizedFromAlias).toBe(true)
+  })
+
+  it('rejects invalid boolean flag values', () => {
+    expect(() => parseCliArgs(['node', 'god-kit', 'add', 'button', '--yes=foo'])).toThrow(
+      /Invalid value for --yes/
+    )
+  })
 })

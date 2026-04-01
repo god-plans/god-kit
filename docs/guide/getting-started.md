@@ -27,7 +27,13 @@ Generate the first app-level wrapper component:
 npx god-kit@latest add button
 ```
 
-Use `--dry-run` before writing files and `--cwd` to target another project folder.
+Compatibility alias:
+
+```bash
+npx add gk button
+```
+
+Current MVP registry: `button` only. Use `--dry-run` before writing files and `--cwd` to target another project folder.
 
 For this repository's monorepo development setup, you can still use a workspace `file:` link when needed.
 

@@ -5,10 +5,12 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { runAddCommand } from '../../cli/lib/add.mjs'
 
 function logger() {
+  const warnings = []
   return {
+    warnings,
     info: () => {},
     success: () => {},
-    warn: () => {},
+    warn: (message) => warnings.push(String(message)),
     error: () => {},
     step: () => {},
   }
@@ -75,5 +77,35 @@ describe('add command', () => {
     const config = await readFile(join(cwd, 'nuxt.config.ts'), 'utf8')
     expect(config).toContain('god-kit/tokens.css')
     expect(config).toContain('god-kit/vue.css')
+  })
+
+  it('warns with manual guidance for unsupported nuxt css shape', async () => {
+    const cwd = await temp('gk-cli-nuxt-unsafe-')
+    await writeFile(
+      join(cwd, 'nuxt.config.ts'),
+      "export default defineNuxtConfig({\n  css: runtimeCss()\n})\n",
+      'utf8'
+    )
+    await writeFile(
+      join(cwd, 'package.json'),
+      JSON.stringify({ name: 'nuxt-app', dependencies: { nuxt: '^4' } }),
+      'utf8'
+    )
+    const log = logger()
+    await runAddCommand('button', { cwd, yes: true, dryRun: false, force: false }, log)
+    const config = await readFile(join(cwd, 'nuxt.config.ts'), 'utf8')
+    expect(config).not.toContain('god-kit/tokens.css')
+    expect(log.warnings.some((message) => message.includes('Please add this manually'))).toBe(true)
+  })
+
+  it('shows available components when unknown component is requested', async () => {
+    const cwd = await temp('gk-cli-unknown-')
+    await mkdir(join(cwd, 'src'), { recursive: true })
+    await writeFile(join(cwd, 'vite.config.ts'), 'export default {}', 'utf8')
+    await writeFile(join(cwd, 'src/main.ts'), 'console.log("x")\n', 'utf8')
+    await writeFile(join(cwd, 'package.json'), JSON.stringify({ name: 'app', dependencies: { vue: '^3' } }), 'utf8')
+    await expect(
+      runAddCommand('input', { cwd, yes: true, dryRun: false, force: false }, logger())
+    ).rejects.toThrow(/Available: button/)
   })
 })

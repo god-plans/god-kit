@@ -13,6 +13,7 @@ This document is the implementation contract for the public `god-kit` CLI.
 ### In scope (MVP)
 
 - Command surface: `npx god-kit@latest add <component>`
+- Compatibility alias path: `npx add gk <component>`
 - Supported project types:
   - Vue + Vite
   - Nuxt
@@ -26,7 +27,6 @@ This document is the implementation contract for the public `god-kit` CLI.
 
 ### Out of scope (MVP)
 
-- `npx add gk <component>` alias entrypoint.
 - Interactive component marketplace UI.
 - Automatic route-level import rewrites in arbitrary user code.
 - Telemetry collection by default.
@@ -63,7 +63,8 @@ This document is the implementation contract for the public `god-kit` CLI.
 ## Acceptance checklist
 
 1. `npx god-kit@latest add button` works in both Nuxt and Vue Vite fixtures.
-2. `--dry-run` prints intended actions and writes nothing.
-3. `--cwd` targets a non-current directory.
-4. `--force` overwrites conflicts, no-force fails safely.
-5. Rerunning the command does not duplicate generated files or CSS integration lines.
+2. Alias-compatible argv (`add gk button`) resolves to the same command behavior.
+3. `--dry-run` prints intended actions and writes nothing.
+4. `--cwd` targets a non-current directory.
+5. `--force` overwrites conflicts, no-force fails safely.
+6. Rerunning the command does not duplicate generated files or CSS integration lines.

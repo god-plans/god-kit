@@ -6,7 +6,23 @@ function parseBooleanFlag(tokens, idx, knownFlags) {
   if (rawValue === undefined) return { key: name, value: true, consumed: 1 }
   if (rawValue === 'true') return { key: name, value: true, consumed: 1 }
   if (rawValue === 'false') return { key: name, value: false, consumed: 1 }
-  return { key: name, value: rawValue, consumed: 1 }
+  throw new Error(`Invalid value for ${name}: ${rawValue}. Use true or false.`)
+}
+
+function normalizePositionals(positionals) {
+  const [command, second, third] = positionals
+  if (command === 'add' && second === 'gk' && third) {
+    return {
+      command,
+      name: third,
+      normalizedFromAlias: true,
+    }
+  }
+  return {
+    command,
+    name: second,
+    normalizedFromAlias: false,
+  }
 }
 
 export function parseCliArgs(argv) {
@@ -58,16 +74,18 @@ export function parseCliArgs(argv) {
     i += 1
   }
 
-  const command = positionals[0]
-  const name = positionals[1]
-  return { command, name, options, positionals }
+  const normalized = normalizePositionals(positionals)
+  return { ...normalized, options, positionals }
 }
 
-export function renderHelp() {
+export function renderHelp({ availableComponents = [] } = {}) {
+  const available =
+    availableComponents.length > 0 ? `\nAvailable now: ${availableComponents.join(', ')}` : ''
   return `god-kit CLI
 
 Usage:
   npx god-kit@latest add <component> [options]
+  npx add gk <component> (compatibility alias)
 
 Options:
   --yes           Skip prompts and use defaults
@@ -75,5 +93,6 @@ Options:
   --cwd <path>    Run in a specific directory
   --force         Overwrite conflicting files
   --help          Show this message
+${available}
 `
 }

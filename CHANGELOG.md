@@ -5,6 +5,17 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- **CLI reliability:** telemetry preference setup is now fail-open; permission or home-directory write errors no longer block `add` command execution.
+- **CLI argument safety:** boolean flags now only accept bare form or explicit `=true` / `=false`; invalid values (for example `--yes=foo`) fail fast with a clear error.
+- **CLI alias compatibility:** `add gk <component>` is normalized to the same flow as `add <component>` for compatibility workflows.
+- **Nuxt patch safety:** CSS config patching now prefers safe, idempotent array updates and falls back to explicit manual instructions when the config shape is unsafe to mutate.
+- **Component registry UX:** unknown component errors now include available manifest keys (current MVP registry: `button`).
+- **Docs alignment:** command examples now document both canonical and compatibility invocation paths and clarify current MVP component availability.
+
 ## [0.5.0] - 2026-04-01
 
 ### Added

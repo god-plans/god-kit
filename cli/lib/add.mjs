@@ -35,24 +35,38 @@ function ensureNuxtCssEntries(configSource) {
   if (configSource.includes('god-kit/tokens.css') && configSource.includes('god-kit/vue.css')) {
     return configSource
   }
-
-  const cssArrayPattern = /css\s*:\s*\[([\s\S]*?)\]/m
-  if (cssArrayPattern.test(configSource)) {
-    return configSource.replace(cssArrayPattern, (full, inner) => {
-      let nextInner = inner
-      if (!nextInner.includes('god-kit/tokens.css')) {
-        nextInner = `${nextInner}${nextInner.trim() ? ', ' : ''}'god-kit/tokens.css'`
+  const cssKey = configSource.indexOf('css')
+  if (cssKey >= 0) {
+    const cssBracket = configSource.indexOf('[', cssKey)
+    if (cssBracket < 0) return null
+    let depth = 0
+    let closeIdx = -1
+    for (let i = cssBracket; i < configSource.length; i += 1) {
+      const ch = configSource[i]
+      if (ch === '[') depth += 1
+      if (ch === ']') {
+        depth -= 1
+        if (depth === 0) {
+          closeIdx = i
+          break
+        }
       }
-      if (!nextInner.includes('god-kit/vue.css')) {
-        nextInner = `${nextInner}${nextInner.trim() ? ', ' : ''}'god-kit/vue.css'`
-      }
-      return `css: [${nextInner}]`
-    })
+    }
+    if (closeIdx < 0) return null
+    const inner = configSource.slice(cssBracket + 1, closeIdx)
+    const entries = inner
+      .split(',')
+      .map((v) => v.trim())
+      .filter(Boolean)
+    const values = new Set(entries.map((v) => v.replace(/^['"]|['"]$/g, '')))
+    if (!values.has('god-kit/tokens.css')) entries.push("'god-kit/tokens.css'")
+    if (!values.has('god-kit/vue.css')) entries.push("'god-kit/vue.css'")
+    const rebuilt = `[${entries.join(', ')}]`
+    return `${configSource.slice(0, cssBracket)}${rebuilt}${configSource.slice(closeIdx + 1)}`
   }
 
   const defineNuxtPattern = /defineNuxtConfig\(\s*\{/m
   if (!defineNuxtPattern.test(configSource)) return null
-
   return configSource.replace(defineNuxtPattern, (match) => {
     return `${match}\n  css: ['god-kit/tokens.css', 'god-kit/vue.css'],`
   })
@@ -66,7 +80,12 @@ async function applyNuxtCss(cwd, options) {
     if (existing === null) continue
     const next = ensureNuxtCssEntries(existing)
     if (next === null) {
-      return { status: 'skipped', reason: `Could not safely patch ${rel}; please add CSS manually.` }
+      return {
+        status: 'skipped',
+        reason:
+          `Could not safely patch ${rel}. Please add this manually: ` +
+          `css: ['god-kit/tokens.css', 'god-kit/vue.css']`,
+      }
     }
     if (next === existing) return { status: 'unchanged', path }
     if (!options.dryRun) {
@@ -96,7 +115,8 @@ export async function runAddCommand(componentName, options, logger) {
   const manifest = await loadComponentsManifest()
   const component = manifest.components[componentName]
   if (!component) {
-    throw new Error(`Unknown component "${componentName}".`)
+    const available = Object.keys(manifest.components).sort().join(', ')
+    throw new Error(`Unknown component "${componentName}". Available: ${available}`)
   }
 
   logger.step(`Detected project: ${project.kind} (${project.packageManager})`)
