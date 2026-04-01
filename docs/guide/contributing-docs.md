@@ -32,3 +32,7 @@ Run **`node scripts/new-component.mjs <kebab-name> [form|layout]`** from the **`
 ## Future automation
 
 You can generate the Components sidebar from the filesystem with a small build script; until then, keep the sidebar list in sync by hand when adding pages.
+
+## Public CLI contract
+
+The public CLI architecture, project detection matrix, and idempotency contract are documented in **[CLI architecture](./cli-architecture)**.

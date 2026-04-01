@@ -20,6 +20,14 @@ It provides typed `Gk*` primitives, semantic tokens, and accessibility-oriented 
 npm i god-kit vue
 ```
 
+### CLI quick add
+
+```bash
+npx god-kit@latest add button
+```
+
+Flags: `--yes`, `--dry-run`, `--cwd`, `--force`.
+
 Import CSS in this order:
 
 1. `god-kit/tokens.css`

@@ -75,3 +75,9 @@ import { GkButton } from 'god-kit/vue'
 <GkButton :loading="saving" @click="save">Save</GkButton>
 <GkButton href="/docs" variant="ghost">Docs</GkButton>
 ```
+
+## Accessibility notes
+
+- Keep visible text in the default slot for clear action names.
+- Use `loadingLabel` when your loading state needs a more specific spoken label.
+- Prefer `disabled` for unavailable actions and `readonly` only when the action should remain visually active but non-interactive.

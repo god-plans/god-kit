@@ -12,6 +12,9 @@ hero:
       text: Get started
       link: /guide/getting-started
     - theme: alt
+      text: Browse components
+      link: /components/
+    - theme: alt
       text: Live demo
       link: https://god-plans.github.io/god-kit/
     - theme: alt

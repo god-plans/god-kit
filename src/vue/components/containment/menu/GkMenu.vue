@@ -92,10 +92,24 @@ let previousActiveElement: HTMLElement | null = null
 function focusPanelOrFirst() {
   const root = contentRef.value
   if (!root) return
-  const sel =
-    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-  const first = root.querySelector<HTMLElement>(sel)
+  const first = getMenuItems()[0]
   if (first) first.focus()
+}
+
+function getMenuItems() {
+  const root = contentRef.value
+  if (!root) return []
+  const selector = [
+    '[role="menuitem"]:not([aria-disabled="true"])',
+    '[role="menuitemcheckbox"]:not([aria-disabled="true"])',
+    '[role="menuitemradio"]:not([aria-disabled="true"])',
+    'button:not([disabled])',
+    '[href]',
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(', ')
+  return Array.from(root.querySelectorAll<HTMLElement>(selector)).filter((el) => {
+    return !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+  })
 }
 
 watch(
@@ -179,6 +193,42 @@ function onPanelClick() {
   model.value = false
 }
 
+function focusMenuItem(index: number) {
+  const items = getMenuItems()
+  if (!items.length) return
+  const bounded = Math.max(0, Math.min(items.length - 1, index))
+  items[bounded].focus()
+}
+
+function onPanelKeydown(event: KeyboardEvent) {
+  const items = getMenuItems()
+  if (!items.length) return
+  const active = document.activeElement as HTMLElement | null
+  const index = active ? items.indexOf(active) : -1
+
+  if (event.key === 'ArrowDown') {
+    event.preventDefault()
+    if (index < 0) focusMenuItem(0)
+    else focusMenuItem((index + 1) % items.length)
+    return
+  }
+  if (event.key === 'ArrowUp') {
+    event.preventDefault()
+    if (index < 0) focusMenuItem(items.length - 1)
+    else focusMenuItem((index - 1 + items.length) % items.length)
+    return
+  }
+  if (event.key === 'Home') {
+    event.preventDefault()
+    focusMenuItem(0)
+    return
+  }
+  if (event.key === 'End') {
+    event.preventDefault()
+    focusMenuItem(items.length - 1)
+  }
+}
+
 const activatorSlotProps = computed(() => ({
   type: 'button' as const,
   'aria-haspopup': 'menu' as const,
@@ -214,9 +264,11 @@ defineExpose({
             class="gk-menu__panel"
             :class="contentClass"
             role="menu"
+            tabindex="-1"
             :style="panelStyle"
             v-bind="contentAttrs"
             @click="onPanelClick"
+            @keydown="onPanelKeydown"
           >
             <slot />
           </div>

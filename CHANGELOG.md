@@ -5,7 +5,7 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.5.0] - 2026-04-01
 
 ### Added
 
@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Theme runtime registry helpers:** `useGkTheme()` now exposes `themes`, `hasTheme`, `registerTheme`, `registerThemes`, and `unregisterTheme`.
 - **Theme presets in CSS tokens:** `tokens.css` includes selectors for `[data-gk-theme='ocean']` and `[data-gk-theme='highContrast']`.
 - **New semantic tokens:** added coverage for danger button states, input focus spread, slim control heights, disabled control surface, dialog viewport cap, and tabs slider/transition metrics.
+- **Public CLI (MVP):** new `god-kit` binary with `add` command (`npx god-kit@latest add button`) plus `--yes`, `--dry-run`, `--cwd`, and `--force`.
+- **CLI architecture docs:** added `docs/guide/cli-architecture.md` with project detection matrix and idempotency contract.
+- **A11y coverage:** added standalone `GkInput.a11y.spec.ts`.
 
 ### Changed
 
@@ -20,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **GkThemeProvider:** now reuses the same registry-aware theme context as `createGkKit`, including scoped named theme handling.
 - **Core visual consistency:** normalized token usage in `GkButton`, `GkInput`, `GkAlert`, `GkDialog`, `GkTabs`, and `GkTab` by replacing remaining hardcoded visual literals with semantic token references.
 - **Docs and migration guides:** updated theme docs for named themes, runtime registration, and backward-compatible migration from light/dark/system-only setups.
+- **Docs discoverability:** home/getting-started/components pages now include direct catalog + CLI quick-add paths.
+- **Keyboard UX:** `GkTabs` now skips disabled tabs in roving focus, `GkPagination` supports Home/End, and `GkMenu` supports ArrowUp/ArrowDown/Home/End menu-item navigation.
+- **Overlay focus handling:** `GkOverlay` now traps focus within the panel while open.
 
 ## [0.4.0] - 2026-04-01
 

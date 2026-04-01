@@ -74,4 +74,27 @@ describe('GkOverlay', () => {
     expect(w.emitted('update:modelValue')).toBeUndefined()
     w.unmount()
   })
+
+  it('traps focus inside the panel while open', async () => {
+    const w = mount(GkOverlay, {
+      props: { modelValue: true },
+      attachTo: document.body,
+      slots: {
+        default: `
+          <div>
+            <button class="first">First</button>
+            <button class="last">Last</button>
+          </div>
+        `,
+      },
+    })
+    await nextTick()
+    const first = document.body.querySelector('.first') as HTMLElement
+    const last = document.body.querySelector('.last') as HTMLElement
+    first.focus()
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true }))
+    await nextTick()
+    expect(document.activeElement).toBe(last)
+    w.unmount()
+  })
 })

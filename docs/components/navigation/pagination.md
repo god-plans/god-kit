@@ -82,6 +82,12 @@ const page = ref(1)
 </template>
 ```
 
+## Accessibility notes
+
+- Set `ariaLabel` to a page-specific label when multiple pagination regions exist.
+- Keyboard shortcuts support Left/Right (RTL-aware) and Home/End.
+- Keep control labels localized through `firstAriaLabel`, `previousAriaLabel`, `nextAriaLabel`, and `lastAriaLabel`.
+
 ## Out of scope
 
 Vuetify **`useLocale`**, **`useTheme`**, **`useDisplay`** parity, **`n()`** number formatting, and **`IconValue`** icon registry.

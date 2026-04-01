@@ -82,6 +82,12 @@ import { GkButton, GkDialog } from 'god-kit/vue'
 </template>
 ```
 
+## Accessibility notes
+
+- Always provide `aria-labelledby` and point it to a visible heading inside the dialog.
+- Add `aria-describedby` when the dialog body includes guidance text users must hear before acting.
+- Keep at least one keyboard-focusable control inside the dialog body or actions region.
+
 ## Out of scope (v1)
 
 Activator slot, **VDefaultsProvider**, router integration, focus-trap package, and parity with Vuetify overlay location/scroll/lazy stacks.

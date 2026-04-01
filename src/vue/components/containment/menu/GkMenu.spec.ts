@@ -38,4 +38,35 @@ describe('GkMenu', () => {
     expect(w.emitted('update:modelValue')?.at(-1)).toEqual([false])
     w.unmount()
   })
+
+  it('supports Arrow/Home/End keyboard navigation inside menu', async () => {
+    const w = mount(GkMenu, {
+      props: { modelValue: true },
+      attachTo: document.body,
+      slots: {
+        activator: ({ props }: { props: Record<string, unknown> }) =>
+          h('button', { ...props }, 'Open'),
+        default: () => [
+          h('button', { role: 'menuitem', class: 'first' }, 'First'),
+          h('button', { role: 'menuitem', class: 'second' }, 'Second'),
+          h('button', { role: 'menuitem', class: 'third' }, 'Third'),
+        ],
+      },
+    })
+    const panel = document.body.querySelector('.gk-menu__panel') as HTMLElement
+    const first = document.body.querySelector('.first') as HTMLElement
+    const second = document.body.querySelector('.second') as HTMLElement
+    const third = document.body.querySelector('.third') as HTMLElement
+
+    first.focus()
+    panel.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true }))
+    expect(document.activeElement).toBe(second)
+
+    panel.dispatchEvent(new KeyboardEvent('keydown', { key: 'End', bubbles: true }))
+    expect(document.activeElement).toBe(third)
+
+    panel.dispatchEvent(new KeyboardEvent('keydown', { key: 'Home', bubbles: true }))
+    expect(document.activeElement).toBe(first)
+    w.unmount()
+  })
 })

@@ -76,6 +76,12 @@ const orderedValues = computed(() => {
   return slotOrder.value
 })
 
+function isValueDisabled(value: string | number) {
+  if (!itemsMode.value) return false
+  const item = parsedItems.value.find((p) => p.value === value)
+  return Boolean(item?.disabled)
+}
+
 const isDisabled = computed(() => props.disabled)
 
 function tabId(v: string | number) {
@@ -104,7 +110,10 @@ function focusNeighbor(value: string | number, delta: -1 | 1) {
   const vs = orderedValues.value
   const i = vs.indexOf(value)
   if (i < 0) return
-  const ni = i + delta
+  let ni = i + delta
+  while (ni >= 0 && ni < vs.length && isValueDisabled(vs[ni])) {
+    ni += delta
+  }
   if (ni < 0 || ni >= vs.length) return
   const next = vs[ni]
   setValue(next)
@@ -114,7 +123,8 @@ function focusNeighbor(value: string | number, delta: -1 | 1) {
 function focusFirst() {
   const vs = orderedValues.value
   if (!vs.length) return
-  const next = vs[0]
+  const next = vs.find((value) => !isValueDisabled(value))
+  if (next === undefined) return
   setValue(next)
   void nextTick(() => document.getElementById(tabId(next))?.focus())
 }
@@ -122,7 +132,8 @@ function focusFirst() {
 function focusLast() {
   const vs = orderedValues.value
   if (!vs.length) return
-  const next = vs[vs.length - 1]
+  const next = [...vs].reverse().find((value) => !isValueDisabled(value))
+  if (next === undefined) return
   setValue(next)
   void nextTick(() => document.getElementById(tabId(next))?.focus())
 }
@@ -154,6 +165,7 @@ const tabsContext: GkTabsContext = {
   inset,
   alignTabs,
   orderedValues,
+  isValueDisabled,
   registerValue,
   unregisterValue,
   focusNeighbor,
@@ -169,8 +181,10 @@ watch(
   (vs) => {
     if (vs.length === 0) return
     const m = model.value
-    if (m === undefined || m === null || !vs.includes(m)) {
-      model.value = vs[0]
+    const firstEnabled = vs.find((value) => !isValueDisabled(value))
+    if (firstEnabled === undefined) return
+    if (m === undefined || m === null || !vs.includes(m) || isValueDisabled(m)) {
+      model.value = firstEnabled
     }
   },
   { immediate: true }

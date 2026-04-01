@@ -41,6 +41,7 @@ export default defineConfig({
             { text: 'Contributing docs', link: '/guide/contributing-docs' },
             { text: 'Build and bundling', link: '/guide/build-and-bundling' },
             { text: 'Consumer bundle analysis', link: '/guide/consumer-bundle-analysis' },
+            { text: 'CLI architecture', link: '/guide/cli-architecture' },
             { text: 'Changelog', link: '/guide/changelog' },
           ],
         },
@@ -110,6 +111,13 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/god-plans/god-kit' }],
     search: {
       provider: 'local',
+    },
+    editLink: {
+      pattern: 'https://github.com/god-plans/god-kit/edit/main/docs/:path',
+      text: 'Edit this page on GitHub',
+    },
+    lastUpdated: {
+      text: 'Last updated',
     },
     footer: {
       message: 'Released under the MIT License.',

@@ -270,7 +270,17 @@ function onKeydown(e: KeyboardEvent) {
   if (props.disabled) return
   const dec = rtl.value ? 'ArrowRight' : 'ArrowLeft'
   const inc = rtl.value ? 'ArrowLeft' : 'ArrowRight'
-  if (e.key === dec && model.value > startNum.value) {
+  if (e.key === 'Home') {
+    if (model.value === startNum.value) return
+    e.preventDefault()
+    model.value = startNum.value
+    void nextTick(() => focusCurrentPage())
+  } else if (e.key === 'End') {
+    if (model.value === lastPage.value) return
+    e.preventDefault()
+    model.value = lastPage.value
+    void nextTick(() => focusCurrentPage())
+  } else if (e.key === dec && model.value > startNum.value) {
     e.preventDefault()
     model.value -= 1
     void nextTick(() => focusCurrentPage())

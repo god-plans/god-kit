@@ -57,4 +57,22 @@ describe('GkTabs', () => {
     expect(w.find('.p2').isVisible()).toBe(false)
     w.unmount()
   })
+
+  it('skips disabled items while keyboard navigating', async () => {
+    const w = mount(GkTabs, {
+      props: {
+        modelValue: 'one',
+        items: [
+          { text: 'One', value: 'one' },
+          { text: 'Two', value: 'two', disabled: true },
+          { text: 'Three', value: 'three' },
+        ],
+      },
+      attachTo: document.body,
+    })
+    const buttons = w.findAll('button[role="tab"]')
+    await buttons[0].trigger('keydown', { key: 'ArrowRight' })
+    expect(w.emitted('update:modelValue')?.at(-1)).toEqual(['three'])
+    w.unmount()
+  })
 })

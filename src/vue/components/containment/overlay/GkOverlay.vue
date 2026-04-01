@@ -107,6 +107,14 @@ function focusPanelOrFirst() {
   else root.focus()
 }
 
+function getTabbableElements(root: HTMLElement) {
+  const selector =
+    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  return Array.from(root.querySelectorAll<HTMLElement>(selector)).filter((el) => {
+    return !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+  })
+}
+
 watch(
   model,
   (open) => {
@@ -137,11 +145,39 @@ watch(
 watchEffect((onCleanup) => {
   if (!model.value) return
   const onKey = (e: KeyboardEvent) => {
-    if (e.key !== 'Escape') return
-    if (props.persistent) return
-    e.preventDefault()
-    e.stopPropagation()
-    close()
+    if (e.key === 'Escape') {
+      if (props.persistent) return
+      e.preventDefault()
+      e.stopPropagation()
+      close()
+      return
+    }
+    if (e.key !== 'Tab') return
+    const root = contentRef.value
+    if (!root) return
+    const tabbables = getTabbableElements(root)
+    if (!tabbables.length) {
+      e.preventDefault()
+      root.focus()
+      return
+    }
+    const first = tabbables[0]
+    const last = tabbables[tabbables.length - 1]
+    const active = document.activeElement
+    if (!root.contains(active)) {
+      e.preventDefault()
+      first.focus()
+      return
+    }
+    if (e.shiftKey && active === first) {
+      e.preventDefault()
+      last.focus()
+      return
+    }
+    if (!e.shiftKey && active === last) {
+      e.preventDefault()
+      first.focus()
+    }
   }
   window.addEventListener('keydown', onKey, true)
   onCleanup(() => window.removeEventListener('keydown', onKey, true))

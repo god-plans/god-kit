@@ -19,6 +19,16 @@ For public npm usage:
 npm i god-kit vue
 ```
 
+## Add a starter component with CLI
+
+Generate the first app-level wrapper component:
+
+```bash
+npx god-kit@latest add button
+```
+
+Use `--dry-run` before writing files and `--cwd` to target another project folder.
+
 For this repository's monorepo development setup, you can still use a workspace `file:` link when needed.
 
 ## Register God Kit (full example)
@@ -157,6 +167,8 @@ const email = ref('')
   <GkButton type="button" variant="primary">Save</GkButton>
 </template>
 ```
+
+Need more examples? Browse the full catalog in **[Components](/components/)**.
 
 ## Local development
 

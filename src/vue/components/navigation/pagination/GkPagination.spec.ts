@@ -47,4 +47,21 @@ describe('GkPagination', () => {
     expect(w.text()).toContain('...')
     w.unmount()
   })
+
+  it('supports Home and End keyboard shortcuts', async () => {
+    const w = mount(GkPagination, {
+      props: {
+        modelValue: 3,
+        length: 8,
+      },
+      attachTo: document.body,
+    })
+    const root = w.find('[data-test="gk-pagination-root"]')
+    await root.trigger('keydown', { key: 'End' })
+    expect(w.emitted('update:modelValue')?.at(-1)).toEqual([8])
+    await w.setProps({ modelValue: 8 })
+    await root.trigger('keydown', { key: 'Home' })
+    expect(w.emitted('update:modelValue')?.at(-1)).toEqual([1])
+    w.unmount()
+  })
 })

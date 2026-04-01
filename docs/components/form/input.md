@@ -89,3 +89,9 @@ const value = ref('')
   <GkInput v-model.trim="amount" prefix="$" :counter="80" placeholder="0.00" />
 </GkField>
 ```
+
+## Accessibility notes
+
+- Prefer wrapping `GkInput` with `GkField` for label and error semantics.
+- When used standalone, pass `ariaLabel` so the control has an accessible name.
+- Use `persistentCounter` for always-visible limits in forms with strict input quotas.

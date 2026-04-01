@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "components": {
+    "button": {
+      "description": "App-level wrapper around GkButton with default styling hooks.",
+      "files": [
+        {
+          "template": "button/GkButton.vue",
+          "target": "component:GkButton.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    }
+  }
+}

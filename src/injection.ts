@@ -68,6 +68,7 @@ export type GkTabsContext = {
   alignTabs: ComputedRef<'start' | 'title' | 'center' | 'end'>
   /** Ordered tab values for keyboard roving */
   orderedValues: Ref<(string | number)[]>
+  isValueDisabled: (value: string | number) => boolean
   registerValue: (value: string | number) => void
   unregisterValue: (value: string | number) => void
   focusNeighbor: (value: string | number, delta: -1 | 1) => void

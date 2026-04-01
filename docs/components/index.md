@@ -8,6 +8,14 @@ outline: [2, 3]
 
 Primitives use the **`Gk`** prefix. Each page documents props, events, slots, and examples. **Form** controls live under **`/components/form`** in the docs and under **`src/vue/components/form/`** in the package.
 
+## Quick add
+
+```bash
+npx god-kit@latest add button
+```
+
+The CLI currently targets Vue Vite and Nuxt projects and supports `--yes`, `--dry-run`, `--cwd`, and `--force`.
+
 ## Form
 
 | Component | Description |
