@@ -10,6 +10,10 @@ A **pagination** control (`role="navigation"`) with **previous** / **next**, opt
 
 This is smaller than Vuetify **VPagination**: no theme / locale composables, no **`VDefaultsProvider`**, and **`GkButton`** is used for controls instead of a dedicated **`VPaginationBtn`**.
 
+## When to use
+
+Use for page-based navigation where users need clear movement between finite result sets. Prefer this over infinite scroll in admin/reporting views requiring random access to pages.
+
 ## Live demo
 
 <DemoGkPagination />
@@ -67,7 +71,9 @@ Additional attributes are forwarded to the root **`<nav>`**.
 | `--gk-pagination-gap` | Flex gap between controls |
 | `--gk-pagination-active-color` | Active page emphasis (with **`activeColor`** prop) |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -82,11 +88,41 @@ const page = ref(1)
 </template>
 ```
 
+### Advanced
+
+```vue
+<GkPagination
+  v-model="page"
+  :length="42"
+  :total-visible="9"
+  show-first-last-page
+  dir="rtl"
+  active-color="var(--gk-color-primary)"
+/>
+```
+
+### Edge case
+
+```vue
+<GkPagination
+  v-model="page"
+  :length="1"
+  disabled
+  aria-label="Results pagination (disabled)"
+/>
+```
+
 ## Accessibility notes
 
 - Set `ariaLabel` to a page-specific label when multiple pagination regions exist.
 - Keyboard shortcuts support Left/Right (RTL-aware) and Home/End.
 - Keep control labels localized through `firstAriaLabel`, `previousAriaLabel`, `nextAriaLabel`, and `lastAriaLabel`.
+
+## Related components
+
+- [GkTabs](./tabs)
+- [GkButton](../button)
+- [GkNavigationDrawer](../containment/navigation-drawer)
 
 ## Out of scope
 

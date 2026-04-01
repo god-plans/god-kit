@@ -10,6 +10,10 @@ A **minimal overlay** for modal-style content: full-screen **scrim**, **Teleport
 
 This is intentionally smaller than Vuetify’s **VOverlay**: no activator slot, location/scroll strategies, router back, global stack composable, lazy hydration, or full focus-trap library. Compose with a button and **`v-model`** in your app (see demo).
 
+## When to use
+
+Use as the lowest-level containment primitive when you need teleported layered content with scrim/escape/focus behavior but custom surface markup.
+
 ## Live demo
 
 <DemoGkOverlay />
@@ -58,7 +62,9 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 | `--gk-overlay-z-index` | Default stacking order (**`2000`**) |
 | `--gk-overlay-content-max-width` | Panel **`max-width`** (default **`min(100%, 32rem)`**; **GkDialog** may override) |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -79,6 +85,40 @@ import { GkOverlay } from 'god-kit/vue'
   </GkOverlay>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkOverlay
+  v-model="open"
+  :z-index="2200"
+  content-max-width="min(100%, 48rem)"
+  transition-name="gk-overlay"
+/>
+```
+
+### Edge case
+
+```vue
+<GkOverlay
+  v-model="open"
+  persistent
+  :show-scrim="false"
+  :restore-focus="false"
+/>
+```
+
+## Accessibility notes
+
+- Provide `aria-labelledby` and `aria-describedby` when overlay content represents a dialog-like interaction.
+- Keep at least one focusable element in overlay content so focus management remains predictable.
+- Persistent overlays should always provide an explicit close action inside the content.
+
+## Related components
+
+- [GkDialog](./dialog)
+- [GkBottomSheet](./bottom-sheet)
+- [GkMenu](./menu)
 
 ## Out of scope (v1)
 

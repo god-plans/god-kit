@@ -8,6 +8,10 @@ outline: [2, 3]
 
 CSS spinner with **`role="status"`**, **`aria-live="polite"`**, and configurable **`aria-label`**.
 
+## When to use
+
+Use for short-lived loading states inside buttons, cards, and inline async flows.
+
 ## Live demo
 
 <DemoGkSpinner />
@@ -21,7 +25,9 @@ CSS spinner with **`role="status"`**, **`aria-live="polite"`**, and configurable
 | `size` | `'sm' \| 'md'` | `'md'` | Visual size |
 | `label` | `string` | `'Loading'` | Exposed to assistive tech |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -32,3 +38,28 @@ import { GkSpinner } from 'god-kit/vue'
   <GkSpinner label="Saving" />
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkSpinner size="sm" label="Refreshing table rows" />
+```
+
+### Edge case
+
+```vue
+<GkButton :loading="saving" loading-label="Saving invoice">
+  Save
+</GkButton>
+```
+
+## Accessibility notes
+
+- Always provide a contextual `label` when the spinner appears away from surrounding explanatory text.
+- Avoid long-running spinner-only states; pair with status text when operations can take longer.
+
+## Related components
+
+- [GkButton](./button)
+- [GkSkeletonLoader](./feedback/skeleton-loader)
+- [GkSnackbar](./feedback/snackbar)

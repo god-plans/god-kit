@@ -10,6 +10,10 @@ A **tabbed interface** with **`role="tablist"`** / **`role="tab"`** / **`role="t
 
 This is intentionally smaller than Vuetify’s **VTabs** + **VSlideGroup** + **VWindow**: no touch carousel, no Web Animations “shift” slider between tabs, and no strict slide-group overflow measurement for arrow disabling.
 
+## When to use
+
+Use tabs to switch between related views that share a page context. Prefer `items` for data-driven tabs and slot-based tabs when panel markup needs full control.
+
 ## Live demo
 
 <DemoGkTabs />
@@ -101,7 +105,9 @@ Exported from **`god-kit/vue`** (and **`god-kit/vue/navigation`**) for custom li
 | `--gk-tabs-bg-color` | Tab strip background |
 | `--gk-tabs-color` | Selected tab label color |
 
-## Example (items)
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -117,6 +123,44 @@ const tab = ref('one')
   </GkTabs>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkTabs
+  v-model="tab"
+  :items="items"
+  direction="vertical"
+  show-arrows
+  inset
+  spaced
+/>
+```
+
+### Edge case
+
+```vue
+<GkTabs
+  v-model="tab"
+  :items="[
+    { text: 'Summary', value: 'summary' },
+    { text: 'Billing', value: 'billing', disabled: true },
+    { text: 'Security', value: 'security' },
+  ]"
+/>
+```
+
+## Accessibility notes
+
+- Arrow keys move focus according to orientation; Home/End jump to first/last enabled tab.
+- Disabled tabs are skipped by roving focus behavior.
+- Keep tab labels concise and pair each tab with meaningful panel content.
+
+## Related components
+
+- [GkPagination](./pagination)
+- [GkMenu](../containment/menu)
+- [GkNavigationDrawer](../containment/navigation-drawer)
 
 ## Out of scope (v1)
 

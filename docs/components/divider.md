@@ -8,6 +8,10 @@ outline: [2, 3]
 
 One-pixel divider using **`border`** tokens. Exposes **`role="separator"`** and **`aria-orientation`**.
 
+## When to use
+
+Use to separate related chunks of content in lists, cards, forms, and toolbars.
+
 ## Live demo
 
 <DemoGkDivider />
@@ -20,7 +24,9 @@ One-pixel divider using **`border`** tokens. Exposes **`role="separator"`** and 
 |------|------|---------|-------------|
 | `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Layout |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -31,3 +37,32 @@ import { GkDivider } from 'god-kit/vue'
   <GkDivider />
 </template>
 ```
+
+### Advanced
+
+```vue
+<div style="display:flex; align-items:center; gap: 0.5rem;">
+  <span>Left</span>
+  <GkDivider orientation="vertical" />
+  <span>Right</span>
+</div>
+```
+
+### Edge case
+
+```vue
+<GkContainer>
+  <GkDivider />
+</GkContainer>
+```
+
+## Accessibility notes
+
+- Use `orientation=\"vertical\"` when dividing inline groups so assistive tech gets the right separator orientation.
+- Avoid decorative overuse; separators should reinforce meaningful grouping.
+
+## Related components
+
+- [GkStack](./stack)
+- [GkContainer](./container)
+- [GkNavigationDrawer](./containment/navigation-drawer)

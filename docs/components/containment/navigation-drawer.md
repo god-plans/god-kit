@@ -10,6 +10,10 @@ A **navigation surface** for app shells: **`v-model`** controls open state (when
 
 This is smaller than Vuetify’s **VNavigationDrawer**: no app **layout** item integration, touch drag, or sticky layout coupling — pair with your own main content **padding** / grid as needed.
 
+## When to use
+
+Use for global app navigation and persistent section switching. Choose `temporary` mode for mobile overlays and docked/rail modes for desktop shell layouts.
+
 ## Live demo
 
 <DemoGkNavigationDrawer />
@@ -76,3 +80,48 @@ Additional attributes are forwarded to the root element (not duplicated on inner
 ### Types
 
 **`GkNavigationDrawerLocation`** and **`GkNavigationDrawerImageSlotProps`** are exported from **`god-kit/vue`**.
+
+## Examples
+
+### Basic
+
+```vue
+<GkNavigationDrawer v-model="open" temporary>
+  <nav>...</nav>
+</GkNavigationDrawer>
+```
+
+### Advanced
+
+```vue
+<GkNavigationDrawer
+  v-model="open"
+  rail
+  expand-on-hover
+  location="start"
+  dir="rtl"
+/>
+```
+
+### Edge case
+
+```vue
+<GkNavigationDrawer
+  v-model="open"
+  temporary
+  persistent
+  :scroll-lock="false"
+/>
+```
+
+## Accessibility notes
+
+- Add a meaningful `aria-label` or visible heading for navigation regions.
+- In temporary mode, provide explicit close actions and keep focus targets inside drawer content.
+- Validate `dir` + `location` combinations in RTL apps.
+
+## Related components
+
+- [GkMenu](./menu)
+- [GkDialog](./dialog)
+- [GkTabs](../navigation/tabs)

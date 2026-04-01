@@ -38,7 +38,7 @@ GkField uses **`useFieldIds()`** internally, then **provides** context for child
 
 ## Examples
 
-### With validation
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -62,3 +62,30 @@ function submit() {
   </form>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkField label="Email" :error="emailError">
+  <GkInput v-model="email" type="email" autocomplete="email" />
+</GkField>
+```
+
+### Edge case
+
+```vue
+<GkField label="API key" label-sr-only :error="apiKeyError">
+  <GkInput v-model="apiKey" aria-label="API key" />
+</GkField>
+```
+
+## Accessibility notes
+
+- Keep one control per field wrapper so label/id relationships remain clear.
+- Use `labelSrOnly` only when visible label text exists elsewhere in nearby UI context.
+
+## Related components
+
+- [GkInput](./input)
+- [GkTextarea](./textarea)
+- [GkSelect](./select)

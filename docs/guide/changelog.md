@@ -8,6 +8,15 @@ outline: [2, 3]
 
 All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (same content, committed for npm and git history).
 
+## [0.7.0] - 2026-04-01
+
+### Changed
+
+- **Documentation sample architecture:** standardized component-doc structure with explicit **When to use**, **Examples** (`Basic`, `Advanced`, `Edge case`), **Accessibility notes**, and **Related components** sections.
+- **Demo scenario quality:** expanded high-impact demo coverage across form, containment, and navigation primitives to better show disabled/readonly/loading/keyboard/RTL edge behaviors.
+- **Catalog consistency:** normalized component pages with integration-oriented examples and cross-links to improve discoverability and reduce doc drift.
+- **Contributor governance:** updated docs authoring guidance with category path conventions, sample taxonomy, merge checklist, and ownership/audit cadence for ongoing sample quality.
+
 ## [Unreleased]
 
 ### Added

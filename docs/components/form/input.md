@@ -95,3 +95,9 @@ const value = ref('')
 - Prefer wrapping `GkInput` with `GkField` for label and error semantics.
 - When used standalone, pass `ariaLabel` so the control has an accessible name.
 - Use `persistentCounter` for always-visible limits in forms with strict input quotas.
+
+## Related components
+
+- [GkField](./field)
+- [GkTextarea](./textarea)
+- [GkSelect](./select)

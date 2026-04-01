@@ -10,6 +10,10 @@ A **floating menu** teleported to **`body`**: **`v-model`** open state, **`#acti
 
 This is intentionally smaller than Vuetify’s **VMenu**: no **VOverlay** activator stack, nested **submenu** parent chain, **openDelay** / **closeDelay**, **locationStrategy** / **scrollStrategy**, or **Tab** focus cycling through the whole document — **`submenu`** is reserved for a future phase.
 
+## When to use
+
+Use for short action lists anchored to an activator (button, icon trigger, contextual controls). Keep menu items action-oriented and avoid long-form content.
+
 ## Live demo
 
 <DemoGkMenu />
@@ -64,7 +68,9 @@ Additional attributes are applied to the **panel** (not the activator).
 | `--gk-menu-shadow` | Panel shadow |
 | `--gk-menu-scrim` | Scrim background (default transparent) |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -84,6 +90,43 @@ const open = ref(false)
   </GkMenu>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkMenu
+  v-model="open"
+  placement="top-end"
+  :offset="8"
+  :close-on-content-click="false"
+>
+  <!-- activator + menu content -->
+</GkMenu>
+```
+
+### Edge case
+
+```vue
+<GkMenu
+  v-model="open"
+  persistent
+  show-scrim
+>
+  <!-- use Escape and explicit close controls -->
+</GkMenu>
+```
+
+## Accessibility notes
+
+- Use `v-bind=\"props\"` from the activator slot to preserve `aria-haspopup` / `aria-expanded` wiring.
+- Keep focusable menu items as direct children with `role=\"menuitem\"` (or related menuitem roles).
+- ArrowUp/ArrowDown and Home/End navigation should be tested in custom slot content.
+
+## Related components
+
+- [GkOverlay](./overlay)
+- [GkDialog](./dialog)
+- [GkTooltip](./tooltip)
 
 ## Out of scope (v1)
 

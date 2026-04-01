@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Non-modal status region. Default **`role="status"`**; use **`role="alert"`** for urgent, interruptive messages.
 
+## When to use
+
+Use for inline status feedback that should remain visible in page flow, such as validation summaries or save results.
+
 ## Live demo
 
 <DemoGkAlert />
@@ -49,7 +53,9 @@ Non-modal status region. Default **`role="status"`**; use **`role="alert"`** for
 | `close` | `MouseEvent` | Close control activated |
 | `click:close` | `MouseEvent` | Same as **`close`** (mirrors common naming) |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -69,3 +75,35 @@ import { GkAlert } from 'god-kit/vue'
   />
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkAlert
+  v-model="open"
+  variant="warning"
+  title="Quota warning"
+  text="Storage usage is near the limit."
+  closable
+  border="start"
+/>
+```
+
+### Edge case
+
+```vue
+<GkAlert role="alert" variant="danger">
+  Critical payment sync failed.
+</GkAlert>
+```
+
+## Accessibility notes
+
+- Use `role=\"alert\"` only for urgent interruptions; keep non-urgent updates as `status`.
+- Provide clear, actionable message text and avoid icon-only communication.
+
+## Related components
+
+- [GkSnackbar](./feedback/snackbar)
+- [GkButton](./button)
+- [GkField](./form/field)

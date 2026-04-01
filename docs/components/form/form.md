@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Renders a native `<form>` with **`novalidate`**, wires **`submit`** to async validation, and exposes **headless** state from **`createForm`** via the default slot. Does **not** register child fields like Vuetify; pair with **`GkField`** and app-level validation.
 
+## When to use
+
+Use `GkForm` when you want native form semantics plus async validation state exposed through slot props. Keep field rendering explicit with `GkField` and control primitives so apps can choose their own validation strategy.
+
 ## Live demo
 
 <DemoGkForm />
@@ -57,7 +61,9 @@ const form = createForm({
 })
 ```
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -79,6 +85,8 @@ const email = ref('')
 </template>
 ```
 
+### Advanced
+
 Handle **`submit`** and optionally await validation:
 
 ```ts
@@ -88,3 +96,26 @@ function onSubmit(e: SubmitEventPromise) {
   })
 }
 ```
+
+### Edge case
+
+```vue
+<GkForm :disabled="saving" :readonly="readOnlyReviewMode">
+  <template #default="{ isDisabled, isReadonly, isValidating }">
+    <p>Disabled: {{ isDisabled }} / Readonly: {{ isReadonly }}</p>
+    <p>Validating: {{ isValidating }}</p>
+  </template>
+</GkForm>
+```
+
+## Accessibility notes
+
+- Prefer real submit controls (`type="submit"`) so Enter-to-submit works naturally.
+- Keep labels and error semantics in `GkField`; `GkForm` coordinates validation flow, not field accessibility markup.
+- If async validation blocks submission, ensure busy state is visible on submit actions.
+
+## Related components
+
+- [GkField](./field)
+- [GkInput](./input)
+- [GkSelect](./select)

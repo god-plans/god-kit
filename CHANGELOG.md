@@ -5,7 +5,16 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.7.0] - 2026-04-01
+
+### Changed
+
+- **Documentation sample architecture:** standardized component-doc structure with explicit **When to use**, **Examples** (`Basic`, `Advanced`, `Edge case`), **Accessibility notes**, and **Related components** sections.
+- **Demo scenario quality:** expanded high-impact demo coverage across form, containment, and navigation primitives to better show disabled/readonly/loading/keyboard/RTL edge behaviors.
+- **Catalog consistency:** normalized component pages with integration-oriented examples and cross-links to improve discoverability and reduce doc drift.
+- **Contributor governance:** updated docs authoring guidance with category path conventions, sample taxonomy, merge checklist, and ownership/audit cadence for ongoing sample quality.
+
+## [0.6.0] - 2026-04-01
 
 ### Changed
 

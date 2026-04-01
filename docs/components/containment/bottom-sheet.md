@@ -10,6 +10,10 @@ A **bottom sheet** built on **[GkOverlay](./overlay)**: **`v-model`**, scrim, Es
 
 This is intentionally smaller than Vuetify’s **VBottomSheet**: no **VDialog** prop proxy beyond what **GkOverlay** already provides, no separate **`contentClass`** merge API — use attributes on the root or extend styles via tokens.
 
+## When to use
+
+Use for bottom-anchored mobile-first action surfaces, short task pickers, or contextual actions that should not fully block page context.
+
 ## Live demo
 
 <DemoGkBottomSheet />
@@ -55,7 +59,9 @@ Additional attributes (**`aria-labelledby`**, **`aria-describedby`**, etc.) are 
 | `--gk-bottom-sheet-max-height` | Default **`max-height`** on the surface (**`90vh`**) |
 | `--gk-bottom-sheet-shadow` | Panel shadow |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -71,6 +77,39 @@ import { GkButton, GkBottomSheet } from 'god-kit/vue'
   </GkBottomSheet>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkBottomSheet
+  v-model="open"
+  inset
+  scrollable
+  :max-height="560"
+/>
+```
+
+### Edge case
+
+```vue
+<GkBottomSheet
+  v-model="open"
+  persistent
+  :show-scrim="false"
+/>
+```
+
+## Accessibility notes
+
+- Provide `aria-labelledby` for sheet title regions.
+- Keep a clear close action when using `persistent`.
+- For long content, prefer `scrollable` to keep controls reachable on small screens.
+
+## Related components
+
+- [GkOverlay](./overlay)
+- [GkDialog](./dialog)
+- [GkSnackbar](../feedback/snackbar)
 
 ## Out of scope (v1)
 

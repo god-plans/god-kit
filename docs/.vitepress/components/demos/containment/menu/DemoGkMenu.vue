@@ -4,6 +4,7 @@ import { GkButton, GkMenu } from 'god-kit/vue'
 
 const open = ref(false)
 const placement = ref<'bottom-start' | 'bottom-end'>('bottom-start')
+const persistent = ref(false)
 </script>
 
 <template>
@@ -16,8 +17,12 @@ const placement = ref<'bottom-start' | 'bottom-end'>('bottom-start')
           <option value="bottom-end">bottom-end</option>
         </select>
       </label>
+      <label class="gk-doc-menu-demo__label">
+        <input v-model="persistent" type="checkbox" />
+        Persistent
+      </label>
     </div>
-    <GkMenu v-model="open" :placement="placement">
+    <GkMenu v-model="open" :placement="placement" :persistent="persistent">
       <template #activator="{ props }">
         <GkButton type="button" v-bind="props">Menu</GkButton>
       </template>

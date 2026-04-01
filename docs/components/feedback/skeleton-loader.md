@@ -12,6 +12,10 @@ Use **`boilerplate`** for static placeholders (no **`role="alert"`** / live regi
 
 There is **no** theme / locale composable layer — **`loadingText`** is a plain string (defaults to **`Loading`**).
 
+## When to use
+
+Use as a visual placeholder while async content is loading, especially in cards, feed items, and table-heavy surfaces.
+
 ## Live demo
 
 <DemoGkSkeletonLoader />
@@ -58,3 +62,36 @@ Keys are listed on **`gkSkeletonRootTypes`** (exported from **`god-kit/vue`**). 
 | `--gk-skeleton-loader-wave` | Shimmer highlight |
 | `--gk-skeleton-loader-shimmer-duration` | Animation length |
 | `--gk-skeleton-loader-*-height` / **`-size`** | Bone dimensions |
+
+## Examples
+
+### Basic
+
+```vue
+<GkSkeletonLoader type="card" loading />
+```
+
+### Advanced
+
+```vue
+<GkSkeletonLoader :type="['heading', 'paragraph']" :loading="loading">
+  <article>Real loaded content</article>
+</GkSkeletonLoader>
+```
+
+### Edge case
+
+```vue
+<GkSkeletonLoader type="table" boilerplate loading />
+```
+
+## Accessibility notes
+
+- Use `boilerplate` for decorative placeholders that should not announce loading state.
+- Keep `loadingText` specific when skeletons represent long-running async operations.
+
+## Related components
+
+- [GkSpinner](../spinner)
+- [GkSnackbar](./snackbar)
+- [GkAlert](../alert)

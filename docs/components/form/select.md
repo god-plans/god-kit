@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Native `<select>` backed by an **`options`** array. This stays close to the platform—no menu, virtual list, or combobox (those belong in app code or a future headless primitive).
 
+## When to use
+
+Use for native single or multi-select controls where platform keyboard behavior is preferred over a custom combobox UI.
+
 ## Live demo
 
 <DemoGkSelect />
@@ -48,7 +52,9 @@ Root **`class`** applies to the wrapper; other attributes are forwarded to **`<s
 |------|------|-------------|
 | `select` | `HTMLSelectElement` | Native `<select>` |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -67,7 +73,7 @@ const options = [
 </template>
 ```
 
-### Multiple
+### Advanced
 
 ```vue
 <script setup lang="ts">
@@ -83,3 +89,28 @@ const options = [
   <GkSelect v-model="tags" :options="options" multiple :size="4" aria-label="Tags" />
 </template>
 ```
+
+### Edge case
+
+```vue
+<GkField label="Readonly option set" :error="error">
+  <GkSelect
+    v-model="reviewValue"
+    :options="options"
+    readonly
+    required
+  />
+</GkField>
+```
+
+## Accessibility notes
+
+- Wrap with `GkField` for visible labels and error semantics in forms.
+- Provide `ariaLabel` when used standalone.
+- For `multiple`, choose an appropriate `size` so keyboard selection remains clear.
+
+## Related components
+
+- [GkInput](./input)
+- [GkField](./field)
+- [GkRadioGroup & GkRadio](./radio)

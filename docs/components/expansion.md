@@ -10,6 +10,10 @@ Composable **accordion / disclosure** UI: **`GkExpansionPanels`** owns **`v-mode
 
 This is intentionally smaller than Vuetify’s expansion stack: no **VDefaultsProvider**, elevation/rounded prop matrices, or group item registry beyond **`value`** matching.
 
+## When to use
+
+Use for grouped content where users reveal one or more sections on demand, especially for dense settings or FAQ-style layouts.
+
 ## Live demo
 
 <DemoGkExpansionPanels />
@@ -65,7 +69,9 @@ Collapsible region: **`role="region"`**, **`aria-labelledby`**, **`hidden`** whe
 |------|-------------|
 | `default` | Panel body |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -93,6 +99,33 @@ const open = ref<(string | number)[]>([])
   </GkExpansionPanels>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkExpansionPanels v-model="open" multiple>
+  <!-- several independent expandable sections -->
+</GkExpansionPanels>
+```
+
+### Edge case
+
+```vue
+<GkExpansionPanels :model-value="['advanced']" disabled>
+  <!-- read-only review state -->
+</GkExpansionPanels>
+```
+
+## Accessibility notes
+
+- `GkExpansionPanelTitle` renders button semantics; do not replace with non-focusable custom elements.
+- Keep heading text concise so screen reader users can scan sections quickly.
+
+## Related components
+
+- [GkTabs](./navigation/tabs)
+- [GkMenu](./containment/menu)
+- [GkDivider](./divider)
 
 ## Out of scope (v1)
 

@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Layout primitive: **`display: flex`** with **`direction`**, **`gap`**, alignment, and optional wrap.
 
+## When to use
+
+Use as the default primitive for spacing and alignment instead of writing ad-hoc flex wrappers in app pages.
+
 ## Live demo
 
 <DemoGkStack />
@@ -31,7 +35,9 @@ Layout primitive: **`display: flex`** with **`direction`**, **`gap`**, alignment
 |------|-------------|
 | `default` | Children |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -45,3 +51,32 @@ import { GkStack } from 'god-kit/vue'
   </GkStack>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkStack direction="row" :gap="2" align="center" justify="space-between" wrap>
+  <span>Filters</span>
+  <span>Actions</span>
+</GkStack>
+```
+
+### Edge case
+
+```vue
+<GkStack tag="ul" direction="column" :gap="1">
+  <li>Accessible list item 1</li>
+  <li>Accessible list item 2</li>
+</GkStack>
+```
+
+## Accessibility notes
+
+- Pick semantic `tag` values when stack wrappers represent lists, nav, or landmark groupings.
+- Preserve source order; visual flex arrangement should not conflict with reading order.
+
+## Related components
+
+- [GkContainer](./container)
+- [GkDivider](./divider)
+- [GkButton](./button)

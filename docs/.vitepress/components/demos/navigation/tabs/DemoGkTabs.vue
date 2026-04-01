@@ -5,6 +5,7 @@ import { GkTab, GkTabs, GkTabsWindowItem } from 'god-kit/vue'
 const tab = ref(1)
 const align = ref<'start' | 'title' | 'center' | 'end'>('start')
 const slider = ref<'fade' | 'grow' | 'shift'>('shift')
+const direction = ref<'horizontal' | 'vertical'>('horizontal')
 </script>
 
 <template>
@@ -27,11 +28,18 @@ const slider = ref<'fade' | 'grow' | 'shift'>('shift')
           <option value="grow">grow</option>
         </select>
       </label>
+      <label class="gk-doc-tabs-demo__label">
+        Direction
+        <select v-model="direction" class="gk-doc-tabs-demo__select">
+          <option value="horizontal">horizontal</option>
+          <option value="vertical">vertical</option>
+        </select>
+      </label>
     </div>
 
-    <GkTabs v-model="tab" :align-tabs="align" :slider-transition="slider" grow>
+    <GkTabs v-model="tab" :align-tabs="align" :slider-transition="slider" :direction="direction" grow>
       <GkTab :value="1">First</GkTab>
-      <GkTab :value="2">Second</GkTab>
+      <GkTab :value="2" disabled>Second (disabled)</GkTab>
       <GkTab :value="3">Third</GkTab>
       <template #window>
         <GkTabsWindowItem :value="1">

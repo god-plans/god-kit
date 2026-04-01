@@ -10,6 +10,10 @@ A **non-blocking** message surface teleported to **`body`**: **no scrim**, **Esc
 
 For **imperative** messages from arbitrary code, add **`GkSnackbarHost`** once (e.g. in **`App.vue`**) and call **`pushGkSnackbar({ text, ... })`** from **`useGkSnackbar`** / **`pushGkSnackbar`**.
 
+## When to use
+
+Use for transient, non-blocking status updates after user actions (save complete, retry warning, background sync status).
+
 ## Live demo
 
 <DemoGkSnackbar />
@@ -72,3 +76,46 @@ For **imperative** messages from arbitrary code, add **`GkSnackbarHost`** once (
 | `--gk-snackbar-inset` | Edge padding |
 | `--gk-snackbar-max-width` | Panel width cap |
 | `--gk-snackbar-stack-unit` | Approximate height for stacked offsets |
+
+## Examples
+
+### Basic
+
+```vue
+<GkSnackbar v-model="open" text="Saved successfully." :timeout="3000" />
+```
+
+### Advanced
+
+```vue
+<GkSnackbar
+  v-model="open"
+  title="Deployment started"
+  text="We will notify you when the rollout finishes."
+  timer="bottom"
+  location="top end"
+  variant="info"
+/>
+```
+
+### Edge case
+
+```vue
+<GkSnackbar v-model="open" :timeout="-1" variant="danger">
+  <template #actions="{ isActive }">
+    <GkButton size="sm" variant="secondary" @click="isActive = false">Dismiss</GkButton>
+  </template>
+</GkSnackbar>
+```
+
+## Accessibility notes
+
+- Keep snackbar text concise and action-oriented; avoid long instructional content.
+- Provide explicit action labels in `#actions` slots.
+- Use indefinite timeout (`-1`) only when users must manually acknowledge the message.
+
+## Related components
+
+- [GkAlert](../alert)
+- [GkButton](../button)
+- [GkSkeletonLoader](./skeleton-loader)

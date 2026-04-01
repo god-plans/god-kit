@@ -10,16 +10,45 @@ For the full workflow, **folder conventions**, and a **copy-paste agent prompt**
 
 ## Add a component page
 
-1. Create **`docs/components/<slug>.md`**, or for form controls **`docs/components/form/<slug>.md`** (e.g. `form/checkbox.md` for **GkCheckbox**).
+1. Create the page in the matching category path:
+   - `docs/components/form/<slug>.md`
+   - `docs/components/containment/<slug>.md`
+   - `docs/components/navigation/<slug>.md`
+   - `docs/components/feedback/<slug>.md` (when applicable)
+   - `docs/components/<slug>.md` for top-level primitives/layout docs
 2. Copy structure from **`.vitepress/templates/component-template.md`** in the docs folder.
-3. Add a **sidebar** item in **[`.vitepress/config.ts`](../.vitepress/config.ts)** under `themeConfig.sidebar['/components/']` → **Form** or **Feedback & layout** as appropriate.
+3. Add a **sidebar** item in **[`.vitepress/config.ts`](../.vitepress/config.ts)** under `themeConfig.sidebar['/components/']` in the matching group.
 4. Add a row to **`docs/components/index.md`** in the right section.
-5. (Optional) Add **`DemoGk*.vue`** under **`.vitepress/components/demos/<component>/`** — form demos under **`demos/form/<component>/`** (e.g. `demos/form/checkbox/DemoGkCheckbox.vue`), register in **`.vitepress/theme/index.ts`**, and embed `<DemoGk… />` in the page.
+5. Add **`DemoGk*.vue`** under **`.vitepress/components/demos/...`** mirroring category paths, register in **`.vitepress/theme/index.ts`**, and embed `<DemoGk… />` in the page.
 
 ## Conventions
 
 - Use frontmatter: `title`, `description`, `outline: [2, 3]`.
-- Sections: **Overview**, **Live demo** (optional), **API** (props / events / slots), **Examples** (code fences).
+- Canonical sections (in order):
+  1. **Overview**
+  2. **When to use**
+  3. **Live demo**
+  4. **API** (props/events/slots/tokens)
+  5. **Examples** (`Basic`, `Advanced`, `Edge case`)
+  6. **Accessibility notes**
+  7. **Related components**
+- Sample taxonomy:
+  - **Basic:** minimal happy path
+  - **Advanced:** realistic app integration
+  - **Edge case:** disabled/readonly/loading/error/RTL/keyboard-focused
+- Use live demos for interactive behavior; use code fences for concise API usage snippets.
+
+## Docs sample checklist
+
+Before merging sample updates:
+
+- [ ] Page follows canonical section order.
+- [ ] At least one live demo is embedded.
+- [ ] Includes one advanced and one edge-case snippet (or explicit reason why not applicable).
+- [ ] Accessibility notes cover keyboard/labels/state semantics when relevant.
+- [ ] Related components section links to adjacent primitives.
+- [ ] Sidebar + `docs/components/index.md` + theme demo registration are kept in sync.
+- [ ] `npm run docs:build` and `npm run test` pass locally.
 
 ## Changelog
 
@@ -36,3 +65,8 @@ You can generate the Components sidebar from the filesystem with a small build s
 ## Public CLI contract
 
 The public CLI architecture, project detection matrix, and idempotency contract are documented in **[CLI architecture](./cli-architecture)**.
+
+## Ownership cadence
+
+- Assign a rotating docs owner each release.
+- Run a monthly sample audit for high-traffic primitives (`GkInput`, `GkButton`, `GkTabs`, `GkMenu`, `GkDialog`, `GkPagination`).

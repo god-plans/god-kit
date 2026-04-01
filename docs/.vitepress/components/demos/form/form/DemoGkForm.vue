@@ -5,6 +5,8 @@ import { ref } from 'vue'
 
 const email = ref('')
 const last = ref('')
+const disabledMode = ref(false)
+const readonlyMode = ref(false)
 
 function onSubmit(e: SubmitEventPromise) {
   e.then((r) => {
@@ -15,6 +17,7 @@ function onSubmit(e: SubmitEventPromise) {
 
 <template>
   <div class="gk-doc-demo gk-doc-stack">
+    <h4 class="gk-doc-heading">Basic</h4>
     <GkForm @submit="onSubmit">
       <template #default="{ isValidating, validate }">
         <GkField label="Email">
@@ -29,6 +32,17 @@ function onSubmit(e: SubmitEventPromise) {
           </GkButton>
         </div>
         <p v-if="last" class="gk-doc-muted">{{ last }}</p>
+      </template>
+    </GkForm>
+
+    <h4 class="gk-doc-heading">Advanced / edge case</h4>
+    <div class="gk-doc-row">
+      <label><input v-model="disabledMode" type="checkbox" /> Disabled</label>
+      <label><input v-model="readonlyMode" type="checkbox" /> Readonly</label>
+    </div>
+    <GkForm :disabled="disabledMode" :readonly="readonlyMode">
+      <template #default="{ isDisabled, isReadonly }">
+        <p class="gk-doc-muted">Form flags -> disabled: {{ isDisabled }}, readonly: {{ isReadonly }}</p>
       </template>
     </GkForm>
   </div>
@@ -49,6 +63,12 @@ function onSubmit(e: SubmitEventPromise) {
 }
 
 .gk-doc-muted {
+  margin: 0;
+  font-size: var(--gk-font-size-sm);
+  color: var(--gk-color-on-surface-muted);
+}
+
+.gk-doc-heading {
   margin: 0;
   font-size: var(--gk-font-size-sm);
   color: var(--gk-color-on-surface-muted);

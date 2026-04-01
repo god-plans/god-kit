@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Constrains content width for readable line lengths. **`maxWidth`** maps to **`sm` / `md` / `lg` / `full`**.
 
+## When to use
+
+Use for page-level content boundaries and readable text widths in dashboards and docs-like views.
+
 ## Live demo
 
 <DemoGkContainer />
@@ -28,7 +32,9 @@ Constrains content width for readable line lengths. **`maxWidth`** maps to **`sm
 |------|-------------|
 | `default` | Content |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -41,3 +47,30 @@ import { GkContainer } from 'god-kit/vue'
   </GkContainer>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkContainer max-width="full" :padded="false">
+  <GkStack direction="row" :gap="4">...</GkStack>
+</GkContainer>
+```
+
+### Edge case
+
+```vue
+<GkContainer tag="section" max-width="sm">
+  <p>Use semantic tags when the container represents a landmark region.</p>
+</GkContainer>
+```
+
+## Accessibility notes
+
+- Choose semantic `tag` values (`section`, `main`, `aside`) when container boundaries map to landmarks.
+- Keep heading hierarchy meaningful inside constrained regions.
+
+## Related components
+
+- [GkStack](./stack)
+- [GkDivider](./divider)
+- [GkNavigationDrawer](./containment/navigation-drawer)

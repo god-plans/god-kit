@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Native `<input type="checkbox">` with tokenized focus styles, wrapped in an **`inline-flex`** container so it aligns with adjacent labels. Pair with a visible `<label>` or pass **`ariaLabel`**.
 
+## When to use
+
+Use for binary choices and “select all” controls where each option can be independently toggled.
+
 ## Live demo
 
 <DemoGkCheckbox />
@@ -42,7 +46,9 @@ Root **`class`** applies to the outer wrapper; other attributes are forwarded to
 |------|------|-------------|
 | `input` | `HTMLInputElement` | The native checkbox element |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -59,6 +65,8 @@ const ok = ref(false)
 </template>
 ```
 
+### Advanced
+
 ### Indeterminate (e.g. “select all”)
 
 Control **`indeterminate`** from the parent; when the user activates the checkbox, the browser clears indeterminate—update your state accordingly.
@@ -66,3 +74,23 @@ Control **`indeterminate`** from the parent; when the user activates the checkbo
 ```vue
 <GkCheckbox v-model="allSelected" :indeterminate="someSelected" />
 ```
+
+### Edge case
+
+```vue
+<label>
+  <GkCheckbox v-model="approved" readonly aria-label="Readonly approval status" />
+  Approved (readonly)
+</label>
+```
+
+## Accessibility notes
+
+- Provide visible label text or `ariaLabel` so each checkbox has a clear accessible name.
+- Use `indeterminate` only to communicate partial selection state, not as a third boolean value.
+
+## Related components
+
+- [GkRadioGroup & GkRadio](./radio)
+- [GkField](./field)
+- [GkSelect](./select)

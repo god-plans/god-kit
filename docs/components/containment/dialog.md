@@ -10,6 +10,10 @@ A **dialog shell** built on **[GkOverlay](./overlay)**: **`v-model`**, scrim, Es
 
 Unlike Vuetify’s **VDialog**, there is **no activator slot**, **VDefaultsProvider**, router back, location/scroll strategies, or global overlay stack — compose with a button and **`v-model`** (see demo).
 
+## When to use
+
+Use for focused modal workflows that require acknowledgement or completion before users continue (confirmations, form steps, destructive actions).
+
 ## Live demo
 
 <DemoGkDialog />
@@ -87,6 +91,12 @@ import { GkButton, GkDialog } from 'god-kit/vue'
 - Always provide `aria-labelledby` and point it to a visible heading inside the dialog.
 - Add `aria-describedby` when the dialog body includes guidance text users must hear before acting.
 - Keep at least one keyboard-focusable control inside the dialog body or actions region.
+
+## Related components
+
+- [GkOverlay](./overlay)
+- [GkBottomSheet](./bottom-sheet)
+- [GkMenu](./menu)
 
 ## Out of scope (v1)
 

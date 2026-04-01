@@ -8,6 +8,10 @@ outline: [2, 3]
 
 Native `<textarea>` with God Kit styling aligned with **GkInput** (wrapper, attrs forwarding, focus events). Works with **`GkField`** for labels and errors.
 
+## When to use
+
+Use for free-form multi-line input such as notes, descriptions, and support context fields.
+
 ## Live demo
 
 <DemoGkTextarea />
@@ -46,7 +50,9 @@ Use **`v-model.trim`** to trim on blur (same idea as **GkInput**).
 |------|------|-------------|
 | `textarea` | `HTMLTextAreaElement` | Native element |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -61,3 +67,30 @@ const notes = ref('')
   </GkField>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkField label="Description">
+  <GkTextarea v-model.trim="description" :rows="6" placeholder="Write details..." />
+</GkField>
+```
+
+### Edge case
+
+```vue
+<GkField label="Readonly transcript" :error="error">
+  <GkTextarea v-model="transcript" readonly />
+</GkField>
+```
+
+## Accessibility notes
+
+- Keep labels visible through `GkField` where possible; use `ariaLabel` only for standalone cases.
+- For long text, ensure focus styles remain visible in scrollable layouts.
+
+## Related components
+
+- [GkInput](./input)
+- [GkField](./field)
+- [GkForm](./form)

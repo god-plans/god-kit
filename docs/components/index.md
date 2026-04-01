@@ -18,6 +18,13 @@ Compatibility alias: `npx add gk button`.
 
 The CLI currently targets Vue Vite and Nuxt projects, supports `--yes`, `--dry-run`, `--cwd`, and `--force`, and currently ships with the MVP registry key `button`.
 
+## Integration recipes
+
+- [Form validation flow](./form/form) — `GkForm` + `GkField` + controls
+- [Dialog actions](./containment/dialog) — `GkDialog` + `GkButton`
+- [Async feedback](./feedback/snackbar) — `GkSnackbar` + `pushGkSnackbar`
+- [Navigation shell](./containment/navigation-drawer) — drawer + tabs/pagination patterns
+
 ## Form
 
 | Component | Description |
@@ -71,3 +78,8 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkSnackbar](./feedback/snackbar) | Transient messages — **`timeout`**, **`timer`**, **`pushGkSnackbar`**, **`GkSnackbarHost`** |
 
 Form-focused imports are also available from **`god-kit/vue/form`**, layout primitives from **`god-kit/vue/layout`**, and navigation primitives from **`god-kit/vue/navigation`** (see [Build and bundling](../guide/build-and-bundling)).
+
+## Maintenance notes
+
+- Keep this index, the components sidebar in `docs/.vitepress/config.ts`, and demo registrations in `docs/.vitepress/theme/index.ts` synchronized in the same PR.
+- Use the checklist in [Contributing docs](../guide/contributing-docs) when adding or expanding examples.

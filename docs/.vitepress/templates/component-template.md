@@ -8,6 +8,11 @@ outline: [2, 3]
 
 Brief overview of what this component does and when to use it.
 
+## When to use
+
+- One or two practical scenarios where this primitive is a good fit.
+- Mention common misuse boundaries and related primitives when needed.
+
 ## Live demo
 
 <!-- Optional: register DemoGkComponentName in .vitepress/theme/index.ts -->
@@ -60,11 +65,40 @@ import { GkComponentName } from 'god-kit/vue'
 </template>
 ```
 
-<!-- Optional: keyboard, labels, focus — keep brief; see docs/guide/component-authoring.md -->
+### Advanced
 
-<!--
-## Accessibility
+```vue
+<script setup lang="ts">
+import { GkComponentName } from 'god-kit/vue'
+</script>
 
-- **Keyboard:** ...
-- **Screen readers:** ...
--->
+<template>
+  <!-- Demonstrate realistic app wiring (state, slots, async, etc.) -->
+  <GkComponentName />
+</template>
+```
+
+### Edge case
+
+```vue
+<script setup lang="ts">
+import { GkComponentName } from 'god-kit/vue'
+</script>
+
+<template>
+  <!-- Disabled/readonly/loading/error/RTL/keyboard-sensitive scenario -->
+  <GkComponentName />
+</template>
+```
+
+## Accessibility notes
+
+- **Keyboard:** list keys and focus behavior for interactive controls.
+- **Screen readers:** mention required labels/aria props when standalone.
+- **State semantics:** note disabled/readonly/loading/error semantics if relevant.
+
+## Related components
+
+- [GkComponentA](../path)
+- [GkComponentB](../path)
+

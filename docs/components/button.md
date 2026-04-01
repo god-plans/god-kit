@@ -81,3 +81,9 @@ import { GkButton } from 'god-kit/vue'
 - Keep visible text in the default slot for clear action names.
 - Use `loadingLabel` when your loading state needs a more specific spoken label.
 - Prefer `disabled` for unavailable actions and `readonly` only when the action should remain visually active but non-interactive.
+
+## Related components
+
+- [GkForm](./form/form)
+- [GkDialog](./containment/dialog)
+- [GkSnackbar](./feedback/snackbar)

@@ -3,15 +3,22 @@ import { ref } from 'vue'
 import { GkButton, GkNavigationDrawer } from 'god-kit/vue'
 
 const open = ref(false)
+const rail = ref(false)
 </script>
 
 <template>
   <div class="gk-doc-demo gk-doc-navigation-drawer-demo">
     <GkButton type="button" @click="open = true">Open navigation drawer</GkButton>
+    <label class="gk-doc-navigation-drawer-demo__toggle">
+      <input v-model="rail" type="checkbox" />
+      Rail
+    </label>
     <GkNavigationDrawer
       v-model="open"
       temporary
       disable-resize-watcher
+      :rail="rail"
+      expand-on-hover
       aria-label="Demo navigation"
     >
       <p class="gk-doc-navigation-drawer-demo__text">
@@ -30,6 +37,14 @@ const open = ref(false)
   flex-wrap: wrap;
   gap: var(--gk-space-2);
   align-items: center;
+}
+
+.gk-doc-navigation-drawer-demo__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gk-space-1);
+  font-size: var(--gk-font-size-sm);
+  color: var(--gk-color-on-surface-muted);
 }
 
 .gk-doc-navigation-drawer-demo__text {

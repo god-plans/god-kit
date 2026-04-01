@@ -5,6 +5,7 @@ import { GkPagination } from 'god-kit/vue'
 const page = ref(3)
 const length = ref(24)
 const showEnds = ref(false)
+const rtl = ref(false)
 </script>
 
 <template>
@@ -18,12 +19,17 @@ const showEnds = ref(false)
         <input v-model="showEnds" type="checkbox" />
         First / last
       </label>
+      <label class="gk-doc-pagination-demo__label">
+        <input v-model="rtl" type="checkbox" />
+        RTL
+      </label>
     </div>
     <GkPagination
       v-model="page"
       :length="length"
       :total-visible="7"
       :show-first-last-page="showEnds"
+      :dir="rtl ? 'rtl' : 'ltr'"
     />
     <p class="gk-doc-pagination-demo__meta">Page {{ page }} of {{ length }}</p>
   </div>

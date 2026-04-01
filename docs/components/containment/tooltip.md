@@ -10,6 +10,10 @@ A **teleported tooltip** (default **`body`**): **`v-model`** visibility, **`#act
 
 This is intentionally smaller than Vuetify’s **VTooltip**: no **VOverlay** stack, **locationStrategy** / **scrollStrategy** beyond anchor + viewport clamping, or **transition** prop (built-in **`gk-tooltip`** transition only).
 
+## When to use
+
+Use for short supplemental hints attached to an existing control. Keep content brief and avoid placing essential workflow information only in tooltips.
+
 ## Live demo
 
 <DemoGkTooltip />
@@ -67,7 +71,9 @@ Additional attributes are applied to the **tooltip panel** (not the activator).
 | `--gk-tooltip-padding-x` / `--gk-tooltip-padding-y` | Panel padding |
 | `--gk-tooltip-shadow` | Panel shadow |
 
-## Example
+## Examples
+
+### Basic
 
 ```vue
 <script setup lang="ts">
@@ -82,6 +88,37 @@ import { GkButton, GkTooltip } from 'god-kit/vue'
   </GkTooltip>
 </template>
 ```
+
+### Advanced
+
+```vue
+<GkTooltip placement="end" :show-delay="200" interactive>
+  <!-- activator + custom tooltip content -->
+</GkTooltip>
+```
+
+### Edge case
+
+```vue
+<GkTooltip
+  v-model="open"
+  persistent
+  :open-on-hover="false"
+  open-on-focus
+/>
+```
+
+## Accessibility notes
+
+- Use `v-bind=\"props\"` from the activator slot so described-by and trigger handlers remain intact.
+- Prefer focus-enabled tooltips for keyboard users; hover-only hints are insufficient.
+- Keep tooltip text concise and non-interactive unless `interactive` is explicitly required.
+
+## Related components
+
+- [GkMenu](./menu)
+- [GkOverlay](./overlay)
+- [GkSnackbar](../feedback/snackbar)
 
 ## Out of scope (v1)
 
