@@ -11,6 +11,11 @@ const props = withDefaults(
   defineProps<{
     disabled?: boolean
     readonly?: boolean
+    /**
+     * Custom validation (e.g. async API check). While it runs, slot **`isValidating`** is **`true`**.
+     * Omit to use the default **`createForm`** validation (errors ref only).
+     */
+    validate?: () => FormValidationResult | Promise<FormValidationResult>
   }>(),
   {
     disabled: false,
@@ -27,15 +32,33 @@ const formEl = useTemplateRef<HTMLFormElement>('formEl')
 const form = createForm({
   disabled: () => props.disabled,
   readonly: () => props.readonly,
+  ...(props.validate
+    ? {
+        validate: () => props.validate!(),
+      }
+    : {}),
 })
+
+/** Top-level refs so the template unwraps them; `form.isValidating` on a plain object would pass the Ref into the slot (always truthy). */
+const {
+  errors,
+  isDisabled,
+  isReadonly,
+  isValidating,
+  isValid,
+  items,
+  validate,
+  reset,
+  resetValidation,
+} = form
 
 /** After the browser resets controls, clear validation state */
 function onReset() {
-  form.reset()
+  reset()
 }
 
 function onSubmit(e: SubmitEvent) {
-  const ready = form.validate()
+  const ready = validate()
   const evt = attachSubmitPromise(e, ready)
   emit('submit', evt)
   e.preventDefault()
@@ -58,15 +81,15 @@ function onSubmit(e: SubmitEvent) {
     @submit="onSubmit"
   >
     <slot
-      :errors="form.errors"
-      :is-disabled="form.isDisabled"
-      :is-readonly="form.isReadonly"
-      :is-validating="form.isValidating"
-      :is-valid="form.isValid"
-      :items="form.items"
-      :validate="form.validate"
-      :reset="form.reset"
-      :reset-validation="form.resetValidation"
+      :errors="errors"
+      :is-disabled="isDisabled"
+      :is-readonly="isReadonly"
+      :is-validating="isValidating"
+      :is-valid="isValid"
+      :items="items"
+      :validate="validate"
+      :reset="reset"
+      :reset-validation="resetValidation"
     />
   </form>
 </template>

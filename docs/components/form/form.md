@@ -24,6 +24,7 @@ Use `GkForm` when you want native form semantics plus async validation state exp
 |------|------|---------|-------------|
 | `disabled` | `boolean` | `false` | Exposed on slot (future: provide to children) |
 | `readonly` | `boolean` | `false` | Exposed on slot |
+| `validate` | `() => FormValidationResult \| Promise<FormValidationResult>` | — | Optional custom validation (e.g. async API). While it runs, slot **`isValidating`** is **`true`**. Omit for default **`createForm`** behavior (errors ref only). |
 
 ### Events
 
@@ -68,18 +69,28 @@ const form = createForm({
 ```vue
 <script setup lang="ts">
 import { GkForm, GkField, GkInput } from 'god-kit/vue'
+import type { SubmitEventPromise } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')
+
+function onSubmit(e: SubmitEventPromise) {
+  e.then((result) => {
+    if (result.valid) console.log('ready to save', email.value)
+  })
+}
 </script>
 
 <template>
   <GkForm @submit="onSubmit">
     <template #default="{ validate }">
-      <GkField label="Email" :error="err">
+      <GkField label="Email">
         <GkInput v-model="email" type="email" autocomplete="email" />
       </GkField>
-      <button type="submit">Save</button>
+      <p>
+        <button type="button" @click="validate">Validate</button>
+        <button type="submit">Save</button>
+      </p>
     </template>
   </GkForm>
 </template>
@@ -95,6 +106,45 @@ function onSubmit(e: SubmitEventPromise) {
     if (!result.valid) console.warn(result.errors)
   })
 }
+```
+
+### Async validation and `isValidating`
+
+Pass **`validate`** on **`GkForm`** when validation does async work (API, debounced rules, artificial delay). Until the promise resolves, **`isValidating`** is **`true`**—use it for submit **`GkButton`** **`loading`**, spinners, or disabled fields.
+
+```vue
+<script setup lang="ts">
+import { GkButton, GkField, GkForm, GkInput } from 'god-kit/vue'
+import type { SubmitEventPromise } from 'god-kit/vue'
+import { ref } from 'vue'
+
+const email = ref('')
+
+async function validateForm() {
+  await new Promise((r) => setTimeout(r, 1000))
+  return email.value.includes('@')
+    ? { valid: true, errors: [] }
+    : { valid: false, errors: [{ errorMessages: ['Invalid email'] }] }
+}
+
+function onSubmit(e: SubmitEventPromise) {
+  e.then((r) => {
+    if (r.valid) console.log('saved')
+  })
+}
+</script>
+
+<template>
+  <GkForm :validate="validateForm" @submit="onSubmit">
+    <template #default="{ isValidating, validate }">
+      <GkField label="Email">
+        <GkInput v-model="email" type="email" autocomplete="email" />
+      </GkField>
+      <GkButton type="button" variant="secondary" @click="validate">Validate</GkButton>
+      <GkButton type="submit" variant="primary" :loading="isValidating">Save</GkButton>
+    </template>
+  </GkForm>
+</template>
 ```
 
 ### Edge case

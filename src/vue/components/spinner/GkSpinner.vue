@@ -4,10 +4,16 @@ withDefaults(
     size?: 'sm' | 'md'
     /** Exposed to assistive tech */
     label?: string
+    /**
+     * `on-filled` uses high-contrast ring colors for solid primary/danger-style surfaces
+     * where the default primary-colored ring would blend into the background.
+     */
+    tone?: 'default' | 'on-filled'
   }>(),
   {
     size: 'md',
     label: 'Loading',
+    tone: 'default',
   }
 )
 </script>
@@ -15,7 +21,7 @@ withDefaults(
 <template>
   <span
     class="gk-spinner"
-    :class="`gk-spinner--${size}`"
+    :class="[`gk-spinner--${size}`, tone === 'on-filled' && 'gk-spinner--on-filled']"
     role="status"
     aria-live="polite"
     :aria-label="label"
@@ -38,6 +44,11 @@ withDefaults(
   border: 2px solid color-mix(in srgb, var(--gk-color-primary) 25%, transparent);
   border-top-color: var(--gk-color-primary);
   animation: gk-spin var(--gk-duration-normal) linear infinite;
+}
+
+.gk-spinner--on-filled .gk-spinner__ring {
+  border-color: color-mix(in srgb, var(--gk-color-text-on-primary) 32%, transparent);
+  border-top-color: var(--gk-color-text-on-primary);
 }
 
 .gk-spinner--sm .gk-spinner__ring {

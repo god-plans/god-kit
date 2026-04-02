@@ -24,6 +24,7 @@ Use for short-lived loading states inside buttons, cards, and inline async flows
 |------|------|---------|-------------|
 | `size` | `'sm' \| 'md'` | `'md'` | Visual size |
 | `label` | `string` | `'Loading'` | Exposed to assistive tech |
+| `tone` | `'default' \| 'on-filled'` | `'default'` | **`on-filled`** uses **`--gk-color-text-on-primary`** for the ring so it stays visible on solid primary/danger fills; **`GkButton`** passes this automatically when **`loading`** on those variants |
 
 ## Examples
 

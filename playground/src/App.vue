@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import { GkButton, GkField, GkInput } from 'god-kit/vue'
+import { GkButton, GkField, GkForm, GkInput } from 'god-kit/vue'
+import type { SubmitEventPromise } from 'god-kit/vue'
 import { ref } from 'vue'
 
 const email = ref('')
 const password = ref('')
 const passwordError = ref('')
 
-function onSubmit(e: Event) {
-  e.preventDefault()
-  passwordError.value = password.value.length < 4 ? 'Use at least 4 characters.' : ''
+function onSubmit(e: SubmitEventPromise) {
+  e.then((result) => {
+    if (!result.valid) return
+    passwordError.value = password.value.length < 4 ? 'Use at least 4 characters.' : ''
+  })
 }
 
 function toggleDark() {
@@ -31,44 +34,46 @@ function toggleDark() {
 
     <main class="gk-play__main">
       <section class="gk-play__card">
-        <h2>Form</h2>
-        <form class="gk-play__form" @submit="onSubmit">
-          <GkField label="Email">
-            <GkInput
-              v-model="email"
-              type="email"
-              name="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-            />
-          </GkField>
+        <h2>GkForm</h2>
+        <GkForm class="gk-play__form" @submit="onSubmit">
+          <template #default>
+            <GkField label="Email">
+              <GkInput
+                v-model="email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+              />
+            </GkField>
 
-          <GkField label="Password" :error="passwordError">
-            <GkInput
-              v-model="password"
-              type="password"
-              name="password"
-              autocomplete="current-password"
-              placeholder="••••••••"
-            />
-          </GkField>
+            <GkField label="Password" :error="passwordError">
+              <GkInput
+                v-model="password"
+                type="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="••••••••"
+              />
+            </GkField>
 
-          <div class="gk-play__actions">
-            <GkButton type="submit" variant="primary">
-              Sign in
-            </GkButton>
-            <GkButton
-              type="button"
-              variant="ghost"
-              @click="email = ''; password = ''; passwordError = ''"
-            >
-              Clear
-            </GkButton>
-            <GkButton type="button" variant="danger">
-              Danger
-            </GkButton>
-          </div>
-        </form>
+            <div class="gk-play__actions">
+              <GkButton type="submit" variant="primary">
+                Sign in
+              </GkButton>
+              <GkButton
+                type="button"
+                variant="ghost"
+                @click="email = ''; password = ''; passwordError = ''"
+              >
+                Clear
+              </GkButton>
+              <GkButton type="button" variant="danger">
+                Danger
+              </GkButton>
+            </div>
+          </template>
+        </GkForm>
       </section>
     </main>
   </div>

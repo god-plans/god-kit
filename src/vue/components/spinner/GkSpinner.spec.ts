@@ -12,4 +12,9 @@ describe('GkSpinner', () => {
     const w = mount(GkSpinner, { props: { label: 'Saving' } })
     expect(w.attributes('aria-label')).toBe('Saving')
   })
+
+  it('applies on-filled tone class', () => {
+    const w = mount(GkSpinner, { props: { tone: 'on-filled' } })
+    expect(w.classes()).toContain('gk-spinner--on-filled')
+  })
 })

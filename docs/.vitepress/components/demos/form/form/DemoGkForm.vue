@@ -8,6 +8,12 @@ const last = ref('')
 const disabledMode = ref(false)
 const readonlyMode = ref(false)
 
+/** Simulates async validation so `isValidating` / submit loading stay on for ~1s */
+async function demoValidate() {
+  await new Promise<void>((r) => setTimeout(r, 1000))
+  return { valid: true, errors: [] }
+}
+
 function onSubmit(e: SubmitEventPromise) {
   e.then((r) => {
     last.value = r.valid ? `ok: ${email.value}` : 'invalid'
@@ -18,7 +24,7 @@ function onSubmit(e: SubmitEventPromise) {
 <template>
   <div class="gk-doc-demo gk-doc-stack">
     <h4 class="gk-doc-heading">Basic</h4>
-    <GkForm @submit="onSubmit">
+    <GkForm :validate="demoValidate" @submit="onSubmit">
       <template #default="{ isValidating, validate }">
         <GkField label="Email">
           <GkInput v-model="email" type="email" autocomplete="email" placeholder="you@example.com" />
@@ -27,8 +33,9 @@ function onSubmit(e: SubmitEventPromise) {
           <GkButton type="button" variant="secondary" @click="validate">
             Validate
           </GkButton>
+
           <GkButton type="submit" variant="primary" :loading="isValidating">
-            Submit
+            Submit test
           </GkButton>
         </div>
         <p v-if="last" class="gk-doc-muted">{{ last }}</p>
@@ -59,6 +66,7 @@ function onSubmit(e: SubmitEventPromise) {
 .gk-doc-row {
   display: flex;
   flex-wrap: wrap;
+  margin-top: var(--gk-space-2);
   gap: var(--gk-space-2);
 }
 

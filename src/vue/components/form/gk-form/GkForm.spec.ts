@@ -21,6 +21,38 @@ describe('GkForm', () => {
     expect(w.find('.has-validate').text()).toBe('ok')
   })
 
+  it('passes unwrapped boolean isValidating to the slot (not a ref object)', () => {
+    const w = mount(GkForm, {
+      slots: {
+        default: (props: { isValidating: unknown }) =>
+          h('span', { class: 'is-validating-flag' }, String(props.isValidating === false)),
+      },
+    })
+    expect(w.find('.is-validating-flag').text()).toBe('true')
+  })
+
+  it('calls custom validate prop on submit', async () => {
+    const validate = vi.fn(async () => ({ valid: true, errors: [] }))
+    const onSubmit = vi.fn()
+    const w = mount({
+      components: { GkForm },
+      setup() {
+        return { validate, onSubmit }
+      },
+      template: `
+        <GkForm :validate="validate" @submit="onSubmit">
+          <template #default>
+            <button type="submit">Send</button>
+          </template>
+        </GkForm>
+      `,
+    })
+    await w.find('form').trigger('submit')
+    await flushPromises()
+    expect(validate).toHaveBeenCalledTimes(1)
+    expect(onSubmit).toHaveBeenCalledTimes(1)
+  })
+
   it('emits submit with a thenable event and completes validation', async () => {
     const onSubmit = vi.fn()
     const w = mount({

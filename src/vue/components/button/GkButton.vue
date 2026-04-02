@@ -72,6 +72,11 @@ const tabIndex = computed(() => {
   return undefined
 })
 
+/** Primary/danger fills need a light ring; default ring would match the background */
+const spinnerTone = computed(() =>
+  props.variant === 'primary' || props.variant === 'danger' ? 'on-filled' : 'default'
+)
+
 function onClick(e: MouseEvent) {
   if (blocksAction.value) {
     e.preventDefault()
@@ -109,7 +114,7 @@ function onClick(e: MouseEvent) {
     </span>
     <span v-if="loading" class="gk-btn__loader" aria-hidden="true">
       <slot name="loader">
-        <GkSpinner size="sm" :label="loadingLabel ?? 'Loading'" />
+        <GkSpinner size="sm" :label="loadingLabel ?? 'Loading'" :tone="spinnerTone" />
       </slot>
     </span>
   </component>
@@ -228,10 +233,18 @@ a.gk-btn[aria-disabled='true'] {
 .gk-btn--loading .gk-btn__loader {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: inherit;
   pointer-events: none;
+}
+
+/* Slight scrim so the loader reads as a distinct layer on saturated fills */
+.gk-btn--primary.gk-btn--loading .gk-btn__loader,
+.gk-btn--danger.gk-btn--loading .gk-btn__loader {
+  background: color-mix(in srgb, rgb(0 0 0) 14%, transparent);
 }
 
 .gk-btn--primary {
