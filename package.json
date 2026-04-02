@@ -1,6 +1,6 @@
 {
   "name": "god-kit",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "God Kit — design tokens and Vue 3 primitives for God Plan apps",
   "license": "MIT",
   "author": "God Plan Team",
@@ -93,6 +93,7 @@
     "vue": "^3.5.0"
   },
   "devDependencies": {
+    "@types/sortablejs": "^1.15.9",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
     "axe-core": "^4.11.1",
@@ -104,5 +105,8 @@
     "vitest": "^2.1.8",
     "vue": "^3.5.13",
     "vue-tsc": "^2.1.10"
+  },
+  "dependencies": {
+    "sortablejs": "^1.15.7"
   }
 }

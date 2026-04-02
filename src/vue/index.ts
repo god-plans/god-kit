@@ -44,6 +44,11 @@ export type {
   FormValidationResult,
   SubmitEventPromise,
 } from './composables/useForm'
+export {
+  applyEndReorder,
+  useSortableList,
+} from './composables/useSortableList'
+export type { UseSortableListOptions } from './composables/useSortableList'
 export { useButtonInteractionState } from './composables/useButtonInteraction'
 export { useMenuAnchorPosition } from './composables/useMenuAnchorPosition'
 export type { GkMenuPlacement } from './composables/useMenuAnchorPosition'

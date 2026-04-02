@@ -5,6 +5,17 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.1] - 2026-04-02
+
+### Added
+
+- **`useSortableList`** composable (`src/vue/composables/useSortableList.ts`): binds [Sortable](https://github.com/SortableJS/Sortable) to a container ref, optional sync of a Vue `Ref<T[]>` on same-list reorder, plus **`applyEndReorder`** helper. Depends on **`sortablejs`** (kit-only; consumers import from **`god-kit/vue`**).
+
+### Changed
+
+- **GkForm:** `isValidating` now properly reflects async validation state in the submit button.
+- **GkButton:** `loading` now properly reflects button loading state.
+
 ## [0.7.0] - 2026-04-01
 
 ### Changed
