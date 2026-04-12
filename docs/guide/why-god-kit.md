@@ -14,6 +14,21 @@ outline: [2, 3]
 - **Use it with Nuxt 4** when you need SSR-ready structure and explicit control over imported components/styles.
 - **Use migration mode** when replacing Vuetify over time, not in one rewrite.
 
+## Features and benefits
+
+These are the main reasons teams adopt God Kit alongside Vue 3 or Nuxt:
+
+- **Admin-first primitives:** Forms, containment, navigation, and feedback patterns tuned for dashboards and internal tools—not a generic marketing-site kit.
+- **Token-first styling:** Semantic CSS variables (`--gk-*`) keep branding and dark/light behavior consistent without scattering magic values in components.
+- **Subpath exports:** Import focused bundles from `god-kit/vue/form`, `god-kit/vue/layout`, `god-kit/vue/navigation`, and `god-kit/vue/config` so you only touch the surface you need.
+- **App-wide configuration:** [`createGkKit`](./global-configuration) wires theme, display breakpoints, locale, and defaults through one plugin-style setup.
+- **Flexible theming:** Named theme registry with presets (for example `ocean` and `highContrast`), plus runtime registration when you need extra branded or accessibility-oriented themes.
+- **CLI scaffolding:** `npx god-kit add <component>` aligns new files with kit conventions; the registry grows over time (see CLI docs for current commands).
+- **Nuxt-friendly:** Documented CSS import order and explicit component imports work well with SSR and Nuxt 4’s module model.
+- **Migration-friendly Vuetify path:** Optional `god-kit/bridge/vuetify.css` maps legacy theme variables toward `--gk-*` so you can replace screens incrementally instead of a big-bang rewrite.
+- **Production-oriented defaults:** TypeScript types across public exports, `Gk*` prefix to reduce naming collisions, ESM with tree-shaking-friendly structure, and accessibility coverage via `axe-core` specs on key components (see [Trust signals](#trust-signals)).
+- **Modern baseline:** Vue 3.5+, Node.js 20+, and current tooling expectations for new greenfield apps.
+
 ## Comparison snapshot
 
 | Option | Best for | Tradeoff |

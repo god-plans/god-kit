@@ -13,6 +13,11 @@ It provides typed `Gk*` primitives, semantic tokens, and accessibility-oriented 
 - **Migration-friendly:** optional Vuetify bridge while replacing screens gradually.
 - **Production-focused:** TypeScript types, subpath exports, and `axe-core` a11y specs.
 - **Token-first:** semantic CSS variables (`--gk-*`) across components.
+- **Configurable app shell:** `createGkKit` for theme, display, locale, and defaults.
+- **Theming beyond light/dark:** named themes, presets, and runtime registration.
+- **CLI:** `npx god-kit add …` to scaffold kit-aligned files (registry grows over time).
+
+Full write-up: [`docs/guide/why-god-kit.md`](docs/guide/why-god-kit.md) (Features and benefits).
 
 ## Install in 60 Seconds
 
