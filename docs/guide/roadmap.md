@@ -39,6 +39,7 @@ This roadmap helps adopters evaluate direction and release intent.
 - Better Nuxt ergonomics (module/global registration options).
 - Higher-level recipe blocks for dashboard layouts.
 - Expanded i18n and theme authoring utilities.
+- Data table follow-ups: column resize, CSV export hooks, optional Nuxt auto-import for **`god-kit/vue/data`**.
 
 ## Release cadence
 

@@ -44,6 +44,12 @@ The CLI currently targets Vue Vite and Nuxt projects, supports `--yes`, `--dry-r
 | [GkTabs](./navigation/tabs) | Tab list + panels — **`v-model`**, **`items`** or **`GkTab`** + **`#window`**, **`GK_TABS`** injection |
 | [GkPagination](./navigation/pagination) | Page navigation — ellipsis, **`totalVisible`**, first/last, **`buildPaginationRange`** |
 
+## Data
+
+| Component | Description |
+|-----------|-------------|
+| [GkDataTable](./data/gk-data-table) | Sortable table — **client** / **server** modes, selection, expand, grouping, **`god-kit/vue/data`** |
+
 ## Containment
 
 Overlays, modal shells, and other primitives that **contain** focus and layer above the page.
@@ -77,7 +83,7 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkSkeletonLoader](./feedback/skeleton-loader) | Preset skeleton layouts — **`type`**, shimmer / **`boilerplate`**, **`loading`** |
 | [GkSnackbar](./feedback/snackbar) | Transient messages — **`timeout`**, **`timer`**, **`pushGkSnackbar`**, **`GkSnackbarHost`** |
 
-Form-focused imports are also available from **`god-kit/vue/form`**, layout primitives from **`god-kit/vue/layout`**, and navigation primitives from **`god-kit/vue/navigation`** (see [Build and bundling](../guide/build-and-bundling)).
+Form-focused imports are also available from **`god-kit/vue/form`**, layout primitives from **`god-kit/vue/layout`**, navigation primitives from **`god-kit/vue/navigation`**, and data-table primitives from **`god-kit/vue/data`** (see [Build and bundling](../guide/build-and-bundling)).
 
 ## Maintenance notes
 

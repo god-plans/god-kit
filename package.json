@@ -72,6 +72,10 @@
       "types": "./dist/vue-config.d.ts",
       "import": "./dist/vue-config.js"
     },
+    "./vue/data": {
+      "types": "./dist/vue-data.d.ts",
+      "import": "./dist/vue-data.js"
+    },
     "./tokens.css": "./dist/tokens.css",
     "./vue.css": "./dist/assets/style.css",
     "./bridge/vuetify.css": "./dist/bridge/vuetify-bridge.css"
@@ -107,6 +111,7 @@
     "vue-tsc": "^2.1.10"
   },
   "dependencies": {
+    "@tanstack/vue-virtual": "^3.13.23",
     "sortablejs": "^1.15.7"
   }
 }

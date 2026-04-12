@@ -136,6 +136,7 @@ pushGkSnackbar({ text: 'Saved', color: 'success', timeout: 3000 })
 | `god-kit/vue/layout` | Layout and feedback primitives |
 | `god-kit/vue/navigation` | Tabs and pagination primitives |
 | `god-kit/vue/config` | `createGkKit`, theme/display/locale/defaults providers |
+| `god-kit/vue/data` | **GkDataTable**, **GkDataTableServer**, **GkDataTableVirtual**, table composables |
 | `god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
 | `god-kit/vue.css` | Component styles |
 | `god-kit/bridge/vuetify.css` | `--v-theme-*` -> `--gk-*` mapping |

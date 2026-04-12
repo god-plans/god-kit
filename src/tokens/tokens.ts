@@ -128,6 +128,22 @@ export const gkTokens = {
     minHeight: '--gk-snackbar-min-height',
     shadow: '--gk-snackbar-shadow',
   },
+  table: {
+    border: '--gk-table-border',
+    headerBg: '--gk-table-header-bg',
+    headerText: '--gk-table-header-text',
+    rowHover: '--gk-table-row-hover',
+    stripe: '--gk-table-stripe',
+    stickyShadowStart: '--gk-table-sticky-shadow-start',
+    stickyShadowEnd: '--gk-table-sticky-shadow-end',
+    cellPaddingY: '--gk-table-cell-padding-y',
+    cellPaddingX: '--gk-table-cell-padding-x',
+    densityComfortableMinHeight: '--gk-table-density-comfortable-min-height',
+    densityCompactMinHeight: '--gk-table-density-compact-min-height',
+    radius: '--gk-table-radius',
+    loadingOpacity: '--gk-table-loading-opacity',
+    sortIconSize: '--gk-table-sort-icon-size',
+  },
 } as const
 
 export type GkTokenPath = keyof typeof gkTokens.color

@@ -89,6 +89,18 @@ const { blocksAction } = useButtonInteractionState(
 )
 ```
 
+## Data table composables
+
+Headless helpers used by **[GkDataTable](/components/data/gk-data-table)**; import from **`god-kit/vue`** or **`god-kit/vue/data`**:
+
+- **`useGkTableSort`** — client-side multi-key sort
+- **`useGkTablePagination`** — slice items by page / page size
+- **`useGkTableSelection`** — select-all and per-row keys via **`itemValue`**
+- **`useGkTableExpand`** — expanded row keys
+- **`useGkTableFilter`** — simple string filter across columns
+- **`useGkTableGrouping`** — insert group header rows (single grouping key)
+
+Utilities: **`getLeafColumns`**, **`buildTheadRows`**, **`getRowValue`**, **`getItemKey`**.
 
 ## See also
 

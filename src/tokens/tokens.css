@@ -90,6 +90,22 @@
   --gk-pagination-gap: var(--gk-space-2);
   --gk-pagination-active-color: var(--gk-color-primary);
 
+  /** Data table (GkDataTable) */
+  --gk-table-border: var(--gk-color-border);
+  --gk-table-header-bg: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface));
+  --gk-table-header-text: var(--gk-color-text);
+  --gk-table-row-hover: color-mix(in srgb, var(--gk-color-primary) 10%, transparent);
+  --gk-table-stripe: color-mix(in srgb, var(--gk-color-on-surface) 5%, transparent);
+  --gk-table-sticky-shadow-start: 4px 0 8px -4px rgba(0, 0, 0, 0.12);
+  --gk-table-sticky-shadow-end: -4px 0 8px -4px rgba(0, 0, 0, 0.12);
+  --gk-table-cell-padding-y: var(--gk-space-3);
+  --gk-table-cell-padding-x: var(--gk-space-4);
+  --gk-table-density-comfortable-min-height: 2.75rem;
+  --gk-table-density-compact-min-height: 2rem;
+  --gk-table-radius: var(--gk-radius-md);
+  --gk-table-loading-opacity: 0.5;
+  --gk-table-sort-icon-size: 1rem;
+
   /** Navigation drawer (GkNavigationDrawer) */
   --gk-navigation-drawer-width: 256px;
   --gk-navigation-drawer-rail-width: 56px;
