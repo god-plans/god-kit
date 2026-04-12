@@ -728,7 +728,25 @@ function rowKey(row: GkDataTableDisplayRow<Record<string, unknown>>, ri: number)
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--gk-space-4);
+  gap: var(--gk-space-3) var(--gk-space-4);
+  margin-block-start: var(--gk-space-2);
+  padding-block-start: var(--gk-space-3);
+  border-block-start: 1px solid var(--gk-table-border);
+}
+
+.gk-data-table__footer-mid {
+  margin-inline-end: auto;
+}
+
+/* Shrink-wrap page buttons to the end; default GkPagination is width:100% which stretches the row */
+.gk-data-table__footer :deep(.gk-pagination) {
+  width: auto;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+.gk-data-table__footer :deep(.gk-pagination__list) {
+  justify-content: flex-end;
 }
 
 .gk-data-table__page-size {
@@ -736,15 +754,37 @@ function rowKey(row: GkDataTableDisplayRow<Record<string, unknown>>, ri: number)
   align-items: center;
   gap: var(--gk-space-2);
   font-size: var(--gk-font-size-sm);
+  line-height: var(--gk-line-height-tight);
   color: var(--gk-color-text-muted);
 }
 
 .gk-data-table__page-size-select {
-  border: 1px solid var(--gk-color-border);
-  border-radius: var(--gk-radius-sm);
-  padding: var(--gk-space-1) var(--gk-space-2);
-  background: var(--gk-color-surface);
+  min-width: 4.25rem;
+  min-height: var(--gk-control-min-height-sm);
+  padding-block: var(--gk-space-1);
+  padding-inline: var(--gk-space-2);
+  border: 1px solid var(--gk-color-border-strong);
+  border-radius: var(--gk-radius-md);
+  background-color: var(--gk-color-surface);
   color: var(--gk-color-text);
+  font: inherit;
+  font-size: var(--gk-font-size-sm);
+  font-weight: 500;
+  line-height: var(--gk-line-height-tight);
+  cursor: pointer;
+}
+
+.gk-data-table__page-size-select:hover:not(:disabled) {
+  border-color: var(--gk-color-primary);
+}
+
+.gk-data-table__page-size-select:focus {
+  outline: none;
+}
+
+.gk-data-table__page-size-select:focus-visible {
+  outline: var(--gk-focus-ring-width) solid var(--gk-color-focus-ring);
+  outline-offset: var(--gk-focus-offset);
 }
 
 .gk-data-table__mobile-card {

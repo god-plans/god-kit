@@ -25,7 +25,7 @@ import DemoGkSkeletonLoader from '../components/demos/feedback/skeleton-loader/D
 import DemoGkSpinner from '../components/demos/spinner/DemoGkSpinner.vue'
 import DemoGkStack from '../components/demos/stack/DemoGkStack.vue'
 import DemoGkTextarea from '../components/demos/form/textarea/DemoGkTextarea.vue'
-import DemoGkDataTable from '../components/demos/data/DemoGkDataTable.vue'
+import { registerDataTableDemos } from '../components/demos/data-table/registerDataTableDemos'
 
 import './style.css'
 
@@ -56,6 +56,6 @@ export default {
     app.component('DemoGkSnackbar', DemoGkSnackbar)
     app.component('DemoGkSkeletonLoader', DemoGkSkeletonLoader)
     app.component('DemoGkSpinner', DemoGkSpinner)
-    app.component('DemoGkDataTable', DemoGkDataTable)
+    registerDataTableDemos(app)
   },
 }

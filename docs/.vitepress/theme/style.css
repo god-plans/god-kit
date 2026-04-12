@@ -14,3 +14,18 @@
 .vp-doc .gk-doc-demo--dark {
   background: var(--gk-color-bg);
 }
+
+/** GkDataTable cookbook demos — full content width; table visuals from god-kit/vue.css */
+.vp-doc .vp-demo--data-table {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.vp-doc .vp-demo--data-table :deep(.gk-data-table),
+.vp-doc .vp-demo--data-table :deep(.gk-data-table-virtual) {
+  width: 100%;
+  max-width: 100%;
+}

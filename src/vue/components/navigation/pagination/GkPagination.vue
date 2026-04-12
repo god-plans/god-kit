@@ -463,7 +463,8 @@ watch([range, () => props.showFirstLastPage], () => void nextTick(() => measureM
   user-select: none;
 }
 
+/* Filled primary chip: keep readable ink (token defaults to --gk-color-text-on-primary; override via activeColor / --gk-pagination-active-color) */
 .gk-pagination__item--is-active :deep(.gk-btn--primary) {
-  color: var(--gk-pagination-active-color, inherit);
+  color: var(--gk-pagination-active-color, var(--gk-color-text-on-primary));
 }
 </style>

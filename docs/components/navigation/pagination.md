@@ -32,7 +32,7 @@ Use for page-based navigation where users need clear movement between finite res
 | `showFirstLastPage` | `boolean` | `false` | Shows first / last controls |
 | `ellipsis` | `string` | `'...'` | Ellipsis segment in the range |
 | `dir` | `'ltr' \| 'rtl'` | `'ltr'` | Swaps control icons and keyboard direction |
-| `activeColor` | `string` | — | Sets **`--gk-pagination-active-color`** on the active page button |
+| `activeColor` | `string` | — | Sets **`--gk-pagination-active-color`** (text **ink** on the filled primary active page button) |
 | `variant` | GkButton variant | `'ghost'` | Variant for non-active page buttons |
 | `size` | `'sm' \| 'md'` | `'sm'` | **GkButton** size |
 | `firstIcon` / `prevIcon` / `nextIcon` / `lastIcon` | `string` | `«` / `‹` / `›` / `»` | Default control labels |
@@ -69,7 +69,7 @@ Additional attributes are forwarded to the root **`<nav>`**.
 | Token | Purpose |
 |-------|---------|
 | `--gk-pagination-gap` | Flex gap between controls |
-| `--gk-pagination-active-color` | Active page emphasis (with **`activeColor`** prop) |
+| `--gk-pagination-active-color` | Active page **text** color on the primary fill (default **on-primary**; override with **`activeColor`**) |
 
 ## Examples
 
