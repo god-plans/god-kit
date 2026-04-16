@@ -121,6 +121,8 @@ The runtime merges built-in English strings (**`gkEnMessages`**) into **`locale.
 
 ## Multi-theme runtime switching
 
+Call **`useGkTheme()`** after **`createGkKit`** (or use **`GkThemeProvider`**) so the active theme updates **`document.documentElement`**’s **`data-gk-theme`** and optional inline token overrides. Built-in names include **`light`** (default purple primary and gray surfaces from `tokens.css`), **`dark`**, **`system`**, **`ocean`** (cyan accent), and **`highContrast`**.
+
 ```ts
 import { useGkTheme } from 'god-kit/vue/config'
 

@@ -1,6 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createGkKit } from 'god-kit/vue/config'
 
 import 'god-kit/tokens.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.use(
+  createGkKit({
+    theme: { defaultTheme: 'light' },
+  })
+)
+app.mount('#app')

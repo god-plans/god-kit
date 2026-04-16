@@ -1,21 +1,34 @@
 <script setup lang="ts">
 import { GkButton, GkField, GkForm, GkInput } from 'god-kit/vue'
 import type { SubmitEventPromise } from 'god-kit/vue'
-import { ref } from 'vue'
+import type { GkThemeName } from 'god-kit/vue/config'
+import { useGkTheme } from 'god-kit/vue/config'
+import { computed, ref } from 'vue'
 
 const email = ref('')
 const password = ref('')
 const passwordError = ref('')
+
+const theme = useGkTheme()
+
+const themeChoice = computed({
+  get: () => theme.name.value,
+  set: (v: GkThemeName) => theme.change(v),
+})
+
+const themeOptions: { value: GkThemeName; label: string }[] = [
+  { value: 'light', label: 'Light' },
+  { value: 'dark', label: 'Dark' },
+  { value: 'ocean', label: 'Ocean' },
+  { value: 'highContrast', label: 'High contrast' },
+  { value: 'system', label: 'System' },
+]
 
 function onSubmit(e: SubmitEventPromise) {
   e.then((result) => {
     if (!result.valid) return
     passwordError.value = password.value.length < 4 ? 'Use at least 4 characters.' : ''
   })
-}
-
-function toggleDark() {
-  document.documentElement.classList.toggle('dark')
 }
 </script>
 
@@ -25,11 +38,20 @@ function toggleDark() {
       <h1>God Kit playground</h1>
       <p class="gk-play__sub">
         Imports <code>god-kit/vue</code> from source via Vite alias (see
-        <code>playground/vite.config.ts</code>).
+        <code>playground/vite.config.ts</code>). Theme uses <code>createGkKit</code> +
+        <code>useGkTheme()</code>.
       </p>
-      <GkButton type="button" variant="secondary" size="sm" @click="toggleDark">
-        Toggle dark
-      </GkButton>
+      <div class="gk-play__theme">
+        <label class="gk-play__theme-label" for="gk-play-theme">Theme</label>
+        <select id="gk-play-theme" v-model="themeChoice" class="gk-play__theme-select">
+          <option v-for="opt in themeOptions" :key="opt.value" :value="opt.value">
+            {{ opt.label }}
+          </option>
+        </select>
+        <span class="gk-play__theme-resolved" aria-live="polite">
+          Resolved: <strong>{{ theme.resolved }}</strong>
+        </span>
+      </div>
     </header>
 
     <main class="gk-play__main">
@@ -124,6 +146,34 @@ body {
   border-radius: var(--gk-radius-sm);
   background: var(--gk-color-surface-elevated);
   border: 1px solid var(--gk-color-border);
+}
+
+.gk-play__theme {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gk-space-2) var(--gk-space-4);
+  margin-top: var(--gk-space-3);
+}
+
+.gk-play__theme-label {
+  font-size: var(--gk-font-size-sm);
+  font-weight: 600;
+}
+
+.gk-play__theme-select {
+  min-width: 12rem;
+  padding: var(--gk-space-2) var(--gk-space-3);
+  border-radius: var(--gk-radius-md);
+  border: 1px solid var(--gk-color-border-strong);
+  background: var(--gk-color-surface);
+  color: var(--gk-color-text);
+  font: inherit;
+}
+
+.gk-play__theme-resolved {
+  font-size: var(--gk-font-size-sm);
+  color: var(--gk-color-text-muted);
 }
 
 .gk-play__main {

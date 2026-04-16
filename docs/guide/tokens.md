@@ -16,11 +16,22 @@ Use `gkTokens` when you need variable names in TypeScript (documentation, theme 
 import { gkTokens } from 'god-kit/vue'
 
 // gkTokens.color.primary → '--gk-color-primary'
+// gkTokens.palette.primary['600'] → '--gk-palette-primary-600'
+// gkTokens.elevation[2] → '--gk-elevation-2'
+// gkTokens.text.headingMSize → '--gk-text-heading-m-size'
 ```
+
+## Default palette, elevation, and typography
+
+The default **`:root`** theme maps **semantic** colors (`--gk-color-*`) onto stepped palettes: **gray**, **primary** (purple), **success**, **error**, **warning**, and **info** (steps **25–900**), plus **`--gk-palette-base-white`** / **`--gk-palette-base-black`**. Use semantic tokens for components; use **`--gk-palette-*`** when you need a specific step (custom charts, marketing blocks).
+
+**Elevation** is exposed as **`--gk-elevation-1`** … **`--gk-elevation-5`** (soft black shadows). Component shadows (menu, tooltip, dialog, snackbar, navigation drawer) build on these where it keeps visuals consistent.
+
+**Typography** includes **`--gk-font-sans`** (DM Sans stack) and **`--gk-font-heading`** (Poppins stack), plus named **text style** variables such as **`--gk-text-heading-m-size`**, **`--gk-text-body-s-size`**, **`--gk-text-button-m-size`**, **`--gk-text-input-label-size`**, and **`--gk-text-helper-size`** (see `src/tokens/tokens.css` for the full set).
 
 ## Light and dark
 
-Default tokens target light UI. For dark surfaces, set **`html.dark`** or **`.dark`** on a container (matches common conventions with Nuxt Color Mode).
+Default tokens target light UI. For dark surfaces, set **`html.dark`**, **`.dark`**, or use **`useGkTheme().change('dark')`** so **`data-gk-theme="dark"`** is applied (matches common conventions with Nuxt Color Mode and God Kit’s theme API).
 
 ## Named presets
 
