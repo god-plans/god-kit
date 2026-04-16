@@ -7,9 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-04-17
+
 ### Added
 
+- **Design system (`tokens.css`):** stepped color palettes for **gray**, **primary** (purple brand ramp), **success**, **error**, **warning**, and **info** (steps 25–900), plus **`--gk-palette-base-white`** / **`--gk-palette-base-black`**; semantic **`--gk-color-*`** map onto those scales. **Elevation** tokens **`--gk-elevation-1`** … **`--gk-elevation-5`**; component shadows (dialog, menu, tooltip, drawer, snackbar) align where appropriate. **Typography:** **`--gk-font-sans`** / **`--gk-font-heading`** (DM Sans / Poppins stacks) and named text-style variables (heading, body, button, chip, input label, placeholder, helper). **Dark** theme block uses inverted gray surfaces and tuned primary/status/focus. **`gkTokens`** exposes **`palette`**, **`elevation`**, **`text`**, and extended **`font`** keys (`heading`, line heights).
+- **`useGkTheme` / `highContrast`:** preset inline tokens in `useGkTheme.ts` aligned with **`tokens.css`** for status and tabs where applicable.
+- **Docs:** [Design tokens](docs/guide/tokens.md) and [Getting started](docs/guide/getting-started.md) describe palettes, elevation, typography, and default purple primary.
+- **Playground:** `createGkKit` with a **theme** `<select>` (`useGkTheme`: light, dark, ocean, high contrast, system); optional Google Fonts for DM Sans & Poppins.
 - **CLI `add` registry:** `npx god-kit add <name>` supports every default-exported `Gk*` Vue component from `god-kit/vue` (37 keys), with templates under `cli/templates/` and the manifest in `cli/manifests/components.json`. Run `npx god-kit --help` to print available keys. Maintainer regen: `node scripts/generate-cli-templates.mjs`.
+
+### Changed
+
+- Default **light** theme appearance follows the new design system (including purple primary **`#4F00D0`** at step 600 and matching focus rings).
+
+### Fixed
+
+- **Playground:** Vite **`resolve.alias`** lists **`god-kit/vue/config`** before **`god-kit/vue`** so `import 'god-kit/vue/config'` resolves correctly.
 
 ## [0.7.1] - 2026-04-02
 

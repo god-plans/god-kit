@@ -6,7 +6,21 @@ outline: [2, 3]
 
 # Changelog
 
-All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (same content, committed for npm and git history).
+All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (authoritative history).
+
+## [0.8.0] - 2026-04-17
+
+### Added
+
+- **Design system:** stepped **`tokens.css`** palettes (gray, purple **primary**, success, error, warning, info), elevation tokens, typography variables, dark overrides, and **`gkTokens`** **`palette`** / **`elevation`** / **`text`**. CLI **`add`** registry covers 37 `Gk*` components. Playground: **`createGkKit`** + theme switcher. See root **`CHANGELOG.md`** for full notes.
+
+### Changed
+
+- Default **light** theme uses the new system (purple primary at step 600).
+
+### Fixed
+
+- Playground Vite **`alias`**: **`god-kit/vue/config`** before **`god-kit/vue`**.
 
 ## [0.7.0] - 2026-04-01
 
@@ -16,35 +30,6 @@ All notable changes to `god-kit` are documented in this page and in **`CHANGELOG
 - **Demo scenario quality:** expanded high-impact demo coverage across form, containment, and navigation primitives to better show disabled/readonly/loading/keyboard/RTL edge behaviors.
 - **Catalog consistency:** normalized component pages with integration-oriented examples and cross-links to improve discoverability and reduce doc drift.
 - **Contributor governance:** updated docs authoring guidance with category path conventions, sample taxonomy, merge checklist, and ownership/audit cadence for ongoing sample quality.
-
-## [Unreleased]
-
-### Added
-
-- **CLI `add` registry:** `npx god-kit add <name>` supports every default-exported `Gk*` Vue component from `god-kit/vue` (37 keys); see `cli/manifests/components.json` and `cli/templates/`. Run `npx god-kit --help` for names. Maintainer regen: `node scripts/generate-cli-templates.mjs`.
-- **Multi-theme core API:** `GkKitThemeOptions` now supports a hybrid named-theme registry via `themes` and `includePresets`, with built-in `ocean` and `highContrast` presets.
-- **Theme runtime registry helpers:** `useGkTheme()` now exposes `themes`, `hasTheme`, `registerTheme`, `registerThemes`, and `unregisterTheme`.
-- **Theme presets in CSS tokens:** `tokens.css` includes selectors for `[data-gk-theme='ocean']` and `[data-gk-theme='highContrast']`.
-- **New semantic tokens:** added coverage for danger button states, input focus spread, slim control heights, disabled control surface, dialog viewport cap, and tabs slider/transition metrics.
-- **Public CLI (MVP):** new `god-kit` binary with `add` command (`npx god-kit@latest add button`) plus `--yes`, `--dry-run`, `--cwd`, and `--force`.
-- **CLI architecture docs:** added [CLI architecture](./cli-architecture) with project detection matrix and idempotency contract.
-- **A11y coverage:** added standalone `GkInput.a11y.spec.ts`.
-
-### Changed
-
-- **Theme resolution model:** `resolved` now returns a concrete named theme (never `system`) and writes that value to `data-gk-theme`.
-- **GkThemeProvider:** now reuses the same registry-aware theme context as `createGkKit`, including scoped named theme handling.
-- **Core visual consistency:** normalized token usage in `GkButton`, `GkInput`, `GkAlert`, `GkDialog`, `GkTabs`, and `GkTab` by replacing remaining hardcoded visual literals with semantic token references.
-- **Docs and migration guides:** updated theme docs for named themes, runtime registration, and backward-compatible migration from light/dark/system-only setups.
-- **Docs discoverability:** home/getting-started/components pages now include direct catalog + CLI quick-add paths.
-- **Keyboard UX:** `GkTabs` now skips disabled tabs in roving focus, `GkPagination` supports Home/End, and `GkMenu` supports ArrowUp/ArrowDown/Home/End menu-item navigation.
-- **Overlay focus handling:** `GkOverlay` now traps focus within the panel while open.
-- **CLI reliability:** telemetry preference setup is now fail-open; permission or home-directory write errors no longer block `add` command execution.
-- **CLI argument safety:** boolean flags now only accept bare form or explicit `=true` / `=false`; invalid values (for example `--yes=foo`) fail fast with a clear error.
-- **CLI alias compatibility:** `add gk <component>` is normalized to the same flow as `add <component>` for compatibility workflows.
-- **Nuxt patch safety:** CSS config patching now prefers safe, idempotent array updates and falls back to explicit manual instructions when the config shape is unsafe to mutate.
-- **Component registry UX:** unknown component errors now include available manifest keys (current MVP registry: `button`).
-- **Docs alignment:** command examples now document both canonical and compatibility invocation paths and clarify current MVP component availability.
 
 ## [0.4.0] - 2026-04-01
 
