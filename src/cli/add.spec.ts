@@ -104,8 +104,29 @@ describe('add command', () => {
     await writeFile(join(cwd, 'vite.config.ts'), 'export default {}', 'utf8')
     await writeFile(join(cwd, 'src/main.ts'), 'console.log("x")\n', 'utf8')
     await writeFile(join(cwd, 'package.json'), JSON.stringify({ name: 'app', dependencies: { vue: '^3' } }), 'utf8')
-    await expect(
-      runAddCommand('input', { cwd, yes: true, dryRun: false, force: false }, logger())
-    ).rejects.toThrow(/Available: button/)
+    let message = ''
+    try {
+      await runAddCommand('xyz-unknown-registry-key', { cwd, yes: true, dryRun: false, force: false }, logger())
+    } catch (e) {
+      message = e instanceof Error ? e.message : String(e)
+    }
+    expect(message).toMatch(/Unknown component/)
+    expect(message).toContain('Available:')
+    expect(message).toContain('button')
+    expect(message).toContain('input')
+  })
+
+  it('adds input registry template with god-kit import', async () => {
+    const cwd = await temp('gk-cli-input-')
+    await mkdir(join(cwd, 'src'), { recursive: true })
+    await writeFile(join(cwd, 'vite.config.ts'), 'export default {}', 'utf8')
+    await writeFile(join(cwd, 'src/main.ts'), "import { createApp } from 'vue'\n", 'utf8')
+    await writeFile(join(cwd, 'package.json'), JSON.stringify({ name: 'app', dependencies: { vue: '^3' } }), 'utf8')
+
+    await runAddCommand('input', { cwd, yes: true, dryRun: false, force: false }, logger())
+
+    const component = await readFile(join(cwd, 'src/components/gk/GkInput.vue'), 'utf8')
+    expect(component).toContain("import { GkInput } from 'god-kit/vue'")
+    expect(component).toContain('<GkInput')
   })
 })

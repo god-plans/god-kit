@@ -62,7 +62,7 @@ This document is the implementation contract for the public `god-kit` CLI.
 
 ## Acceptance checklist
 
-1. `npx god-kit@latest add button` works in both Nuxt and Vue Vite fixtures.
+1. `npx god-kit@latest add button` and at least one other manifest key (for example `input`) work in both Nuxt and Vue Vite fixtures.
 2. Alias-compatible argv (`add gk button`) resolves to the same command behavior.
 3. `--dry-run` prints intended actions and writes nothing.
 4. `--cwd` targets a non-current directory.

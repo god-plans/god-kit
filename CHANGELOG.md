@@ -5,6 +5,12 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- **CLI `add` registry:** `npx god-kit add <name>` supports every default-exported `Gk*` Vue component from `god-kit/vue` (37 keys), with templates under `cli/templates/` and the manifest in `cli/manifests/components.json`. Run `npx god-kit --help` to print available keys. Maintainer regen: `node scripts/generate-cli-templates.mjs`.
+
 ## [0.7.1] - 2026-04-02
 
 ### Added

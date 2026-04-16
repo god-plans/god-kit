@@ -16,7 +16,7 @@ npx god-kit@latest add button
 
 Compatibility alias: `npx add gk button`.
 
-The CLI currently targets Vue Vite and Nuxt projects, supports `--yes`, `--dry-run`, `--cwd`, and `--force`, and currently ships with the MVP registry key `button`.
+The CLI targets Vue Vite and Nuxt projects, supports `--yes`, `--dry-run`, `--cwd`, and `--force`, and ships a registry key for each public `Gk*` component (run `npx god-kit --help` for the full list; source [`cli/manifests/components.json`](../../cli/manifests/components.json) in the repo).
 
 ## Integration recipes
 

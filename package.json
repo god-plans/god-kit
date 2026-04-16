@@ -1,6 +1,6 @@
 {
   "name": "god-kit",
-  "version": "0.7.1",
+  "version": "0.7.5",
   "description": "God Kit — design tokens and Vue 3 primitives for God Plan apps",
   "license": "MIT",
   "author": "God Plan Team",
@@ -91,6 +91,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "new-component": "node scripts/new-component.mjs",
+    "generate:cli-templates": "node scripts/generate-cli-templates.mjs",
     "cli": "node cli/god-kit.mjs"
   },
   "peerDependencies": {

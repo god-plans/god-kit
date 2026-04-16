@@ -33,7 +33,7 @@ Compatibility alias:
 npx add gk button
 ```
 
-Current MVP registry: `button` only. Use `--dry-run` before writing files and `--cwd` to target another project folder.
+The `add` command accepts any registry key for a public `Gk*` component (see `npx god-kit --help`). Use `--dry-run` before writing files and `--cwd` to target another project folder.
 
 For this repository's monorepo development setup, you can still use a workspace `file:` link when needed.
 

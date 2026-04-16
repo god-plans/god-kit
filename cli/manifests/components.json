@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "components": {
     "button": {
       "description": "App-level wrapper around GkButton with default styling hooks.",
@@ -7,6 +7,438 @@
         {
           "template": "button/GkButton.vue",
           "target": "component:GkButton.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "form": {
+      "description": "App-level wrapper around GkForm with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/gk-form/GkForm.vue",
+          "target": "component:GkForm.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "input": {
+      "description": "App-level wrapper around GkInput with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/input/GkInput.vue",
+          "target": "component:GkInput.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "field": {
+      "description": "App-level wrapper around GkField with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/field/GkField.vue",
+          "target": "component:GkField.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "textarea": {
+      "description": "App-level wrapper around GkTextarea with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/textarea/GkTextarea.vue",
+          "target": "component:GkTextarea.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "checkbox": {
+      "description": "App-level wrapper around GkCheckbox with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/checkbox/GkCheckbox.vue",
+          "target": "component:GkCheckbox.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "radio-group": {
+      "description": "App-level wrapper around GkRadioGroup with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/radio/GkRadioGroup.vue",
+          "target": "component:GkRadioGroup.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "radio": {
+      "description": "App-level wrapper around GkRadio with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/radio/GkRadio.vue",
+          "target": "component:GkRadio.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "select": {
+      "description": "App-level wrapper around GkSelect with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "form/select/GkSelect.vue",
+          "target": "component:GkSelect.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "alert": {
+      "description": "App-level wrapper around GkAlert with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "alert/GkAlert.vue",
+          "target": "component:GkAlert.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "overlay": {
+      "description": "App-level wrapper around GkOverlay with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/overlay/GkOverlay.vue",
+          "target": "component:GkOverlay.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "dialog": {
+      "description": "App-level wrapper around GkDialog with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/dialog/GkDialog.vue",
+          "target": "component:GkDialog.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "bottom-sheet": {
+      "description": "App-level wrapper around GkBottomSheet with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/bottom-sheet/GkBottomSheet.vue",
+          "target": "component:GkBottomSheet.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "menu": {
+      "description": "App-level wrapper around GkMenu with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/menu/GkMenu.vue",
+          "target": "component:GkMenu.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "tooltip": {
+      "description": "App-level wrapper around GkTooltip with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/tooltip/GkTooltip.vue",
+          "target": "component:GkTooltip.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "navigation-drawer": {
+      "description": "App-level wrapper around GkNavigationDrawer with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/navigation-drawer/GkNavigationDrawer.vue",
+          "target": "component:GkNavigationDrawer.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "stack": {
+      "description": "App-level wrapper around GkStack with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "stack/GkStack.vue",
+          "target": "component:GkStack.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "container": {
+      "description": "App-level wrapper around GkContainer with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "container/GkContainer.vue",
+          "target": "component:GkContainer.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "divider": {
+      "description": "App-level wrapper around GkDivider with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "divider/GkDivider.vue",
+          "target": "component:GkDivider.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "spinner": {
+      "description": "App-level wrapper around GkSpinner with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "spinner/GkSpinner.vue",
+          "target": "component:GkSpinner.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "skeleton-loader": {
+      "description": "App-level wrapper around GkSkeletonLoader with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "feedback/skeleton-loader/GkSkeletonLoader.vue",
+          "target": "component:GkSkeletonLoader.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "snackbar": {
+      "description": "App-level wrapper around GkSnackbar with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "feedback/snackbar/GkSnackbar.vue",
+          "target": "component:GkSnackbar.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "snackbar-host": {
+      "description": "App-level wrapper around GkSnackbarHost with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "feedback/snackbar/GkSnackbarHost.vue",
+          "target": "component:GkSnackbarHost.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "expansion-panels": {
+      "description": "App-level wrapper around GkExpansionPanels with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "expansion/GkExpansionPanels.vue",
+          "target": "component:GkExpansionPanels.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "expansion-panel": {
+      "description": "App-level wrapper around GkExpansionPanel with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "expansion/GkExpansionPanel.vue",
+          "target": "component:GkExpansionPanel.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "expansion-panel-title": {
+      "description": "App-level wrapper around GkExpansionPanelTitle with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "expansion/GkExpansionPanelTitle.vue",
+          "target": "component:GkExpansionPanelTitle.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "expansion-panel-text": {
+      "description": "App-level wrapper around GkExpansionPanelText with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "expansion/GkExpansionPanelText.vue",
+          "target": "component:GkExpansionPanelText.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "tabs": {
+      "description": "App-level wrapper around GkTabs with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "navigation/tabs/GkTabs.vue",
+          "target": "component:GkTabs.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "tab": {
+      "description": "App-level wrapper around GkTab with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "navigation/tabs/GkTab.vue",
+          "target": "component:GkTab.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "tabs-window": {
+      "description": "App-level wrapper around GkTabsWindow with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "navigation/tabs/GkTabsWindow.vue",
+          "target": "component:GkTabsWindow.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "tabs-window-item": {
+      "description": "App-level wrapper around GkTabsWindowItem with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "navigation/tabs/GkTabsWindowItem.vue",
+          "target": "component:GkTabsWindowItem.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "pagination": {
+      "description": "App-level wrapper around GkPagination with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "navigation/pagination/GkPagination.vue",
+          "target": "component:GkPagination.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "table": {
+      "description": "App-level wrapper around GkTable with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "data-table/GkTable.vue",
+          "target": "component:GkTable.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "table-scroll": {
+      "description": "App-level wrapper around GkTableScroll with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "data-table/GkTableScroll.vue",
+          "target": "component:GkTableScroll.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "data-table": {
+      "description": "App-level wrapper around GkDataTable with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "data-table/GkDataTable.vue",
+          "target": "component:GkDataTable.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "data-table-server": {
+      "description": "App-level wrapper around GkDataTableServer with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "data-table/GkDataTableServer.vue",
+          "target": "component:GkDataTableServer.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
+    "data-table-virtual": {
+      "description": "App-level wrapper around GkDataTableVirtual with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "data-table/GkDataTableVirtual.vue",
+          "target": "component:GkDataTableVirtual.vue"
         }
       ],
       "deps": [

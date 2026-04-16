@@ -167,5 +167,12 @@ export async function runAddCommand(componentName, options, logger) {
     }
   }
 
-  logger.success('Done. Import your generated component from components/gk/GkButton.vue (Nuxt) or src/components/gk/GkButton.vue (Vite).')
+  const hintBase = project.kind === 'nuxt' ? 'components/gk' : 'src/components/gk'
+  const targets = writeResults
+    .filter((r) => r.status === 'created' || r.status === 'overwritten' || r.status === 'unchanged')
+    .map((r) => r.relativeTarget)
+  const fileList = targets.length ? targets.join(', ') : `${hintBase}/…`
+  logger.success(
+    `Done. Import from ${hintBase}/ (${fileList}).`
+  )
 }

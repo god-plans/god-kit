@@ -21,6 +21,7 @@ All notable changes to `god-kit` are documented in this page and in **`CHANGELOG
 
 ### Added
 
+- **CLI `add` registry:** `npx god-kit add <name>` supports every default-exported `Gk*` Vue component from `god-kit/vue` (37 keys); see `cli/manifests/components.json` and `cli/templates/`. Run `npx god-kit --help` for names. Maintainer regen: `node scripts/generate-cli-templates.mjs`.
 - **Multi-theme core API:** `GkKitThemeOptions` now supports a hybrid named-theme registry via `themes` and `includePresets`, with built-in `ocean` and `highContrast` presets.
 - **Theme runtime registry helpers:** `useGkTheme()` now exposes `themes`, `hasTheme`, `registerTheme`, `registerThemes`, and `unregisterTheme`.
 - **Theme presets in CSS tokens:** `tokens.css` includes selectors for `[data-gk-theme='ocean']` and `[data-gk-theme='highContrast']`.
