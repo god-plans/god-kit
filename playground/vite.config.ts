@@ -11,9 +11,10 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      // Dev against source (no library rebuild needed)
-      'god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
+      // Dev against source (no library rebuild needed).
+      // More specific subpaths must come before `god-kit/vue` or Vite matches the prefix first and breaks imports like `god-kit/vue/config`.
       'god-kit/vue/config': resolve(kitRoot, 'src/vue/config/index.ts'),
+      'god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
       'god-kit/tokens.css': resolve(kitRoot, 'src/tokens/tokens.css'),
     },
   },
