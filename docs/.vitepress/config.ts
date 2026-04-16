@@ -133,9 +133,11 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        'god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
+        // More specific paths before `god-kit/vue` (otherwise `god-kit/vue/config` resolves wrong).
         'god-kit/vue/config': resolve(kitRoot, 'src/vue/config/index.ts'),
+        'god-kit/vue': resolve(kitRoot, 'src/vue/index.ts'),
         'god-kit/tokens.css': resolve(kitRoot, 'src/tokens/tokens.css'),
+        'god-kit/vue.css': resolve(kitRoot, 'dist/assets/style.css'),
         'god-kit/vue/data': resolve(kitRoot, 'src/vue/data.ts'),
       },
     },

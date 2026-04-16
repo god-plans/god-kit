@@ -1,14 +1,22 @@
-@import url('../../../src/tokens/tokens.css');
-
 /**
- * VitePress chrome only; component visuals come from Gk* SFC styles.
+ * Tokens + vue.css are imported in theme/index.ts (order: tokens → vue → this file).
+ * VitePress chrome + God Kit demos.
  */
+
+:root {
+  --vp-c-brand-1: var(--gk-color-primary);
+  --vp-c-brand-2: color-mix(in srgb, var(--gk-color-primary) 88%, var(--gk-color-text) 12%);
+  --vp-c-brand-3: color-mix(in srgb, var(--gk-color-primary) 75%, var(--gk-color-text) 25%);
+}
+
 .vp-doc .gk-doc-demo {
   padding: 1rem;
   border-radius: var(--gk-radius-md);
   border: 1px solid var(--gk-color-border);
   background: var(--gk-color-surface);
   margin: 1rem 0;
+  box-shadow: var(--gk-elevation-1);
+  font-family: var(--gk-font-sans);
 }
 
 .vp-doc .gk-doc-demo--dark {
@@ -28,4 +36,296 @@
 .vp-doc .vp-demo--data-table :deep(.gk-data-table-virtual) {
   width: 100%;
   max-width: 100%;
+}
+
+/* Nav: kit settings (header only) */
+.gk-docs-kit-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-inline-start: 0.35rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: var(--gk-radius-md);
+  border: 1px solid var(--gk-color-border);
+  background: var(--gk-color-surface);
+  color: var(--gk-color-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: var(--gk-font-sans);
+  cursor: pointer;
+  transition:
+    background-color var(--gk-duration-fast) ease,
+    border-color var(--gk-duration-fast) ease;
+}
+
+.gk-docs-kit-trigger:hover {
+  background: color-mix(in srgb, var(--gk-color-primary) 10%, var(--gk-color-surface));
+  border-color: var(--gk-color-border-strong);
+}
+
+.gk-docs-kit-trigger-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .gk-docs-kit-trigger-text {
+    max-width: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* VitePress sidebar — slightly clearer grouping (God Kit tokens) */
+.VPSidebar {
+  font-family: var(--gk-font-sans);
+}
+
+.VPSidebar .group + .group {
+  margin-top: 0.35rem;
+}
+
+.VPSidebar .VPSidebarItem.level-0 > .item > .text {
+  font-weight: 600;
+}
+
+/* Right drawer */
+.gk-docs-drawer-root {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  pointer-events: none;
+}
+
+.gk-docs-drawer-root > * {
+  pointer-events: auto;
+}
+
+.gk-docs-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--gk-color-overlay);
+  opacity: var(--gk-opacity-overlay);
+}
+
+.gk-docs-drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(28rem, 100vw);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--gk-color-surface);
+  border-left: 1px solid var(--gk-color-border);
+  box-shadow: var(--gk-elevation-4);
+  font-family: var(--gk-font-sans);
+  color: var(--gk-color-text);
+}
+
+.gk-docs-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gk-color-border);
+}
+
+.gk-docs-drawer-title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.gk-docs-drawer-close {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--gk-color-text-muted);
+  padding: 0.15rem 0.35rem;
+  border-radius: var(--gk-radius-sm);
+}
+
+.gk-docs-drawer-close:hover {
+  color: var(--gk-color-text);
+  background: color-mix(in srgb, var(--gk-color-on-surface) 6%, transparent);
+}
+
+.gk-docs-drawer-intro {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--gk-color-text-muted);
+  border-bottom: 1px solid var(--gk-color-border);
+  background: color-mix(in srgb, var(--gk-color-primary) 6%, var(--gk-color-surface));
+}
+
+.gk-docs-drawer-intro summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--gk-color-text);
+}
+
+.gk-docs-drawer-intro-body {
+  margin-top: 0.5rem;
+}
+
+.gk-docs-drawer-intro-body p {
+  margin: 0.5rem 0 0;
+}
+
+.gk-docs-drawer-intro-body p:first-child {
+  margin-top: 0.35rem;
+}
+
+.gk-docs-drawer-intro-body a {
+  color: var(--gk-color-primary);
+  font-weight: 600;
+}
+
+.gk-docs-drawer-intro-body code {
+  font-size: 0.85em;
+}
+
+.gk-docs-drawer-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--gk-color-border);
+  gap: 0.5rem;
+}
+
+.gk-docs-drawer-reset {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--gk-font-sans);
+  border-radius: var(--gk-radius-sm);
+  border: 1px solid var(--gk-color-border-strong);
+  background: var(--gk-color-bg);
+  color: var(--gk-color-text);
+  cursor: pointer;
+}
+
+.gk-docs-drawer-reset:hover {
+  border-color: var(--gk-color-primary);
+  color: var(--gk-color-primary);
+}
+
+.gk-docs-drawer-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--gk-color-text-muted);
+}
+
+.gk-docs-drawer-hint code {
+  font-size: 0.85em;
+}
+
+.gk-docs-drawer-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 0.5rem 1rem 1.25rem;
+}
+
+.gk-docs-drawer-section {
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--gk-color-border);
+  border-radius: var(--gk-radius-md);
+  padding: 0.5rem 0.75rem;
+  background: color-mix(in srgb, var(--gk-color-bg) 80%, var(--gk-color-surface));
+}
+
+.gk-docs-drawer-section summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.gk-docs-drawer-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.65rem;
+  font-size: 0.8125rem;
+}
+
+.gk-docs-drawer-field span:first-child {
+  color: var(--gk-color-text-muted);
+}
+
+.gk-docs-drawer-input,
+.gk-docs-drawer-textarea {
+  font: inherit;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--gk-radius-sm);
+  border: 1px solid var(--gk-color-border-strong);
+  background: var(--gk-color-surface);
+  color: var(--gk-color-text);
+}
+
+.gk-docs-drawer-check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.gk-docs-drawer-export .gk-docs-drawer-hint {
+  margin-bottom: 0.65rem;
+}
+
+.gk-docs-drawer-export-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.gk-docs-drawer-export-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.gk-docs-drawer-copy {
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--gk-radius-sm);
+  border: 1px solid var(--gk-color-primary);
+  background: var(--gk-color-primary);
+  color: var(--gk-color-text-on-primary);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.gk-docs-drawer-copy:hover {
+  background: var(--gk-color-primary-hover);
+}
+
+.gk-docs-drawer-live {
+  font-size: 0.8125rem;
+  color: var(--gk-color-success);
+}
+
+.gk-docs-drawer-pre {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: var(--gk-radius-sm);
+  background: var(--gk-color-bg);
+  border: 1px solid var(--gk-color-border);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  overflow: auto;
+  max-height: 40vh;
+}
+
+.gk-docs-drawer-pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  white-space: pre;
 }

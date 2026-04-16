@@ -1,5 +1,10 @@
 import type { EnhanceAppContext } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { createGkKit } from 'god-kit/vue/config'
+
+import 'god-kit/tokens.css'
+import 'god-kit/vue.css'
+import './style.css'
 
 import DemoGkAlert from '../components/demos/alert/DemoGkAlert.vue'
 import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
@@ -27,11 +32,18 @@ import DemoGkStack from '../components/demos/stack/DemoGkStack.vue'
 import DemoGkTextarea from '../components/demos/form/textarea/DemoGkTextarea.vue'
 import { registerDataTableDemos } from '../components/demos/data-table/registerDataTableDemos'
 
-import './style.css'
+import Layout from './Layout.vue'
 
 export default {
   extends: DefaultTheme,
+  Layout,
   enhanceApp({ app }: EnhanceAppContext) {
+    app.use(
+      createGkKit({
+        theme: { defaultTheme: 'light' },
+      })
+    )
+
     app.component('DemoGkButton', DemoGkButton)
     app.component('DemoGkInput', DemoGkInput)
     app.component('DemoGkForm', DemoGkForm)

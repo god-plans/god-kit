@@ -21,6 +21,10 @@ For the full workflow, **folder conventions**, and a **copy-paste agent prompt**
 4. Add a row to **`docs/components/index.md`** in the right section.
 5. Add **`DemoGk*.vue`** under **`.vitepress/components/demos/...`** mirroring category paths, register in **`.vitepress/theme/index.ts`**, and embed `<DemoGk… />` in the page.
 
+## Kit configurator (VitePress theme)
+
+The docs theme includes a **right-side drawer** opened from the **header** (**Kit settings** next to the nav). It is implemented in **`docs/.vitepress/components/GkDocsKitDrawer.vue`** and **`docs/.vitepress/theme/gk-kit-export.ts`**. Live preview covers **theme** (`useGkTheme`), **CSS design tokens** (radius, motion, focus, opacity), and **density**; **display**, **locale**, and **component defaults** only shape the copied export. When changing drawer behavior or export shape, update those files and keep the **`god-kit/vue/config`** Vite alias **before** **`god-kit/vue`** in **`docs/.vitepress/config.ts`**.
+
 ## Conventions
 
 - Use frontmatter: `title`, `description`, `outline: [2, 3]`.
