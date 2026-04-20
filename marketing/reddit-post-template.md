@@ -17,4 +17,4 @@ Main technical choices:
 
 Biggest tradeoff: this is intentionally opinionated for dashboard/internal-tool use cases, not every possible UI pattern.
 
-If useful, docs and examples are here: https://god-plans.github.io/god-kit/
+If useful, docs and examples are here: https://godkit.godplans.org/

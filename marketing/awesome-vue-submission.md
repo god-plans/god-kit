@@ -10,4 +10,4 @@ God Kit focuses on admin/dashboard primitives (forms, containment, navigation, f
 
 ## Primary link
 
-`https://god-plans.github.io/god-kit/`
+`https://godkit.godplans.org/`

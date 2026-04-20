@@ -3,8 +3,8 @@
 `god-kit` is a **Vue 3 UI kit and design token system** for dashboards and admin apps (including Nuxt).  
 It provides typed `Gk*` primitives, semantic tokens, and accessibility-oriented defaults.
 
-- Docs: `https://god-plans.github.io/god-kit/`
-- Demo: `https://god-plans.github.io/god-kit/`
+- Docs: `https://godkit.godplans.org/`
+- Demo: `https://godkit.godplans.org/`
 - Changelog: [`CHANGELOG.md`](CHANGELOG.md)
 
 ## Why God Kit

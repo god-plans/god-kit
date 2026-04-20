@@ -11,6 +11,9 @@ export default defineConfig({
   description: 'God Kit is a Vue 3 and Nuxt 4 admin UI kit with design tokens, typed components, and migration support from Vuetify.',
   srcDir: '.',
   cleanUrls: true,
+  sitemap: {
+    hostname: 'https://godkit.godplans.org',
+  },
 
   themeConfig: {
     nav: [

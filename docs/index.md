@@ -16,7 +16,7 @@ hero:
       link: /components/
     - theme: alt
       text: Live demo
-      link: https://god-plans.github.io/god-kit/
+      link: https://godkit.godplans.org/
     - theme: alt
       text: Why God Kit
       link: /guide/why-god-kit

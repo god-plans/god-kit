@@ -6,7 +6,7 @@
 
 ## Primary link
 
-`https://god-plans.github.io/god-kit/`
+`https://godkit.godplans.org/`
 
 ## Supporting link
 
