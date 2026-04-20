@@ -86,7 +86,7 @@
     "playground": "vite --config playground/vite.config.ts",
     "playground:build": "vite build --config playground/vite.config.ts",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "npm run build && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test": "vitest run",
     "test:watch": "vitest",
