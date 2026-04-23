@@ -32,7 +32,7 @@ Optional **subpath exports** split barrels for semantic imports:
 | Import path | Contents |
 |-------------|----------|
 | `god-kit/vue/form` | Form primitives, field injection keys, composables |
-| `god-kit/vue/layout` | Alerts, stack, container, divider, spinner |
+| `god-kit/vue/layout` | Alerts, stack, grid, container, divider, spinner |
 | `god-kit/vue/navigation` | Tabs (**GkTabs**, **GkTab**, **GkTabsWindow**, **GkTabsWindowItem**), **`parseGkTabItems`** |
 | `god-kit/vue/config` | **`createGkKit`**, **`useGkTheme`**, **`useGkDisplay`**, **`useGkLocale`**, **`useGkDefaults`**, providers |
 

@@ -77,6 +77,7 @@ import { GkStack } from 'god-kit/vue'
 
 ## Related components
 
+- [GkGrid](./grid)
 - [GkContainer](./container)
 - [GkDivider](./divider)
 - [GkButton](./button)

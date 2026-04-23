@@ -85,7 +85,9 @@ export function useSortableList<T>(containerRef: Ref<HTMLElement | null>, option
     })
   }
 
-  watch(containerRef, mount, { flush: 'post' })
+  // `immediate: true` so the first time the ref becomes a DOM node, Sortable is created.
+  // Without it, a ref that is still null on first flush but set in the same tick as mount can miss the only transition some bundlers/SSR timings hit.
+  watch(containerRef, mount, { flush: 'post', immediate: true })
 
   onUnmounted(destroy)
 

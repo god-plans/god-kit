@@ -37,7 +37,7 @@ Compatibility alias:
 npx add gk button
 ```
 
-CLI registry: one key per public `Gk*` component (37 total). Run `npx god-kit --help` to list names, or see [`cli/manifests/components.json`](cli/manifests/components.json).  
+CLI registry: one key per public `Gk*` component (38 total). Run `npx god-kit --help` to list names, or see [`cli/manifests/components.json`](cli/manifests/components.json).  
 Flags: `--yes`, `--dry-run`, `--cwd`, `--force`.
 
 Import CSS in this order:

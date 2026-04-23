@@ -77,6 +77,7 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkButton](./button) | Button with primary, secondary, ghost, and danger variants |
 | [GkAlert](./alert) | Inline status messages with variants |
 | [GkStack](./stack) | Flex row/column layout with token gap |
+| [GkGrid](./grid) | Responsive CSS grid — column presets (wide / narrow), token gap, optional cell guides |
 | [GkContainer](./container) | Centered max-width container |
 | [GkDivider](./divider) | Horizontal or vertical separator |
 | [GkSpinner](./spinner) | Loading indicator with `role="status"` |
@@ -87,5 +88,5 @@ Form-focused imports are also available from **`god-kit/vue/form`**, layout prim
 
 ## Maintenance notes
 
-- Keep this index, the components sidebar in `docs/.vitepress/config.ts`, and demo registrations in `docs/.vitepress/theme/index.ts` synchronized in the same PR.
+- Keep this index, the components sidebar in `docs/.vitepress/config.ts`, and demo registrations in `docs/.vitepress/theme/index.ts` (and, when applicable, the CLI `components.json` entry and `cli/templates/`) synchronized in the same PR.
 - Use the checklist in [Contributing docs](../guide/contributing-docs) when adding or expanding examples.

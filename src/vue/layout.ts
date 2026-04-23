@@ -5,6 +5,7 @@ export { default as GkBottomSheet } from './components/containment/bottom-sheet/
 export { default as GkMenu } from './components/containment/menu/GkMenu.vue'
 export { default as GkTooltip } from './components/containment/tooltip/GkTooltip.vue'
 export { default as GkStack } from './components/stack/GkStack.vue'
+export { default as GkGrid } from './components/grid/GkGrid.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'
 export { default as GkSpinner } from './components/spinner/GkSpinner.vue'

@@ -29,6 +29,7 @@ import DemoGkSnackbar from '../components/demos/feedback/snackbar/DemoGkSnackbar
 import DemoGkSkeletonLoader from '../components/demos/feedback/skeleton-loader/DemoGkSkeletonLoader.vue'
 import DemoGkSpinner from '../components/demos/spinner/DemoGkSpinner.vue'
 import DemoGkStack from '../components/demos/stack/DemoGkStack.vue'
+import DemoGkGrid from '../components/demos/grid/DemoGkGrid.vue'
 import DemoGkTextarea from '../components/demos/form/textarea/DemoGkTextarea.vue'
 import { registerDataTableDemos } from '../components/demos/data-table/registerDataTableDemos'
 
@@ -62,6 +63,7 @@ export default {
     app.component('DemoGkOverlay', DemoGkOverlay)
     app.component('DemoGkAlert', DemoGkAlert)
     app.component('DemoGkStack', DemoGkStack)
+    app.component('DemoGkGrid', DemoGkGrid)
     app.component('DemoGkContainer', DemoGkContainer)
     app.component('DemoGkExpansionPanels', DemoGkExpansionPanels)
     app.component('DemoGkDivider', DemoGkDivider)

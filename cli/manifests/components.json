@@ -217,6 +217,18 @@
         "god-kit"
       ]
     },
+    "grid": {
+      "description": "App-level wrapper around GkGrid with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "grid/GkGrid.vue",
+          "target": "component:GkGrid.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
     "divider": {
       "description": "App-level wrapper around GkDivider with forwarded attrs and slots.",
       "files": [

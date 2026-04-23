@@ -105,6 +105,7 @@ export default defineConfig({
                 { text: 'GkButton', link: '/components/button' },
                 { text: 'GkAlert', link: '/components/alert' },
                 { text: 'GkStack', link: '/components/stack' },
+                { text: 'GkGrid', link: '/components/grid' },
                 { text: 'GkContainer', link: '/components/container' },
                 { text: 'GkDivider', link: '/components/divider' },
                 { text: 'GkSpinner', link: '/components/spinner' },

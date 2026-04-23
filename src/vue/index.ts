@@ -78,6 +78,7 @@ export type {
   GkNavigationDrawerLocation,
 } from './components/containment/navigation-drawer/gk-navigation-drawer-types'
 export { default as GkStack } from './components/stack/GkStack.vue'
+export { default as GkGrid } from './components/grid/GkGrid.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'
 export { default as GkDivider } from './components/divider/GkDivider.vue'
 export { default as GkSpinner } from './components/spinner/GkSpinner.vue'

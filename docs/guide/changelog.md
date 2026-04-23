@@ -8,6 +8,12 @@ outline: [2, 3]
 
 All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (authoritative history).
 
+## [Unreleased]
+
+### Added
+
+- **GkGrid** — responsive layout grid; see the **[GkGrid](../components/grid)** component page and root **`CHANGELOG.md`**.
+
 ## [0.8.0] - 2026-04-17
 
 ### Added

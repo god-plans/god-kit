@@ -72,5 +72,6 @@ import { GkContainer } from 'god-kit/vue'
 ## Related components
 
 - [GkStack](./stack)
+- [GkGrid](./grid)
 - [GkDivider](./divider)
 - [GkNavigationDrawer](./containment/navigation-drawer)
