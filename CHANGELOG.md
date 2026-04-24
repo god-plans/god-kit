@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **GkCard** and subcomponents (**GkCardActions**, **GkCardItem**, **GkCardTitle**, **GkCardSubtitle**, **GkCardText**) ([`src/vue/components/containment/card/`](src/vue/components/containment/card/)): surface with optional top media, title/subtitle/text convenience props, slots (`image`, `item`, `actions`, `loader`, …), variants (`elevated`, `outlined`, `tonal`, `plain`), `flat` / `hover`, `href` or `clickable` root, and loading overlay. New **`--gk-card-*`** tokens; **`gkTokens.card`**. CLI **`npx god-kit add card`**. Documented in **[docs/components/containment/gk-card.md](docs/components/containment/gk-card.md)**.
 - **GkGrid** ([`src/vue/components/grid/GkGrid.vue`](src/vue/components/grid/GkGrid.vue)): responsive CSS grid using design-token gap, 1–4 columns at wide and narrow (`≤48rem`) breakpoints, item alignment, optional dashed cell guides (`showGridLines`), and optional root tag (e.g. `section`). Exported from **`god-kit/vue`** and **`god-kit/vue-layout`**.
 
 ## [0.8.0] - 2026-04-17

@@ -32,6 +32,7 @@ const registry = [
     component: 'GkNavigationDrawer',
     template: 'containment/navigation-drawer/GkNavigationDrawer.vue',
   },
+  { key: 'card', component: 'GkCard', template: 'containment/card/GkCard.vue' },
   { key: 'stack', component: 'GkStack', template: 'stack/GkStack.vue' },
   { key: 'container', component: 'GkContainer', template: 'container/GkContainer.vue' },
   { key: 'divider', component: 'GkDivider', template: 'divider/GkDivider.vue' },

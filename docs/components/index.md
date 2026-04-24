@@ -62,6 +62,7 @@ Overlays, modal shells, and other primitives that **contain** focus and layer ab
 | [GkMenu](./containment/menu) | Floating menu — activator slot, **`placement`**, **`useMenuAnchorPosition`**, outside dismiss |
 | [GkTooltip](./containment/tooltip) | Tooltip — hover / focus / click, **`interactive`**, **`useTooltipPosition`** |
 | [GkNavigationDrawer](./containment/navigation-drawer) | Side / bottom nav — **`temporary`** scrim, **`rail`**, **`location`**, slots |
+| [GkCard](./containment/gk-card) | Surface with media, title/head, **text**, **actions**, variants, **`href`** or **`clickable`**, **loading** |
 
 ## Expansion
 

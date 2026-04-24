@@ -193,6 +193,18 @@
         "god-kit"
       ]
     },
+    "card": {
+      "description": "App-level wrapper around GkCard with forwarded attrs and slots.",
+      "files": [
+        {
+          "template": "containment/card/GkCard.vue",
+          "target": "component:GkCard.vue"
+        }
+      ],
+      "deps": [
+        "god-kit"
+      ]
+    },
     "stack": {
       "description": "App-level wrapper around GkStack with forwarded attrs and slots.",
       "files": [

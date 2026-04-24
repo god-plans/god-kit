@@ -15,6 +15,7 @@ import DemoGkNavigationDrawer from '../components/demos/containment/navigation-d
 import DemoGkTooltip from '../components/demos/containment/tooltip/DemoGkTooltip.vue'
 import DemoGkBottomSheet from '../components/demos/containment/bottom-sheet/DemoGkBottomSheet.vue'
 import DemoGkDialog from '../components/demos/containment/dialog/DemoGkDialog.vue'
+import DemoGkCard from '../components/demos/containment/card/DemoGkCard.vue'
 import DemoGkOverlay from '../components/demos/containment/overlay/DemoGkOverlay.vue'
 import DemoGkCheckbox from '../components/demos/form/checkbox/DemoGkCheckbox.vue'
 import DemoGkContainer from '../components/demos/container/DemoGkContainer.vue'
@@ -60,6 +61,7 @@ export default {
     app.component('DemoGkTooltip', DemoGkTooltip)
     app.component('DemoGkBottomSheet', DemoGkBottomSheet)
     app.component('DemoGkDialog', DemoGkDialog)
+    app.component('DemoGkCard', DemoGkCard)
     app.component('DemoGkOverlay', DemoGkOverlay)
     app.component('DemoGkAlert', DemoGkAlert)
     app.component('DemoGkStack', DemoGkStack)

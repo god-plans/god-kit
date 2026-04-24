@@ -58,6 +58,18 @@ export const gkTokens = {
     shadow: '--gk-menu-shadow',
     scrim: '--gk-menu-scrim',
   },
+  card: {
+    radius: '--gk-card-radius',
+    shadow: '--gk-card-shadow',
+    shadowHover: '--gk-card-shadow-hover',
+    borderWidth: '--gk-card-border-width',
+    padding: '--gk-card-padding',
+    paddingCompact: '--gk-card-padding-compact',
+    mediaMinHeight: '--gk-card-media-min-height',
+    actionsMinHeight: '--gk-card-actions-min-height',
+    actionsGap: '--gk-card-actions-gap',
+    loaderOverlay: '--gk-card-loader-overlay',
+  },
   tooltip: {
     zIndex: '--gk-tooltip-z-index',
     maxWidth: '--gk-tooltip-max-width',

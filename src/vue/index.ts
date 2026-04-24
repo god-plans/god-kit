@@ -77,6 +77,12 @@ export type {
   GkNavigationDrawerImageSlotProps,
   GkNavigationDrawerLocation,
 } from './components/containment/navigation-drawer/gk-navigation-drawer-types'
+export { default as GkCard } from './components/containment/card/GkCard.vue'
+export { default as GkCardActions } from './components/containment/card/GkCardActions.vue'
+export { default as GkCardItem } from './components/containment/card/GkCardItem.vue'
+export { default as GkCardSubtitle } from './components/containment/card/GkCardSubtitle.vue'
+export { default as GkCardText } from './components/containment/card/GkCardText.vue'
+export { default as GkCardTitle } from './components/containment/card/GkCardTitle.vue'
 export { default as GkStack } from './components/stack/GkStack.vue'
 export { default as GkGrid } from './components/grid/GkGrid.vue'
 export { default as GkContainer } from './components/container/GkContainer.vue'

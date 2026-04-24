@@ -208,6 +208,18 @@
   --gk-menu-shadow: var(--gk-elevation-3);
   --gk-menu-scrim: transparent;
 
+  /** Card (GkCard) */
+  --gk-card-radius: var(--gk-radius-lg);
+  --gk-card-shadow: var(--gk-elevation-2);
+  --gk-card-shadow-hover: var(--gk-elevation-3);
+  --gk-card-border-width: 1px;
+  --gk-card-padding: var(--gk-space-4);
+  --gk-card-padding-compact: var(--gk-space-3);
+  --gk-card-media-min-height: 12rem;
+  --gk-card-actions-min-height: 3.25rem;
+  --gk-card-actions-gap: var(--gk-space-2);
+  --gk-card-loader-overlay: color-mix(in srgb, var(--gk-color-surface) 72%, transparent);
+
   /** Tooltip (GkTooltip) — above menu, below dialog */
   --gk-tooltip-z-index: 2200;
   --gk-tooltip-max-width: min(20rem, calc(100vw - 2rem));
@@ -374,6 +386,7 @@ html.dark,
   --gk-dialog-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.45), var(--gk-elevation-3);
   --gk-menu-shadow: var(--gk-elevation-3);
   --gk-tooltip-shadow: var(--gk-elevation-2);
+  --gk-card-loader-overlay: color-mix(in srgb, var(--gk-color-surface) 55%, transparent);
 }
 
 :root[data-gk-theme='ocean'],

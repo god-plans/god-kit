@@ -78,6 +78,7 @@ export default defineConfig({
                 { text: 'GkMenu', link: '/components/containment/menu' },
                 { text: 'GkTooltip', link: '/components/containment/tooltip' },
                 { text: 'GkNavigationDrawer', link: '/components/containment/navigation-drawer' },
+                { text: 'GkCard', link: '/components/containment/gk-card' },
               ],
             },
             {
