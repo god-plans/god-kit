@@ -9,12 +9,16 @@ import './style.css'
 import DemoGkAlert from '../components/demos/alert/DemoGkAlert.vue'
 import DemoGkButton from '../components/demos/button/DemoGkButton.vue'
 import DemoGkMenu from '../components/demos/containment/menu/DemoGkMenu.vue'
+import GkMenuPlayground from '../components/demos/containment/menu/GkMenuPlayground.vue'
 import DemoGkTabs from '../components/demos/navigation/tabs/DemoGkTabs.vue'
 import DemoGkPagination from '../components/demos/navigation/pagination/DemoGkPagination.vue'
 import DemoGkNavigationDrawer from '../components/demos/containment/navigation-drawer/DemoGkNavigationDrawer.vue'
 import DemoGkTooltip from '../components/demos/containment/tooltip/DemoGkTooltip.vue'
+import GkTooltipPlayground from '../components/demos/containment/tooltip/GkTooltipPlayground.vue'
 import DemoGkBottomSheet from '../components/demos/containment/bottom-sheet/DemoGkBottomSheet.vue'
+import GkBottomSheetPlayground from '../components/demos/containment/bottom-sheet/GkBottomSheetPlayground.vue'
 import DemoGkDialog from '../components/demos/containment/dialog/DemoGkDialog.vue'
+import GkDialogPlayground from '../components/demos/containment/dialog/GkDialogPlayground.vue'
 import DemoGkCard from '../components/demos/containment/card/DemoGkCard.vue'
 import GkCardPlayground from '../components/demos/containment/card/GkCardPlayground.vue'
 import DemoGkOverlay from '../components/demos/containment/overlay/DemoGkOverlay.vue'
@@ -56,12 +60,16 @@ export default {
     app.component('DemoGkRadio', DemoGkRadio)
     app.component('DemoGkSelect', DemoGkSelect)
     app.component('DemoGkMenu', DemoGkMenu)
+    app.component('GkMenuPlayground', GkMenuPlayground)
     app.component('DemoGkTabs', DemoGkTabs)
     app.component('DemoGkPagination', DemoGkPagination)
     app.component('DemoGkNavigationDrawer', DemoGkNavigationDrawer)
     app.component('DemoGkTooltip', DemoGkTooltip)
+    app.component('GkTooltipPlayground', GkTooltipPlayground)
     app.component('DemoGkBottomSheet', DemoGkBottomSheet)
+    app.component('GkBottomSheetPlayground', GkBottomSheetPlayground)
     app.component('DemoGkDialog', DemoGkDialog)
+    app.component('GkDialogPlayground', GkDialogPlayground)
     app.component('DemoGkCard', DemoGkCard)
     app.component('GkCardPlayground', GkCardPlayground)
     app.component('DemoGkOverlay', DemoGkOverlay)

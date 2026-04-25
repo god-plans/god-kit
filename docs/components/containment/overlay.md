@@ -14,7 +14,7 @@ This is intentionally smaller than Vuetify’s **VOverlay**: no activator slot, 
 
 Use as the lowest-level containment primitive when you need teleported layered content with scrim/escape/focus behavior but custom surface markup.
 
-## Live demo
+## Live Examples
 
 <DemoGkOverlay />
 
@@ -61,52 +61,6 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 | `--gk-overlay-scrim` | Scrim background (defaults via **`--gk-color-overlay`**) |
 | `--gk-overlay-z-index` | Default stacking order (**`2000`**) |
 | `--gk-overlay-content-max-width` | Panel **`max-width`** (default **`min(100%, 32rem)`**; **GkDialog** may override) |
-
-## Examples
-
-### Basic
-
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import { GkOverlay } from 'god-kit/vue'
-</script>
-
-<template>
-  <button type="button" @click="open = true">Open</button>
-  <GkOverlay
-    v-model="open"
-    aria-labelledby="confirm-title"
-    aria-describedby="confirm-desc"
-  >
-    <h2 id="confirm-title">Confirm</h2>
-    <p id="confirm-desc">Continue with this action?</p>
-    <button type="button" @click="open = false">OK</button>
-  </GkOverlay>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkOverlay
-  v-model="open"
-  :z-index="2200"
-  content-max-width="min(100%, 48rem)"
-  transition-name="gk-overlay"
-/>
-```
-
-### Edge case
-
-```vue
-<GkOverlay
-  v-model="open"
-  persistent
-  :show-scrim="false"
-  :restore-focus="false"
-/>
-```
 
 ## Accessibility notes
 

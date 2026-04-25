@@ -1,56 +1,47 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { GkButton, GkNavigationDrawer } from 'god-kit/vue'
-
-const open = ref(false)
-const rail = ref(false)
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkNavigationDrawerLocationExample from './samples/GkNavigationDrawerLocationExample.vue'
+import locationSource from './samples/GkNavigationDrawerLocationExample.vue?raw'
+import GkNavigationDrawerRailExample from './samples/GkNavigationDrawerRailExample.vue'
+import railSource from './samples/GkNavigationDrawerRailExample.vue?raw'
+import GkNavigationDrawerTemporaryExample from './samples/GkNavigationDrawerTemporaryExample.vue'
+import temporarySource from './samples/GkNavigationDrawerTemporaryExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-navigation-drawer-demo">
-    <GkButton type="button" @click="open = true">Open navigation drawer</GkButton>
-    <label class="gk-doc-navigation-drawer-demo__toggle">
-      <input v-model="rail" type="checkbox" />
-      Rail
-    </label>
-    <GkNavigationDrawer
-      v-model="open"
-      temporary
-      disable-resize-watcher
-      :rail="rail"
-      expand-on-hover
-      aria-label="Demo navigation"
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Temporary drawer"
+      description="Temporary drawers teleport to body and use scrim/Escape/body scroll lock."
+      :source="temporarySource"
+      best-practice="Add a meaningful aria-label and include a close control inside temporary drawer content."
     >
-      <p class="gk-doc-navigation-drawer-demo__text">
-        Temporary drawer: scrim, Escape, and body scroll lock while open. Docked and rail modes
-        use the same panel styles without teleport — offset your main column with margin or grid
-        when the drawer is not temporary.
-      </p>
-      <GkButton type="button" variant="secondary" @click="open = false">Close</GkButton>
-    </GkNavigationDrawer>
+      <GkNavigationDrawerTemporaryExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Rail and expand on hover"
+      description="Rail mode uses a collapsed width and can expand while hovered."
+      :source="railSource"
+      best-practice="In docked app layouts, reserve main content space yourself with grid or margin."
+    >
+      <GkNavigationDrawerRailExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Location"
+      description="Use start/end for direction-aware placement."
+      :source="locationSource"
+      best-practice="Validate location and dir combinations in RTL apps."
+    >
+      <GkNavigationDrawerLocationExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-navigation-drawer-demo {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gk-space-2);
-  align-items: center;
-}
-
-.gk-doc-navigation-drawer-demo__toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gk-space-1);
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-on-surface-muted);
-}
-
-.gk-doc-navigation-drawer-demo__text {
-  margin: 0 0 var(--gk-space-3);
-  font-size: var(--gk-font-size-sm);
-  line-height: var(--gk-line-height-normal);
-  color: var(--gk-color-text-muted);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

@@ -14,7 +14,7 @@ This is smaller than Vuetify’s **VNavigationDrawer**: no app **layout** item i
 
 Use for global app navigation and persistent section switching. Choose `temporary` mode for mobile overlays and docked/rail modes for desktop shell layouts.
 
-## Live demo
+## Live Examples
 
 <DemoGkNavigationDrawer />
 
@@ -80,39 +80,6 @@ Additional attributes are forwarded to the root element (not duplicated on inner
 ### Types
 
 **`GkNavigationDrawerLocation`** and **`GkNavigationDrawerImageSlotProps`** are exported from **`god-kit/vue`**.
-
-## Examples
-
-### Basic
-
-```vue
-<GkNavigationDrawer v-model="open" temporary>
-  <nav>...</nav>
-</GkNavigationDrawer>
-```
-
-### Advanced
-
-```vue
-<GkNavigationDrawer
-  v-model="open"
-  rail
-  expand-on-hover
-  location="start"
-  dir="rtl"
-/>
-```
-
-### Edge case
-
-```vue
-<GkNavigationDrawer
-  v-model="open"
-  temporary
-  persistent
-  :scroll-lock="false"
-/>
-```
 
 ## Accessibility notes
 

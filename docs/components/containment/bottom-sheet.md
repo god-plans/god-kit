@@ -14,7 +14,7 @@ This is intentionally smaller than Vuetify’s **VBottomSheet**: no **VDialog** 
 
 Use for bottom-anchored mobile-first action surfaces, short task pickers, or contextual actions that should not fully block page context.
 
-## Live demo
+## Live Examples
 
 <DemoGkBottomSheet />
 
@@ -59,45 +59,11 @@ Additional attributes (**`aria-labelledby`**, **`aria-describedby`**, etc.) are 
 | `--gk-bottom-sheet-max-height` | Default **`max-height`** on the surface (**`90vh`**) |
 | `--gk-bottom-sheet-shadow` | Panel shadow |
 
-## Examples
+## Try It
 
-### Basic
+Change common bottom-sheet options, preview the result, and copy generated Vue code.
 
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import { GkButton, GkBottomSheet } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkButton type="button" @click="open = true">Open sheet</GkButton>
-  <GkBottomSheet v-model="open" aria-labelledby="sheet-title" inset>
-    <h2 id="sheet-title">Actions</h2>
-    <GkButton type="button" variant="secondary" @click="open = false">Close</GkButton>
-  </GkBottomSheet>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkBottomSheet
-  v-model="open"
-  inset
-  scrollable
-  :max-height="560"
-/>
-```
-
-### Edge case
-
-```vue
-<GkBottomSheet
-  v-model="open"
-  persistent
-  :show-scrim="false"
-/>
-```
+<GkBottomSheetPlayground />
 
 ## Accessibility notes
 

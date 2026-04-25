@@ -1,79 +1,58 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { GkButton, GkTooltip } from 'god-kit/vue'
-
-const placement = ref<'top' | 'bottom' | 'start' | 'end'>('bottom')
-const interactive = ref(false)
-const openOnClick = ref(false)
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkTooltipBasicExample from './samples/GkTooltipBasicExample.vue'
+import basicSource from './samples/GkTooltipBasicExample.vue?raw'
+import GkTooltipClickExample from './samples/GkTooltipClickExample.vue'
+import clickSource from './samples/GkTooltipClickExample.vue?raw'
+import GkTooltipInteractiveExample from './samples/GkTooltipInteractiveExample.vue'
+import interactiveSource from './samples/GkTooltipInteractiveExample.vue?raw'
+import GkTooltipPlacementExample from './samples/GkTooltipPlacementExample.vue'
+import placementSource from './samples/GkTooltipPlacementExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-tooltip-demo">
-    <div class="gk-doc-tooltip-demo__toolbar">
-      <label class="gk-doc-tooltip-demo__label">
-        Placement
-        <select v-model="placement" class="gk-doc-tooltip-demo__select">
-          <option value="top">top</option>
-          <option value="bottom">bottom</option>
-          <option value="start">start</option>
-          <option value="end">end</option>
-        </select>
-      </label>
-      <label class="gk-doc-tooltip-demo__label">
-        <input v-model="interactive" type="checkbox" />
-        Interactive
-      </label>
-      <label class="gk-doc-tooltip-demo__label">
-        <input v-model="openOnClick" type="checkbox" />
-        Open on click
-      </label>
-    </div>
-    <GkTooltip
-      :placement="placement"
-      :interactive="interactive"
-      :open-on-hover="!openOnClick"
-      :open-on-focus="!openOnClick"
-      :open-on-click="openOnClick"
-      text="Short help text. With interactive mode you can move the pointer onto this panel."
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Hover and focus"
+      description="Default tooltips open on hover and focus."
+      :source="basicSource"
+      best-practice="Always bind activator props so aria-describedby and keyboard triggers stay connected."
     >
-      <template #activator="{ props }">
-        <GkButton type="button" v-bind="props">
-          {{ openOnClick ? 'Click me' : 'Hover / focus' }}
-        </GkButton>
-      </template>
-    </GkTooltip>
+      <GkTooltipBasicExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Placement"
+      description="Choose an edge relative to the activator."
+      :source="placementSource"
+      best-practice="Keep tooltips close to the control they describe and prefer short text."
+    >
+      <GkTooltipPlacementExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Interactive tooltip"
+      description="Interactive mode lets the pointer enter the tooltip panel."
+      :source="interactiveSource"
+      best-practice="Use interactive only when the tooltip has content users must hover into; otherwise keep tooltips passive."
+    >
+      <GkTooltipInteractiveExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Open on click"
+      description="Use click-triggered tooltips for touch-friendly hints."
+      :source="clickSource"
+      best-practice="For essential workflow content, prefer a menu, popover, or dialog over a tooltip."
+    >
+      <GkTooltipClickExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-tooltip-demo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--gk-space-3);
-}
-
-.gk-doc-tooltip-demo__toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gk-space-3);
-  align-items: center;
-}
-
-.gk-doc-tooltip-demo__label {
-  display: flex;
-  align-items: center;
-  gap: var(--gk-space-2);
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-text-muted);
-}
-
-.gk-doc-tooltip-demo__select {
-  font: inherit;
-  padding: var(--gk-space-1) var(--gk-space-2);
-  border-radius: var(--gk-radius-sm);
-  border: 1px solid var(--gk-color-border);
-  background: var(--gk-color-surface);
-  color: var(--gk-color-on-surface);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

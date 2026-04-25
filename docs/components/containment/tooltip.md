@@ -14,7 +14,7 @@ This is intentionally smaller than Vuetify’s **VTooltip**: no **VOverlay** sta
 
 Use for short supplemental hints attached to an existing control. Keep content brief and avoid placing essential workflow information only in tooltips.
 
-## Live demo
+## Live Examples
 
 <DemoGkTooltip />
 
@@ -71,42 +71,11 @@ Additional attributes are applied to the **tooltip panel** (not the activator).
 | `--gk-tooltip-padding-x` / `--gk-tooltip-padding-y` | Panel padding |
 | `--gk-tooltip-shadow` | Panel shadow |
 
-## Examples
+## Try It
 
-### Basic
+Change tooltip placement and trigger options, preview the result, and copy generated Vue code.
 
-```vue
-<script setup lang="ts">
-import { GkButton, GkTooltip } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkTooltip text="Saved to your profile">
-    <template #activator="{ props }">
-      <GkButton type="button" v-bind="props">Hover me</GkButton>
-    </template>
-  </GkTooltip>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkTooltip placement="end" :show-delay="200" interactive>
-  <!-- activator + custom tooltip content -->
-</GkTooltip>
-```
-
-### Edge case
-
-```vue
-<GkTooltip
-  v-model="open"
-  persistent
-  :open-on-hover="false"
-  open-on-focus
-/>
-```
+<GkTooltipPlayground />
 
 ## Accessibility notes
 

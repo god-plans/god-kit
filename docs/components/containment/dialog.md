@@ -14,7 +14,7 @@ Unlike Vuetify’s **VDialog**, there is **no activator slot**, **VDefaultsProvi
 
 Use for focused modal workflows that require acknowledgement or completion before users continue (confirmations, form steps, destructive actions).
 
-## Live demo
+## Live Examples
 
 <DemoGkDialog />
 
@@ -63,28 +63,11 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 | `--gk-dialog-scroll-max-height` | Cap for scrollable body height |
 | `--gk-dialog-shadow` | Panel shadow (non-fullscreen) |
 
-## Example
+## Try It
 
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import { GkButton, GkDialog } from 'god-kit/vue'
-</script>
+Change common dialog options, preview the result, and copy generated Vue code.
 
-<template>
-  <GkButton type="button" @click="open = true">Open dialog</GkButton>
-  <GkDialog
-    v-model="open"
-    aria-labelledby="dlg-title"
-    scrollable
-    @after-leave="onClosed"
-  >
-    <h2 id="dlg-title">Title</h2>
-    <p>Content goes here.</p>
-    <GkButton type="button" @click="open = false">Close</GkButton>
-  </GkDialog>
-</template>
-```
+<GkDialogPlayground />
 
 ## Accessibility notes
 

@@ -14,7 +14,7 @@ This is intentionally smaller than Vuetify’s **VMenu**: no **VOverlay** activa
 
 Use for short action lists anchored to an activator (button, icon trigger, contextual controls). Keep menu items action-oriented and avoid long-form content.
 
-## Live demo
+## Live Examples
 
 <DemoGkMenu />
 
@@ -68,53 +68,11 @@ Additional attributes are applied to the **panel** (not the activator).
 | `--gk-menu-shadow` | Panel shadow |
 | `--gk-menu-scrim` | Scrim background (default transparent) |
 
-## Examples
+## Try It
 
-### Basic
+Change menu placement and dismissal options, preview the result, and copy generated Vue code.
 
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import { GkButton, GkMenu } from 'god-kit/vue'
-
-const open = ref(false)
-</script>
-
-<template>
-  <GkMenu v-model="open" placement="bottom-start">
-    <template #activator="{ props }">
-      <GkButton type="button" v-bind="props">Open</GkButton>
-    </template>
-    <button type="button" role="menuitem" @click.stop="open = false">Profile</button>
-    <button type="button" role="menuitem">Settings</button>
-  </GkMenu>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkMenu
-  v-model="open"
-  placement="top-end"
-  :offset="8"
-  :close-on-content-click="false"
->
-  <!-- activator + menu content -->
-</GkMenu>
-```
-
-### Edge case
-
-```vue
-<GkMenu
-  v-model="open"
-  persistent
-  show-scrim
->
-  <!-- use Escape and explicit close controls -->
-</GkMenu>
-```
+<GkMenuPlayground />
 
 ## Accessibility notes
 
