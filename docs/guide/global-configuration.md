@@ -1,6 +1,6 @@
 ---
 title: Vue and Nuxt Global Configuration
-description: Configure God Kit with createGkKit for theme, display breakpoints, i18n locale, defaults, and aliases in Vue 3 and Nuxt 4 apps.
+description: Configure God Kit with createGkKit for theme, display breakpoints, i18n locale, form control size, defaults, and aliases in Vue 3 and Nuxt 4 apps.
 outline: [2, 3]
 ---
 
@@ -31,6 +31,7 @@ export const gkKitConfig: GkKitOptions = {
     },
   },
   display: { mobileBreakpoint: 'md' },
+  form: { defaultControlSize: 'md' },
   locale: {
     locale: 'en',
     fallback: 'en',
@@ -67,6 +68,7 @@ app.use(
     theme: { defaultTheme: 'system' },
     display: { mobileBreakpoint: 'md' },
     locale: { locale: 'en', fallback: 'en' },
+    form: { defaultControlSize: 'md' },
     defaults: {
       GkButton: { variant: 'primary' },
     },
@@ -85,6 +87,7 @@ Ensure **`tokens.css`** is loaded before **`vue.css`** so semantic variables app
 | **`display`** | **`GkKitDisplayOptions`** | Responsive breakpoints and mobile threshold. |
 | **`locale`** | **`GkKitLocaleOptions`** | Active locale, fallback, and message catalogs. |
 | **`defaults`** | **`GkKitComponentDefaults`** | Global default props per component name (PascalCase). |
+| **`form`** | **`GkKitFormOptions`** | App-wide defaults for form surface controls (see [Form control size](#form-control-size)). |
 | **`aliases`** | **`GkKitAliases`** | Extra registered component names (plain or with default props). |
 
 ### `theme` (`GkKitThemeOptions`)
@@ -205,6 +208,62 @@ See also [RTL and i18n](./rtl).
 **`useGkDefaults('GkButton')`** returns a computed map of defaults for that component. **`mergeGkProps(defaults, props)`** merges defaults with instance props; **`class`** and **`style`** are combined (arrays flattened) instead of overwritten.
 
 Contextual nesting (defaults per parent component type) is not implemented yet; use flat keys only for now.
+
+## Form control size
+
+**GkInput**, **GkTextarea**, **GkSelect** (string `size` only), **GkCheckbox**, and **GkRadio** support a shared visual scale: **`xs`**, **`sm`**, **`md`**, **`lg`**, **`xl`**. The active size adds a root class **`gk-form-control--{size}`** and uses CSS custom properties in **`god-kit/tokens.css`** (min-height, padding, font, radius, and related hints).
+
+### Resolution order
+
+1. Explicit **`size`** on the component (string preset).
+2. **Per-component** defaults: **`createGkKit({ defaults: { GkInput: { size: 'sm' } } })`** or **`GkDefaultsProvider`**. See [Defaults](#defaults).
+3. **Injected context** **`GK_FORM_CONTROLS`**: from **`createGkKit`**, **GkFormControlsProvider**, or **GkForm** (see below).
+4. **`md`** (matches the pre–control-size default look).
+
+The composable **`useGkFormControlSize`** implements this; import it from **`god-kit/vue`** (or **`god-kit/vue/config`** re-exports) if you build custom form controls and want the same resolution rules.
+
+### `form` (`GkKitFormOptions`)
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| **`defaultControlSize`** | **`GkFormControlSize`** | **`'md'`** | Sets the app-level **`GK_FORM_CONTROLS.size`** when using **`createGkKit`**. |
+
+```ts
+app.use(
+  createGkKit({
+    form: { defaultControlSize: 'sm' },
+  })
+)
+```
+
+### Subtree: `GkFormControlsProvider`
+
+Wrap a section to override the app default without touching every control:
+
+```vue
+<GkFormControlsProvider size="lg">
+  <GkField label="Name"><GkInput v-model="name" /></GkField>
+</GkFormControlsProvider>
+```
+
+### Form-wide: `GkForm`
+
+**GkForm** provides **`controlSize`** for all descendants inside the form:
+
+```vue
+<GkForm control-size="sm" @submit="onSubmit">
+  <template #default>…</template>
+</GkForm>
+```
+
+Nesting: **GkForm** inherits from a parent **GkFormControlsProvider** (or the kit) when **`controlSize`** is omitted; **GkFormControlsProvider** and **GkForm** can be nested; the inner provider or form wins for its subtree.
+
+### `GkSelect` and `size`
+
+- **String** (`'xs'` … `'xl'`) — visual control scale (same as other controls).
+- **Number** — native **`<select size="n">`** (visible rows, often with **`multiple`**). Visual size then comes from **defaults** / **GK_FORM_CONTROLS** (same as a multi-line list without a string preset).
+
+See [GkSelect](/components/form/select) and [Design tokens](./tokens#form-control-size-classes).
 
 ## Aliases
 

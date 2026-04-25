@@ -5,6 +5,16 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.5] - 2026-04-25
+
+### Changed
+
+- **GkInput:** **`size`** now supports number values (native `<input size="n">`).
+- **GkTextarea:** **`size`** now supports number values (native `<textarea size="n">`).
+- **GkSelect:** **`size`** now supports number values (native `<select size="n">`).
+- **GkCheckbox:** **`size`** now supports number values (native `<input type="checkbox">`).
+- **GkRadio:** **`size`** now supports number values (native `<input type="radio">`).
+
 ## [0.8.3]
 
 ### Added

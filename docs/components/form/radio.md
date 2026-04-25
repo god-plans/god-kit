@@ -36,6 +36,7 @@ Root **`class`** applies to the group container; other attributes are forwarded 
 |------|------|---------|-------------|
 | `value` | `string \| number` | required | Value when this option is selected |
 | `disabled` | `boolean` | `false` | Disables this option (combined with group **`disabled`**) |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | — | Scales the radio and label typography; omit for **[global defaults](/guide/global-configuration#form-control-size)** |
 
 ### Events (GkRadioGroup)
 

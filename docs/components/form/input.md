@@ -38,6 +38,7 @@ Use for email, password, search, and other native input types. Pair with **GkFie
 | `counterValue` | `number \| (value: string) => number` | — | Override the displayed count |
 | `persistentCounter` | `boolean` | `false` | When **`true`**, the counter is always shown; otherwise only while focused |
 | `role` | `string` | — | Passed to the native `<input>` |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | — | Visual control scale; omit to use **`GK_FORM_CONTROLS`** / [global defaults](/guide/global-configuration#form-control-size) (default **`md`**) |
 
 Root attributes (except **`class`**, which applies to the outer wrapper) are forwarded to the `<input>`.
 
@@ -96,8 +97,9 @@ const value = ref('')
 - When used standalone, pass `ariaLabel` so the control has an accessible name.
 - Use `persistentCounter` for always-visible limits in forms with strict input quotas.
 
-## Related components
+## Related
 
+- [Form control size](/guide/global-configuration#form-control-size) — app, subtree, and form defaults
 - [GkField](./field)
 - [GkTextarea](./textarea)
 - [GkSelect](./select)

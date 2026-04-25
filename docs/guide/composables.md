@@ -42,6 +42,22 @@ const { inputId, errorId, ariaInvalid, ariaDescribedBy, errorMessage } = useForm
 
 When **GkField** wraps **GkInput**, prefer the default provide/inject path instead of wiring `useFormControl` by hand.
 
+## `useGkFormControlSize`
+
+Resolves the same **`size`** as **GkInput** and related controls: explicit prop, then per-component **defaults** (`GkDefaultsProvider` / **`createGkKit({ defaults })`**), then injected **`GK_FORM_CONTROLS`**, then **`md`**. Use when building a custom form surface that should stay aligned with [Form control size](./global-configuration#form-control-size).
+
+```ts
+import { useGkFormControlSize } from 'god-kit/vue'
+
+const { resolved, className } = useGkFormControlSize({
+  componentName: 'GkInput',
+  explicit: () => props.size,
+})
+// className: 'gk-form-control--md' | ...
+```
+
+`componentName` is one of: **`GkInput`**, **`GkSelect`**, **`GkTextarea`**, **`GkCheckbox`**, **`GkRadio`**. **`isGkFormControlSize`** is exported for type guards.
+
 ## `createForm`
 
 Builds validation-related state for **[GkForm](/components/form/form)** or custom layouts. Pass **`disabled` / `readonly`** getters and an optional **`validate`** function; defaults resolve **`{ valid: true, errors: [] }`** when **`validate`** is omitted.

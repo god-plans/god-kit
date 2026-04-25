@@ -57,7 +57,15 @@ Additional variables include **on-surface** text colors, **disabled** opacity/su
 
 ## Density
 
-Apply **`gk-density-compact`** on `:root` or a wrapper to tighten **`--gk-control-*`** padding and min-heights used by `GkButton` and `GkInput`. Default is comfortable spacing.
+Apply **`gk-density-compact`** on `:root` or a wrapper to tighten **`--gk-control-*`** padding and min-heights used by `GkButton` and `GkInput` when the control uses those variables as fallbacks. Default is comfortable spacing.
+
+**Form control size** (next section) sets explicit min-height, padding, and type size per tier; you can use **density** and **control `size`** together, but the **`gk-form-control--*`** layer defines the primary scale for sized controls.
+
+## Form control size classes
+
+Components such as **GkInput** add a class **`gk-form-control--{xs|sm|md|lg|xl}`** on the root. Those rules set **`--gk-fc-min-height`**, **`--gk-fc-padding-x`** / **`--gk-fc-padding-y`**, **`--gk-fc-font-size`**, **`--gk-fc-radius`**, and related variables (e.g. **`--gk-fc-textarea-min`**, **`--gk-fc-check-size`**) in **`tokens.css`**. The **`md`** tier aligns with the legacy default control appearance.
+
+Configuring the default for the app, a subtree, or a form is described in [Global configuration — Form control size](./global-configuration#form-control-size).
 
 ## Vuetify bridge
 

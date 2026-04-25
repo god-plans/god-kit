@@ -32,6 +32,7 @@ Use for free-form multi-line input such as notes, descriptions, and support cont
 | `autocomplete` | `string` | — | Autocomplete hint |
 | `autofocus` | `boolean` | `false` | Focus on mount |
 | `ariaLabel` | `string` | — | When not inside **GkField** |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | — | Visual control scale; omit for **`GK_FORM_CONTROLS`** / [global defaults](/guide/global-configuration#form-control-size) |
 
 Root **`class`** applies to the wrapper; other attributes are forwarded to **`<textarea>`**.
 
@@ -89,8 +90,9 @@ const notes = ref('')
 - Keep labels visible through `GkField` where possible; use `ariaLabel` only for standalone cases.
 - For long text, ensure focus styles remain visible in scrollable layouts.
 
-## Related components
+## Related
 
+- [Form control size](/guide/global-configuration#form-control-size)
 - [GkInput](./input)
 - [GkField](./field)
 - [GkForm](./form)

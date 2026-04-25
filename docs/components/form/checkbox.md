@@ -30,6 +30,7 @@ Use for binary choices and “select all” controls where each option can be in
 | `readonly` | `boolean` | `false` | Prevents toggling; uses **`aria-readonly`** and reverts change (native **`readonly`** is not used on checkboxes) |
 | `indeterminate` | `boolean` | `false` | Sets the native **indeterminate** state (separate from checked) |
 | `ariaLabel` | `string` | — | Required when there is no visible label |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | — | Scales the control and related type size; omit for **[global defaults](/guide/global-configuration#form-control-size)** |
 
 Root **`class`** applies to the outer wrapper; other attributes are forwarded to the `<input>`.
 

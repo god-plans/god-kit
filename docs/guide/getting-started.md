@@ -39,7 +39,7 @@ For this repository's monorepo development setup, you can still use a workspace 
 
 ## Register God Kit (full example)
 
-Below, **`gk.config.ts`** sets every top-level **`GkKitOptions`** field: **`theme`**, **`display`**, **`locale`**, **`defaults`**, and **`aliases`**. Import **`GkKitOptions`** from **`god-kit/vue/config`**.
+Below, **`gk.config.ts`** sets every top-level **`GkKitOptions`** field: **`theme`**, **`display`**, **`locale`**, **`form`** (form control size), **`defaults`**, and **`aliases`**. Import **`GkKitOptions`** from **`god-kit/vue/config`**.
 
 Load **`tokens.css`** and **`vue.css`** in your entry before **`app.mount`** using the order in [CSS import order](#css-import-order). For option-by-option reference and multi-locale patterns, see **[Global configuration](./global-configuration)**.
 
@@ -90,6 +90,9 @@ export const gkKitConfig: GkKitOptions = {
         appWelcome: 'Bienvenue, {name}',
       },
     },
+  },
+  form: {
+    defaultControlSize: 'md',
   },
   defaults: {
     GkButton: { variant: 'primary' },

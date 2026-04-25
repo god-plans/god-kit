@@ -22,6 +22,7 @@ Use `GkForm` when you want native form semantics plus async validation state exp
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
+| `controlSize` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | — | Default visual scale for **GkInput**, **GkSelect**, **GkTextarea**, **GkCheckbox**, and **GkRadio** inside this form via **`GK_FORM_CONTROLS`**. Omitted: inherits from a parent [GkFormControlsProvider](/guide/global-configuration#form-control-size) or **`createGkKit({ form: { defaultControlSize } })`**, else **`md`**. |
 | `disabled` | `boolean` | `false` | Exposed on slot (future: provide to children) |
 | `readonly` | `boolean` | `false` | Exposed on slot |
 | `validate` | `() => FormValidationResult \| Promise<FormValidationResult>` | — | Optional custom validation (e.g. async API). While it runs, slot **`isValidating`** is **`true`**. Omit for default **`createForm`** behavior (errors ref only). |
@@ -164,8 +165,9 @@ function onSubmit(e: SubmitEventPromise) {
 - Keep labels and error semantics in `GkField`; `GkForm` coordinates validation flow, not field accessibility markup.
 - If async validation blocks submission, ensure busy state is visible on submit actions.
 
-## Related components
+## Related
 
+- [Form control size](/guide/global-configuration#form-control-size) — defaults and **`GK_FORM_CONTROLS`**
 - [GkField](./field)
 - [GkInput](./input)
 - [GkSelect](./select)

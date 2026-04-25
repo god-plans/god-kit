@@ -30,7 +30,7 @@ Use for native single or multi-select controls where platform keyboard behavior 
 | `readonly` | `boolean` | `false` | Reverts change and sets **`aria-readonly`** (native **`readonly`** is not reliable on `<select>`) |
 | `multiple` | `boolean` | `false` | Native **`multiple`**; use an **array** `modelValue` |
 | `required` | `boolean` | — | Native **`required`** |
-| `size` | `number` | — | Native **`size`** (visible rows, often with **`multiple`**) |
+| `size` | **`GkFormControlSize` \| `number`** | — | **String** (`'xs'` … `'xl'`): [visual control scale](/guide/global-configuration#form-control-size). **Number**: native **`<select size="n">`** (visible rows, often with **`multiple`**); visual size then comes from **defaults** / **`GK_FORM_CONTROLS`**. |
 | `placeholder` | `string` | — | First disabled option (`value=""`) |
 | `autocomplete` | `string` | — | Native **`autocomplete`** |
 | `ariaLabel` | `string` | — | When not inside **GkField** |
@@ -107,7 +107,7 @@ const options = [
 
 - Wrap with `GkField` for visible labels and error semantics in forms.
 - Provide `ariaLabel` when used standalone.
-- For `multiple`, choose an appropriate `size` so keyboard selection remains clear.
+- For **`multiple`**, pass a **numeric** **`size`** (native visible rows) when you need a listbox. For a single closed dropdown, use a **string** **`size`** (or [global default](/guide/global-configuration#form-control-size)) for typography and hit area only.
 
 ## Related components
 
