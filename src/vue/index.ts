@@ -6,6 +6,7 @@ export {
   GK_EXPANSION_PANEL,
   GK_EXPANSION_PANELS,
   GK_FIELD,
+  GK_FORM_CONTROLS,
   GK_LOCALE,
   GK_RADIO_GROUP,
   GK_TABS,
@@ -15,6 +16,7 @@ export type {
   GkExpansionPanelContext,
   GkExpansionPanelsContext,
   GkFieldContext,
+  GkFormControlsContext,
   GkRadioGroupContext,
   GkTabsContext,
 } from '../injection'
@@ -32,6 +34,11 @@ export { useFieldIds } from './composables/useFieldIds'
 export type { GkFieldIds } from './composables/useFieldIds'
 export { useFormControl } from './composables/useFormControl'
 export type { UseFormControlOptions, UseFormControlReturn } from './composables/useFormControl'
+export { isGkFormControlSize, useGkFormControlSize } from './composables/useGkFormControlSize'
+export {
+  GK_FORM_CONTROL_SIZES,
+  type GkFormControlSize,
+} from './config/gk-kit-types'
 export {
   attachSubmitPromise,
   createForm,
@@ -56,6 +63,7 @@ export { useTooltipPosition } from './composables/useTooltipPosition'
 export type { GkTooltipPlacement } from './composables/useTooltipPosition'
 
 export { default as GkButton } from './components/button/GkButton.vue'
+export { default as GkFormControlsProvider } from './components/config/GkFormControlsProvider.vue'
 export { default as GkForm } from './components/form/gk-form/GkForm.vue'
 export { default as GkInput } from './components/form/input/GkInput.vue'
 export { default as GkField } from './components/form/field/GkField.vue'

@@ -2,10 +2,16 @@ import type { App, Component, Plugin } from 'vue'
 import { computed, defineComponent, h, mergeProps, ref } from 'vue'
 import { createGkLocaleContextForKit } from '../composables/useGkLocale'
 import { createGkThemeContextForKit } from '../composables/useGkTheme'
-import { GK_DEFAULTS, GK_DISPLAY_CONFIG, GK_LOCALE, GK_THEME } from '../../injection'
+import {
+  GK_DEFAULTS,
+  GK_DISPLAY_CONFIG,
+  GK_FORM_CONTROLS,
+  GK_LOCALE,
+  GK_THEME,
+} from '../../injection'
 import { gkEnMessages } from '../../locale/en'
 import { resolveGkDisplayConfig } from './gk-display-resolve'
-import type { GkKitAliasEntry, GkKitOptions } from './gk-kit-types'
+import type { GkFormControlSize, GkKitAliasEntry, GkKitOptions } from './gk-kit-types'
 
 function isAliasEntry(def: unknown): def is GkKitAliasEntry {
   return (
@@ -62,6 +68,11 @@ export function createGkKit(options: GkKitOptions = {}): Plugin {
 
       const kitDefaults = computed(() => options.defaults ?? {})
       app.provide(GK_DEFAULTS, kitDefaults)
+
+      const formControlSize = computed(
+        () => (options.form?.defaultControlSize ?? 'md') as GkFormControlSize
+      )
+      app.provide(GK_FORM_CONTROLS, { size: formControlSize })
 
       if (options.aliases) {
         for (const [name, def] of Object.entries(options.aliases)) {

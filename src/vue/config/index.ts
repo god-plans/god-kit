@@ -1,4 +1,5 @@
 export { createGkKit } from './createGkKit'
+export { GK_FORM_CONTROL_SIZES } from './gk-kit-types'
 export type {
   GkDefaultsInjected,
   GkDisplayBreakpointName,
@@ -6,7 +7,9 @@ export type {
   GkDisplayThresholds,
   GkKitAliasEntry,
   GkKitAliases,
+  GkFormControlSize,
   GkKitComponentDefaults,
+  GkKitFormOptions,
   GkKitOptions,
   GkKitThemeOptions,
   GkThemeBuiltinName,
@@ -33,5 +36,6 @@ export type { GkVueI18nAdapter } from '../composables/gk-vue-i18n-adapter'
 export { default as GkThemeProvider } from '../components/config/GkThemeProvider.vue'
 export { default as GkLocaleProvider } from '../components/config/GkLocaleProvider.vue'
 export { default as GkDefaultsProvider } from '../components/config/GkDefaultsProvider.vue'
+export { default as GkFormControlsProvider } from '../components/config/GkFormControlsProvider.vue'
 
 export { gkEnMessages } from '../../locale/en'

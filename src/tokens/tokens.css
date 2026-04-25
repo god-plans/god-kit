@@ -350,6 +350,67 @@
   --gk-control-padding-y: var(--gk-space-2);
 }
 
+/* Form control size scale (GkInput, GkSelect, GkTextarea) — set on the component root with `gk-form-control--*` */
+.gk-form-control--xs {
+  --gk-fc-min-height: 1.5rem;
+  --gk-fc-padding-y: 0.25rem;
+  --gk-fc-padding-x: var(--gk-space-2);
+  --gk-fc-font-size: 0.8125rem;
+  --gk-fc-radius: var(--gk-radius-sm);
+  --gk-fc-affix-font-size: 0.75rem;
+  --gk-fc-textarea-min: 3.25rem;
+  --gk-fc-check-size: 1rem;
+  --gk-fc-select-focus-ring: 2px;
+}
+
+.gk-form-control--sm {
+  --gk-fc-min-height: 2rem;
+  --gk-fc-padding-y: var(--gk-space-2);
+  --gk-fc-padding-x: var(--gk-space-3);
+  --gk-fc-font-size: var(--gk-font-size-sm);
+  --gk-fc-radius: var(--gk-radius-sm);
+  --gk-fc-affix-font-size: 0.8125rem;
+  --gk-fc-textarea-min: 4.5rem;
+  --gk-fc-check-size: 1.0625rem;
+  --gk-fc-select-focus-ring: 2px;
+}
+
+.gk-form-control--md {
+  --gk-fc-min-height: var(--gk-control-min-height-md);
+  --gk-fc-padding-y: var(--gk-control-padding-y);
+  --gk-fc-padding-x: var(--gk-control-padding-x);
+  --gk-fc-font-size: var(--gk-font-size-md);
+  --gk-fc-radius: var(--gk-radius-md);
+  --gk-fc-affix-font-size: var(--gk-font-size-sm);
+  --gk-fc-textarea-min: 6rem;
+  --gk-fc-check-size: 1.125rem;
+  --gk-fc-select-focus-ring: 3px;
+}
+
+.gk-form-control--lg {
+  --gk-fc-min-height: 2.875rem;
+  --gk-fc-padding-y: var(--gk-space-3);
+  --gk-fc-padding-x: var(--gk-space-5);
+  --gk-fc-font-size: 1.0625rem;
+  --gk-fc-radius: var(--gk-radius-md);
+  --gk-fc-affix-font-size: 0.9375rem;
+  --gk-fc-textarea-min: 7.5rem;
+  --gk-fc-check-size: 1.25rem;
+  --gk-fc-select-focus-ring: 3px;
+}
+
+.gk-form-control--xl {
+  --gk-fc-min-height: 3.5rem;
+  --gk-fc-padding-y: var(--gk-space-4);
+  --gk-fc-padding-x: var(--gk-space-6);
+  --gk-fc-font-size: 1.125rem;
+  --gk-fc-radius: var(--gk-radius-lg);
+  --gk-fc-affix-font-size: 1rem;
+  --gk-fc-textarea-min: 9rem;
+  --gk-fc-check-size: 1.375rem;
+  --gk-fc-select-focus-ring: 3px;
+}
+
 .dark,
 html.dark,
 :root[data-gk-theme='dark'],

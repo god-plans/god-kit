@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, inject, nextTick, useAttrs, useTemplateRef } from 'vue'
 import { GK_RADIO_GROUP } from '../../../../injection'
+import type { GkFormControlSize } from '../../../config/gk-kit-types'
+import { useGkFormControlSize } from '../../../composables/useGkFormControlSize'
 
 defineOptions({ inheritAttrs: false })
 
@@ -8,6 +10,7 @@ const props = withDefaults(
   defineProps<{
     value: string | number
     disabled?: boolean
+    size?: GkFormControlSize
   }>(),
   {
     disabled: false,
@@ -20,6 +23,11 @@ const emit = defineEmits<{
 
 const attrs = useAttrs()
 const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
+
+const { className: formControlSizeClass } = useGkFormControlSize({
+  componentName: 'GkRadio',
+  explicit: () => props.size,
+})
 
 const group = inject(GK_RADIO_GROUP, null)
 
@@ -74,7 +82,7 @@ defineExpose({
 </script>
 
 <template>
-  <label class="gk-radio-label" :class="rootClass">
+  <label class="gk-radio-label" :class="[formControlSizeClass, rootClass]">
     <input
       ref="inputRef"
       class="gk-radio"
@@ -103,7 +111,7 @@ defineExpose({
   gap: var(--gk-space-2);
   cursor: pointer;
   font-family: var(--gk-font-sans);
-  font-size: var(--gk-font-size-md);
+  font-size: var(--gk-fc-font-size, var(--gk-font-size-md));
   color: var(--gk-color-on-surface);
   text-align: start;
 }
@@ -117,8 +125,8 @@ defineExpose({
 }
 
 .gk-radio {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: var(--gk-fc-check-size, 1.125rem);
+  height: var(--gk-fc-check-size, 1.125rem);
   accent-color: var(--gk-color-primary);
   margin-block-start: 0.15rem;
   flex-shrink: 0;

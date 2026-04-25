@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, inject, onMounted, useAttrs, useTemplateRef } from 'vue'
 import { GK_FIELD } from '../../../../injection'
+import type { GkFormControlSize } from '../../../config/gk-kit-types'
+import { useGkFormControlSize } from '../../../composables/useGkFormControlSize'
 
 defineOptions({ inheritAttrs: false })
 
@@ -15,6 +17,7 @@ const props = withDefaults(
     autocomplete?: string
     ariaLabel?: string
     autofocus?: boolean
+    size?: GkFormControlSize
   }>(),
   {
     rows: 4,
@@ -32,6 +35,11 @@ const [model, modifiers] = defineModel<string, 'trim'>({ required: true })
 
 const attrs = useAttrs()
 const textareaRef = useTemplateRef<HTMLTextAreaElement>('textareaRef')
+
+const { className: formControlSizeClass } = useGkFormControlSize({
+  componentName: 'GkTextarea',
+  explicit: () => props.size,
+})
 
 const field = inject(GK_FIELD, null)
 const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
@@ -71,7 +79,7 @@ defineExpose({
 </script>
 
 <template>
-  <span class="gk-textarea__wrap" :class="rootClass">
+  <span class="gk-textarea__wrap" :class="[formControlSizeClass, rootClass]">
     <textarea
       :id="inputId"
       ref="textareaRef"
@@ -105,15 +113,15 @@ defineExpose({
   width: 100%;
   box-sizing: border-box;
   font-family: var(--gk-font-sans);
-  font-size: var(--gk-font-size-md);
+  font-size: var(--gk-fc-font-size, var(--gk-font-size-md));
   line-height: var(--gk-line-height-normal);
   color: var(--gk-color-on-surface);
   background: var(--gk-color-surface);
   border: 1px solid var(--gk-color-border-strong);
-  border-radius: var(--gk-radius-md);
-  padding-block: var(--gk-control-padding-y);
-  padding-inline: var(--gk-control-padding-x);
-  min-height: 6rem;
+  border-radius: var(--gk-fc-radius, var(--gk-radius-md));
+  padding-block: var(--gk-fc-padding-y, var(--gk-control-padding-y));
+  padding-inline: var(--gk-fc-padding-x, var(--gk-control-padding-x));
+  min-height: var(--gk-fc-textarea-min, 6rem);
   text-align: start;
   resize: vertical;
   transition:
@@ -128,7 +136,7 @@ defineExpose({
 .gk-textarea:focus {
   outline: none;
   border-color: var(--gk-color-primary);
-  box-shadow: 0 0 0 3px var(--gk-color-focus-ring);
+  box-shadow: 0 0 0 var(--gk-fc-select-focus-ring, 3px) var(--gk-color-focus-ring);
 }
 
 .gk-textarea:focus-visible {

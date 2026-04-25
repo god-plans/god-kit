@@ -78,6 +78,18 @@ export interface GkKitLocaleOptions {
   messages?: Record<string, GkLocaleMessages>
 }
 
+/** Preset for `GkInput`, `GkSelect` (with string `size`), `GkTextarea`, and related controls */
+export const GK_FORM_CONTROL_SIZES = ['xs', 'sm', 'md', 'lg', 'xl'] as const
+export type GkFormControlSize = (typeof GK_FORM_CONTROL_SIZES)[number]
+
+export interface GkKitFormOptions {
+  /**
+   * Default control scale for the app (`GkFormControlsProvider` and per-component
+   * `useGkDefaults` can override; explicit `size` on a control wins).
+   */
+  defaultControlSize?: GkFormControlSize
+}
+
 /** Flat component defaults: `GkButton` → prop defaults */
 export type GkKitComponentDefaults = Record<string, Record<string, unknown>>
 
@@ -85,6 +97,8 @@ export interface GkKitOptions {
   theme?: GkKitThemeOptions
   display?: GkKitDisplayOptions
   locale?: GkKitLocaleOptions
+  /** Form control defaults (see `defaultControlSize` in `GkKitFormOptions`) */
+  form?: GkKitFormOptions
   /** Global defaults merged with per-component keys */
   defaults?: GkKitComponentDefaults
   /**

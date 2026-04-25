@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, inject, nextTick, useAttrs, useTemplateRef } from 'vue'
 import { GK_FIELD } from '../../../../injection'
+import type { GkFormControlSize } from '../../../config/gk-kit-types'
+import { useGkFormControlSize } from '../../../composables/useGkFormControlSize'
 import type { GkSelectOption } from './select-types'
 
 defineOptions({ inheritAttrs: false })
@@ -18,8 +20,11 @@ const props = withDefaults(
     /** Reverts selection on change; uses `aria-readonly` (native `readonly` is inconsistent on `<select>`) */
     readonly?: boolean
     required?: boolean
-    /** HTML `size` (visible rows, often with `multiple`) */
-    size?: number
+    /**
+     * String: visual scale (`xs`…`xl`). Number: native `<select size="n">` (visible rows with
+     * `multiple`); visual scale then follows `GK_FORM_CONTROLS` / defaults.
+     */
+    size?: GkFormControlSize | number
     autocomplete?: string
   }>(),
   {
@@ -37,6 +42,15 @@ const model = defineModel<string | number | (string | number)[] | undefined>()
 
 const attrs = useAttrs()
 const selectRef = useTemplateRef<HTMLSelectElement>('selectRef')
+
+const nativeListboxSize = computed(() =>
+  typeof props.size === 'number' ? props.size : undefined
+)
+
+const { className: formControlSizeClass } = useGkFormControlSize({
+  componentName: 'GkSelect',
+  explicit: () => (typeof props.size === 'string' ? props.size : undefined),
+})
 
 const field = inject(GK_FIELD, null)
 const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
@@ -143,7 +157,7 @@ defineExpose({
 </script>
 
 <template>
-  <span class="gk-select__wrap" :class="rootClass">
+  <span class="gk-select__wrap" :class="[formControlSizeClass, rootClass]">
     <select
       :id="inputId"
       ref="selectRef"
@@ -155,7 +169,7 @@ defineExpose({
       :value="multiple ? undefined : selectValueSingle"
       :disabled="disabled"
       :required="required"
-      :size="size"
+      :size="nativeListboxSize"
       :aria-readonly="readonly || undefined"
       :aria-invalid="invalid || undefined"
       :aria-describedby="describedBy"
@@ -192,15 +206,15 @@ defineExpose({
   width: 100%;
   box-sizing: border-box;
   font-family: var(--gk-font-sans);
-  font-size: var(--gk-font-size-md);
+  font-size: var(--gk-fc-font-size, var(--gk-font-size-md));
   line-height: var(--gk-line-height-normal);
   color: var(--gk-color-on-surface);
   background: var(--gk-color-surface);
   border: 1px solid var(--gk-color-border-strong);
-  border-radius: var(--gk-radius-md);
-  padding-block: var(--gk-control-padding-y);
-  padding-inline: var(--gk-control-padding-x);
-  min-height: var(--gk-control-min-height-md);
+  border-radius: var(--gk-fc-radius, var(--gk-radius-md));
+  padding-block: var(--gk-fc-padding-y, var(--gk-control-padding-y));
+  padding-inline: var(--gk-fc-padding-x, var(--gk-control-padding-x));
+  min-height: var(--gk-fc-min-height, var(--gk-control-min-height-md));
   text-align: start;
   cursor: pointer;
   transition:
@@ -211,7 +225,7 @@ defineExpose({
 .gk-select:focus {
   outline: none;
   border-color: var(--gk-color-primary);
-  box-shadow: 0 0 0 3px var(--gk-color-focus-ring);
+  box-shadow: 0 0 0 var(--gk-fc-select-focus-ring, 3px) var(--gk-color-focus-ring);
 }
 
 .gk-select:focus-visible {

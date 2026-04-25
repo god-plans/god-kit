@@ -2,6 +2,7 @@ import type { ComputedRef, InjectionKey, Ref } from 'vue'
 import type {
   GkDefaultsInjected,
   GkDisplayResolvedConfig,
+  GkFormControlSize,
   GkLocaleContext,
   GkThemeContext,
 } from './vue/config/gk-kit-types'
@@ -91,3 +92,10 @@ export const GK_LOCALE: InjectionKey<GkLocaleContext> = Symbol('gk-locale')
 
 /** Merged component defaults (`GkDefaultsProvider` chain) */
 export const GK_DEFAULTS: InjectionKey<GkDefaultsInjected> = Symbol('gk-defaults')
+
+export type GkFormControlsContext = {
+  size: ComputedRef<GkFormControlSize>
+}
+
+/** Nesting: `createGkKit` / `GkFormControlsProvider` / `GkForm` (see `useGkFormControlSize`) */
+export const GK_FORM_CONTROLS: InjectionKey<GkFormControlsContext> = Symbol('gk-form-controls')

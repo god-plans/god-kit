@@ -9,6 +9,8 @@ import {
   useTemplateRef,
 } from 'vue'
 import { GK_FIELD } from '../../../../injection'
+import type { GkFormControlSize } from '../../../config/gk-kit-types'
+import { useGkFormControlSize } from '../../../composables/useGkFormControlSize'
 
 defineOptions({ inheritAttrs: false })
 
@@ -35,6 +37,8 @@ const props = withDefaults(
     /** When false, counter is shown only while the control is focused */
     persistentCounter?: boolean
     role?: string
+    /** Control scale: `md` matches legacy default height and typography */
+    size?: GkFormControlSize
   }>(),
   {
     type: 'text',
@@ -55,6 +59,11 @@ const attrs = useAttrs()
 const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
 const focused = ref(false)
 const counterElId = useId()
+
+const { className: formControlSizeClass } = useGkFormControlSize({
+  componentName: 'GkInput',
+  explicit: () => props.size,
+})
 
 const field = inject(GK_FIELD, null)
 
@@ -148,7 +157,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="gk-input" :class="rootClass">
+  <div class="gk-input" :class="[formControlSizeClass, rootClass]">
     <div
       class="gk-input__control"
       :class="{
@@ -210,8 +219,9 @@ onMounted(() => {
   color: var(--gk-color-on-surface);
   background: var(--gk-color-surface);
   border: 1px solid var(--gk-color-border-strong);
-  border-radius: var(--gk-radius-md);
-  min-height: var(--gk-control-min-height-md);
+  border-radius: var(--gk-fc-radius, var(--gk-radius-md));
+  min-height: var(--gk-fc-min-height, var(--gk-control-min-height-md));
+  font-size: var(--gk-fc-font-size, var(--gk-font-size-md));
   text-align: start;
   transition:
     border-color var(--gk-duration-fast) var(--gk-easing-standard),
@@ -232,8 +242,8 @@ onMounted(() => {
   flex: 1;
   min-width: 0;
   margin: 0;
-  padding-block: var(--gk-control-padding-y);
-  padding-inline: var(--gk-control-padding-x);
+  padding-block: var(--gk-fc-padding-y, var(--gk-control-padding-y));
+  padding-inline: var(--gk-fc-padding-x, var(--gk-control-padding-x));
   border: none;
   border-radius: inherit;
   background: transparent;
@@ -251,8 +261,8 @@ onMounted(() => {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  padding-block: var(--gk-control-padding-y);
-  font-size: var(--gk-font-size-sm);
+  padding-block: var(--gk-fc-padding-y, var(--gk-control-padding-y));
+  font-size: var(--gk-fc-affix-font-size, var(--gk-font-size-sm));
   color: var(--gk-color-on-surface-muted);
   user-select: none;
 }

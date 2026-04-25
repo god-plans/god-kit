@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, inject, nextTick, onMounted, useAttrs, useTemplateRef, watch } from 'vue'
 import { GK_FIELD } from '../../../../injection'
+import type { GkFormControlSize } from '../../../config/gk-kit-types'
+import { useGkFormControlSize } from '../../../composables/useGkFormControlSize'
 
 defineOptions({ inheritAttrs: false })
 
@@ -17,6 +19,7 @@ const props = withDefaults(
     readonly?: boolean
     /** Native `value` for forms */
     value?: string
+    size?: GkFormControlSize
   }>(),
   {
     disabled: false,
@@ -33,6 +36,11 @@ const model = defineModel<boolean>({ required: true })
 
 const attrs = useAttrs()
 const inputRef = useTemplateRef<HTMLInputElement>('inputRef')
+
+const { className: formControlSizeClass } = useGkFormControlSize({
+  componentName: 'GkCheckbox',
+  explicit: () => props.size,
+})
 
 const field = inject(GK_FIELD, null)
 const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
@@ -106,7 +114,7 @@ defineExpose({
 <template>
   <span
     class="gk-checkbox__wrap"
-    :class="[rootClass, { 'gk-checkbox__wrap--readonly': readonly }]"
+    :class="[formControlSizeClass, rootClass, { 'gk-checkbox__wrap--readonly': readonly }]"
   >
     <input
       ref="inputRef"
@@ -138,8 +146,8 @@ defineExpose({
 }
 
 .gk-checkbox {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: var(--gk-fc-check-size, 1.125rem);
+  height: var(--gk-fc-check-size, 1.125rem);
   margin: 0;
   accent-color: var(--gk-color-primary);
   cursor: pointer;

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { useTemplateRef } from 'vue'
+import { computed, inject, provide, useTemplateRef } from 'vue'
+import { GK_FORM_CONTROLS } from '../../../../injection'
+import type { GkFormControlSize } from '../../../config/gk-kit-types'
 import {
   attachSubmitPromise,
   createForm,
@@ -9,6 +11,8 @@ import {
 
 const props = withDefaults(
   defineProps<{
+    /** Default control scale for all fields inside this form */
+    controlSize?: GkFormControlSize
     disabled?: boolean
     readonly?: boolean
     /**
@@ -22,6 +26,12 @@ const props = withDefaults(
     readonly: false,
   }
 )
+
+const parentFormControls = inject(GK_FORM_CONTROLS, null)
+const formControlSize = computed(
+  () => props.controlSize ?? parentFormControls?.size.value ?? ('md' as GkFormControlSize)
+)
+provide(GK_FORM_CONTROLS, { size: formControlSize })
 
 const emit = defineEmits<{
   submit: [e: SubmitEventPromise]
