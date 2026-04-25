@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
+import { createGkKit } from '../../../config/createGkKit'
 import GkInput from './GkInput.vue'
 
 describe('GkInput', () => {
@@ -41,5 +42,15 @@ describe('GkInput', () => {
     expect(w.emitted('update:focused')?.[0]).toEqual([true])
     await w.find('input').trigger('blur')
     expect(w.emitted('update:focused')?.[1]).toEqual([false])
+  })
+
+  it('picks up createGkKit defaults[\'GkInput\'].size for the control class', () => {
+    const w = mount(GkInput, {
+      props: { modelValue: '' },
+      global: {
+        plugins: [createGkKit({ defaults: { GkInput: { size: 'xs' } } })],
+      },
+    })
+    expect(w.find('.gk-input').classes()).toContain('gk-form-control--xs')
   })
 })

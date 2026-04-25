@@ -281,3 +281,12 @@ The main export **`god-kit/vue`** uses **named exports** and **`sideEffects: ["*
 Dynamic **`<component :is="...">`** still requires explicit imports for each resolved component (same limitation as Vuetify).
 
 See [Build and bundling](./build-and-bundling) for **`sideEffects`** and export tables.
+
+## Nuxt / Vite: `form` / `GK_FORM_CONTROLS` and duplicate bundles
+
+Nuxt and Vite may prebundle **`god-kit/vue`** and **`god-kit/vue/config`** separately. Injection keys are **`Symbol()`** values, so a **second copy** of the same module in another chunk can make **`createGkKit`’s `provide`** and **`inject` in `GkInput`** use **different** symbols. Then **`form.defaultControlSize` / `defaults.*.size` appear to do nothing** (controls stay at **`md`**).
+
+Mitigations:
+
+1. In **`nuxt.config`**, set **`vite.ssr.noExternal: ['god-kit']`** (and consider **`optimizeDeps.include` for `god-kit/vue` and `god-kit/vue/config`**) so the app resolves a single ESM build.
+2. Or wrap a subtree (or the layout) with **`<GkFormControlsProvider :size="…">`** using the same value as **`gk.config`** — the provider re-runs **`provide`** in the app tree, so it works even if the plugin’s symbols do not line up in dev.
