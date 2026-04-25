@@ -343,6 +343,8 @@ Dense admin lists: **`density="compact"`**, **`striped`**, **`fixed-header`**, a
 
 In **server** mode the table **does not** sort or page the full dataset locally; you pass the **current page** of **`items`** and total **`items-length`**. Refetch when **`v-model:page`**, **`v-model:items-per-page`**, or **`v-model:sort-by`** changes.
 
+The default footer uses **GkPagination** with **`pagination-total-visible="7"`** so large server-side page counts stay compact with ellipsis instead of rendering every page button on wide viewports. Keep the default footer for the built-in page-size select and pagination controls, or set **`hide-default-footer`** and provide your own **`#bottom`** / footer slots when you need a fully custom footer.
+
 **Live**
 
 <DemoGkDataTableSample09 />
@@ -475,6 +477,9 @@ const items = computed(() =>
 | `hideDefaultHeader` | `boolean` | `false` | Hides `<thead>` |
 | `hideSelectAll` | `boolean` | `false` | Hides header select-all checkbox |
 | `dir` | `'ltr' \| 'rtl'` | `'ltr'` | Passed to **GkPagination** |
+| `paginationTotalVisible` | `number \| string` | `7` | Max page number buttons in the default footer **GkPagination** |
+| `paginationShowFirstLastPage` | `boolean` | `false` | Shows first/last controls in the default footer **GkPagination** |
+| `paginationEllipsis` | `string` | `'...'` | Ellipsis text for compact page ranges in the default footer **GkPagination** |
 | `maxHeight` | `string \| number` | — | Scrollport on **GkTableScroll** |
 | `bordered` | `boolean` | `true` | Outer border on scroll wrapper |
 

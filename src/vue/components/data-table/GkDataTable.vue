@@ -54,6 +54,12 @@ const props = withDefaults(
     hideDefaultHeader?: boolean
     hideSelectAll?: boolean
     dir?: 'ltr' | 'rtl'
+    /** Max page number buttons in the default footer pagination */
+    paginationTotalVisible?: number | string
+    /** Show first/last controls in the default footer pagination */
+    paginationShowFirstLastPage?: boolean
+    /** Ellipsis text used by the default footer pagination */
+    paginationEllipsis?: string
     maxHeight?: string | number
     /** Show border / scroll wrapper */
     bordered?: boolean
@@ -74,6 +80,9 @@ const props = withDefaults(
     hideDefaultHeader: false,
     hideSelectAll: false,
     dir: 'ltr',
+    paginationTotalVisible: 7,
+    paginationShowFirstLastPage: false,
+    paginationEllipsis: '...',
     bordered: true,
   }
 )
@@ -562,6 +571,9 @@ function rowKey(row: GkDataTableDisplayRow<Record<string, unknown>>, ri: number)
         :length="effectivePageCount"
         :dir="dir"
         :disabled="loading"
+        :total-visible="paginationTotalVisible"
+        :show-first-last-page="paginationShowFirstLastPage"
+        :ellipsis="paginationEllipsis"
       />
       <div class="gk-data-table__footer-end">
         <slot name="footer.append" v-bind="slotProps" />
