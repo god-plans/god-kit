@@ -16,7 +16,7 @@ A **card** primitive for admin layouts: a bordered, rounded surface (optional to
 
 For modal workflows, use **[GkDialog](./dialog)**. For a flex region without a full card chrome, use **[GkStack](../stack)** or **[GkContainer](../container)**.
 
-## Live demo
+## Live Examples
 
 <DemoGkCard />
 
@@ -87,40 +87,13 @@ Additional attributes (for example **`aria-label`**, **`id`**, **`class`**) are 
 | `--gk-card-actions-min-height` / `--gk-card-actions-gap` | Action row. |
 | `--gk-card-loader-overlay` | Scrim over the card when **loading**. |
 
-## Examples
+## Try It
 
-### Basic
+Use the playground to change common options, preview the result, and copy generated Vue code.
 
-```vue
-<script setup lang="ts">
-import { GkCard } from 'god-kit/vue'
-</script>
+<GkCardPlayground />
 
-<template>
-  <GkCard :max-width="360">Hello from the default slot.</GkCard>
-</template>
-```
-
-### With title, text, and actions
-
-```vue
-<script setup lang="ts">
-import { GkButton, GkCard, GkCardActions } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkCard title="Deploy" text="Queue is ready.">
-    <template #actions>
-      <GkCardActions>
-        <GkButton type="button" variant="secondary" size="sm" slim>Cancel</GkButton>
-        <GkButton type="button" size="sm" slim>Run</GkButton>
-      </GkCardActions>
-    </template>
-  </GkCard>
-</template>
-```
-
-### Edge case (link, don’t nest buttons in a link)
+## Edge case (link, don’t nest buttons in a link)
 
 If the root is an **`<a>`** (**`href`**), do not place **GkButton** or other focusable elements that perform a second navigation inside the same card (use a **clickable** card with **`@click`** and route in script, or keep only text in the link card).
 

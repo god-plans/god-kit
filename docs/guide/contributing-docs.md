@@ -40,7 +40,10 @@ The docs theme includes a **right-side drawer** opened from the **header** (**Ki
   - **Basic:** minimal happy path
   - **Advanced:** realistic app integration
   - **Edge case:** disabled/readonly/loading/error/RTL/keyboard-focused
-- Use live demos for interactive behavior; use code fences for concise API usage snippets.
+- Use **`GkDocsExample`** for copy-paste samples that need a live preview and source code shown under the preview. Prefer one standalone sample component plus a `?raw` import for its source (for example, import `GkCardBasicExample.vue` and `GkCardBasicExample.vue?raw`) so the rendered demo and copied code cannot drift.
+- Use **`GkDocsCodeBlock`** for standalone copyable snippets, generated playground code, or short recipes outside a full preview. It supports syntax highlighting, collapsed long snippets, expand/collapse, and copy state.
+- For editable examples, prefer a small docs playground with form controls and generated code before adding a browser SFC compiler or heavy editor dependency.
+- Use live demos for interactive behavior; use markdown code fences only for concise API notes that do not need copy buttons.
 
 ## Docs sample checklist
 
@@ -49,6 +52,8 @@ Before merging sample updates:
 - [ ] Page follows canonical section order.
 - [ ] At least one live demo is embedded.
 - [ ] Includes one advanced and one edge-case snippet (or explicit reason why not applicable).
+- [ ] Copyable examples use **`GkDocsExample`** or **`GkDocsCodeBlock`** and import sample source with `?raw` where possible instead of duplicating code in markdown or string constants.
+- [ ] Editable playgrounds generate copyable code from current state instead of executing arbitrary user-provided SFC code.
 - [ ] Accessibility notes cover keyboard/labels/state semantics when relevant.
 - [ ] Related components section links to adjacent primitives.
 - [ ] Sidebar + `docs/components/index.md` + theme demo registration are kept in sync.

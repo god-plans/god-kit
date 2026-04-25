@@ -13,6 +13,7 @@ All notable changes to `god-kit` are documented in this page and in **`CHANGELOG
 ### Added
 
 - **GkCard** — card surface, subcomponents, and **`--gk-card-*`** tokens; see **[GkCard](../components/containment/gk-card)** and root **`CHANGELOG.md`**. CLI: **`npx god-kit add card`**.
+- **GkCard docs playground** — focused live examples powered by raw sample-source imports, syntax-highlighted collapsible code blocks, and a lightweight option editor that generates Vue snippets.
 - **GkGrid** — responsive layout grid; see the **[GkGrid](../components/grid)** component page and root **`CHANGELOG.md`**.
 
 ## [0.8.0] - 2026-04-17

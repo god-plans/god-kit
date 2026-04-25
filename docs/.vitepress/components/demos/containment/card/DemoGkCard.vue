@@ -1,196 +1,91 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  GkButton,
-  GkCard,
-  GkCardActions,
-  GkCardText,
-} from 'god-kit/vue'
-
-const loading = ref(false)
-const clickCount = ref(0)
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkCardBasicExample from './samples/GkCardBasicExample.vue'
+import basicSource from './samples/GkCardBasicExample.vue?raw'
+import GkCardClickableExample from './samples/GkCardClickableExample.vue'
+import clickableSource from './samples/GkCardClickableExample.vue?raw'
+import GkCardConvenienceExample from './samples/GkCardConvenienceExample.vue'
+import convenienceSource from './samples/GkCardConvenienceExample.vue?raw'
+import GkCardLinkExample from './samples/GkCardLinkExample.vue'
+import linkSource from './samples/GkCardLinkExample.vue?raw'
+import GkCardMediaActionsExample from './samples/GkCardMediaActionsExample.vue'
+import mediaActionsSource from './samples/GkCardMediaActionsExample.vue?raw'
+import GkCardSlotsExample from './samples/GkCardSlotsExample.vue'
+import slotsSource from './samples/GkCardSlotsExample.vue?raw'
+import GkCardStatesExample from './samples/GkCardStatesExample.vue'
+import statesSource from './samples/GkCardStatesExample.vue?raw'
 </script>
 
 <template>
   <div class="gk-doc-card-demo">
-    <p class="gk-doc-card-demo__section-title">
-      1. Basic
-    </p>
-    <GkCard :max-width="400">
-      <p class="gk-doc-card-demo__p">
-        Default <strong>elevated</strong> surface with design-token border and shadow. Use
-        the default slot for any body content.
-      </p>
-    </GkCard>
-
-    <p class="gk-doc-card-demo__section-title">
-      2. Convenience title, subtitle, and text
-    </p>
-    <GkCard
-      :max-width="400"
-      title="Invoice #1042"
-      subtitle="Acme Corp · due in 3 days"
-      text="The amount is ready for review. You can add more detail in the main slot below."
+    <GkDocsExample
+      title="Basic elevated card"
+      description="Use the default slot for simple content."
+      :source="basicSource"
+      best-practice="Start with the default elevated variant for dashboard cards, then change variant only when the surface hierarchy requires it."
     >
-      <p class="gk-doc-card-demo__p gk-doc-card-demo__p--tight">
-        Extra paragraph in the default slot.
-      </p>
-    </GkCard>
+      <GkCardBasicExample />
+    </GkDocsExample>
 
-    <p class="gk-doc-card-demo__section-title">
-      3. Image and actions
-    </p>
-    <GkCard
-      :max-width="400"
-      image="https://picsum.photos/seed/gkkit-card/800/400"
-      title="Landscape"
-      subtitle="Picsum sample media"
+    <GkDocsExample
+      title="Convenience title, subtitle, and text"
+      description="Use props for the common header/body layout."
+      :source="convenienceSource"
+      best-practice="Use title/subtitle/text props for simple cards; switch to slots when the header needs custom markup."
     >
-      <GkCardText>
-        Top media uses <code>object-fit: cover</code> and a token min-height. Use
-        <strong>GkCardActions</strong> for a right-aligned action row.
-      </GkCardText>
-      <template #actions>
-        <GkCardActions>
-          <GkButton type="button" variant="secondary" size="sm" slim>Later</GkButton>
-          <GkButton type="button" size="sm" slim>Open</GkButton>
-        </GkCardActions>
-      </template>
-    </GkCard>
+      <GkCardConvenienceExample />
+    </GkDocsExample>
 
-    <p class="gk-doc-card-demo__section-title">
-      4. Prepend and append slots
-    </p>
-    <GkCard :max-width="400">
-      <template #prepend>
-        <div class="gk-doc-card-demo__dot" aria-hidden="true" />
-      </template>
-      <template #title>
-        Custom title slot
-      </template>
-      <template #subtitle>
-        With a color chip in prepend
-      </template>
-      <template #append>
-        <span class="gk-doc-card-demo__badge">New</span>
-      </template>
-      <p class="gk-doc-card-demo__p gk-doc-card-demo__p--tight">
-        Use <strong>#prepend</strong> / <strong>#append</strong> for icons, avatars, or
-        status chips. <strong>prependAvatar</strong> / <strong>appendAvatar</strong> are
-        also available as URL props on <strong>GkCard</strong>.
-      </p>
-    </GkCard>
+    <GkDocsExample
+      title="Media and actions"
+      description="Add top media and a footer action row."
+      :source="mediaActionsSource"
+      best-practice="Wrap action buttons in GkCardActions so spacing and alignment stay consistent across cards."
+    >
+      <GkCardMediaActionsExample />
+    </GkDocsExample>
 
-    <p class="gk-doc-card-demo__section-title">
-      5. Link, states, and variants
-    </p>
-    <div class="gk-doc-card-demo__row gk-doc-card-demo__row--top">
-      <GkCard
-        href="https://example.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        variant="outlined"
-        :max-width="220"
-        title="As a link"
-        text="Root is an anchor; opens in a new tab."
-      />
-      <div class="gk-doc-card-demo__load-block">
-        <GkButton
-          type="button"
-          size="sm"
-          variant="secondary"
-          @click="loading = !loading"
-        >
-          {{ loading ? 'Stop' : 'Start' }} loading
-        </GkButton>
-        <GkCard
-          variant="outlined"
-          :loading="loading"
-          :max-width="220"
-          title="Loading state"
-          text="Overlay uses the design-token loader background. The toggle sits outside the card to avoid nested interactive controls."
-        />
-      </div>
-      <GkCard
-        variant="plain"
-        clickable
-        :max-width="220"
-        title="Clickable surface"
-        :text="`Role is button; clicks (keyboard or pointer): ${clickCount}`"
-        @click="clickCount++"
-      />
-      <GkCard
-        variant="tonal"
-        flat
-        disabled
-        :max-width="220"
-        title="Disabled + tonal"
-        text="Tonal background with flat (no lift). Not interactive."
-      />
-    </div>
+    <GkDocsExample
+      title="Header slots"
+      description="Use slots for custom prepend, title, subtitle, and append regions."
+      :source="slotsSource"
+      best-practice="Use #prepend and #append for visual metadata such as icons, avatars, status dots, or lightweight badges."
+    >
+      <GkCardSlotsExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Link card"
+      description="Use href for navigation so the root is a real anchor."
+      :source="linkSource"
+      best-practice="Do not place buttons or other nested interactive controls inside a linked card."
+    >
+      <GkCardLinkExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Clickable surface"
+      description="Use clickable when the whole card is a single non-navigation action."
+      :source="clickableSource"
+      best-practice="Prefer href for navigation; use clickable for in-page actions and keep nested controls out of the card."
+    >
+      <GkCardClickableExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Loading, disabled, and variants"
+      description="Combine state props with visual variants."
+      :source="statesSource"
+      best-practice="Keep loading toggles outside the card when the card itself is busy; disabled cards are not interactive."
+    >
+      <GkCardStatesExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
 .gk-doc-card-demo {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--gk-space-5);
-  align-items: flex-start;
-}
-
-.gk-doc-card-demo__section-title {
-  margin: 0;
-  font-size: var(--gk-text-body-s-size);
-  font-weight: 600;
-  color: var(--gk-color-text-muted);
-}
-
-.gk-doc-card-demo__p {
-  margin: 0;
-  font-size: var(--gk-text-body-s-size);
-  line-height: var(--gk-line-height-normal);
-}
-
-.gk-doc-card-demo__p--tight {
-  margin-top: var(--gk-space-2);
-}
-
-.gk-doc-card-demo__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gk-space-4);
-  align-items: flex-start;
-  width: 100%;
-}
-
-.gk-doc-card-demo__row--top {
-  align-items: flex-start;
-}
-
-.gk-doc-card-demo__load-block {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-2);
-  align-items: flex-start;
-}
-
-.gk-doc-card-demo__dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--gk-color-primary);
-  margin-top: 0.35rem;
-}
-
-.gk-doc-card-demo__badge {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  font-size: var(--gk-text-body-xs-size);
-  font-weight: 600;
-  line-height: var(--gk-text-body-xs-line-height);
-  color: var(--gk-color-on-primary);
-  background: var(--gk-color-primary);
-  border-radius: var(--gk-radius-sm);
 }
 </style>
