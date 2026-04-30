@@ -16,7 +16,7 @@ There is **no** theme / locale composable layer — **`loadingText`** is a plain
 
 Use as a visual placeholder while async content is loading, especially in cards, feed items, and table-heavy surfaces.
 
-## Live demo
+## Live Examples
 
 <DemoGkSkeletonLoader />
 
@@ -65,25 +65,7 @@ Keys are listed on **`gkSkeletonRootTypes`** (exported from **`god-kit/vue`**). 
 
 ## Examples
 
-### Basic
-
-```vue
-<GkSkeletonLoader type="card" loading />
-```
-
-### Advanced
-
-```vue
-<GkSkeletonLoader :type="['heading', 'paragraph']" :loading="loading">
-  <article>Real loaded content</article>
-</GkSkeletonLoader>
-```
-
-### Edge case
-
-```vue
-<GkSkeletonLoader type="table" boilerplate loading />
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

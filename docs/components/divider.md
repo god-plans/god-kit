@@ -12,7 +12,7 @@ One-pixel divider using **`border`** tokens. Exposes **`role="separator"`** and 
 
 Use to separate related chunks of content in lists, cards, forms, and toolbars.
 
-## Live demo
+## Live Examples
 
 <DemoGkDivider />
 
@@ -26,35 +26,7 @@ Use to separate related chunks of content in lists, cards, forms, and toolbars.
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkDivider } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkDivider />
-</template>
-```
-
-### Advanced
-
-```vue
-<div style="display:flex; align-items:center; gap: 0.5rem;">
-  <span>Left</span>
-  <GkDivider orientation="vertical" />
-  <span>Right</span>
-</div>
-```
-
-### Edge case
-
-```vue
-<GkContainer>
-  <GkDivider />
-</GkContainer>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

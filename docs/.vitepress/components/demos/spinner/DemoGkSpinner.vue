@@ -1,47 +1,44 @@
 <script setup lang="ts">
-import { GkSpinner } from 'god-kit/vue'
+import GkDocsExample from '../../GkDocsExample.vue'
+import GkSpinnerSizesExample from './samples/GkSpinnerSizesExample.vue'
+import sizesSource from './samples/GkSpinnerSizesExample.vue?raw'
+import GkSpinnerOnFilledExample from './samples/GkSpinnerOnFilledExample.vue'
+import onFilledSource from './samples/GkSpinnerOnFilledExample.vue?raw'
+import GkSpinnerButtonExample from './samples/GkSpinnerButtonExample.vue'
+import buttonSource from './samples/GkSpinnerButtonExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-stack">
-    <div class="gk-doc-row">
-      <GkSpinner size="sm" label="Loading small" />
-      <GkSpinner size="md" label="Loading" />
-    </div>
-    <p class="gk-doc-muted">On solid fills, use <code>tone="on-filled"</code> (GkButton does this when loading):</p>
-    <div class="gk-doc-row">
-      <span class="gk-doc-on-fill">
-        <GkSpinner size="sm" tone="on-filled" label="On primary" />
-      </span>
-    </div>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Sizes"
+      description="sm and md inline spinners with explicit labels."
+      :source="sizesSource"
+    >
+      <GkSpinnerSizesExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="On filled surfaces"
+      description="tone on-filled keeps contrast on primary-colored regions."
+      :source="onFilledSource"
+    >
+      <GkSpinnerOnFilledExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Button loading"
+      description="GkButton shows a spinner and accepts loading-label for assistive text."
+      :source="buttonSource"
+    >
+      <GkSpinnerButtonExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-3);
-}
-
-.gk-doc-row {
-  display: flex;
-  align-items: center;
-  gap: var(--gk-space-4);
-}
-
-.gk-doc-muted {
-  margin: 0;
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-on-surface-muted);
-}
-
-.gk-doc-on-fill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--gk-space-3) var(--gk-space-5);
-  border-radius: var(--gk-radius-md);
-  background: var(--gk-color-primary);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

@@ -1,74 +1,54 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { GkAlert } from 'god-kit/vue'
-
-const closableOpen = ref(true)
+import GkDocsExample from '../../GkDocsExample.vue'
+import GkAlertVariantsExample from './samples/GkAlertVariantsExample.vue'
+import variantsSource from './samples/GkAlertVariantsExample.vue?raw'
+import GkAlertTitleBorderExample from './samples/GkAlertTitleBorderExample.vue'
+import titleBorderSource from './samples/GkAlertTitleBorderExample.vue?raw'
+import GkAlertClosableExample from './samples/GkAlertClosableExample.vue'
+import closableSource from './samples/GkAlertClosableExample.vue?raw'
+import GkAlertProminentExample from './samples/GkAlertProminentExample.vue'
+import prominentSource from './samples/GkAlertProminentExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-stack">
-    <GkAlert variant="neutral">
-      Neutral message.
-    </GkAlert>
-    <GkAlert variant="info">
-      Info message.
-    </GkAlert>
-    <GkAlert variant="success">
-      Success message.
-    </GkAlert>
-    <GkAlert variant="warning">
-      Warning message.
-    </GkAlert>
-    <GkAlert variant="danger" role="alert">
-      Danger message.
-    </GkAlert>
-
-    <GkAlert
-      variant="info"
-      title="With title"
-      text="Supporting line from the text prop."
-      border="start"
-    />
-
-    <GkAlert
-      v-model="closableOpen"
-      variant="success"
-      title="Closable"
-      closable
-      border
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Variants"
+      description="Neutral through danger; use role alert only when the message is urgent."
+      :source="variantsSource"
     >
-      Dismiss sets <code>v-model</code> to <code>false</code> and removes the alert.
-    </GkAlert>
-    <p v-if="!closableOpen" class="gk-doc-demo-reset">
-      <button type="button" class="gk-doc-link-button" @click="closableOpen = true">
-        Show closable example again
-      </button>
-    </p>
+      <GkAlertVariantsExample />
+    </GkDocsExample>
 
-    <GkAlert variant="warning" prominent title="Prominent" border="top">
-      Extra padding for emphasis.
-    </GkAlert>
+    <GkDocsExample
+      title="Title, text, and border accent"
+      description="Props for heading and body plus a start-edge accent bar."
+      :source="titleBorderSource"
+    >
+      <GkAlertTitleBorderExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Closable"
+      description="v-model controls visibility after dismiss."
+      :source="closableSource"
+    >
+      <GkAlertClosableExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Prominent"
+      description="Larger padding and top border for high-visibility callouts."
+      :source="prominentSource"
+    >
+      <GkAlertProminentExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-3);
-}
-
-.gk-doc-demo-reset {
-  margin: 0;
-}
-
-.gk-doc-link-button {
-  font: inherit;
-  color: var(--gk-color-primary, LinkText);
-  text-decoration: underline;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

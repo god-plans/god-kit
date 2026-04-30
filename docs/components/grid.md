@@ -12,7 +12,7 @@ Layout primitive: **`display: grid`** with **column counts** for wide and narrow
 
 Use for **multi-column** layouts that need a predictable responsive breakpoint (this kit uses **`max-width: 47.99rem`** for the narrow preset). For simple vertical or horizontal flex rows, use **[GkStack](./stack)** instead. For max-width page shells, use **[GkContainer](./container)**. For data-dense, sortable tables, use **[GkDataTable](./data/gk-data-table)**.
 
-## Live demo
+## Live Examples
 
 <DemoGkGrid />
 
@@ -39,44 +39,7 @@ Use for **multi-column** layouts that need a predictable responsive breakpoint (
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkGrid } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkGrid :columns="2" :gap="3">
-    <div>Left</div>
-    <div>Right</div>
-  </GkGrid>
-</template>
-```
-
-### Advanced
-
-Narrower columns on small viewports, compact gap, and alignment:
-
-```vue
-<GkGrid :columns="3" :columns-mobile="1" :gap="2" align-items="start" justify-items="stretch">
-  <article>…</article>
-  <article>…</article>
-  <article>…</article>
-</GkGrid>
-```
-
-### Edge case
-
-**Editor / debug** outlines without styling real content. Mark label rows so they are not treated as a “cell” for dashed lines:
-
-```vue
-<GkGrid :show-grid-lines="true" :columns="2">
-  <span data-gk-grid-chrome style="grid-column: 1 / -1">Preview chrome only</span>
-  <div>Cell A</div>
-  <div>Cell B</div>
-</GkGrid>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

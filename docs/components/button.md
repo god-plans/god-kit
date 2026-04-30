@@ -12,7 +12,7 @@ outline: [2, 3]
 
 Use for actions in forms, dialogs, and toolbars. Prefer `type="submit"` inside forms and `type="button"` for standalone actions. For navigation to a URL, pass **`href`** (renders an anchor with the same styles). Router-aware navigation (`to`) belongs in the app (e.g. **NuxtLink** wrapping **GkButton** or a small app wrapper).
 
-## Live demo
+## Live Examples
 
 <DemoGkButton />
 
@@ -54,27 +54,7 @@ Use for actions in forms, dialogs, and toolbars. Prefer `type="submit"` inside f
 
 ## Examples
 
-### Variants
-
-```vue
-<script setup lang="ts">
-import { GkButton } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkButton variant="primary">Save</GkButton>
-  <GkButton variant="secondary">Cancel</GkButton>
-  <GkButton variant="ghost">Skip</GkButton>
-  <GkButton variant="danger">Delete</GkButton>
-</template>
-```
-
-### Loading and link
-
-```vue
-<GkButton :loading="saving" @click="save">Save</GkButton>
-<GkButton href="/docs" variant="ghost">Docs</GkButton>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

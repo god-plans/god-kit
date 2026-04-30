@@ -12,7 +12,7 @@ Non-modal status region. Default **`role="status"`**; use **`role="alert"`** for
 
 Use for inline status feedback that should remain visible in page flow, such as validation summaries or save results.
 
-## Live demo
+## Live Examples
 
 <DemoGkAlert />
 
@@ -55,47 +55,7 @@ Use for inline status feedback that should remain visible in page flow, such as 
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkAlert } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkAlert variant="success">Saved.</GkAlert>
-
-  <GkAlert
-    v-model="open"
-    variant="info"
-    title="Heads up"
-    text="Details here."
-    closable
-    border="start"
-  />
-</template>
-```
-
-### Advanced
-
-```vue
-<GkAlert
-  v-model="open"
-  variant="warning"
-  title="Quota warning"
-  text="Storage usage is near the limit."
-  closable
-  border="start"
-/>
-```
-
-### Edge case
-
-```vue
-<GkAlert role="alert" variant="danger">
-  Critical payment sync failed.
-</GkAlert>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

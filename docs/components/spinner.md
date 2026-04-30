@@ -12,7 +12,7 @@ CSS spinner with **`role="status"`**, **`aria-live="polite"`**, and configurable
 
 Use for short-lived loading states inside buttons, cards, and inline async flows.
 
-## Live demo
+## Live Examples
 
 <DemoGkSpinner />
 
@@ -28,31 +28,7 @@ Use for short-lived loading states inside buttons, cards, and inline async flows
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkSpinner } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkSpinner label="Saving" />
-</template>
-```
-
-### Advanced
-
-```vue
-<GkSpinner size="sm" label="Refreshing table rows" />
-```
-
-### Edge case
-
-```vue
-<GkButton :loading="saving" loading-label="Saving invoice">
-  Save
-</GkButton>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

@@ -1,76 +1,44 @@
 <script setup lang="ts">
-import { GkButton } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const busy = ref(false)
-const readonly = ref(true)
-function submit() {
-  busy.value = true
-  setTimeout(() => {
-    busy.value = false
-  }, 1200)
-}
+import GkDocsExample from '../../GkDocsExample.vue'
+import GkButtonVariantsExample from './samples/GkButtonVariantsExample.vue'
+import variantsSource from './samples/GkButtonVariantsExample.vue?raw'
+import GkButtonStylesExample from './samples/GkButtonStylesExample.vue'
+import stylesSource from './samples/GkButtonStylesExample.vue?raw'
+import GkButtonEdgeExample from './samples/GkButtonEdgeExample.vue'
+import edgeSource from './samples/GkButtonEdgeExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-stack">
-    <h4 class="gk-doc-heading">Basic</h4>
-    <div class="gk-doc-row">
-      <GkButton variant="primary">
-        Primary
-      </GkButton>
-      <GkButton variant="secondary">
-        Secondary
-      </GkButton>
-      <GkButton variant="ghost">
-        Ghost
-      </GkButton>
-      <GkButton variant="danger">
-        Danger
-      </GkButton>
-    </div>
-    <h4 class="gk-doc-heading">Advanced / edge case</h4>
-    <div class="gk-doc-row">
-      <GkButton size="sm" slim variant="secondary">
-        Slim
-      </GkButton>
-      <GkButton stacked variant="secondary">
-        <span aria-hidden="true">+</span>
-        <span>Stacked</span>
-      </GkButton>
-      <GkButton :loading="busy" variant="primary" @click="submit">
-        Submit
-      </GkButton>
-      <GkButton href="https://example.com" target="_blank" rel="noopener noreferrer" variant="ghost">
-        Link
-      </GkButton>
-      <GkButton :readonly="readonly" variant="secondary">
-        Readonly
-      </GkButton>
-      <GkButton disabled variant="secondary">
-        Disabled
-      </GkButton>
-    </div>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Variants"
+      description="Primary, secondary, ghost, and danger for hierarchy and emphasis."
+      :source="variantsSource"
+    >
+      <GkButtonVariantsExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Slim, stacked, loading, link"
+      description="Compact layout, icon column, async submit with loading, and anchor rendering via href."
+      :source="stylesSource"
+    >
+      <GkButtonStylesExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Readonly and disabled"
+      description="Readonly keeps visual affordance while blocking clicks; disabled applies inactive styling."
+      :source="edgeSource"
+    >
+      <GkButtonEdgeExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-4);
-}
-
-.gk-doc-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gk-space-3);
-  align-items: center;
-}
-
-.gk-doc-heading {
-  margin: 0;
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-on-surface-muted);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

@@ -14,7 +14,7 @@ For **imperative** messages from arbitrary code, add **`GkSnackbarHost`** once (
 
 Use for transient, non-blocking status updates after user actions (save complete, retry warning, background sync status).
 
-## Live demo
+## Live Examples
 
 <DemoGkSnackbar />
 
@@ -79,34 +79,7 @@ Use for transient, non-blocking status updates after user actions (save complete
 
 ## Examples
 
-### Basic
-
-```vue
-<GkSnackbar v-model="open" text="Saved successfully." :timeout="3000" />
-```
-
-### Advanced
-
-```vue
-<GkSnackbar
-  v-model="open"
-  title="Deployment started"
-  text="We will notify you when the rollout finishes."
-  timer="bottom"
-  location="top end"
-  variant="info"
-/>
-```
-
-### Edge case
-
-```vue
-<GkSnackbar v-model="open" :timeout="-1" variant="danger">
-  <template #actions="{ isActive }">
-    <GkButton size="sm" variant="secondary" @click="isActive = false">Dismiss</GkButton>
-  </template>
-</GkSnackbar>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

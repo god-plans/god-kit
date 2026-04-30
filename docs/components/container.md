@@ -12,7 +12,7 @@ Constrains content width for readable line lengths. **`maxWidth`** maps to **`sm
 
 Use for page-level content boundaries and readable text widths in dashboards and docs-like views.
 
-## Live demo
+## Live Examples
 
 <DemoGkContainer />
 
@@ -34,35 +34,7 @@ Use for page-level content boundaries and readable text widths in dashboards and
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkContainer } from 'god-kit/vue'
-</script>
-
-<template>
-  <GkContainer max-width="lg">
-    <p>Article body</p>
-  </GkContainer>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkContainer max-width="full" :padded="false">
-  <GkStack direction="row" :gap="4">...</GkStack>
-</GkContainer>
-```
-
-### Edge case
-
-```vue
-<GkContainer tag="section" max-width="sm">
-  <p>Use semantic tags when the container represents a landmark region.</p>
-</GkContainer>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 
