@@ -1,29 +1,208 @@
 /**
- * Tokens + vue.css are imported in theme/index.ts (order: tokens → vue → this file).
- * VitePress chrome + God Kit demos.
+ * God Kit Docs — Dark Glass theme
+ *
+ * Load order (theme/index.ts): tokens.css → vue.css → this file
+ * This file layers dark-glass aesthetics on top of VitePress DefaultTheme.
  */
 
+/* ─── Brand tokens ─── */
 :root {
   --vp-c-brand-1: var(--gk-color-primary);
   --vp-c-brand-2: color-mix(in srgb, var(--gk-color-primary) 88%, var(--gk-color-text) 12%);
   --vp-c-brand-3: color-mix(in srgb, var(--gk-color-primary) 75%, var(--gk-color-text) 25%);
+
+  /* Gradient palette used across the glass theme */
+  --gk-docs-grad-start: #7c3aed;
+  --gk-docs-grad-mid:   #4f46e5;
+  --gk-docs-grad-end:   #2563eb;
+  --gk-docs-grad: linear-gradient(135deg, var(--gk-docs-grad-start), var(--gk-docs-grad-mid), var(--gk-docs-grad-end));
+  --gk-docs-glass-border: rgba(130, 110, 255, 0.18);
+  --gk-docs-glass-bg: rgba(130, 110, 255, 0.05);
 }
 
+/* ─── Dark mode palette ─── */
+.dark {
+  --vp-c-bg:        #07070e;
+  --vp-c-bg-soft:   #0d0d1a;
+  --vp-c-bg-alt:    #05050b;
+  --vp-c-border:    rgba(130, 110, 255, 0.14);
+  --vp-c-divider:   rgba(130, 110, 255, 0.07);
+  --vp-c-text-1:    #e8e8f0;
+  --vp-c-text-2:    #a0a0b8;
+  --vp-c-text-3:    #6060808;
+}
+
+/* ─── Light mode palette (cool-white / subtle violet tint) ─── */
+:root:not(.dark) {
+  --vp-c-bg:        #f8f8fc;
+  --vp-c-bg-soft:   #f0f0fa;
+  --vp-c-bg-alt:    #eeeef8;
+  --vp-c-border:    rgba(100, 80, 220, 0.13);
+  --vp-c-divider:   rgba(100, 80, 220, 0.07);
+}
+
+/* ─── Glassmorphic nav bar ─── */
+.VPNav {
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-bottom: 1px solid var(--gk-docs-glass-border) !important;
+}
+
+.dark .VPNav {
+  background: rgba(7, 7, 14, 0.75) !important;
+}
+
+:root:not(.dark) .VPNav {
+  background: rgba(248, 248, 252, 0.8) !important;
+}
+
+/* Nav links — subtle glow on active */
+.VPNavBar .VPNavBarMenuLink.active,
+.VPNavBar .VPNavBarMenuLink:hover {
+  color: var(--gk-docs-grad-start);
+}
+
+/* ─── Glassmorphic sidebar ─── */
+.dark .VPSidebar {
+  background: rgba(8, 8, 16, 0.88) !important;
+  border-right: 1px solid var(--gk-docs-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+:root:not(.dark) .VPSidebar {
+  background: rgba(244, 244, 252, 0.92) !important;
+  border-right: 1px solid var(--gk-docs-glass-border);
+}
+
+.VPSidebar {
+  font-family: var(--gk-font-sans);
+}
+
+.VPSidebar .group + .group {
+  margin-top: 0.35rem;
+}
+
+.VPSidebar .VPSidebarItem.level-0 > .item > .text {
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gk-docs-grad-start);
+}
+
+/* Sidebar links — pill hover */
+.VPSidebar .VPSidebarItem .item .link:hover .text {
+  color: var(--gk-docs-grad-start);
+}
+
+.VPSidebar .VPSidebarItem.is-active > .item > .link > .text {
+  color: var(--gk-docs-grad-start);
+  font-weight: 600;
+}
+
+/* ─── Home page — hero gradient background ─── */
+.gk-home-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gk-home-hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: 120%;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    rgba(124, 58, 237, 0.28) 0%,
+    rgba(79, 70, 229, 0.18) 35%,
+    rgba(37, 99, 235, 0.10) 60%,
+    transparent 80%
+  );
+}
+
+.gk-home-hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gk-docs-glass-border), transparent);
+}
+
+/* Hero heading gradient text */
+.VPHome .VPHero .name .clip {
+  background: var(--gk-docs-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero tagline */
+.VPHome .VPHero .tagline {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  max-width: 40rem;
+}
+
+/* Hero action buttons */
+.VPHome .VPHero .VPButton.medium.brand {
+  background: var(--gk-docs-grad);
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPHome .VPHero .VPButton.medium.brand:hover {
+  opacity: 0.88;
+  box-shadow: 0 6px 32px rgba(124, 58, 237, 0.5);
+}
+
+/* ─── Home feature cards — glass effect ─── */
+.VPHome .VPFeatures .VPFeature {
+  border: 1px solid var(--gk-docs-glass-border);
+  background: var(--gk-docs-glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.VPHome .VPFeatures .VPFeature:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  background: rgba(130, 110, 255, 0.09);
+  transform: translateY(-2px);
+}
+
+.VPHome .VPFeatures .VPFeature .title {
+  font-weight: 700;
+}
+
+/* ─── Doc pages — glass demo blocks ─── */
 .vp-doc .gk-doc-demo {
   padding: 1rem;
   border-radius: var(--gk-radius-md);
-  border: 1px solid var(--gk-color-border);
-  background: var(--gk-color-surface);
+  border: 1px solid var(--gk-docs-glass-border);
+  background: var(--gk-docs-glass-bg);
   margin: 1rem 0;
-  box-shadow: var(--gk-elevation-1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   font-family: var(--gk-font-sans);
 }
 
 .vp-doc .gk-doc-demo--dark {
-  background: var(--gk-color-bg);
+  background: rgba(5, 5, 11, 0.7);
 }
 
-/** GkDataTable cookbook demos — full content width; table visuals from god-kit/vue.css */
+/* ─── GkDataTable cookbook demos — full width ─── */
 .vp-doc .vp-demo--data-table {
   margin: 1rem 0;
   width: 100%;
@@ -38,33 +217,34 @@
   max-width: 100%;
 }
 
-/* Nav: kit settings (header only) */
+/* ─── Nav kit-settings trigger ─── */
 .gk-docs-kit-trigger {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   margin-inline-start: 0.35rem;
-  padding: 0.4rem 0.65rem;
-  border-radius: var(--gk-radius-md);
-  border: 1px solid var(--gk-color-border);
-  background: var(--gk-color-surface);
+  padding: 0.35rem 0.7rem;
+  border-radius: 2rem;
+  border: 1px solid var(--gk-docs-glass-border);
+  background: var(--gk-docs-glass-bg);
   color: var(--gk-color-text);
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
   font-weight: 600;
   font-family: var(--gk-font-sans);
   cursor: pointer;
-  transition:
-    background-color var(--gk-duration-fast) ease,
-    border-color var(--gk-duration-fast) ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .gk-docs-kit-trigger:hover {
-  background: color-mix(in srgb, var(--gk-color-primary) 10%, var(--gk-color-surface));
-  border-color: var(--gk-color-border-strong);
+  background: rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.45);
+  color: var(--gk-docs-grad-start);
 }
 
 .gk-docs-kit-trigger-icon {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
@@ -77,20 +257,7 @@
   }
 }
 
-/* VitePress sidebar — slightly clearer grouping (God Kit tokens) */
-.VPSidebar {
-  font-family: var(--gk-font-sans);
-}
-
-.VPSidebar .group + .group {
-  margin-top: 0.35rem;
-}
-
-.VPSidebar .VPSidebarItem.level-0 > .item > .text {
-  font-weight: 600;
-}
-
-/* Right drawer */
+/* ─── Right drawer (kit settings) ─── */
 .gk-docs-drawer-root {
   position: fixed;
   inset: 0;
@@ -105,8 +272,14 @@
 .gk-docs-drawer-backdrop {
   position: absolute;
   inset: 0;
-  background: var(--gk-color-overlay);
-  opacity: var(--gk-opacity-overlay);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.dark .gk-docs-drawer-panel {
+  background: rgba(12, 12, 22, 0.96);
+  border-left: 1px solid var(--gk-docs-glass-border);
 }
 
 .gk-docs-drawer-panel {
@@ -119,10 +292,12 @@
   display: flex;
   flex-direction: column;
   background: var(--gk-color-surface);
-  border-left: 1px solid var(--gk-color-border);
+  border-left: 1px solid var(--gk-docs-glass-border);
   box-shadow: var(--gk-elevation-4);
   font-family: var(--gk-font-sans);
   color: var(--gk-color-text);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .gk-docs-drawer-header {
@@ -131,29 +306,35 @@
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--gk-color-border);
+  border-bottom: 1px solid var(--gk-docs-glass-border);
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.08), transparent);
 }
 
 .gk-docs-drawer-title {
   margin: 0;
   font-size: 1.0625rem;
-  font-weight: 600;
+  font-weight: 700;
+  background: var(--gk-docs-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .gk-docs-drawer-close {
-  border: none;
-  background: transparent;
-  font-size: 1.5rem;
+  border: 1px solid var(--gk-docs-glass-border);
+  background: var(--gk-docs-glass-bg);
+  font-size: 1.25rem;
   line-height: 1;
   cursor: pointer;
   color: var(--gk-color-text-muted);
-  padding: 0.15rem 0.35rem;
+  padding: 0.2rem 0.45rem;
   border-radius: var(--gk-radius-sm);
+  transition: color 0.15s, background 0.15s;
 }
 
 .gk-docs-drawer-close:hover {
-  color: var(--gk-color-text);
-  background: color-mix(in srgb, var(--gk-color-on-surface) 6%, transparent);
+  color: var(--gk-docs-grad-start);
+  background: rgba(124, 58, 237, 0.12);
 }
 
 .gk-docs-drawer-intro {
@@ -162,8 +343,8 @@
   font-size: 0.8125rem;
   line-height: 1.45;
   color: var(--gk-color-text-muted);
-  border-bottom: 1px solid var(--gk-color-border);
-  background: color-mix(in srgb, var(--gk-color-primary) 6%, var(--gk-color-surface));
+  border-bottom: 1px solid var(--gk-docs-glass-border);
+  background: rgba(124, 58, 237, 0.04);
 }
 
 .gk-docs-drawer-intro summary {
@@ -185,7 +366,7 @@
 }
 
 .gk-docs-drawer-intro-body a {
-  color: var(--gk-color-primary);
+  color: var(--gk-docs-grad-start);
   font-weight: 600;
 }
 
@@ -197,25 +378,26 @@
   display: flex;
   justify-content: flex-end;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--gk-color-border);
+  border-bottom: 1px solid var(--gk-docs-glass-border);
   gap: 0.5rem;
 }
 
 .gk-docs-drawer-reset {
-  padding: 0.35rem 0.65rem;
+  padding: 0.35rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 600;
   font-family: var(--gk-font-sans);
-  border-radius: var(--gk-radius-sm);
-  border: 1px solid var(--gk-color-border-strong);
-  background: var(--gk-color-bg);
+  border-radius: 2rem;
+  border: 1px solid var(--gk-docs-glass-border);
+  background: var(--gk-docs-glass-bg);
   color: var(--gk-color-text);
   cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
 }
 
 .gk-docs-drawer-reset:hover {
-  border-color: var(--gk-color-primary);
-  color: var(--gk-color-primary);
+  border-color: rgba(124, 58, 237, 0.5);
+  color: var(--gk-docs-grad-start);
 }
 
 .gk-docs-drawer-hint {
@@ -237,10 +419,10 @@
 
 .gk-docs-drawer-section {
   margin-bottom: 0.75rem;
-  border: 1px solid var(--gk-color-border);
+  border: 1px solid var(--gk-docs-glass-border);
   border-radius: var(--gk-radius-md);
   padding: 0.5rem 0.75rem;
-  background: color-mix(in srgb, var(--gk-color-bg) 80%, var(--gk-color-surface));
+  background: var(--gk-docs-glass-bg);
 }
 
 .gk-docs-drawer-section summary {
@@ -266,8 +448,8 @@
   font: inherit;
   padding: 0.4rem 0.5rem;
   border-radius: var(--gk-radius-sm);
-  border: 1px solid var(--gk-color-border-strong);
-  background: var(--gk-color-surface);
+  border: 1px solid var(--gk-docs-glass-border);
+  background: var(--gk-docs-glass-bg);
   color: var(--gk-color-text);
 }
 
@@ -294,18 +476,20 @@
 }
 
 .gk-docs-drawer-copy {
-  padding: 0.4rem 0.75rem;
-  border-radius: var(--gk-radius-sm);
-  border: 1px solid var(--gk-color-primary);
-  background: var(--gk-color-primary);
-  color: var(--gk-color-text-on-primary);
-  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2rem;
+  border: none;
+  background: var(--gk-docs-grad);
+  color: #fff;
+  font-weight: 700;
   font-size: 0.8125rem;
   cursor: pointer;
+  transition: opacity 0.15s, box-shadow 0.15s;
 }
 
 .gk-docs-drawer-copy:hover {
-  background: var(--gk-color-primary-hover);
+  opacity: 0.85;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
 }
 
 .gk-docs-drawer-live {
@@ -317,8 +501,8 @@
   margin: 0;
   padding: 0.75rem;
   border-radius: var(--gk-radius-sm);
-  background: var(--gk-color-bg);
-  border: 1px solid var(--gk-color-border);
+  background: rgba(5, 5, 14, 0.8);
+  border: 1px solid var(--gk-docs-glass-border);
   font-size: 0.7rem;
   line-height: 1.4;
   overflow: auto;
@@ -328,4 +512,49 @@
 .gk-docs-drawer-pre code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   white-space: pre;
+  color: #c8c8e0;
+}
+
+/* ─── Content page typography polish ─── */
+.vp-doc h1 {
+  background: var(--gk-docs-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.vp-doc h2 {
+  border-top: 1px solid var(--gk-docs-glass-border);
+  padding-top: 1.25rem;
+}
+
+.vp-doc a {
+  color: var(--gk-docs-grad-start);
+  text-decoration-color: rgba(124, 58, 237, 0.35);
+}
+
+.vp-doc a:hover {
+  text-decoration-color: var(--gk-docs-grad-start);
+}
+
+/* Inline code */
+.vp-doc :not(pre) > code {
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: var(--gk-docs-grad-start);
+  border-radius: 0.3em;
+  padding: 0.1em 0.38em;
+  font-size: 0.88em;
+}
+
+.dark .vp-doc :not(pre) > code {
+  background: rgba(124, 58, 237, 0.14);
+  color: #a78bfa;
+}
+
+/* Custom containers (tip/warning/danger) */
+.vp-doc .custom-block {
+  border-radius: var(--gk-radius-md);
+  border: 1px solid var(--gk-docs-glass-border);
 }

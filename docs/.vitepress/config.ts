@@ -7,15 +7,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const kitRoot = resolve(__dirname, '../..')
 
 export default defineConfig({
-  title: 'God Kit - Vue 3 Admin UI Kit',
-  description: 'God Kit is a Vue 3 and Nuxt 4 admin UI kit with design tokens, typed components, and migration support from Vuetify.',
+  title: 'God Kit',
+  titleTemplate: ':title — God Kit',
+  description: 'Vue 3 and Nuxt 4 admin UI kit — design tokens, typed components, and dark-mode-ready theming for dashboards.',
   srcDir: '.',
   cleanUrls: true,
   sitemap: {
     hostname: 'https://godkit.godplans.org',
   },
 
+  head: [
+    ['meta', { name: 'theme-color', content: '#7c3aed' }],
+  ],
+
   themeConfig: {
+    siteTitle: 'God Kit',
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/' },
@@ -132,6 +138,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
+      copyright: '© God Plans. Built with Vue 3 and VitePress.',
     },
   },
 
