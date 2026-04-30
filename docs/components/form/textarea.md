@@ -12,7 +12,7 @@ Native `<textarea>` with God Kit styling aligned with **GkInput** (wrapper, attr
 
 Use for free-form multi-line input such as notes, descriptions, and support context fields.
 
-## Live demo
+## Live Examples
 
 <DemoGkTextarea />
 
@@ -53,37 +53,7 @@ Use **`v-model.trim`** to trim on blur (same idea as **GkInput**).
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkField, GkTextarea } from 'god-kit/vue'
-import { ref } from 'vue'
-const notes = ref('')
-</script>
-
-<template>
-  <GkField label="Notes">
-    <GkTextarea v-model="notes" :rows="4" />
-  </GkField>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkField label="Description">
-  <GkTextarea v-model.trim="description" :rows="6" placeholder="Write details..." />
-</GkField>
-```
-
-### Edge case
-
-```vue
-<GkField label="Readonly transcript" :error="error">
-  <GkTextarea v-model="transcript" readonly />
-</GkField>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet.
 
 ## Accessibility notes
 

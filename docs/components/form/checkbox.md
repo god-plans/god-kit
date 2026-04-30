@@ -12,7 +12,7 @@ Native `<input type="checkbox">` with tokenized focus styles, wrapped in an **`i
 
 Use for binary choices and “select all” controls where each option can be independently toggled.
 
-## Live demo
+## Live Examples
 
 <DemoGkCheckbox />
 
@@ -49,41 +49,7 @@ Root **`class`** applies to the outer wrapper; other attributes are forwarded to
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkCheckbox } from 'god-kit/vue'
-import { ref } from 'vue'
-const ok = ref(false)
-</script>
-
-<template>
-  <label>
-    <GkCheckbox v-model="ok" />
-    Accept
-  </label>
-</template>
-```
-
-### Advanced
-
-### Indeterminate (e.g. “select all”)
-
-Control **`indeterminate`** from the parent; when the user activates the checkbox, the browser clears indeterminate—update your state accordingly.
-
-```vue
-<GkCheckbox v-model="allSelected" :indeterminate="someSelected" />
-```
-
-### Edge case
-
-```vue
-<label>
-  <GkCheckbox v-model="approved" readonly aria-label="Readonly approval status" />
-  Approved (readonly)
-</label>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet.
 
 ## Accessibility notes
 

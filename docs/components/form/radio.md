@@ -12,7 +12,7 @@ outline: [2, 3]
 
 Use radios when users must choose exactly one option from a small, mutually exclusive set.
 
-## Live demo
+## Live Examples
 
 <DemoGkRadio />
 
@@ -62,40 +62,7 @@ Injected context includes **`isDisabled`** and **`isReadonly`** for the group. S
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkRadio, GkRadioGroup } from 'god-kit/vue'
-import { ref } from 'vue'
-const theme = ref<'light' | 'dark'>('light')
-</script>
-
-<template>
-  <GkRadioGroup v-model="theme" aria-label="Theme">
-    <GkRadio value="light">Light</GkRadio>
-    <GkRadio value="dark">Dark</GkRadio>
-  </GkRadioGroup>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkRadioGroup v-model="theme" aria-label="Theme" :disabled="saving">
-  <GkRadio value="light">Light</GkRadio>
-  <GkRadio value="dark">Dark</GkRadio>
-</GkRadioGroup>
-```
-
-### Edge case
-
-```vue
-<GkRadioGroup v-model="theme" readonly aria-label="Theme readonly review">
-  <GkRadio value="light">Light</GkRadio>
-  <GkRadio value="dark">Dark</GkRadio>
-</GkRadioGroup>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet.
 
 ## Accessibility notes
 

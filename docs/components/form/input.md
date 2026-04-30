@@ -12,7 +12,7 @@ Single-line input bound with **`v-model`**. When placed inside **[GkField](./fie
 
 Use for email, password, search, and other native input types. Pair with **GkField** for labels and validation messages.
 
-## Live demo
+## Live Examples
 
 <DemoGkInput />
 
@@ -66,30 +66,7 @@ Use Vue’s **`v-model` modifiers** on **GkInput**:
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkField, GkInput } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const value = ref('')
-</script>
-
-<template>
-  <GkField label="Name">
-    <GkInput v-model="value" autocomplete="name" />
-  </GkField>
-</template>
-```
-
-### Prefix, counter, trim
-
-```vue
-<GkField label="Amount">
-  <GkInput v-model.trim="amount" prefix="$" :counter="80" placeholder="0.00" />
-</GkField>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

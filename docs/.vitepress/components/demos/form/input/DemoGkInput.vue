@@ -1,46 +1,47 @@
 <script setup lang="ts">
-import { GkField, GkInput } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const value = ref('')
-const amount = ref('')
-const review = ref('Readonly value')
-const search = ref('42')
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkInputBasicExample from './samples/GkInputBasicExample.vue'
+import basicSource from './samples/GkInputBasicExample.vue?raw'
+import GkInputPrefixCounterExample from './samples/GkInputPrefixCounterExample.vue'
+import prefixCounterSource from './samples/GkInputPrefixCounterExample.vue?raw'
+import GkInputEdgeCaseExample from './samples/GkInputEdgeCaseExample.vue'
+import edgeCaseSource from './samples/GkInputEdgeCaseExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-stack">
-    <h4 class="gk-doc-heading">Basic</h4>
-    <GkField label="Example">
-      <GkInput v-model="value" placeholder="Type here" />
-    </GkField>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Basic"
+      description="Minimal GkField + GkInput with v-model."
+      :source="basicSource"
+      best-practice="Always wrap in GkField when you have a visible label so id and aria-describedby stay aligned."
+    >
+      <GkInputBasicExample />
+    </GkDocsExample>
 
-    <h4 class="gk-doc-heading">Advanced</h4>
-    <GkField label="With prefix & counter">
-      <GkInput v-model="amount" prefix="$" placeholder="0.00" :counter="12" persistent-counter />
-    </GkField>
+    <GkDocsExample
+      title="Prefix & counter"
+      description="Static prefix text and a character counter; persistent counter stays visible."
+      :source="prefixCounterSource"
+      best-practice="Use v-model.trim on text-like types when you want blur-time trimming."
+    >
+      <GkInputPrefixCounterExample />
+    </GkDocsExample>
 
-    <h4 class="gk-doc-heading">Edge case</h4>
-    <GkField label="Readonly + suffix + trim/number">
-      <GkInput v-model="review" readonly suffix="USD" />
-    </GkField>
-    <GkField label="Search (disabled)">
-      <GkInput v-model.number.trim="search" type="search" disabled />
-    </GkField>
+    <GkDocsExample
+      title="Readonly, suffix, and disabled search"
+      description="Readonly input with suffix; disabled search with number + trim modifiers."
+      :source="edgeCaseSource"
+      best-practice="For standalone inputs, pass ariaLabel so the control has an accessible name."
+    >
+      <GkInputEdgeCaseExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-4);
-  max-width: 24rem;
-}
-
-.gk-doc-heading {
-  margin: 0;
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-on-surface-muted);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

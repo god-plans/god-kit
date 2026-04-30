@@ -12,7 +12,7 @@ Wraps a single form control: **label** (optional), **default slot** for **GkInpu
 
 Use for every labeled control in a form so ids, `aria-describedby`, and error text stay consistent.
 
-## Live demo
+## Live Examples
 
 <DemoGkField />
 
@@ -38,46 +38,7 @@ GkField uses **`useFieldIds()`** internally, then **provides** context for child
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkButton, GkField, GkInput } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const email = ref('')
-const error = ref('')
-
-function submit() {
-  error.value = email.value.includes('@') ? '' : 'Invalid email.'
-}
-</script>
-
-<template>
-  <form @submit.prevent="submit">
-    <GkField label="Email" :error="error">
-      <GkInput v-model="email" type="email" autocomplete="email" />
-    </GkField>
-    <GkButton type="submit" variant="primary">Submit</GkButton>
-  </form>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkField label="Email" :error="emailError">
-  <GkInput v-model="email" type="email" autocomplete="email" />
-</GkField>
-```
-
-### Edge case
-
-```vue
-<GkField label="API key" label-sr-only :error="apiKeyError">
-  <GkInput v-model="apiKey" aria-label="API key" />
-</GkField>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet.
 
 ## Accessibility notes
 

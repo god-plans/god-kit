@@ -1,58 +1,45 @@
 <script setup lang="ts">
-import { GkCheckbox } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const ok = ref(false)
-const locked = ref(false)
-const tri = ref(false)
-const indeterminate = ref(true)
-
-function onTriUpdate() {
-  indeterminate.value = false
-}
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkCheckboxBasicExample from './samples/GkCheckboxBasicExample.vue'
+import basicSource from './samples/GkCheckboxBasicExample.vue?raw'
+import GkCheckboxIndeterminateExample from './samples/GkCheckboxIndeterminateExample.vue'
+import indeterminateSource from './samples/GkCheckboxIndeterminateExample.vue?raw'
+import GkCheckboxReadonlyExample from './samples/GkCheckboxReadonlyExample.vue'
+import readonlySource from './samples/GkCheckboxReadonlyExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-stack">
-    <label class="gk-doc-inline">
-      <GkCheckbox v-model="ok" />
-      <span>Accept terms</span>
-    </label>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Basic"
+      description="Boolean v-model with a visible label."
+      :source="basicSource"
+    >
+      <GkCheckboxBasicExample />
+    </GkDocsExample>
 
-    <label class="gk-doc-inline">
-      <GkCheckbox v-model="ok" value="terms" />
-      <span>With native <code>value</code></span>
-    </label>
+    <GkDocsExample
+      title="Native value & indeterminate"
+      description="Optional value attribute; indeterminate is cleared after the user toggles."
+      :source="indeterminateSource"
+      best-practice="Use indeterminate only for partial selection, not as a third persistent state."
+    >
+      <GkCheckboxIndeterminateExample />
+    </GkDocsExample>
 
-    <label class="gk-doc-inline">
-      <GkCheckbox
-        v-model="tri"
-        :indeterminate="indeterminate"
-        @update:model-value="onTriUpdate"
-      />
-      <span>Indeterminate (clears after first toggle)</span>
-    </label>
-
-    <label class="gk-doc-inline">
-      <GkCheckbox v-model="locked" readonly />
-      <span>Readonly (cannot toggle)</span>
-    </label>
+    <GkDocsExample
+      title="Readonly"
+      description="Readonly prevents toggling while keeping focus styles."
+      :source="readonlySource"
+    >
+      <GkCheckboxReadonlyExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-3);
-}
-
-.gk-doc-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gk-space-2);
-  font-family: var(--gk-font-sans);
-  font-size: var(--gk-font-size-md);
-  color: var(--gk-color-on-surface);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

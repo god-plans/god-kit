@@ -1,65 +1,44 @@
 <script setup lang="ts">
-import { GkField, GkSelect } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const value = ref<string | undefined>('b')
-const multi = ref<string[]>(['a'])
-const review = ref<string | undefined>('a')
-
-const options = [
-  { value: 'a', label: 'Alpha' },
-  { value: 'b', label: 'Beta' },
-  { value: 'c', label: 'Gamma' },
-]
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkSelectSingleExample from './samples/GkSelectSingleExample.vue'
+import singleSource from './samples/GkSelectSingleExample.vue?raw'
+import GkSelectMultipleExample from './samples/GkSelectMultipleExample.vue'
+import multipleSource from './samples/GkSelectMultipleExample.vue?raw'
+import GkSelectReadonlyExample from './samples/GkSelectReadonlyExample.vue'
+import readonlySource from './samples/GkSelectReadonlyExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-stack">
-    <h4 class="gk-doc-heading">Basic</h4>
-    <GkField label="Single">
-      <GkSelect
-        v-model="value"
-        :options="options"
-        aria-label="Pick an option"
-        placeholder="Choose…"
-      />
-    </GkField>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Single select"
+      description="Options array and placeholder inside GkField."
+      :source="singleSource"
+    >
+      <GkSelectSingleExample />
+    </GkDocsExample>
 
-    <h4 class="gk-doc-heading">Advanced</h4>
-    <GkField label="Multiple">
-      <GkSelect
-        v-model="multi"
-        :options="options"
-        multiple
-        :size="4"
-        aria-label="Pick many"
-        placeholder="Add…"
-      />
-    </GkField>
+    <GkDocsExample
+      title="Multiple"
+      description="Array v-model and native size for visible rows."
+      :source="multipleSource"
+    >
+      <GkSelectMultipleExample />
+    </GkDocsExample>
 
-    <h4 class="gk-doc-heading">Edge case</h4>
-    <GkField label="Readonly review">
-      <GkSelect
-        v-model="review"
-        :options="options"
-        readonly
-        aria-label="Readonly review"
-      />
-    </GkField>
+    <GkDocsExample
+      title="Readonly"
+      description="Readonly select reverts changes and sets aria-readonly."
+      :source="readonlySource"
+    >
+      <GkSelectReadonlyExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-stack {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-4);
-  max-width: 24rem;
-}
-
-.gk-doc-heading {
-  margin: 0;
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-on-surface-muted);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>

@@ -12,7 +12,7 @@ Native `<select>` backed by an **`options`** array. This stays close to the plat
 
 Use for native single or multi-select controls where platform keyboard behavior is preferred over a custom combobox UI.
 
-## Live demo
+## Live Examples
 
 <DemoGkSelect />
 
@@ -54,54 +54,7 @@ Root **`class`** applies to the wrapper; other attributes are forwarded to **`<s
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { GkSelect } from 'god-kit/vue'
-import { ref } from 'vue'
-
-const value = ref<string | undefined>()
-const options = [
-  { value: 'a', label: 'Alpha' },
-  { value: 'b', label: 'Beta' },
-]
-</script>
-
-<template>
-  <GkSelect v-model="value" :options="options" aria-label="Choose" placeholder="Pick…" />
-</template>
-```
-
-### Advanced
-
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-const tags = ref<string[]>([])
-const options = [
-  { value: 'a', label: 'Alpha' },
-  { value: 'b', label: 'Beta' },
-]
-</script>
-
-<template>
-  <GkSelect v-model="tags" :options="options" multiple :size="4" aria-label="Tags" />
-</template>
-```
-
-### Edge case
-
-```vue
-<GkField label="Readonly option set" :error="error">
-  <GkSelect
-    v-model="reviewValue"
-    :options="options"
-    readonly
-    required
-  />
-</GkField>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet.
 
 ## Accessibility notes
 
