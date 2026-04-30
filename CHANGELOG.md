@@ -5,6 +5,12 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- **GkGrid:** Three breakpoints for column count — **`columns`** (≥`64rem`), optional **`columnsTablet`** (`48rem`–`63.99rem`, defaults to `columns`), optional **`columnsMobile`** (below `48rem`, defaults to `columnsTablet ?? columns`). Replaces the previous two-tier layout (`max-width: 47.99rem` narrow vs wide).
+
 ## [0.8.5] - 2026-04-25
 
 ### Changed

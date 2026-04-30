@@ -4,7 +4,8 @@ import { GkGrid } from 'god-kit/vue'
 
 <template>
   <GkGrid
-    :columns="3"
+    :columns="4"
+    :columns-tablet="3"
     :columns-mobile="1"
     :gap="3"
     :show-grid-lines="true"

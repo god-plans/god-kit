@@ -1,58 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  GkExpansionPanel,
-  GkExpansionPanels,
-  GkExpansionPanelText,
-  GkExpansionPanelTitle,
-} from 'god-kit/vue'
-
-const accordionOpen = ref<(string | number)[]>([])
-const multiOpen = ref<(string | number)[]>(['b'])
+import GkDocsExample from '../../GkDocsExample.vue'
+import GkExpansionAccordionExample from './samples/GkExpansionAccordionExample.vue'
+import accordionSource from './samples/GkExpansionAccordionExample.vue?raw'
+import GkExpansionMultipleExample from './samples/GkExpansionMultipleExample.vue'
+import multipleSource from './samples/GkExpansionMultipleExample.vue?raw'
+import GkExpansionDisabledExample from './samples/GkExpansionDisabledExample.vue'
+import disabledSource from './samples/GkExpansionDisabledExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-expansion-demo">
-    <p class="gk-doc-expansion-demo__label">Accordion (single open)</p>
-    <GkExpansionPanels v-model="accordionOpen">
-      <GkExpansionPanel value="a">
-        <GkExpansionPanelTitle>Section one</GkExpansionPanelTitle>
-        <GkExpansionPanelText>
-          Content for the first section. Opening another section closes this one.
-        </GkExpansionPanelText>
-      </GkExpansionPanel>
-      <GkExpansionPanel value="b">
-        <GkExpansionPanelTitle>Section two</GkExpansionPanelTitle>
-        <GkExpansionPanelText>Content for the second section.</GkExpansionPanelText>
-      </GkExpansionPanel>
-    </GkExpansionPanels>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Accordion"
+      description="Default multiple=false: at most one panel is expanded at a time."
+      :source="accordionSource"
+    >
+      <GkExpansionAccordionExample />
+    </GkDocsExample>
 
-    <p class="gk-doc-expansion-demo__label">Multiple open</p>
-    <GkExpansionPanels v-model="multiOpen" multiple>
-      <GkExpansionPanel value="a">
-        <GkExpansionPanelTitle>Alpha</GkExpansionPanelTitle>
-        <GkExpansionPanelText>Alpha body.</GkExpansionPanelText>
-      </GkExpansionPanel>
-      <GkExpansionPanel value="b">
-        <GkExpansionPanelTitle>Beta</GkExpansionPanelTitle>
-        <GkExpansionPanelText>Beta body (open by default in this demo).</GkExpansionPanelText>
-      </GkExpansionPanel>
-    </GkExpansionPanels>
+    <GkDocsExample
+      title="Multiple open"
+      description="Set multiple to allow several sections expanded together."
+      :source="multipleSource"
+    >
+      <GkExpansionMultipleExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Disabled group"
+      description="disabled prevents toggling; use for read-only review UIs."
+      :source="disabledSource"
+    >
+      <GkExpansionDisabledExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-expansion-demo {
-  display: flex;
-  flex-direction: column;
+.gk-doc-containment-demo {
+  display: grid;
   gap: var(--gk-space-5);
-  max-width: 32rem;
-}
-
-.gk-doc-expansion-demo__label {
-  margin: 0;
-  font-size: var(--gk-font-size-sm);
-  font-weight: 600;
-  color: var(--gk-color-text-muted);
 }
 </style>

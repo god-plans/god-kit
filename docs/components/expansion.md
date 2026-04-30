@@ -14,7 +14,7 @@ This is intentionally smaller than Vuetify’s expansion stack: no **VDefaultsPr
 
 Use for grouped content where users reveal one or more sections on demand, especially for dense settings or FAQ-style layouts.
 
-## Live demo
+## Live Examples
 
 <DemoGkExpansionPanels />
 
@@ -71,50 +71,7 @@ Collapsible region: **`role="region"`**, **`aria-labelledby`**, **`hidden`** whe
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import {
-  GkExpansionPanel,
-  GkExpansionPanels,
-  GkExpansionPanelText,
-  GkExpansionPanelTitle,
-} from 'god-kit/vue'
-
-const open = ref<(string | number)[]>([])
-</script>
-
-<template>
-  <GkExpansionPanels v-model="open" multiple>
-    <GkExpansionPanel value="shipping">
-      <GkExpansionPanelTitle>Shipping</GkExpansionPanelTitle>
-      <GkExpansionPanelText>Details…</GkExpansionPanelText>
-    </GkExpansionPanel>
-    <GkExpansionPanel value="billing">
-      <GkExpansionPanelTitle>Billing</GkExpansionPanelTitle>
-      <GkExpansionPanelText>Details…</GkExpansionPanelText>
-    </GkExpansionPanel>
-  </GkExpansionPanels>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkExpansionPanels v-model="open" multiple>
-  <!-- several independent expandable sections -->
-</GkExpansionPanels>
-```
-
-### Edge case
-
-```vue
-<GkExpansionPanels :model-value="['advanced']" disabled>
-  <!-- read-only review state -->
-</GkExpansionPanels>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 
