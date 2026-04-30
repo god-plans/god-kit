@@ -17,10 +17,13 @@ export default defineConfig({
   },
 
   head: [
+    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/logo.png' }],
     ['meta', { name: 'theme-color', content: '#7c3aed' }],
   ],
 
   themeConfig: {
+    logo: '/logo.png',
     siteTitle: 'God Kit',
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },

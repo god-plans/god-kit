@@ -8,7 +8,7 @@ hero:
   text: Admin UI that scales
   tagline: Design tokens, typed components, and dark-mode-ready theming for Vue 3 and Nuxt 4 — built for real dashboards.
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: God Kit
   actions:
     - theme: brand
