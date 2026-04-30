@@ -14,7 +14,7 @@ This is intentionally smaller than Vuetify’s **VTabs** + **VSlideGroup** + **V
 
 Use tabs to switch between related views that share a page context. Prefer `items` for data-driven tabs and slot-based tabs when panel markup needs full control.
 
-## Live demo
+## Live Examples
 
 <DemoGkTabs />
 
@@ -107,48 +107,7 @@ Exported from **`god-kit/vue`** (and **`god-kit/vue/navigation`**) for custom li
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import { GkTabs } from 'god-kit/vue'
-
-const tab = ref('one')
-</script>
-
-<template>
-  <GkTabs v-model="tab" :items="['one', 'two']" grow>
-    <template #item="{ item }">Content for {{ item }}</template>
-  </GkTabs>
-</template>
-```
-
-### Advanced
-
-```vue
-<GkTabs
-  v-model="tab"
-  :items="items"
-  direction="vertical"
-  show-arrows
-  inset
-  spaced
-/>
-```
-
-### Edge case
-
-```vue
-<GkTabs
-  v-model="tab"
-  :items="[
-    { text: 'Summary', value: 'summary' },
-    { text: 'Billing', value: 'billing', disabled: true },
-    { text: 'Security', value: 'security' },
-  ]"
-/>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

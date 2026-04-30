@@ -14,7 +14,7 @@ This is smaller than Vuetify **VPagination**: no theme / locale composables, no 
 
 Use for page-based navigation where users need clear movement between finite result sets. Prefer this over infinite scroll in admin/reporting views requiring random access to pages.
 
-## Live demo
+## Live Examples
 
 <DemoGkPagination />
 
@@ -73,44 +73,7 @@ Additional attributes are forwarded to the root **`<nav>`**.
 
 ## Examples
 
-### Basic
-
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-import { GkPagination } from 'god-kit/vue'
-
-const page = ref(1)
-</script>
-
-<template>
-  <GkPagination v-model="page" :length="12" :total-visible="7" show-first-last-page />
-</template>
-```
-
-### Advanced
-
-```vue
-<GkPagination
-  v-model="page"
-  :length="42"
-  :total-visible="9"
-  show-first-last-page
-  dir="rtl"
-  active-color="var(--gk-color-primary)"
-/>
-```
-
-### Edge case
-
-```vue
-<GkPagination
-  v-model="page"
-  :length="1"
-  disabled
-  aria-label="Results pagination (disabled)"
-/>
-```
+Each scenario under **Live Examples** includes a copyable Vue snippet (source is imported from the same SFC as the preview).
 
 ## Accessibility notes
 

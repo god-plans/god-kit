@@ -1,76 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { GkPagination } from 'god-kit/vue'
-
-const page = ref(3)
-const length = ref(24)
-const showEnds = ref(false)
-const rtl = ref(false)
+import GkDocsExample from '../../../GkDocsExample.vue'
+import GkPaginationBasicExample from './samples/GkPaginationBasicExample.vue'
+import basicSource from './samples/GkPaginationBasicExample.vue?raw'
+import GkPaginationRtlExample from './samples/GkPaginationRtlExample.vue'
+import rtlSource from './samples/GkPaginationRtlExample.vue?raw'
+import GkPaginationDisabledExample from './samples/GkPaginationDisabledExample.vue'
+import disabledSource from './samples/GkPaginationDisabledExample.vue?raw'
 </script>
 
 <template>
-  <div class="gk-doc-demo gk-doc-pagination-demo">
-    <div class="gk-doc-pagination-demo__toolbar">
-      <label class="gk-doc-pagination-demo__label">
-        Length (pages)
-        <input v-model.number="length" class="gk-doc-pagination-demo__input" type="number" min="1" max="100" />
-      </label>
-      <label class="gk-doc-pagination-demo__label">
-        <input v-model="showEnds" type="checkbox" />
-        First / last
-      </label>
-      <label class="gk-doc-pagination-demo__label">
-        <input v-model="rtl" type="checkbox" />
-        RTL
-      </label>
-    </div>
-    <GkPagination
-      v-model="page"
-      :length="length"
-      :total-visible="7"
-      :show-first-last-page="showEnds"
-      :dir="rtl ? 'rtl' : 'ltr'"
-    />
-    <p class="gk-doc-pagination-demo__meta">Page {{ page }} of {{ length }}</p>
+  <div class="gk-doc-containment-demo">
+    <GkDocsExample
+      title="Basic"
+      description="v-model page, total pages, visible window, and optional first/last controls."
+      :source="basicSource"
+    >
+      <GkPaginationBasicExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="RTL & active color"
+      description="Right-to-left swaps control direction; active-color sets ink on the filled page button."
+      :source="rtlSource"
+    >
+      <GkPaginationRtlExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Disabled"
+      description="Single-page or loading states can disable the whole nav; set aria-label when context matters."
+      :source="disabledSource"
+    >
+      <GkPaginationDisabledExample />
+    </GkDocsExample>
   </div>
 </template>
 
 <style scoped>
-.gk-doc-pagination-demo {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gk-space-3);
-  max-width: 36rem;
-}
-
-.gk-doc-pagination-demo__toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gk-space-3);
-  align-items: center;
-}
-
-.gk-doc-pagination-demo__label {
-  display: flex;
-  align-items: center;
-  gap: var(--gk-space-2);
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-text-muted);
-}
-
-.gk-doc-pagination-demo__input {
-  width: 4rem;
-  font: inherit;
-  padding: var(--gk-space-1) var(--gk-space-2);
-  border-radius: var(--gk-radius-sm);
-  border: 1px solid var(--gk-color-border);
-  background: var(--gk-color-surface);
-  color: var(--gk-color-on-surface);
-}
-
-.gk-doc-pagination-demo__meta {
-  margin: 0;
-  font-size: var(--gk-font-size-sm);
-  color: var(--gk-color-on-surface-muted);
+.gk-doc-containment-demo {
+  display: grid;
+  gap: var(--gk-space-5);
 }
 </style>
