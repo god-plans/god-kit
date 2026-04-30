@@ -5,7 +5,16 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.8.7] - 2026-05-01
+
+### Changed
+
+- **Documentation (VitePress) — Form:** **GkInput**, **GkField**, **GkForm**, **GkTextarea**, **GkCheckbox**, **GkRadio** / **GkRadioGroup**, and **GkSelect** docs now use **`GkDocsExample`** with `samples/*.vue` and **`*.vue?raw`** copyable source; **Live Examples** sections replace duplicated markdown fences.
+- **Documentation (VitePress) — Navigation:** **GkTabs** and **GkPagination** demos use the same pattern (static samples + copyable source).
+- **Documentation (VitePress) — Feedback and layout:** **GkButton**, **GkAlert**, **GkStack**, **GkGrid**, **GkContainer**, **GkDivider**, **GkSpinner**, **GkSkeletonLoader**, and **GkSnackbar** use **`GkDocsExample`** + raw sample imports.
+- **Documentation (VitePress) — Expansion and data:** Expansion panels and **GkDataTable** cookbook use **`GkDocsExample`**; **GkDataTable** adds **`DemoGkDataTableSampleNNDoc`** wrappers and **`docs/components/data/gk-data-table.md`** drops duplicated `` ```vue `` blocks. [`docs/.vitepress/components/demos/data-table/README.md`](docs/.vitepress/components/demos/data-table/README.md) documents adding both sample and `*Doc` files.
+
+## [0.8.6] - 2026-04-30
 
 ### Changed
 

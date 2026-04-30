@@ -8,15 +8,14 @@ outline: [2, 3]
 
 All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (authoritative history).
 
-## [Unreleased]
+## [0.8.7] - 2026-05-01
 
-### Added
+### Changed
 
-- **Form control size** — **`size`** on **GkInput**, **GkTextarea**, **GkSelect** (string vs number), **GkCheckbox**, and **GkRadio**; global **`GK_FORM_CONTROLS`**, **`createGkKit({ form: { defaultControlSize } })`**, **`GkFormControlsProvider`**, **`GkForm` `controlSize`**, **`useGkFormControlSize`**, and **`gk-form-control--*`** in **`tokens.css`**. See **[Form control size](./global-configuration#form-control-size)** and **[Form control size classes](./tokens#form-control-size-classes)**.
-- **GkCard** — card surface, subcomponents, and **`--gk-card-*`** tokens; see **[GkCard](../components/containment/gk-card)** and root **`CHANGELOG.md`**. CLI: **`npx god-kit add card`**.
-- **GkCard docs playground** — focused live examples powered by raw sample-source imports, syntax-highlighted collapsible code blocks, and a lightweight option editor that generates Vue snippets.
-- **Containment docs examples** — Overlay, Dialog, BottomSheet, Menu, Tooltip, and NavigationDrawer now use the same copyable raw-source example pattern; Dialog, BottomSheet, Menu, and Tooltip include lightweight option playgrounds.
-- **GkGrid** — responsive layout grid; see the **[GkGrid](../components/grid)** component page and root **`CHANGELOG.md`**.
+- **Form docs:** **GkInput**, **GkField**, **GkForm**, **GkTextarea**, **GkCheckbox**, **GkRadio**, **GkSelect** — **`GkDocsExample`** + `samples/` + **`?raw`** copyable source.
+- **Navigation docs:** **GkTabs**, **GkPagination** — same pattern.
+- **Feedback and layout docs:** **GkButton**, **GkAlert**, **GkStack**, **GkGrid**, **GkContainer**, **GkDivider**, **GkSpinner**, **GkSkeletonLoader**, **GkSnackbar** — same pattern.
+- **Expansion** and **GkDataTable** cookbook — **`GkDocsExample`**; data table uses **`DemoGkDataTableSampleNNDoc`** wrappers (see root **`CHANGELOG.md`**).
 
 ## [0.8.0] - 2026-04-17
 
