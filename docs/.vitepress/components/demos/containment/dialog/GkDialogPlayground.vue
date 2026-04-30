@@ -10,9 +10,14 @@ const options = reactive({
   scrollable: false,
   persistent: false,
   showScrim: true,
+  size: '' as '' | 'sm' | 'md' | 'lg',
   width: '',
-  maxWidth: '28rem',
+  maxWidth: '',
 })
+
+const sizeAttr = computed(() =>
+  options.size ? `\n    size="${options.size}"` : ''
+)
 
 const generatedCode = computed(() => `<script setup lang="ts">
 import { ref } from 'vue'
@@ -24,7 +29,7 @@ ${closeScript}
 <template>
   <GkButton type="button" @click="open = true">Open dialog</GkButton>
   <GkDialog
-    v-model="open"${options.fullscreen ? '\n    fullscreen' : ''}${options.scrollable ? '\n    scrollable' : ''}${options.persistent ? '\n    persistent' : ''}${!options.showScrim ? '\n    :show-scrim="false"' : ''}${options.width ? `\n    width="${options.width}"` : ''}${options.maxWidth ? `\n    max-width="${options.maxWidth}"` : ''}
+    v-model="open"${sizeAttr.value}${options.fullscreen ? '\n    fullscreen' : ''}${options.scrollable ? '\n    scrollable' : ''}${options.persistent ? '\n    persistent' : ''}${!options.showScrim ? '\n    :show-scrim="false"' : ''}${options.width ? `\n    width="${options.width}"` : ''}${options.maxWidth ? `\n    max-width="${options.maxWidth}"` : ''}
     aria-labelledby="dialog-title"
   >
     <h2 id="dialog-title">Dialog title</h2>
@@ -41,12 +46,22 @@ ${closeScript}
       <label><input v-model="options.scrollable" type="checkbox" /> scrollable</label>
       <label><input v-model="options.persistent" type="checkbox" /> persistent</label>
       <label><input v-model="options.showScrim" type="checkbox" /> showScrim</label>
+      <label
+        >size
+        <select v-model="options.size" class="controls-select">
+          <option value="">default (md)</option>
+          <option value="sm">sm</option>
+          <option value="md">md</option>
+          <option value="lg">lg</option>
+        </select>
+      </label>
       <label>width <input v-model="options.width" placeholder="420px" /></label>
       <label>maxWidth <input v-model="options.maxWidth" placeholder="28rem" /></label>
       <GkButton type="button" size="sm" @click="open = true">Preview</GkButton>
     </div>
     <GkDialog
       v-model="open"
+      :size="options.size || undefined"
       :fullscreen="options.fullscreen"
       :scrollable="options.scrollable"
       :persistent="options.persistent"
@@ -84,7 +99,8 @@ ${closeScript}
   font-size: var(--gk-font-size-sm);
 }
 
-.controls input:not([type='checkbox']) {
+.controls input:not([type='checkbox']),
+.controls select {
   width: 100%;
 }
 </style>

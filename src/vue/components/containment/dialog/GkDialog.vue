@@ -8,6 +8,11 @@ const props = withDefaults(
   defineProps<{
     /** When `true`, fills the viewport (edge-to-edge surface) */
     fullscreen?: boolean
+    /**
+     * Preset max width for the dialog shell (via **GkOverlay** content cap).
+     * Default / `md` uses **`--gk-dialog-max-width`** (`28rem`).
+     */
+    size?: 'sm' | 'md' | 'lg'
     /** When `true`, the surface scrolls when content exceeds max height */
     scrollable?: boolean
     /** Passed to **GkOverlay** */
@@ -47,15 +52,21 @@ function toCssSize(v: string | number | undefined): string | undefined {
 
 const resolvedZIndex = computed(() => props.zIndex ?? 'var(--gk-dialog-z-index)')
 
-const contentMaxWidth = computed(() =>
-  props.fullscreen ? 'none' : 'min(100%, var(--gk-dialog-max-width))'
-)
+const contentMaxWidth = computed(() => {
+  if (props.fullscreen) return 'none'
+  const cap =
+    props.size === 'sm'
+      ? 'var(--gk-dialog-max-width-sm)'
+      : props.size === 'lg'
+        ? 'var(--gk-dialog-max-width-lg)'
+        : 'var(--gk-dialog-max-width)'
+  return `min(100%, ${cap})`
+})
 
 const surfaceStyle = computed(() => {
   if (props.fullscreen) {
     return {
       width: '100%',
-      height: '100%',
       maxWidth: 'none',
       maxHeight: 'none',
     } as Record<string, string>
@@ -125,7 +136,8 @@ const overlayClass = computed(() => [
   border-radius: 0;
   border: none;
   box-shadow: none;
-  min-height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .gk-dialog__surface--scrollable:not(.gk-dialog__surface--fullscreen) {
@@ -136,11 +148,27 @@ const overlayClass = computed(() => [
 .gk-dialog__surface--scrollable.gk-dialog__surface--fullscreen {
   overflow: auto;
 }
+</style>
 
-/* Padding lives on **GkOverlay** root; fullscreen dialogs are edge-to-edge */
-:deep(.gk-dialog__overlay-root--fullscreen) {
-  padding: 0;
+<style>
+/* Unscoped: **GkOverlay** is teleported to `body`. Host pages (including VitePress)
+ * must still get reliable fullscreen layout — scoped `:deep()` can fail for teleported nodes. */
+.gk-overlay.gk-dialog__overlay-root--fullscreen {
+  padding: 0 !important;
   align-items: stretch;
-  justify-content: stretch;
+  justify-content: flex-start;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.gk-overlay.gk-dialog__overlay-root--fullscreen .gk-overlay__content {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 </style>

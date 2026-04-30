@@ -253,6 +253,10 @@ defineExpose({
 .gk-overlay__content {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
+  /* Flex main-axis: fill the overlay so max-width caps real width (sm / md / lg dialogs). */
+  width: 100%;
+  min-width: 0;
   max-width: var(--gk-overlay-content-max-width, min(100%, 32rem));
   outline: none;
 }

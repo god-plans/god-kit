@@ -191,7 +191,12 @@
 
   /** Dialog (GkDialog) — above default overlay */
   --gk-dialog-z-index: 2400;
+  /** Default / `size="md"` cap (`min(100%, …)` applied in component) */
   --gk-dialog-max-width: 28rem;
+  /** `size="sm"` */
+  --gk-dialog-max-width-sm: 20rem;
+  /** `size="lg"` */
+  --gk-dialog-max-width-lg: 42rem;
   --gk-dialog-scroll-max-height: 24rem;
   --gk-dialog-scroll-max-viewport: 80vh;
   --gk-dialog-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.18), var(--gk-elevation-3);

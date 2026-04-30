@@ -36,4 +36,33 @@ describe('GkDialog', () => {
     w.unmount()
   })
 
+  it('size sm sets overlay content max width cap', () => {
+    const w = mount(GkDialog, {
+      props: { modelValue: true, size: 'sm' },
+      attachTo: document.body,
+      slots: { default: 'X' },
+    })
+    const overlay = document.body.querySelector('.gk-overlay') as HTMLElement
+    expect(overlay?.style.getPropertyValue('--gk-overlay-content-max-width')).toBe(
+      'min(100%, var(--gk-dialog-max-width-sm))'
+    )
+    w.unmount()
+  })
+
+  it('fullscreen overlay content spans overlay width (regression: invalid flex justify-content stretch)', () => {
+    const w = mount(GkDialog, {
+      props: { modelValue: true, fullscreen: true },
+      attachTo: document.body,
+      slots: { default: '<p class="gk-dlg-test">Short</p>' },
+    })
+    const overlay = document.body.querySelector('.gk-dialog__overlay-root--fullscreen') as HTMLElement
+    const content = document.body.querySelector(
+      '.gk-dialog__overlay-root--fullscreen .gk-overlay__content'
+    ) as HTMLElement
+    expect(overlay).toBeTruthy()
+    expect(content).toBeTruthy()
+    // Fixed full-viewport overlay; content must use full width (not content-sized strip).
+    expect(content.offsetWidth).toBe(overlay.clientWidth)
+    w.unmount()
+  })
 })

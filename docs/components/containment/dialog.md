@@ -25,7 +25,8 @@ Use for focused modal workflows that require acknowledgement or completion befor
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `modelValue` | `boolean` | `false` | Open state; use **`v-model`** |
-| `fullscreen` | `boolean` | `false` | Edge-to-edge surface (fills the overlay) |
+| `fullscreen` | `boolean` | `false` | Edge-to-edge surface (fills the viewport) |
+| `size` | `'sm' \| 'md' \| 'lg'` | — | Preset max width via **`--gk-dialog-max-width-*`**; omit for **md** (**`28rem`**) |
 | `scrollable` | `boolean` | `false` | Scroll overflow inside the surface (`max-height` when not fullscreen) |
 | `persistent` | `boolean` | `false` | Passed to **GkOverlay** — scrim and Escape do not close |
 | `to` | `string \| HTMLElement` | `'body'` | **Teleport** target (**GkOverlay**) |
@@ -59,7 +60,9 @@ Additional attributes (for example **`aria-labelledby`**, **`aria-describedby`**
 | Token | Purpose |
 |-------|---------|
 | `--gk-dialog-z-index` | Default stacking (**`2400`**) |
-| `--gk-dialog-max-width` | Max width for the overlay content when not **`fullscreen`** |
+| `--gk-dialog-max-width` | Max width cap when **`size`** is omitted or **`md`** (`28rem`) |
+| `--gk-dialog-max-width-sm` | Cap when **`size="sm"`** (`20rem`) |
+| `--gk-dialog-max-width-lg` | Cap when **`size="lg"`** (`42rem`) |
 | `--gk-dialog-scroll-max-height` | Cap for scrollable body height |
 | `--gk-dialog-shadow` | Panel shadow (non-fullscreen) |
 

@@ -4,6 +4,8 @@ import GkDialogBasicExample from './samples/GkDialogBasicExample.vue'
 import basicSource from './samples/GkDialogBasicExample.vue?raw'
 import GkDialogFullscreenExample from './samples/GkDialogFullscreenExample.vue'
 import fullscreenSource from './samples/GkDialogFullscreenExample.vue?raw'
+import GkDialogSizesExample from './samples/GkDialogSizesExample.vue'
+import sizesSource from './samples/GkDialogSizesExample.vue?raw'
 import GkDialogScrollableExample from './samples/GkDialogScrollableExample.vue'
 import scrollableSource from './samples/GkDialogScrollableExample.vue?raw'
 </script>
@@ -26,6 +28,15 @@ import scrollableSource from './samples/GkDialogScrollableExample.vue?raw'
       best-practice="Keep primary actions reachable and avoid putting critical controls below long scrolling content."
     >
       <GkDialogScrollableExample />
+    </GkDocsExample>
+
+    <GkDocsExample
+      title="Size presets (sm, md, lg)"
+      description="Control default width with the size prop; override tokens in CSS if needed."
+      :source="sizesSource"
+      best-practice="Pick sm for confirmations, md for typical forms, lg for rich content or two-column layouts."
+    >
+      <GkDialogSizesExample />
     </GkDocsExample>
 
     <GkDocsExample
