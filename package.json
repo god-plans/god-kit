@@ -1,6 +1,6 @@
 {
   "name": "god-kit",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "description": "God Kit — design tokens and Vue 3 primitives for God Plan apps",
   "license": "MIT",
   "author": "God Plan Team",
@@ -27,6 +27,8 @@
     "component-library",
     "design-system",
     "design-tokens",
+    "tailwind",
+    "tailwindcss",
     "typescript"
   ],
   "engines": {
@@ -77,11 +79,17 @@
       "import": "./dist/vue-data.js"
     },
     "./tokens.css": "./dist/tokens.css",
+    "./tailwind/preset": {
+      "types": "./dist/tailwind/preset.d.ts",
+      "import": "./dist/tailwind/preset.js"
+    },
+    "./tailwind/theme.css": "./dist/tailwind/theme.css",
     "./vue.css": "./dist/assets/style.css",
     "./bridge/vuetify.css": "./dist/bridge/vuetify-bridge.css"
   },
   "scripts": {
-    "build": "vite build && node scripts/postbuild-copy.mjs",
+    "build": "vite build && tsx scripts/generate-tailwind-artifacts.ts && node scripts/postbuild-copy.mjs",
+    "generate:tailwind": "tsx scripts/generate-tailwind-artifacts.ts",
     "release:check": "npm run build && npm run test && npm publish --dry-run",
     "playground": "vite --config playground/vite.config.ts",
     "playground:build": "vite build --config playground/vite.config.ts",
@@ -98,11 +106,15 @@
     "vue": "^3.5.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/node": "^25.6.0",
     "@types/sortablejs": "^1.15.9",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
     "axe-core": "^4.11.1",
     "jsdom": "^25.0.1",
+    "tailwindcss": "^4.1.18",
+    "tsx": "^4.19.4",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.4.0",

@@ -155,6 +155,8 @@ See **[Architecture and tiers](./architecture)** for how primitives, patterns, a
 
 Then your application CSS.
 
+Using **Tailwind** in the same app? Put **`god-kit/tokens.css`** ahead of Tailwind’s entry CSS and map utilities to **`var(--gk-*)`**—see **[Tailwind CSS](./tailwind)**.
+
 See **[RTL and i18n](./rtl)** for `dir="rtl"` and bilingual apps.
 
 ## Composables

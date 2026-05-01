@@ -5,6 +5,24 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.8] - 2026-05-02
+
+### Added
+
+- **Tailwind CSS bridge (optional):** **`god-kit/tailwind/preset`** — generated ESM preset with **`theme.extend`** maps **`gk-*`** colors, spacing, radii, shadows, typography, motion, and z-index utilities to **`var(--gk-*)`** derived from **`gkTokens`**.
+- **`god-kit/tailwind/theme.css`** — Tailwind v4 **`@theme`** fragment aligned with the same mappings (import after **`god-kit/tokens.css`**).
+- **`src/tokens/tailwind-theme-build.ts`** and **`scripts/generate-tailwind-artifacts.ts`** — **`npm run generate:tailwind`** regenerates **`dist/tailwind/preset.js`**, **`dist/tailwind/theme.css`**, and **`src/tokens/generated/tailwind-theme.css`** (tracked copy for playground/dev).
+- **`src/tokens/tailwind-preset.d.ts`** — copied to **`dist/tailwind/preset.d.ts`** during post-build for preset typings.
+- **Vitest:** **`src/tokens/tailwind-theme-build.spec.ts`** — assertions plus snapshot for the **`@theme`** CSS output.
+- **Playground:** **`@tailwindcss/vite`** + **`playground/src/style.css`**; Vite alias for **`god-kit/tailwind/theme.css`**; layout mixes Tailwind utilities with **`Gk*`** components.
+- **Documentation:** **[Tailwind CSS](docs/guide/tailwind.md)** — principles, v3 preset / v4 **`@theme`** setup, layout examples with **`GkButton`** / **`GkField`** / **`GkInput`**, mixing arbitrary **`var(--gk-*)`**, palette accents, theme customization (**`:root`**, **`[data-gk-theme]`**, **`createGkKit`** **`theme.themes`**, palette rescale, **`tailwind.config`** **`extend`**), dark mode, Nuxt, Preflight; Guide sidebar entry; cross-links from **[Getting started](docs/guide/getting-started.md)** and README exports table; **`tailwind`** / **`tailwindcss`** package keywords.
+
+### Changed
+
+- **`npm run build`** runs **`tsx scripts/generate-tailwind-artifacts.ts`** after **`vite build`**, then **`scripts/postbuild-copy.mjs`** (ensures **`dist/tailwind`** / **`dist/bridge`** exist, copies tokens, bridge CSS, and **`preset.d.ts`**).
+- **`vite-plugin-dts`** **`include`** now targets **`src/tokens/tokens.ts`** only so **`tailwind-theme-build.ts`** is not emitted as published declarations.
+- **Development dependencies:** **`tsx`**, **`tailwindcss`**, **`@tailwindcss/vite`**, **`@types/node`**; **`tsconfig.json`** includes **`scripts/**/*.ts`** and **`types`** **`node`** alongside Vitest globals.
+
 ## [0.8.7] - 2026-05-01
 
 ### Changed

@@ -44,6 +44,7 @@ export default defineConfig({
             { text: 'Architecture and tiers', link: '/guide/architecture' },
             { text: 'Component authoring', link: '/guide/component-authoring' },
             { text: 'Design tokens', link: '/guide/tokens' },
+            { text: 'Tailwind CSS', link: '/guide/tailwind' },
             { text: 'Composables', link: '/guide/composables' },
             { text: 'Release and publish', link: '/guide/release-and-publish' },
             { text: 'Roadmap', link: '/guide/roadmap' },

@@ -8,6 +8,19 @@ outline: [2, 3]
 
 All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (authoritative history).
 
+## [0.8.8] - 2026-05-02
+
+### Added
+
+- **Tailwind CSS:** optional **`god-kit/tailwind/preset`** and **`god-kit/tailwind/theme.css`** generated from **`gkTokens`**; **`npm run generate:tailwind`**; playground + Vitest snapshot for **`@theme`** CSS.
+- **Guide:** **[Tailwind CSS](./tailwind)** — setup (v3/v4), examples with **`Gk*`** components, theme customization; sidebar + README links.
+
+### Changed
+
+- **`npm run build`** runs the Tailwind artifact generator after **`vite build`**; post-build copies **`preset.d.ts`**.
+
+See root **`CHANGELOG.md`** for full detail.
+
 ## [0.8.7] - 2026-05-01
 
 ### Changed

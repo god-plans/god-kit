@@ -33,7 +33,9 @@ function onSubmit(e: SubmitEventPromise) {
 </script>
 
 <template>
-  <div class="gk-play">
+  <div
+    class="gk-play min-h-screen bg-gk-bg font-gk-sans text-gk-text p-gk-6"
+  >
     <header class="gk-play__header">
       <h1>God Kit playground</h1>
       <p class="gk-play__sub">
@@ -55,7 +57,9 @@ function onSubmit(e: SubmitEventPromise) {
     </header>
 
     <main class="gk-play__main">
-      <section class="gk-play__card">
+      <section
+        class="gk-play__card rounded-gk-lg border border-gk-border bg-gk-surface p-gk-6 shadow-gk-elev-2"
+      >
         <h2>GkForm</h2>
         <GkForm class="gk-play__form" @submit="onSubmit">
           <template #default>
@@ -116,10 +120,6 @@ body {
 <style scoped>
 .gk-play {
   min-height: 100vh;
-  padding: var(--gk-space-6);
-  background: var(--gk-color-bg);
-  color: var(--gk-color-text);
-  font-family: var(--gk-font-sans);
 }
 
 .gk-play__header {
@@ -178,13 +178,6 @@ body {
 
 .gk-play__main {
   max-width: 28rem;
-}
-
-.gk-play__card {
-  padding: var(--gk-space-6);
-  border-radius: var(--gk-radius-lg);
-  background: var(--gk-color-surface);
-  border: 1px solid var(--gk-color-border);
 }
 
 .gk-play__card h2 {

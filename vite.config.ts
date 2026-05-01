@@ -12,7 +12,7 @@ export default defineConfig({
       include: [
         'src/vue/**/*',
         'src/vue/composables/**/*.ts',
-        'src/tokens/**/*.ts',
+        'src/tokens/tokens.ts',
         'src/injection.ts',
         'src/locale/**/*.ts',
       ],

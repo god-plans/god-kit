@@ -138,6 +138,8 @@ pushGkSnackbar({ text: 'Saved', color: 'success', timeout: 3000 })
 | `god-kit/vue/config` | `createGkKit`, theme/display/locale/defaults providers |
 | `god-kit/vue/data` | **GkDataTable**, **GkDataTableServer**, **GkDataTableVirtual**, table composables |
 | `god-kit/tokens.css` | Semantic CSS variables (`--gk-*`) |
+| `god-kit/tailwind/preset` | Optional Tailwind v3 `theme.extend` preset from `gkTokens` |
+| `god-kit/tailwind/theme.css` | Optional Tailwind v4 `@theme` fragment |
 | `god-kit/vue.css` | Component styles |
 | `god-kit/bridge/vuetify.css` | `--v-theme-*` -> `--gk-*` mapping |
 
