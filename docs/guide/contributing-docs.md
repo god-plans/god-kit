@@ -63,6 +63,8 @@ Before merging sample updates:
 
 When you ship user-facing changes, add an entry under **`[Unreleased]`** in **`CHANGELOG.md`** at the package root (next to `package.json`), then move items into a dated version when you release. Keep **`docs/guide/changelog.md`** in sync (same sections) so the VitePress site matches the repo file.
 
+For **bugs**, **features**, and **other** topics, use the **[GitHub issue templates](https://github.com/god-plans/god-kit/issues/new/choose)** (**Bug report**, **Feature request**, **Other / discussion**).
+
 ## Scaffolding
 
 Run **`node scripts/new-component.mjs <kebab-name> [form|layout]`** from the **`god-kit`** package root. The optional second argument places the primitive under **`src/vue/components/form/`** or **`src/vue/components/layout/`** and writes docs/demos under matching paths. Without it, files go under **`src/vue/components/<name>/`** (e.g. **GkButton**). You still wire **`src/vue/index.ts`**, **`docs/.vitepress/theme/index.ts`**, the sidebar in **`config.ts`**, **`docs/components/index.md`**, and **`CHANGELOG.md`**.

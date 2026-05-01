@@ -1,0 +1,80 @@
+name: Bug report
+description: Something is broken or behaves incorrectly in god-kit.
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in what you can; minimal reproductions help the most.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong in one or two sentences?
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: |
+        Steps to reproduce, a small code snippet, or a link to a repo / StackBlitz.
+        For Vue components, mention which `Gk*` component and props/slots used.
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: god-kit version
+      description: Output of `npm ls god-kit` or the version from package.json.
+      placeholder: e.g. 0.8.8
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Vue (Vite / webpack / other)
+        - Nuxt 4
+        - SSR only (no Nuxt)
+        - Docs / Storybook / tests only
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: vue-version
+    attributes:
+      label: Vue version (optional)
+      placeholder: e.g. 3.5.x
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, browser/OS, related issues, or workarounds you found.

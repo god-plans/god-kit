@@ -186,6 +186,9 @@ npm run playground
 
 ## Contributing and Authoring
 
+- Contributor overview: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Code of Conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
+- Security reporting: [`SECURITY.md`](SECURITY.md)
 - Component authoring: [`docs/guide/component-authoring.md`](docs/guide/component-authoring.md)
 - Build/bundling model: [`docs/guide/build-and-bundling.md`](docs/guide/build-and-bundling.md)
 - Documentation process: [`docs/guide/contributing-docs.md`](docs/guide/contributing-docs.md)

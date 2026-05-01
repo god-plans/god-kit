@@ -8,6 +8,19 @@ outline: [2, 3]
 
 All notable changes to `god-kit` are documented in this page and in **`CHANGELOG.md`** at the package root (authoritative history).
 
+## [0.8.9] - 2026-05-03
+
+### Added
+
+- **Community:** **`CONTRIBUTING.md`**, **`SECURITY.md`**, **`CODE_OF_CONDUCT.md`** (Contributor Covenant 2.1).
+- **GitHub:** issue templates (bug, feature, other), **`ISSUE_TEMPLATE/config.yml`** contact links, **`pull_request_template.md`**.
+
+### Changed
+
+- **README** and **contributing docs** links for contributing / conduct / security / issue templates.
+
+See root **`CHANGELOG.md`** for paths and detail.
+
 ## [0.8.8] - 2026-05-02
 
 ### Added

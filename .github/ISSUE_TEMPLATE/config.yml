@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/god-plans/god-kit/security/policy
+    about: Report security issues privately (see SECURITY.md — do not use public issues).
+  - name: Documentation site
+    url: https://godkit.godplans.org/
+    about: Browse guides and component APIs before filing.

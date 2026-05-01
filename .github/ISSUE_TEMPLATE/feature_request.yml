@@ -1,0 +1,56 @@
+name: Feature request
+description: Suggest an improvement or new capability for god-kit.
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for **new APIs**, **components**, **tokens**, **docs**, or **DX** improvements. For bugs, choose **Bug report**.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or motivation
+      description: What workflow or limitation does this address? Who benefits?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe what you want (API shape, component behavior, docs section). Sketches or pseudo-code welcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches, workarounds, or prior art (other libraries).
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area (best guess)
+      options:
+        - Components / Vue API
+        - Design tokens / CSS (`tokens.css`)
+        - Tailwind preset / theme fragment
+        - Composables / config (`createGkKit`)
+        - CLI (`god-kit` CLI)
+        - Documentation / site
+        - Testing / build / DX
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: willingness
+    attributes:
+      label: Contribution
+      description: Optional — helps maintainers triage.
+      options:
+        - label: I am willing to open a PR for this (with guidance)
+          required: false

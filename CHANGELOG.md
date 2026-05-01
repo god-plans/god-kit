@@ -5,6 +5,22 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.9] - 2026-05-03
+
+### Added
+
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — contributor entrypoint (commands table, PR checklist, links to VitePress guides).
+- **[SECURITY.md](SECURITY.md)** — supported versions, private vulnerability reporting, scope, disclosure expectations.
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** — **Contributor Covenant 2.1** with enforcement contact via **god-plans** maintainers on GitHub.
+- **GitHub issue templates:** [`.github/ISSUE_TEMPLATE/config.yml`](.github/ISSUE_TEMPLATE/config.yml) (contact links: security policy, docs site), [**Bug report**](.github/ISSUE_TEMPLATE/bug_report.yml), [**Feature request**](.github/ISSUE_TEMPLATE/feature_request.yml), and [**Other / discussion**](.github/ISSUE_TEMPLATE/custom.md).
+- **[`.github/pull_request_template.md`](.github/pull_request_template.md)** — summary, change type, checklist (tests, docs build, changelog, conduct).
+
+### Changed
+
+- **[README.md](README.md)** — links under **Contributing and Authoring** for **`CONTRIBUTING.md`**, **`CODE_OF_CONDUCT.md`**, **`SECURITY.md`**.
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — **`CODE_OF_CONDUCT`** requirement; issue-template links for bugs/features; **`SECURITY`** for vulnerabilities.
+- **[docs/guide/contributing-docs.md](docs/guide/contributing-docs.md)** — pointer to GitHub **issues/new/choose** templates.
+
 ## [0.8.8] - 2026-05-02
 
 ### Added
