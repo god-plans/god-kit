@@ -9,6 +9,7 @@ await mkdir(join(dist, 'tailwind'), { recursive: true })
 await mkdir(join(dist, 'bridge'), { recursive: true })
 await copyFile(join(root, 'src/tokens/tailwind-preset.d.ts'), join(dist, 'tailwind/preset.d.ts'))
 await copyFile(join(root, 'src/tokens/tokens.css'), join(dist, 'tokens.css'))
+await copyFile(join(root, 'src/tokens/generated/god-kit.tokens.json'), join(dist, 'tokens.json'))
 await copyFile(
   join(root, 'src/bridge/vuetify-bridge.css'),
   join(dist, 'bridge/vuetify-bridge.css')

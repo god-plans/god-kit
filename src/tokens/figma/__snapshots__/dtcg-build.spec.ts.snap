@@ -1,0 +1,2640 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dtcg-build > drift: CSS variables not yet exposed in gkTokens (curated subset) 1`] = `
+[
+  "--gk-density",
+  "--gk-dialog-max-width-lg",
+  "--gk-dialog-max-width-sm",
+  "--gk-fc-affix-font-size",
+  "--gk-fc-check-size",
+  "--gk-fc-font-size",
+  "--gk-fc-min-height",
+  "--gk-fc-padding-x",
+  "--gk-fc-padding-y",
+  "--gk-fc-radius",
+  "--gk-fc-select-focus-ring",
+  "--gk-fc-textarea-min",
+  "--gk-navigation-drawer-bg",
+  "--gk-navigation-drawer-floating-margin",
+  "--gk-navigation-drawer-floating-radius",
+  "--gk-navigation-drawer-rail-width",
+  "--gk-navigation-drawer-scrim",
+  "--gk-navigation-drawer-shadow",
+  "--gk-navigation-drawer-width",
+  "--gk-navigation-drawer-z-index",
+  "--gk-skeleton-loader-avatar-size",
+  "--gk-skeleton-loader-button-height",
+  "--gk-skeleton-loader-button-width",
+  "--gk-skeleton-loader-chip-height",
+  "--gk-skeleton-loader-chip-width",
+  "--gk-skeleton-loader-divider-height",
+  "--gk-skeleton-loader-gap",
+  "--gk-skeleton-loader-gap-lg",
+  "--gk-skeleton-loader-gap-sm",
+  "--gk-skeleton-loader-heading-height",
+  "--gk-skeleton-loader-ossein-height",
+  "--gk-skeleton-loader-radius",
+  "--gk-skeleton-loader-shimmer-duration",
+  "--gk-skeleton-loader-subtitle-height",
+  "--gk-skeleton-loader-text-height",
+  "--gk-skeleton-loader-track",
+  "--gk-skeleton-loader-wave",
+  "--gk-snackbar-elevation-1",
+  "--gk-snackbar-elevation-2",
+  "--gk-snackbar-elevation-3",
+  "--gk-snackbar-elevation-4",
+  "--gk-snackbar-elevation-5",
+  "--gk-snackbar-stack-unit",
+  "--gk-text-button-l-line-height",
+  "--gk-text-button-l-weight",
+  "--gk-text-button-m-line-height",
+  "--gk-text-button-m-weight",
+  "--gk-text-button-s-line-height",
+  "--gk-text-button-s-weight",
+  "--gk-text-chip-line-height",
+  "--gk-text-chip-weight",
+  "--gk-text-heading-m-bold-line-height",
+  "--gk-text-heading-m-bold-size",
+  "--gk-text-helper-line-height",
+  "--gk-text-helper-weight",
+  "--gk-text-input-label-line-height",
+  "--gk-text-input-label-weight",
+  "--gk-text-placeholder-line-height",
+  "--gk-text-placeholder-weight",
+]
+`;
+
+exports[`dtcg-build > matches stable snapshot for the full DTCG document 1`] = `
+{
+  "$description": "God Kit design tokens (W3C DTCG). Generated from src/tokens/tokens.css — do not edit by hand. Theme-dependent tokens carry per-theme values under $extensions["org.godplans.modes"] (light | dark | ocean | highContrast); $value is the light theme.",
+  "color": {
+    "bg": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-bg",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.900}",
+          "highContrast": "#000000",
+          "light": "{palette.gray.50}",
+          "ocean": "{palette.gray.50}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.gray.50}",
+    },
+    "border": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-border",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.700}",
+          "highContrast": "#ffffff",
+          "light": "{palette.gray.200}",
+          "ocean": "{palette.gray.200}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.gray.200}",
+    },
+    "border-strong": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-border-strong",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.600}",
+          "highContrast": "#ffffff",
+          "light": "{palette.gray.300}",
+          "ocean": "{palette.gray.300}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.gray.300}",
+    },
+    "danger": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-danger",
+        "org.godplans.modes": {
+          "dark": "{palette.error.500}",
+          "highContrast": "#fca5a5",
+          "light": "{palette.error.600}",
+          "ocean": "{palette.error.600}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.error.600}",
+    },
+    "danger-surface": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-danger-surface",
+        "org.godplans.modes": {
+          "dark": "#58221a",
+          "highContrast": "#450a0a",
+          "light": "{palette.error.50}",
+          "ocean": "{palette.error.50}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.error.50}",
+    },
+    "focus-ring": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-focus-ring",
+        "org.godplans.modes": {
+          "dark": "#a772ff8c",
+          "highContrast": "#fffffff2",
+          "light": "#4f00d073",
+          "ocean": "#0ea5e973",
+        },
+      },
+      "$type": "color",
+      "$value": "#4f00d073",
+    },
+    "info": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-info",
+        "org.godplans.modes": {
+          "dark": "{palette.info.500}",
+          "highContrast": "#93c5fd",
+          "light": "{palette.info.600}",
+          "ocean": "{palette.info.600}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.info.600}",
+    },
+    "info-surface": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-info-surface",
+        "org.godplans.modes": {
+          "dark": "#192f55",
+          "highContrast": "#172554",
+          "light": "{palette.info.50}",
+          "ocean": "{palette.info.50}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.info.50}",
+    },
+    "on-surface": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-on-surface",
+        "org.godplans.modes": {
+          "dark": "{color.text}",
+          "highContrast": "#ffffff",
+          "light": "{color.text}",
+          "ocean": "{color.text}",
+        },
+      },
+      "$type": "color",
+      "$value": "{color.text}",
+    },
+    "on-surface-muted": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-on-surface-muted",
+        "org.godplans.modes": {
+          "dark": "{color.text-muted}",
+          "highContrast": "#f5f5f5",
+          "light": "{color.text-muted}",
+          "ocean": "{color.text-muted}",
+        },
+      },
+      "$type": "color",
+      "$value": "{color.text-muted}",
+    },
+    "overlay": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-overlay",
+        "org.godplans.modes": {
+          "dark": "#0000008c",
+          "highContrast": "#00000073",
+          "light": "#00000073",
+          "ocean": "#00000073",
+        },
+      },
+      "$type": "color",
+      "$value": "#00000073",
+    },
+    "primary": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-primary",
+        "org.godplans.modes": {
+          "dark": "{palette.primary.500}",
+          "highContrast": "#38bdf8",
+          "light": "{palette.primary.600}",
+          "ocean": "#0ea5e9",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.primary.600}",
+    },
+    "primary-active": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-primary-active",
+        "org.godplans.modes": {
+          "dark": "{palette.primary.600}",
+          "highContrast": "#0ea5e9",
+          "light": "{palette.primary.800}",
+          "ocean": "#0369a1",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.primary.800}",
+    },
+    "primary-hover": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-primary-hover",
+        "org.godplans.modes": {
+          "dark": "{palette.primary.400}",
+          "highContrast": "#7dd3fc",
+          "light": "{palette.primary.700}",
+          "ocean": "#0284c7",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.primary.700}",
+    },
+    "success": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-success",
+        "org.godplans.modes": {
+          "dark": "{palette.success.500}",
+          "highContrast": "#86efac",
+          "light": "{palette.success.600}",
+          "ocean": "{palette.success.600}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.success.600}",
+    },
+    "success-surface": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-success-surface",
+        "org.godplans.modes": {
+          "dark": "#0e3627",
+          "highContrast": "#052e16",
+          "light": "{palette.success.50}",
+          "ocean": "{palette.success.50}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.success.50}",
+    },
+    "surface": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-surface",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.800}",
+          "highContrast": "#000000",
+          "light": "{palette.base.white}",
+          "ocean": "{palette.base.white}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.base.white}",
+    },
+    "surface-elevated": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-surface-elevated",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.700}",
+          "highContrast": "#0d0d0d",
+          "light": "{palette.base.white}",
+          "ocean": "{palette.base.white}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.base.white}",
+    },
+    "text": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-text",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.50}",
+          "highContrast": "#ffffff",
+          "light": "{palette.gray.900}",
+          "ocean": "{palette.gray.900}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.gray.900}",
+    },
+    "text-disabled": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-text-disabled",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.500}",
+          "highContrast": "#d1d5db",
+          "light": "{palette.gray.400}",
+          "ocean": "{palette.gray.400}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.gray.400}",
+    },
+    "text-muted": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-text-muted",
+        "org.godplans.modes": {
+          "dark": "{palette.gray.400}",
+          "highContrast": "#f5f5f5",
+          "light": "{palette.gray.600}",
+          "ocean": "{palette.gray.600}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.gray.600}",
+    },
+    "text-on-primary": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-text-on-primary",
+      },
+      "$type": "color",
+      "$value": "{palette.base.white}",
+    },
+    "warning": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-warning",
+        "org.godplans.modes": {
+          "dark": "{palette.warning.500}",
+          "highContrast": "#fcd34d",
+          "light": "{palette.warning.600}",
+          "ocean": "{palette.warning.600}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.warning.600}",
+    },
+    "warning-surface": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-color-warning-surface",
+        "org.godplans.modes": {
+          "dark": "#4d2413",
+          "highContrast": "#451a03",
+          "light": "{palette.warning.50}",
+          "ocean": "{palette.warning.50}",
+        },
+      },
+      "$type": "color",
+      "$value": "{palette.warning.50}",
+    },
+  },
+  "component": {
+    "alert": {
+      "accent-thickness": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-alert-accent-thickness",
+        },
+        "$type": "dimension",
+        "$value": "4px",
+      },
+    },
+    "bottom-sheet": {
+      "max-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-bottom-sheet-max-height",
+        },
+        "$type": "string",
+        "$value": "90vh",
+      },
+      "shadow": {
+        "$description": "Flattened from CSS: 0 -8px 24px rgba(0, 0, 0, 0.12), var(--gk-elevation-2)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-bottom-sheet-shadow",
+        },
+        "$type": "shadow",
+        "$value": [
+          {
+            "blur": "24px",
+            "color": "#0000001f",
+            "offsetX": "0px",
+            "offsetY": "-8px",
+            "spread": "0px",
+          },
+          {
+            "blur": "8px",
+            "color": "#0000000a",
+            "offsetX": "0px",
+            "offsetY": "4px",
+            "spread": "0px",
+          },
+        ],
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-bottom-sheet-z-index",
+        },
+        "$type": "number",
+        "$value": 2400,
+      },
+    },
+    "button": {
+      "danger-active": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-button-danger-active",
+          "org.godplans.modes": {
+            "dark": "{palette.error.600}",
+            "highContrast": "{palette.error.800}",
+            "light": "{palette.error.800}",
+            "ocean": "{palette.error.800}",
+          },
+        },
+        "$type": "color",
+        "$value": "{palette.error.800}",
+      },
+      "danger-hover": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-button-danger-hover",
+          "org.godplans.modes": {
+            "dark": "{palette.error.400}",
+            "highContrast": "{palette.error.700}",
+            "light": "{palette.error.700}",
+            "ocean": "{palette.error.700}",
+          },
+        },
+        "$type": "color",
+        "$value": "{palette.error.700}",
+      },
+    },
+    "card": {
+      "actions-gap": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-actions-gap",
+        },
+        "$type": "dimension",
+        "$value": "{space.2}",
+      },
+      "actions-min-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-actions-min-height",
+        },
+        "$type": "dimension",
+        "$value": "3.25rem",
+      },
+      "border-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-border-width",
+        },
+        "$type": "dimension",
+        "$value": "1px",
+      },
+      "loader-overlay": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-surface) 72%, transparent)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-loader-overlay",
+          "org.godplans.modes": {
+            "dark": "#26272b8c",
+            "highContrast": "#000000b8",
+            "light": "#ffffffb8",
+            "ocean": "#ffffffb8",
+          },
+        },
+        "$type": "color",
+        "$value": "#ffffffb8",
+      },
+      "media-min-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-media-min-height",
+        },
+        "$type": "dimension",
+        "$value": "12rem",
+      },
+      "padding": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-padding",
+        },
+        "$type": "dimension",
+        "$value": "{space.4}",
+      },
+      "padding-compact": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-padding-compact",
+        },
+        "$type": "dimension",
+        "$value": "{space.3}",
+      },
+      "radius": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-radius",
+        },
+        "$type": "dimension",
+        "$value": "{radius.lg}",
+      },
+      "shadow": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-shadow",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.2}",
+      },
+      "shadow-hover": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-card-shadow-hover",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.3}",
+      },
+    },
+    "dialog": {
+      "max-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-max-width",
+        },
+        "$type": "dimension",
+        "$value": "28rem",
+      },
+      "max-width-lg": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-max-width-lg",
+        },
+        "$type": "dimension",
+        "$value": "42rem",
+      },
+      "max-width-sm": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-max-width-sm",
+        },
+        "$type": "dimension",
+        "$value": "20rem",
+      },
+      "scroll-max-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-scroll-max-height",
+        },
+        "$type": "dimension",
+        "$value": "24rem",
+      },
+      "scroll-max-viewport": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-scroll-max-viewport",
+        },
+        "$type": "string",
+        "$value": "80vh",
+      },
+      "shadow": {
+        "$description": "Flattened from CSS: 0 24px 48px -12px rgba(0, 0, 0, 0.18), var(--gk-elevation-3)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-shadow",
+          "org.godplans.modes": {
+            "dark": [
+              {
+                "blur": "48px",
+                "color": "#00000073",
+                "offsetX": "0px",
+                "offsetY": "24px",
+                "spread": "-12px",
+              },
+              {
+                "blur": "14px",
+                "color": "#0000000a",
+                "offsetX": "0px",
+                "offsetY": "6px",
+                "spread": "0px",
+              },
+            ],
+            "highContrast": [
+              {
+                "blur": "48px",
+                "color": "#0000002e",
+                "offsetX": "0px",
+                "offsetY": "24px",
+                "spread": "-12px",
+              },
+              {
+                "blur": "14px",
+                "color": "#0000000a",
+                "offsetX": "0px",
+                "offsetY": "6px",
+                "spread": "0px",
+              },
+            ],
+            "light": [
+              {
+                "blur": "48px",
+                "color": "#0000002e",
+                "offsetX": "0px",
+                "offsetY": "24px",
+                "spread": "-12px",
+              },
+              {
+                "blur": "14px",
+                "color": "#0000000a",
+                "offsetX": "0px",
+                "offsetY": "6px",
+                "spread": "0px",
+              },
+            ],
+            "ocean": [
+              {
+                "blur": "48px",
+                "color": "#0000002e",
+                "offsetX": "0px",
+                "offsetY": "24px",
+                "spread": "-12px",
+              },
+              {
+                "blur": "14px",
+                "color": "#0000000a",
+                "offsetX": "0px",
+                "offsetY": "6px",
+                "spread": "0px",
+              },
+            ],
+          },
+        },
+        "$type": "shadow",
+        "$value": [
+          {
+            "blur": "48px",
+            "color": "#0000002e",
+            "offsetX": "0px",
+            "offsetY": "24px",
+            "spread": "-12px",
+          },
+          {
+            "blur": "14px",
+            "color": "#0000000a",
+            "offsetX": "0px",
+            "offsetY": "6px",
+            "spread": "0px",
+          },
+        ],
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-dialog-z-index",
+        },
+        "$type": "number",
+        "$value": 2400,
+      },
+    },
+    "fc": {
+      "lg": {
+        "affix-font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-affix-font-size",
+          },
+          "$type": "dimension",
+          "$value": "0.9375rem",
+        },
+        "check-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-check-size",
+          },
+          "$type": "dimension",
+          "$value": "1.25rem",
+        },
+        "font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-font-size",
+          },
+          "$type": "dimension",
+          "$value": "1.0625rem",
+        },
+        "min-height": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-min-height",
+          },
+          "$type": "dimension",
+          "$value": "2.875rem",
+        },
+        "padding-x": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-x",
+          },
+          "$type": "dimension",
+          "$value": "{space.5}",
+        },
+        "padding-y": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-y",
+          },
+          "$type": "dimension",
+          "$value": "{space.3}",
+        },
+        "radius": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-radius",
+          },
+          "$type": "dimension",
+          "$value": "{radius.md}",
+        },
+        "select-focus-ring": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-select-focus-ring",
+          },
+          "$type": "dimension",
+          "$value": "3px",
+        },
+        "textarea-min": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-textarea-min",
+          },
+          "$type": "dimension",
+          "$value": "7.5rem",
+        },
+      },
+      "md": {
+        "affix-font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-affix-font-size",
+          },
+          "$type": "dimension",
+          "$value": "{font.size.sm}",
+        },
+        "check-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-check-size",
+          },
+          "$type": "dimension",
+          "$value": "1.125rem",
+        },
+        "font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-font-size",
+          },
+          "$type": "dimension",
+          "$value": "{font.size.md}",
+        },
+        "min-height": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-min-height",
+          },
+          "$type": "dimension",
+          "$value": "{density.control.min-height-md}",
+        },
+        "padding-x": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-x",
+          },
+          "$type": "dimension",
+          "$value": "{density.control.padding-x}",
+        },
+        "padding-y": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-y",
+          },
+          "$type": "dimension",
+          "$value": "{density.control.padding-y}",
+        },
+        "radius": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-radius",
+          },
+          "$type": "dimension",
+          "$value": "{radius.md}",
+        },
+        "select-focus-ring": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-select-focus-ring",
+          },
+          "$type": "dimension",
+          "$value": "3px",
+        },
+        "textarea-min": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-textarea-min",
+          },
+          "$type": "dimension",
+          "$value": "6rem",
+        },
+      },
+      "sm": {
+        "affix-font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-affix-font-size",
+          },
+          "$type": "dimension",
+          "$value": "0.8125rem",
+        },
+        "check-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-check-size",
+          },
+          "$type": "dimension",
+          "$value": "1.0625rem",
+        },
+        "font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-font-size",
+          },
+          "$type": "dimension",
+          "$value": "{font.size.sm}",
+        },
+        "min-height": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-min-height",
+          },
+          "$type": "dimension",
+          "$value": "2rem",
+        },
+        "padding-x": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-x",
+          },
+          "$type": "dimension",
+          "$value": "{space.3}",
+        },
+        "padding-y": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-y",
+          },
+          "$type": "dimension",
+          "$value": "{space.2}",
+        },
+        "radius": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-radius",
+          },
+          "$type": "dimension",
+          "$value": "{radius.sm}",
+        },
+        "select-focus-ring": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-select-focus-ring",
+          },
+          "$type": "dimension",
+          "$value": "2px",
+        },
+        "textarea-min": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-textarea-min",
+          },
+          "$type": "dimension",
+          "$value": "4.5rem",
+        },
+      },
+      "xl": {
+        "affix-font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-affix-font-size",
+          },
+          "$type": "dimension",
+          "$value": "1rem",
+        },
+        "check-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-check-size",
+          },
+          "$type": "dimension",
+          "$value": "1.375rem",
+        },
+        "font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-font-size",
+          },
+          "$type": "dimension",
+          "$value": "1.125rem",
+        },
+        "min-height": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-min-height",
+          },
+          "$type": "dimension",
+          "$value": "3.5rem",
+        },
+        "padding-x": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-x",
+          },
+          "$type": "dimension",
+          "$value": "{space.6}",
+        },
+        "padding-y": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-y",
+          },
+          "$type": "dimension",
+          "$value": "{space.4}",
+        },
+        "radius": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-radius",
+          },
+          "$type": "dimension",
+          "$value": "{radius.lg}",
+        },
+        "select-focus-ring": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-select-focus-ring",
+          },
+          "$type": "dimension",
+          "$value": "3px",
+        },
+        "textarea-min": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-textarea-min",
+          },
+          "$type": "dimension",
+          "$value": "9rem",
+        },
+      },
+      "xs": {
+        "affix-font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-affix-font-size",
+          },
+          "$type": "dimension",
+          "$value": "0.75rem",
+        },
+        "check-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-check-size",
+          },
+          "$type": "dimension",
+          "$value": "1rem",
+        },
+        "font-size": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-font-size",
+          },
+          "$type": "dimension",
+          "$value": "0.8125rem",
+        },
+        "min-height": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-min-height",
+          },
+          "$type": "dimension",
+          "$value": "1.5rem",
+        },
+        "padding-x": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-x",
+          },
+          "$type": "dimension",
+          "$value": "{space.2}",
+        },
+        "padding-y": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-padding-y",
+          },
+          "$type": "dimension",
+          "$value": "0.25rem",
+        },
+        "radius": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-radius",
+          },
+          "$type": "dimension",
+          "$value": "{radius.sm}",
+        },
+        "select-focus-ring": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-select-focus-ring",
+          },
+          "$type": "dimension",
+          "$value": "2px",
+        },
+        "textarea-min": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-fc-textarea-min",
+          },
+          "$type": "dimension",
+          "$value": "3.25rem",
+        },
+      },
+    },
+    "menu": {
+      "max-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-menu-max-height",
+        },
+        "$type": "string",
+        "$value": "min(70vh, 24rem)",
+      },
+      "min-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-menu-min-width",
+        },
+        "$type": "dimension",
+        "$value": "10rem",
+      },
+      "scrim": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-menu-scrim",
+        },
+        "$type": "color",
+        "$value": "#00000000",
+      },
+      "shadow": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-menu-shadow",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.3}",
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-menu-z-index",
+        },
+        "$type": "number",
+        "$value": 2100,
+      },
+    },
+    "navigation-drawer": {
+      "bg": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-bg",
+        },
+        "$type": "color",
+        "$value": "{color.surface}",
+      },
+      "floating-margin": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-floating-margin",
+        },
+        "$type": "dimension",
+        "$value": "{space.3}",
+      },
+      "floating-radius": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-floating-radius",
+        },
+        "$type": "dimension",
+        "$value": "{radius.lg}",
+      },
+      "rail-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-rail-width",
+        },
+        "$type": "dimension",
+        "$value": "56px",
+      },
+      "scrim": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-scrim",
+        },
+        "$type": "color",
+        "$value": "{component.overlay.scrim}",
+      },
+      "shadow": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-shadow",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.2}",
+      },
+      "width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-width",
+        },
+        "$type": "dimension",
+        "$value": "256px",
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-navigation-drawer-z-index",
+        },
+        "$type": "number",
+        "$value": 2050,
+      },
+    },
+    "overlay": {
+      "scrim": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-overlay-scrim",
+          "org.godplans.modes": {
+            "dark": "{color.overlay}",
+            "highContrast": "#000000d1",
+            "light": "{color.overlay}",
+            "ocean": "{color.overlay}",
+          },
+        },
+        "$type": "color",
+        "$value": "{color.overlay}",
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-overlay-z-index",
+        },
+        "$type": "number",
+        "$value": 2000,
+      },
+    },
+    "pagination": {
+      "active-color": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-pagination-active-color",
+        },
+        "$type": "color",
+        "$value": "{color.text-on-primary}",
+      },
+      "gap": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-pagination-gap",
+        },
+        "$type": "dimension",
+        "$value": "{space.2}",
+      },
+    },
+    "skeleton-loader": {
+      "avatar-size": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-avatar-size",
+        },
+        "$type": "dimension",
+        "$value": "2.5rem",
+      },
+      "button-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-button-height",
+        },
+        "$type": "dimension",
+        "$value": "2.25rem",
+      },
+      "button-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-button-width",
+        },
+        "$type": "dimension",
+        "$value": "5rem",
+      },
+      "chip-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-chip-height",
+        },
+        "$type": "dimension",
+        "$value": "1.5rem",
+      },
+      "chip-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-chip-width",
+        },
+        "$type": "dimension",
+        "$value": "4rem",
+      },
+      "divider-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-divider-height",
+        },
+        "$type": "dimension",
+        "$value": "1px",
+      },
+      "gap": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-gap",
+        },
+        "$type": "dimension",
+        "$value": "{space.2}",
+      },
+      "gap-lg": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-gap-lg",
+        },
+        "$type": "dimension",
+        "$value": "{space.4}",
+      },
+      "gap-sm": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-gap-sm",
+        },
+        "$type": "dimension",
+        "$value": "{space.1}",
+      },
+      "heading-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-heading-height",
+        },
+        "$type": "dimension",
+        "$value": "1.25rem",
+      },
+      "ossein-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-ossein-height",
+        },
+        "$type": "dimension",
+        "$value": "8rem",
+      },
+      "radius": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-radius",
+        },
+        "$type": "dimension",
+        "$value": "{radius.sm}",
+      },
+      "shimmer-duration": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-shimmer-duration",
+        },
+        "$type": "duration",
+        "$value": "1.6s",
+      },
+      "subtitle-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-subtitle-height",
+        },
+        "$type": "dimension",
+        "$value": "0.875rem",
+      },
+      "text-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-text-height",
+        },
+        "$type": "dimension",
+        "$value": "0.75rem",
+      },
+      "track": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-on-surface-muted) 22%, transparent)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-track",
+          "org.godplans.modes": {
+            "dark": "#a0a0ab38",
+            "highContrast": "#f5f5f538",
+            "light": "#51525c38",
+            "ocean": "#51525c38",
+          },
+        },
+        "$type": "color",
+        "$value": "#51525c38",
+      },
+      "wave": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-on-surface-muted) 50%, transparent)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-skeleton-loader-wave",
+          "org.godplans.modes": {
+            "dark": "#a0a0ab80",
+            "highContrast": "#f5f5f580",
+            "light": "#51525c80",
+            "ocean": "#51525c80",
+          },
+        },
+        "$type": "color",
+        "$value": "#51525c80",
+      },
+    },
+    "snackbar": {
+      "elevation-1": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-elevation-1",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.1}",
+      },
+      "elevation-2": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-elevation-2",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.2}",
+      },
+      "elevation-3": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-elevation-3",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.3}",
+      },
+      "elevation-4": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-elevation-4",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.4}",
+      },
+      "elevation-5": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-elevation-5",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.5}",
+      },
+      "inset": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-inset",
+        },
+        "$type": "dimension",
+        "$value": "{space.4}",
+      },
+      "max-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-max-width",
+        },
+        "$type": "string",
+        "$value": "min(100%, 28rem)",
+      },
+      "min-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-min-height",
+        },
+        "$type": "dimension",
+        "$value": "3rem",
+      },
+      "shadow": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-shadow",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.4}",
+      },
+      "stack-unit": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-stack-unit",
+        },
+        "$type": "dimension",
+        "$value": "3.5rem",
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-snackbar-z-index",
+        },
+        "$type": "number",
+        "$value": 2300,
+      },
+    },
+    "table": {
+      "border": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-border",
+        },
+        "$type": "color",
+        "$value": "{color.border}",
+      },
+      "cell-padding-x": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-cell-padding-x",
+        },
+        "$type": "dimension",
+        "$value": "{space.4}",
+      },
+      "cell-padding-y": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-cell-padding-y",
+        },
+        "$type": "dimension",
+        "$value": "{space.3}",
+      },
+      "density-comfortable-min-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-density-comfortable-min-height",
+        },
+        "$type": "dimension",
+        "$value": "2.75rem",
+      },
+      "density-compact-min-height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-density-compact-min-height",
+        },
+        "$type": "dimension",
+        "$value": "2rem",
+      },
+      "header-bg": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface))",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-header-bg",
+          "org.godplans.modes": {
+            "dark": "#37383c",
+            "highContrast": "#141414",
+            "light": "#ededed",
+            "ocean": "#ededed",
+          },
+        },
+        "$type": "color",
+        "$value": "#ededed",
+      },
+      "header-text": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-header-text",
+        },
+        "$type": "color",
+        "$value": "{color.text}",
+      },
+      "loading-opacity": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-loading-opacity",
+        },
+        "$type": "number",
+        "$value": 0.5,
+      },
+      "radius": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-radius",
+        },
+        "$type": "dimension",
+        "$value": "{radius.md}",
+      },
+      "row-hover": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-primary) 10%, transparent)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-row-hover",
+          "org.godplans.modes": {
+            "dark": "#5f07ef1a",
+            "highContrast": "#38bdf81a",
+            "light": "#4f00d01a",
+            "ocean": "#0ea5e91a",
+          },
+        },
+        "$type": "color",
+        "$value": "#4f00d01a",
+      },
+      "sort-icon-size": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-sort-icon-size",
+        },
+        "$type": "dimension",
+        "$value": "1rem",
+      },
+      "sticky-shadow-end": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-sticky-shadow-end",
+        },
+        "$type": "shadow",
+        "$value": {
+          "blur": "8px",
+          "color": "#0000001f",
+          "offsetX": "-4px",
+          "offsetY": "0px",
+          "spread": "-4px",
+        },
+      },
+      "sticky-shadow-start": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-sticky-shadow-start",
+        },
+        "$type": "shadow",
+        "$value": {
+          "blur": "8px",
+          "color": "#0000001f",
+          "offsetX": "4px",
+          "offsetY": "0px",
+          "spread": "-4px",
+        },
+      },
+      "stripe": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-on-surface) 5%, transparent)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-table-stripe",
+          "org.godplans.modes": {
+            "dark": "#fafafa0d",
+            "highContrast": "#ffffff0d",
+            "light": "#18181b0d",
+            "ocean": "#18181b0d",
+          },
+        },
+        "$type": "color",
+        "$value": "#18181b0d",
+      },
+    },
+    "tabs": {
+      "bg-color": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-bg-color",
+        },
+        "$type": "color",
+        "$value": "#00000000",
+      },
+      "color": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-color",
+        },
+        "$type": "color",
+        "$value": "{color.primary}",
+      },
+      "fixed-max-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-fixed-max-width",
+        },
+        "$type": "dimension",
+        "$value": "18.75rem",
+      },
+      "height": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-height",
+        },
+        "$type": "dimension",
+        "$value": "3rem",
+      },
+      "inset-padding": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-inset-padding",
+        },
+        "$type": "dimension",
+        "$value": "{space.2}",
+      },
+      "inset-radius": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-inset-radius",
+        },
+        "$type": "dimension",
+        "$value": "{radius.md}",
+      },
+      "inset-selected-bg": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-tabs-slider-color) 12%, transparent)",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-inset-selected-bg",
+          "org.godplans.modes": {
+            "dark": "#5f07ef1f",
+            "highContrast": "#38bdf838",
+            "light": "#4f00d01f",
+            "ocean": "#0ea5e91f",
+          },
+        },
+        "$type": "color",
+        "$value": "#4f00d01f",
+      },
+      "shift-opacity": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-shift-opacity",
+        },
+        "$type": "number",
+        "$value": 0.5,
+      },
+      "shift-scale": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-shift-scale",
+        },
+        "$type": "number",
+        "$value": 0.6,
+      },
+      "slider-color": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-slider-color",
+          "org.godplans.modes": {
+            "dark": "{color.primary}",
+            "highContrast": "{color.primary}",
+            "light": "{color.primary}",
+            "ocean": "#0ea5e9",
+          },
+        },
+        "$type": "color",
+        "$value": "{color.primary}",
+      },
+      "slider-radius": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-slider-radius",
+        },
+        "$type": "dimension",
+        "$value": "{radius.sm}",
+      },
+      "slider-size": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tabs-slider-size",
+        },
+        "$type": "dimension",
+        "$value": "2px",
+      },
+    },
+    "tooltip": {
+      "max-width": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tooltip-max-width",
+        },
+        "$type": "string",
+        "$value": "min(20rem, calc(100vw - 2rem))",
+      },
+      "padding-x": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tooltip-padding-x",
+        },
+        "$type": "dimension",
+        "$value": "{space.2}",
+      },
+      "padding-y": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tooltip-padding-y",
+        },
+        "$type": "dimension",
+        "$value": "{space.1}",
+      },
+      "shadow": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tooltip-shadow",
+        },
+        "$type": "shadow",
+        "$value": "{elevation.2}",
+      },
+      "z-index": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-tooltip-z-index",
+        },
+        "$type": "number",
+        "$value": 2200,
+      },
+    },
+  },
+  "density": {
+    "compact": {
+      "control": {
+        "min-height-md": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-control-min-height-md",
+          },
+          "$type": "dimension",
+          "$value": "2.125rem",
+        },
+        "min-height-sm": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-control-min-height-sm",
+          },
+          "$type": "dimension",
+          "$value": "1.75rem",
+        },
+        "padding-x": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-control-padding-x",
+          },
+          "$type": "dimension",
+          "$value": "{space.3}",
+        },
+        "padding-y": {
+          "$extensions": {
+            "org.godplans.cssVar": "--gk-control-padding-y",
+          },
+          "$type": "dimension",
+          "$value": "{space.2}",
+        },
+      },
+      "mode": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-density",
+        },
+        "$type": "string",
+        "$value": "compact",
+      },
+    },
+    "control": {
+      "disabled-surface": {
+        "$description": "Resolved from CSS: color-mix(in srgb, var(--gk-color-surface) 92%, var(--gk-color-on-surface))",
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-disabled-surface",
+          "org.godplans.modes": {
+            "dark": "#37383c",
+            "highContrast": "#141414",
+            "light": "#ededed",
+            "ocean": "#ededed",
+          },
+        },
+        "$type": "color",
+        "$value": "#ededed",
+      },
+      "min-height-md": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-min-height-md",
+        },
+        "$type": "dimension",
+        "$value": "2.5rem",
+      },
+      "min-height-slim-md": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-min-height-slim-md",
+        },
+        "$type": "dimension",
+        "$value": "2.25rem",
+      },
+      "min-height-slim-sm": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-min-height-slim-sm",
+        },
+        "$type": "dimension",
+        "$value": "1.75rem",
+      },
+      "min-height-sm": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-min-height-sm",
+        },
+        "$type": "dimension",
+        "$value": "2rem",
+      },
+      "padding-x": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-padding-x",
+        },
+        "$type": "dimension",
+        "$value": "{space.4}",
+      },
+      "padding-y": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-control-padding-y",
+        },
+        "$type": "dimension",
+        "$value": "{space.3}",
+      },
+    },
+    "mode": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-density",
+      },
+      "$type": "string",
+      "$value": "comfortable",
+    },
+  },
+  "elevation": {
+    "1": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-elevation-1",
+      },
+      "$type": "shadow",
+      "$value": {
+        "blur": "4px",
+        "color": "#0000000a",
+        "offsetX": "0px",
+        "offsetY": "2px",
+        "spread": "0px",
+      },
+    },
+    "2": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-elevation-2",
+      },
+      "$type": "shadow",
+      "$value": {
+        "blur": "8px",
+        "color": "#0000000a",
+        "offsetX": "0px",
+        "offsetY": "4px",
+        "spread": "0px",
+      },
+    },
+    "3": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-elevation-3",
+      },
+      "$type": "shadow",
+      "$value": {
+        "blur": "14px",
+        "color": "#0000000a",
+        "offsetX": "0px",
+        "offsetY": "6px",
+        "spread": "0px",
+      },
+    },
+    "4": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-elevation-4",
+      },
+      "$type": "shadow",
+      "$value": {
+        "blur": "20px",
+        "color": "#0000000a",
+        "offsetX": "0px",
+        "offsetY": "8px",
+        "spread": "0px",
+      },
+    },
+    "5": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-elevation-5",
+      },
+      "$type": "shadow",
+      "$value": {
+        "blur": "26px",
+        "color": "#00000008",
+        "offsetX": "0px",
+        "offsetY": "26px",
+        "spread": "0px",
+      },
+    },
+  },
+  "focus": {
+    "input-ring-spread": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-input-focus-ring-spread",
+      },
+      "$type": "dimension",
+      "$value": "3px",
+    },
+    "offset": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-focus-offset",
+      },
+      "$type": "dimension",
+      "$value": "2px",
+    },
+    "ring-width": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-focus-ring-width",
+      },
+      "$type": "dimension",
+      "$value": "2px",
+    },
+    "width": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-focus-width",
+      },
+      "$type": "dimension",
+      "$value": "2px",
+    },
+  },
+  "font": {
+    "family": {
+      "heading": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-font-heading",
+        },
+        "$type": "fontFamily",
+        "$value": [
+          "Poppins",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+      },
+      "sans": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-font-sans",
+        },
+        "$type": "fontFamily",
+        "$value": [
+          "DM Sans",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+      },
+    },
+    "line-height": {
+      "normal": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-line-height-normal",
+        },
+        "$type": "number",
+        "$value": 1.5,
+      },
+      "tight": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-line-height-tight",
+        },
+        "$type": "number",
+        "$value": 1.25,
+      },
+    },
+    "size": {
+      "md": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-font-size-md",
+        },
+        "$type": "dimension",
+        "$value": "1rem",
+      },
+      "sm": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-font-size-sm",
+        },
+        "$type": "dimension",
+        "$value": "0.875rem",
+      },
+    },
+  },
+  "motion": {
+    "duration": {
+      "fast": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-duration-fast",
+        },
+        "$type": "duration",
+        "$value": "120ms",
+      },
+      "normal": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-duration-normal",
+        },
+        "$type": "duration",
+        "$value": "200ms",
+      },
+    },
+    "easing": {
+      "standard": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-easing-standard",
+        },
+        "$type": "cubicBezier",
+        "$value": [
+          0.4,
+          0,
+          0.2,
+          1,
+        ],
+      },
+    },
+  },
+  "opacity": {
+    "disabled": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-opacity-disabled",
+      },
+      "$type": "number",
+      "$value": 0.55,
+    },
+    "overlay": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-opacity-overlay",
+      },
+      "$type": "number",
+      "$value": 0.45,
+    },
+  },
+  "palette": {
+    "base": {
+      "black": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-base-black",
+        },
+        "$type": "color",
+        "$value": "#000000",
+      },
+      "white": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-base-white",
+        },
+        "$type": "color",
+        "$value": "#ffffff",
+      },
+    },
+    "error": {
+      "100": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-100",
+        },
+        "$type": "color",
+        "$value": "#fee4e2",
+      },
+      "200": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-200",
+        },
+        "$type": "color",
+        "$value": "#fecdc9",
+      },
+      "25": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-25",
+        },
+        "$type": "color",
+        "$value": "#fffafa",
+      },
+      "300": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-300",
+        },
+        "$type": "color",
+        "$value": "#fda19b",
+      },
+      "400": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-400",
+        },
+        "$type": "color",
+        "$value": "#f97066",
+      },
+      "50": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-50",
+        },
+        "$type": "color",
+        "$value": "#fef3f2",
+      },
+      "500": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-500",
+        },
+        "$type": "color",
+        "$value": "#f04438",
+      },
+      "600": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-600",
+        },
+        "$type": "color",
+        "$value": "#d92d20",
+      },
+      "700": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-700",
+        },
+        "$type": "color",
+        "$value": "#b32318",
+      },
+      "800": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-800",
+        },
+        "$type": "color",
+        "$value": "#912018",
+      },
+      "900": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-error-900",
+        },
+        "$type": "color",
+        "$value": "#7a271a",
+      },
+    },
+    "gray": {
+      "100": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-100",
+        },
+        "$type": "color",
+        "$value": "#f4f4f5",
+      },
+      "200": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-200",
+        },
+        "$type": "color",
+        "$value": "#e4e4e7",
+      },
+      "25": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-25",
+        },
+        "$type": "color",
+        "$value": "#fcfcfc",
+      },
+      "300": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-300",
+        },
+        "$type": "color",
+        "$value": "#d1d1d6",
+      },
+      "400": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-400",
+        },
+        "$type": "color",
+        "$value": "#a0a0ab",
+      },
+      "50": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-50",
+        },
+        "$type": "color",
+        "$value": "#fafafa",
+      },
+      "500": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-500",
+        },
+        "$type": "color",
+        "$value": "#70707b",
+      },
+      "600": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-600",
+        },
+        "$type": "color",
+        "$value": "#51525c",
+      },
+      "700": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-700",
+        },
+        "$type": "color",
+        "$value": "#3f3f46",
+      },
+      "800": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-800",
+        },
+        "$type": "color",
+        "$value": "#26272b",
+      },
+      "900": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-gray-900",
+        },
+        "$type": "color",
+        "$value": "#18181b",
+      },
+    },
+    "info": {
+      "100": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-100",
+        },
+        "$type": "color",
+        "$value": "#d1e9ff",
+      },
+      "200": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-200",
+        },
+        "$type": "color",
+        "$value": "#b2ddff",
+      },
+      "25": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-25",
+        },
+        "$type": "color",
+        "$value": "#f5faff",
+      },
+      "300": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-300",
+        },
+        "$type": "color",
+        "$value": "#84caff",
+      },
+      "400": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-400",
+        },
+        "$type": "color",
+        "$value": "#53b1fd",
+      },
+      "50": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-50",
+        },
+        "$type": "color",
+        "$value": "#eff8ff",
+      },
+      "500": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-500",
+        },
+        "$type": "color",
+        "$value": "#2e90fa",
+      },
+      "600": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-600",
+        },
+        "$type": "color",
+        "$value": "#1570ef",
+      },
+      "700": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-700",
+        },
+        "$type": "color",
+        "$value": "#175cd3",
+      },
+      "800": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-800",
+        },
+        "$type": "color",
+        "$value": "#1849a9",
+      },
+      "900": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-info-900",
+        },
+        "$type": "color",
+        "$value": "#194185",
+      },
+    },
+    "primary": {
+      "100": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-100",
+        },
+        "$type": "color",
+        "$value": "#bf99ff",
+      },
+      "200": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-200",
+        },
+        "$type": "color",
+        "$value": "#a772ff",
+      },
+      "25": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-25",
+        },
+        "$type": "color",
+        "$value": "#f1e9ff",
+      },
+      "300": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-300",
+        },
+        "$type": "color",
+        "$value": "#8f4bff",
+      },
+      "400": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-400",
+        },
+        "$type": "color",
+        "$value": "#7420fe",
+      },
+      "50": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-50",
+        },
+        "$type": "color",
+        "$value": "#d6beff",
+      },
+      "500": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-500",
+        },
+        "$type": "color",
+        "$value": "#5f07ef",
+      },
+      "600": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-600",
+        },
+        "$type": "color",
+        "$value": "#4f00d0",
+      },
+      "700": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-700",
+        },
+        "$type": "color",
+        "$value": "#3f00a6",
+      },
+      "800": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-800",
+        },
+        "$type": "color",
+        "$value": "#2d0078",
+      },
+      "900": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-primary-900",
+        },
+        "$type": "color",
+        "$value": "#200055",
+      },
+    },
+    "success": {
+      "100": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-100",
+        },
+        "$type": "color",
+        "$value": "#d1fadf",
+      },
+      "200": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-200",
+        },
+        "$type": "color",
+        "$value": "#a6f4c5",
+      },
+      "25": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-25",
+        },
+        "$type": "color",
+        "$value": "#f6fef9",
+      },
+      "300": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-300",
+        },
+        "$type": "color",
+        "$value": "#6ce9a6",
+      },
+      "400": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-400",
+        },
+        "$type": "color",
+        "$value": "#32d583",
+      },
+      "50": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-50",
+        },
+        "$type": "color",
+        "$value": "#ecfdf3",
+      },
+      "500": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-500",
+        },
+        "$type": "color",
+        "$value": "#12b76a",
+      },
+      "600": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-600",
+        },
+        "$type": "color",
+        "$value": "#039855",
+      },
+      "700": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-700",
+        },
+        "$type": "color",
+        "$value": "#027948",
+      },
+      "800": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-800",
+        },
+        "$type": "color",
+        "$value": "#05603a",
+      },
+      "900": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-success-900",
+        },
+        "$type": "color",
+        "$value": "#054f31",
+      },
+    },
+    "warning": {
+      "100": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-100",
+        },
+        "$type": "color",
+        "$value": "#feefc6",
+      },
+      "200": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-200",
+        },
+        "$type": "color",
+        "$value": "#fedf89",
+      },
+      "25": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-25",
+        },
+        "$type": "color",
+        "$value": "#fffcf5",
+      },
+      "300": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-300",
+        },
+        "$type": "color",
+        "$value": "#fec84b",
+      },
+      "400": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-400",
+        },
+        "$type": "color",
+        "$value": "#fdb022",
+      },
+      "50": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-50",
+        },
+        "$type": "color",
+        "$value": "#fffaeb",
+      },
+      "500": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-500",
+        },
+        "$type": "color",
+        "$value": "#f79009",
+      },
+      "600": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-600",
+        },
+        "$type": "color",
+        "$value": "#dc6803",
+      },
+      "700": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-700",
+        },
+        "$type": "color",
+        "$value": "#b54708",
+      },
+      "800": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-800",
+        },
+        "$type": "color",
+        "$value": "#93370d",
+      },
+      "900": {
+        "$extensions": {
+          "org.godplans.cssVar": "--gk-palette-warning-900",
+        },
+        "$type": "color",
+        "$value": "#792e0d",
+      },
+    },
+  },
+  "radius": {
+    "lg": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-radius-lg",
+      },
+      "$type": "dimension",
+      "$value": "12px",
+    },
+    "md": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-radius-md",
+      },
+      "$type": "dimension",
+      "$value": "8px",
+    },
+    "sm": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-radius-sm",
+      },
+      "$type": "dimension",
+      "$value": "4px",
+    },
+  },
+  "space": {
+    "1": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-space-1",
+      },
+      "$type": "dimension",
+      "$value": "0.25rem",
+    },
+    "2": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-space-2",
+      },
+      "$type": "dimension",
+      "$value": "0.5rem",
+    },
+    "3": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-space-3",
+      },
+      "$type": "dimension",
+      "$value": "0.75rem",
+    },
+    "4": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-space-4",
+      },
+      "$type": "dimension",
+      "$value": "1rem",
+    },
+    "5": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-space-5",
+      },
+      "$type": "dimension",
+      "$value": "1.25rem",
+    },
+    "6": {
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-space-6",
+      },
+      "$type": "dimension",
+      "$value": "1.5rem",
+    },
+  },
+  "typography": {
+    "body-s": {
+      "$description": "Assembled from --gk-text-body-s-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-body-s-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "0.875rem",
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+      },
+    },
+    "body-xs": {
+      "$description": "Assembled from --gk-text-body-xs-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-body-xs-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "0.75rem",
+        "fontWeight": 500,
+        "lineHeight": 1.42,
+      },
+    },
+    "button-l": {
+      "$description": "Assembled from --gk-text-button-l-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-button-l-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "1.0625rem",
+        "fontWeight": 600,
+        "lineHeight": 1.22,
+      },
+    },
+    "button-m": {
+      "$description": "Assembled from --gk-text-button-m-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-button-m-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "1rem",
+        "fontWeight": 600,
+        "lineHeight": 1.25,
+      },
+    },
+    "button-s": {
+      "$description": "Assembled from --gk-text-button-s-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-button-s-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "0.9375rem",
+        "fontWeight": 600,
+        "lineHeight": 1.4,
+      },
+    },
+    "chip": {
+      "$description": "Assembled from --gk-text-chip-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-chip-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "0.875rem",
+        "fontWeight": 600,
+        "lineHeight": 1.29,
+      },
+    },
+    "heading-m": {
+      "$description": "Assembled from --gk-text-heading-m-{size,weight,line-height}; font family assumed heading.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-heading-m-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.heading}",
+        "fontSize": "1.25rem",
+        "fontWeight": 600,
+        "lineHeight": 1.35,
+      },
+    },
+    "heading-m-bold": {
+      "$description": "Assembled from --gk-text-heading-m-bold-{size,weight,line-height}; font family assumed heading.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-heading-m-bold-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.heading}",
+        "fontSize": "1.25rem",
+        "fontWeight": 800,
+        "lineHeight": 1.35,
+      },
+    },
+    "heading-s": {
+      "$description": "Assembled from --gk-text-heading-s-{size,weight,line-height}; font family assumed heading.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-heading-s-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.heading}",
+        "fontSize": "1.125rem",
+        "fontWeight": 500,
+        "lineHeight": 1.39,
+      },
+    },
+    "helper": {
+      "$description": "Assembled from --gk-text-helper-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-helper-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "0.8125rem",
+        "fontWeight": 400,
+        "lineHeight": 1.23,
+      },
+    },
+    "input-label": {
+      "$description": "Assembled from --gk-text-input-label-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-input-label-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "0.9375rem",
+        "fontWeight": 500,
+        "lineHeight": 1.53,
+      },
+    },
+    "placeholder": {
+      "$description": "Assembled from --gk-text-placeholder-{size,weight,line-height}; font family assumed sans.",
+      "$extensions": {
+        "org.godplans.cssVar": "--gk-text-placeholder-*",
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.sans}",
+        "fontSize": "1rem",
+        "fontWeight": 400,
+        "lineHeight": 1.25,
+      },
+    },
+  },
+}
+`;

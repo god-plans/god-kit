@@ -21,6 +21,17 @@ import { gkTokens } from 'god-kit/vue'
 // gkTokens.text.headingMSize → '--gk-text-heading-m-size'
 ```
 
+## Machine-readable tokens (DTCG JSON)
+
+The package also ships **`god-kit/tokens.json`** — a [W3C Design Tokens (DTCG)](https://design-tokens.github.io/community-group/format/) document generated from `tokens.css`. It powers design tooling (Figma variables, Style Dictionary, token pipelines) without parsing CSS:
+
+- **Tiers**: `palette` / `space` / `radius` / `elevation` / `font` (primitives), `color` / `opacity` / `motion` / `focus` / `density` (semantic), `component/*` namespaces, and `typography` composites assembled from the `--gk-text-*` triplets.
+- **Themes**: tokens that change per theme carry all four values (`light` / `dark` / `ocean` / `highContrast`) under `$extensions["org.godplans.modes"]`; `$value` is always the light theme. Tokens without that extension are theme-independent.
+- **Aliases**: `var(--gk-…)` references are preserved as DTCG `{path}` aliases (e.g. `--gk-color-primary` → `{palette.primary.600}`); `color-mix()` and `rgba()` values are resolved to static hex at build time and note the original expression in `$description`.
+- **Traceability**: every token records its source variable in `$extensions["org.godplans.cssVar"]`.
+
+Regenerate with **`npm run generate:tokens`** (also part of `npm run build`); the output is snapshot-tested against `tokens.css` so the two cannot drift silently. `tokens.css` remains the source of truth — edit it, then regenerate.
+
 ## Default palette, elevation, and typography
 
 The default **`:root`** theme maps **semantic** colors (`--gk-color-*`) onto stepped palettes: **gray**, **primary** (purple), **success**, **error**, **warning**, and **info** (steps **25–900**), plus **`--gk-palette-base-white`** / **`--gk-palette-base-black`**. Use semantic tokens for components; use **`--gk-palette-*`** when you need a specific step (custom charts, marketing blocks).
@@ -77,5 +88,6 @@ In the package repository:
 
 - `src/tokens/tokens.css` — variable definitions  
 - `src/tokens/tokens.ts` — `gkTokens` object  
+- `src/tokens/figma/dtcg-build.ts` — DTCG JSON generator (`src/tokens/generated/god-kit.tokens.json`)  
 
 Adjust tokens here when evolving the system; components read `var(--gk-…)` in scoped styles.

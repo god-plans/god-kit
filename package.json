@@ -79,6 +79,7 @@
       "import": "./dist/vue-data.js"
     },
     "./tokens.css": "./dist/tokens.css",
+    "./tokens.json": "./dist/tokens.json",
     "./tailwind/preset": {
       "types": "./dist/tailwind/preset.d.ts",
       "import": "./dist/tailwind/preset.js"
@@ -88,8 +89,9 @@
     "./bridge/vuetify.css": "./dist/bridge/vuetify-bridge.css"
   },
   "scripts": {
-    "build": "vite build && tsx scripts/generate-tailwind-artifacts.ts && node scripts/postbuild-copy.mjs",
+    "build": "vite build && tsx scripts/generate-tailwind-artifacts.ts && tsx scripts/generate-design-tokens.ts && node scripts/postbuild-copy.mjs",
     "generate:tailwind": "tsx scripts/generate-tailwind-artifacts.ts",
+    "generate:tokens": "tsx scripts/generate-design-tokens.ts",
     "release:check": "npm run build && npm run test && npm publish --dry-run",
     "playground": "vite --config playground/vite.config.ts",
     "playground:build": "vite build --config playground/vite.config.ts",
