@@ -10,10 +10,13 @@ import {
   watch,
   watchEffect,
 } from 'vue'
+import { useIsMounted } from '../../../composables/useIsMounted'
 import GkSpinner from '../../spinner/GkSpinner.vue'
 import { useGkSnackbarCountdown } from './gk-snackbar-countdown'
 
 defineOptions({ inheritAttrs: false })
+
+const isMounted = useIsMounted()
 
 const props = withDefaults(
   defineProps<{
@@ -328,7 +331,7 @@ defineExpose({
 </script>
 
 <template>
-  <Teleport :to="to">
+  <Teleport :to="to" :disabled="!isMounted">
     <Transition
       :name="transitionName"
       @after-enter="emit('afterEnter')"

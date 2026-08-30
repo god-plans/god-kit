@@ -95,6 +95,8 @@ const describedBy = computed(() => {
   const parts: string[] = []
   const err = field?.errorMessage?.value
   if (err && field?.errorId) parts.push(field.errorId)
+  // Only one of hint/error is rendered at a time, so this never points at a missing node.
+  else if (field?.hintMessage?.value && field?.hintId) parts.push(field.hintId)
   if (showCounterVisible.value) parts.push(counterElId)
   return parts.length ? parts.join(' ') : undefined
 })

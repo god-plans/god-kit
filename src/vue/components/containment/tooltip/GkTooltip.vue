@@ -10,9 +10,12 @@ import {
   watch,
   watchEffect,
 } from 'vue'
+import { useIsMounted } from '../../../composables/useIsMounted'
 import { useTooltipPosition, type GkTooltipPlacement } from '../../../composables/useTooltipPosition'
 
 defineOptions({ inheritAttrs: false })
+
+const isMounted = useIsMounted()
 
 const props = withDefaults(
   defineProps<{
@@ -289,7 +292,7 @@ defineExpose({
     <div ref="activatorRef" class="gk-tooltip__activator">
       <slot name="activator" :props="activatorSlotProps" :is-open="model" />
     </div>
-    <Teleport :to="to">
+    <Teleport :to="to" :disabled="!isMounted">
       <Transition name="gk-tooltip" @after-enter="emit('afterEnter')" @after-leave="emit('afterLeave')">
         <div v-if="model" class="gk-tooltip__layer" :style="layerStyle" role="presentation">
           <div

@@ -1,6 +1,6 @@
 ---
 title: Composables
-description: useFieldIds and useFormControl for headless field behavior and custom layouts.
+description: useFieldIds, useFormControl and useIsMounted for headless field behavior, custom layouts and SSR-safe teleports.
 outline: [2, 3]
 ---
 
@@ -10,11 +10,12 @@ God Kit exposes small Vue composables so **ids**, **ARIA**, and **error** state 
 
 ## `useFieldIds`
 
-Returns stable, SSR-friendly ids for a single control and its error region:
+Returns stable, SSR-friendly ids for a single control and its hint / error regions:
 
 - `baseId` — from Vue `useId()`
 - `inputId` — `${baseId}-control`
 - `errorId` — `${baseId}-error`
+- `hintId` — `${baseId}-hint`
 
 **GkField** uses this internally and [provides](/components/form/field) the same ids to **GkInput** via inject.
 
@@ -117,6 +118,26 @@ Headless helpers used by **[GkDataTable](/components/data/gk-data-table)**; impo
 - **`useGkTableGrouping`** — insert group header rows (single grouping key)
 
 Utilities: **`getLeafColumns`**, **`buildTheadRows`**, **`getRowValue`**, **`getItemKey`**.
+
+## `useIsMounted`
+
+Returns a readonly ref that is **`false`** during SSR and hydration and **`true`** after the component mounts.
+
+```ts
+import { useIsMounted } from 'god-kit/vue'
+
+const isMounted = useIsMounted()
+```
+
+Its main use is guarding **`<Teleport>`**. A teleport that is active while the server renders moves its content elsewhere in the document, but the client hydrates the component where it sits in the tree — Vue then reports a hydration node mismatch and re-creates the subtree:
+
+```vue
+<Teleport :to="target" :disabled="!isMounted">
+  <slot />
+</Teleport>
+```
+
+Every teleporting God Kit component (**GkOverlay**, **GkDialog**, **GkMenu**, **GkTooltip**, **GkSnackbar**, **GkNavigationDrawer**) applies this internally, so they hydrate cleanly under Nuxt SSR with no extra configuration.
 
 ## See also
 

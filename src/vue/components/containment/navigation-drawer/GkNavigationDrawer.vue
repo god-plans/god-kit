@@ -10,10 +10,13 @@ import {
   watch,
   watchEffect,
 } from 'vue'
+import { useIsMounted } from '../../../composables/useIsMounted'
 import { useGkDisplay } from '../../../composables/useGkDisplay'
 import type { GkNavigationDrawerLocation } from './gk-navigation-drawer-types'
 
 defineOptions({ inheritAttrs: false })
+
+const isMounted = useIsMounted()
 
 const props = withDefaults(
   defineProps<{
@@ -290,7 +293,7 @@ defineExpose({
 </script>
 
 <template>
-  <Teleport :to="to" :disabled="!isTemporary">
+  <Teleport :to="to" :disabled="!isMounted || !isTemporary">
     <div v-if="isTemporary" class="gk-navigation-drawer__portal" :style="drawerStackVars">
       <Transition name="gk-navigation-drawer-scrim">
         <div

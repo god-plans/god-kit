@@ -30,6 +30,7 @@ export type {
   GkThemeContext,
 } from './config/gk-kit-types'
 
+export { useIsMounted } from './composables/useIsMounted'
 export { useFieldIds } from './composables/useFieldIds'
 export type { GkFieldIds } from './composables/useFieldIds'
 export { useFormControl } from './composables/useFormControl'

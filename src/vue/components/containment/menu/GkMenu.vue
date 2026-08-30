@@ -8,9 +8,12 @@ import {
   watch,
   watchEffect,
 } from 'vue'
+import { useIsMounted } from '../../../composables/useIsMounted'
 import { useMenuAnchorPosition, type GkMenuPlacement } from '../../../composables/useMenuAnchorPosition'
 
 defineOptions({ inheritAttrs: false })
+
+const isMounted = useIsMounted()
 
 const props = withDefaults(
   defineProps<{
@@ -249,7 +252,7 @@ defineExpose({
     <div ref="activatorRef" class="gk-menu__activator">
       <slot name="activator" :props="activatorSlotProps" :is-open="model" />
     </div>
-    <Teleport :to="to">
+    <Teleport :to="to" :disabled="!isMounted">
       <Transition name="gk-menu" @after-enter="emit('afterEnter')" @after-leave="emit('afterLeave')">
         <div v-if="model" class="gk-menu__layer" :style="layerStyle" role="presentation">
           <div

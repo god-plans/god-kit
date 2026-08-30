@@ -6,18 +6,24 @@ import { useFieldIds } from '../../../composables/useFieldIds'
 const props = defineProps<{
   label?: string
   error?: string
+  /** Helper text under the control; hidden while `error` is set */
+  hint?: string
   /** Visually hide label but keep for screen readers */
   labelSrOnly?: boolean
 }>()
 
-const { inputId, errorId } = useFieldIds()
+const { inputId, errorId, hintId } = useFieldIds()
 
 const errorMessage = computed(() => props.error)
+/** An error replaces the hint rather than stacking with it. */
+const hintMessage = computed(() => (props.error ? undefined : props.hint))
 
 provide(GK_FIELD, {
   inputId,
   errorId,
+  hintId,
   errorMessage,
+  hintMessage,
 })
 </script>
 
@@ -41,6 +47,13 @@ provide(GK_FIELD, {
       role="alert"
     >
       {{ error }}
+    </p>
+    <p
+      v-else-if="hint"
+      :id="hintId"
+      class="gk-field__hint"
+    >
+      {{ hint }}
     </p>
   </div>
 </template>
@@ -83,6 +96,15 @@ provide(GK_FIELD, {
   font-family: var(--gk-font-sans);
   font-size: var(--gk-font-size-sm);
   color: var(--gk-color-danger);
+  line-height: var(--gk-line-height-normal);
+  text-align: start;
+}
+
+.gk-field__hint {
+  margin: 0;
+  font-family: var(--gk-font-sans);
+  font-size: var(--gk-font-size-sm);
+  color: var(--gk-color-on-surface-muted);
   line-height: var(--gk-line-height-normal);
   text-align: start;
 }

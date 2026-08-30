@@ -10,7 +10,11 @@ import type {
 export type GkFieldContext = {
   inputId: string
   errorId: string
+  /** Id of the hint element, for `aria-describedby` on the control */
+  hintId: string
   errorMessage: ComputedRef<string | undefined>
+  /** Helper text shown under the control while there is no error */
+  hintMessage: ComputedRef<string | undefined>
 }
 
 export const GK_FIELD: InjectionKey<GkFieldContext> = Symbol('gk-field')

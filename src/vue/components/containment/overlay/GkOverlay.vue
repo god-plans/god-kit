@@ -8,8 +8,11 @@ import {
   watch,
   watchEffect,
 } from 'vue'
+import { useIsMounted } from '../../../composables/useIsMounted'
 
 defineOptions({ inheritAttrs: false })
+
+const isMounted = useIsMounted()
 
 const props = withDefaults(
   defineProps<{
@@ -195,7 +198,7 @@ defineExpose({
 </script>
 
 <template>
-  <Teleport :to="to">
+  <Teleport :to="to" :disabled="!isMounted">
     <Transition
       :name="transitionName"
       @after-enter="emit('afterEnter')"

@@ -5,6 +5,22 @@ All notable changes to `god-kit` are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.10] - 2026-08-30
+
+### Fixed
+
+- **SSR hydration mismatch in all teleporting components** — **`GkOverlay`**, **`GkDialog`** (via `GkOverlay`), **`GkMenu`**, **`GkTooltip`**, **`GkSnackbar`**, and **`GkNavigationDrawer`** kept **`<Teleport>`** active while the server rendered. The server moved the content to the teleport target while the client hydrated it in its original tree position, so Vue reported *"Hydration node mismatch"* and re-created the subtree on every page load in Nuxt/SSR apps. Teleport is now disabled until the component mounts, so the server render and the first client render agree.
+- **`aria-describedby` on form controls** now falls back to the field hint when there is no error (**`GkInput`**, **`GkTextarea`**, **`GkSelect`**, **`GkCheckbox`**).
+
+### Added
+
+- **`GkField` `hint` prop** — helper text rendered under the control and wired to the control's **`aria-describedby`**. An **`error`** replaces the hint rather than stacking with it, so only one description is ever announced.
+- **`useIsMounted()`** — exported composable returning a readonly ref that is `false` during SSR and hydration and `true` after mount. Use it to guard **`<Teleport :disabled="!isMounted">`** in your own components.
+
+### Changed
+
+- **`GkFieldContext`** gained **`hintId`** and **`hintMessage`**; **`useFieldIds()`** now also returns **`hintId`**. Additive — existing consumers are unaffected unless they build a `GkFieldContext` by hand.
+
 ## [0.8.9] - 2026-05-03
 
 ### Added

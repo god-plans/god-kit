@@ -41,6 +41,46 @@ describe('GkField + GkInput', () => {
     expect(alert.text()).toContain('Required')
   })
 
+  it('renders a hint and points aria-describedby at it', () => {
+    const Root = defineComponent({
+      components: { GkField, GkInput },
+      data: () => ({ v: '' }),
+      template: `
+        <GkField label="Email" hint="We never share it.">
+          <GkInput v-model="v" />
+        </GkField>
+      `,
+    })
+    const w = mount(Root)
+    const input = w.find('input')
+    const hintId = input.attributes('aria-describedby')
+    expect(hintId).toBeTruthy()
+    const hint = w.find(`[id="${hintId}"]`)
+    expect(hint.text()).toBe('We never share it.')
+    expect(hint.classes()).toContain('gk-field__hint')
+    expect(input.attributes('aria-invalid')).toBeUndefined()
+  })
+
+  it('replaces the hint with the error rather than describing both', () => {
+    const Root = defineComponent({
+      components: { GkField, GkInput },
+      data: () => ({ v: '' }),
+      template: `
+        <GkField label="Email" hint="We never share it." error="Required">
+          <GkInput v-model="v" />
+        </GkField>
+      `,
+    })
+    const w = mount(Root)
+    expect(w.find('.gk-field__hint').exists()).toBe(false)
+
+    const input = w.find('input')
+    const describedBy = input.attributes('aria-describedby')
+    expect(describedBy).toBeTruthy()
+    expect(describedBy!.split(' ')).toHaveLength(1)
+    expect(w.find(`[id="${describedBy}"]`).text()).toBe('Required')
+  })
+
   it('associates label with input id when mounted in RTL', () => {
     const Root = defineComponent({
       components: { GkField, GkInput },

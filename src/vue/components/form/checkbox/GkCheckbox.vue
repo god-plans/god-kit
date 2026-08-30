@@ -47,6 +47,8 @@ const inputId = computed(() => props.id ?? field?.inputId ?? undefined)
 const describedBy = computed(() => {
   const err = field?.errorMessage?.value
   if (err && field?.errorId) return field.errorId
+  // Only one of hint/error is rendered at a time, so this never points at a missing node.
+  if (field?.hintMessage?.value && field?.hintId) return field.hintId
   return undefined
 })
 const invalid = computed(() => !!field?.errorMessage?.value)
